@@ -38,3 +38,6 @@ _backup*/
 
 # respostas de diagnóstico do script de talentos
 src/data/talents/_debug-*.json
+
+# tabelas extraídas do cliente do jogo (wow.export) — não versionar
+data-raw/

@@ -93,13 +93,17 @@ export default async function HomePage() {
         </div>
 
         <div className="order-1 lg:order-2 mx-auto w-64 sm:w-80 lg:w-[440px]">
-          <img
-            src="/brand/sepultura-emblema.webp"
-            alt="Emblema da guilda Sepultura: presas e machado em forma de S, com o lema Sangue e Honra"
-            width={1024}
-            height={1024}
-            className="emblem-fade h-auto w-full"
-          />
+          {/* Emblema em brasa: brilho pulsando + tremulação (só CSS, sem fagulhas) */}
+          <div className="ember-emblem relative">
+            <img
+              src="/brand/sepultura-emblema.webp"
+              alt="Emblema da guilda Sepultura: presas e machado em forma de S, com o lema Sangue e Honra"
+              width={1024}
+              height={1024}
+              className="ember-emblem__img emblem-fade relative h-auto w-full"
+            />
+            <div className="ember-emblem__glow" aria-hidden="true" />
+          </div>
         </div>
       </section>
 

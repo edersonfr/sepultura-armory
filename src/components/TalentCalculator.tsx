@@ -20,6 +20,8 @@ import {
   removePoint,
   requiredLevel,
   resetTree,
+  talentDesc,
+  talentName,
   totalPoints,
   treeNamePt,
   treePoints,
@@ -150,13 +152,13 @@ export function TalentCalculator({ data, classLabel }: Props) {
           <section
             key={tree.name}
             className="rounded-lg border border-borda bg-aco"
-            aria-label={`Árvore ${treeNamePt(tree.name)}`}
+            aria-label={`Árvore ${tree.namePt || treeNamePt(tree.name)}`}
           >
             <header className="flex items-center gap-3 border-b border-borda px-4 py-3">
               <img src={iconUrl(tree.icon)} alt="" className="h-9 w-9 rounded-full border border-borda" />
               <div className="min-w-0 flex-1">
                 <h2 className="font-display text-lg font-bold leading-tight text-marfim">
-                  {treeNamePt(tree.name)}
+                  {tree.namePt || treeNamePt(tree.name)}
                 </h2>
                 <p className="text-[11px] uppercase tracking-[0.14em] text-pedra-escura">{tree.name}</p>
               </div>
@@ -166,7 +168,7 @@ export function TalentCalculator({ data, classLabel }: Props) {
                 onClick={() => setBuild((b) => resetTree(b, ti))}
                 disabled={perTree[ti] === 0}
                 className="rounded p-1.5 text-pedra transition hover:bg-onix hover:text-marfim disabled:opacity-30 disabled:hover:bg-transparent"
-                aria-label={`Resetar ${treeNamePt(tree.name)}`}
+                aria-label={`Resetar ${tree.namePt || treeNamePt(tree.name)}`}
                 title="Resetar árvore"
               >
                 <RotateCcw className="h-4 w-4" />
@@ -259,7 +261,7 @@ function TalentCell({
     <button
       type="button"
       data-talent-cell
-      aria-label={`${talent.name}, ${rank} de ${talent.max}`}
+      aria-label={`${talentName(talent)}, ${rank} de ${talent.max}`}
       className={`group absolute rounded border-2 bg-onix transition ${border} ${
         active ? "" : "cursor-default"
       } focus-visible:outline-offset-2`}
@@ -408,8 +410,11 @@ function TalentTooltip({
   const talent = tree.talents[hover.index];
   const rank = build[hover.tree][hover.index];
   const blocker = rank < talent.max ? addBlocker(data, build, hover.tree, hover.index) : null;
-  const current = rank > 0 ? talent.desc[rank - 1] : null;
-  const next = rank < talent.max ? talent.desc[rank] : null;
+  const current = rank > 0 ? talentDesc(talent, rank) : null;
+  const next = rank < talent.max ? talentDesc(talent, rank + 1) : null;
+  const treeLabel = tree.namePt || treeNamePt(tree.name);
+  const reqTalent = blocker?.kind === "req" ? tree.talents.find((t) => t.name === blocker.name) : undefined;
+  const showOriginal = (current && !current.translated) || (next && !next.translated);
   const classic = talent.classic?.status ? CLASSIC_LABEL[talent.classic.status] : null;
 
   // Posiciona ao lado do ícone, sem sair da tela
@@ -446,9 +451,12 @@ function TalentTooltip({
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="font-semibold text-marfim">{talent.name}</p>
-          <p className="text-xs text-pedra">
-            Rank {rank}/{talent.max} · {treeNamePt(tree.name)}
+          <p className="font-semibold text-marfim">{talentName(talent)}</p>
+          {talent.namePt && talent.namePt !== talent.name && (
+            <p className="text-[11px] italic text-pedra-escura">{talent.name}</p>
+          )}
+          <p className="mt-0.5 text-xs text-pedra">
+            Rank {rank}/{talent.max} · {treeLabel}
           </p>
         </div>
         {hover.pinned && (
@@ -475,20 +483,24 @@ function TalentTooltip({
 
       {talent.cost && <p className="mt-2 text-xs text-pedra">{talent.cost.split(" | ").join(" · ")}</p>}
 
-      {current && <p className="mt-3 leading-relaxed text-marfim">{current}</p>}
+      {current && <p className="mt-3 whitespace-pre-line leading-relaxed text-marfim">{current.text}</p>}
 
       {next && (
         <div className="mt-3">
           {current && <p className="mb-1 text-[11px] uppercase tracking-[0.14em] text-pedra">Próximo rank</p>}
-          <p className={`leading-relaxed ${current ? "text-pedra" : "text-marfim"}`}>{next}</p>
+          <p className={`whitespace-pre-line leading-relaxed ${current ? "text-pedra" : "text-marfim"}`}>{next.text}</p>
         </div>
+      )}
+
+      {showOriginal && (
+        <p className="mt-2 text-[10px] uppercase tracking-wider text-pedra-escura">Texto original em inglês</p>
       )}
 
       {blocker && (
         <p className="mt-3 text-xs text-sangue-claro">
-          {blocker.kind === "row" &&
-            `Requer ${blocker.needed} pontos em ${treeNamePt(tree.name)}.`}
-          {blocker.kind === "req" && `Requer ${blocker.max} ${blocker.max === 1 ? "ponto" : "pontos"} em ${blocker.name}.`}
+          {blocker.kind === "row" && `Requer ${blocker.needed} pontos em ${treeLabel}.`}
+          {blocker.kind === "req" &&
+            `Requer ${blocker.max} ${blocker.max === 1 ? "ponto" : "pontos"} em ${reqTalent ? talentName(reqTalent) : blocker.name}.`}
           {blocker.kind === "points" && `Todos os ${MAX_POINTS} pontos já foram gastos.`}
         </p>
       )}

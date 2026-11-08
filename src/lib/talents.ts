@@ -13,6 +13,7 @@ import shaman from "@/data/talents/shaman.json";
 import mage from "@/data/talents/mage.json";
 import warlock from "@/data/talents/warlock.json";
 import druid from "@/data/talents/druid.json";
+import ptBR from "@/data/talents/i18n/pt-BR.json";
 
 import type { ClassTalentData } from "./talent-rules";
 
@@ -54,20 +55,37 @@ const CLASS_DEFS: Array<Omit<TalentClass, "data">> = [
   { slug: "druida", dataSlug: "druid", name: "Druida", classId: 11 },
 ];
 
-/** Ordena os talentos por linha/coluna para que o índice seja estável no link. */
-function normalize(data: ClassTalentData): ClassTalentData {
+interface PtClass {
+  trees: string[];
+  talents: Record<string, { name: string | null; desc: Array<string | null> }>;
+}
+const PT = (ptBR as unknown as { classes: Record<string, PtClass> }).classes;
+
+/**
+ * Ordena os talentos por linha/coluna (índice estável no link) e aplica a
+ * tradução pt-BR quando existir.
+ */
+function normalize(data: ClassTalentData, dataSlug: string): ClassTalentData {
+  const pt = PT[dataSlug];
   return {
     ...data,
-    trees: data.trees.map((t) => ({
+    trees: data.trees.map((t, ti) => ({
       ...t,
-      talents: [...t.talents].sort((a, b) => a.row - b.row || a.col - b.col),
+      namePt: pt?.trees[ti] ?? null,
+      talents: [...t.talents]
+        .sort((a, b) => a.row - b.row || a.col - b.col)
+        .map((tal) => ({
+          ...tal,
+          namePt: pt?.talents[tal.name]?.name ?? null,
+          descPt: pt?.talents[tal.name]?.desc ?? [],
+        })),
     })),
   };
 }
 
 export const TALENT_CLASSES: TalentClass[] = CLASS_DEFS.map((c) => ({
   ...c,
-  data: normalize(raw[c.dataSlug] as ClassTalentData),
+  data: normalize(raw[c.dataSlug] as ClassTalentData, c.dataSlug),
 }));
 
 export function getTalentClass(slug: string): TalentClass | undefined {

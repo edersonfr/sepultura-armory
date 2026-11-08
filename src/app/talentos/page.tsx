@@ -38,7 +38,7 @@ export default function TalentosPage() {
               <div className="min-w-0 flex-1">
                 <h2 className="font-semibold" style={{ color: info?.color }}>{c.name}</h2>
                 <p className="truncate text-xs text-pedra">
-                  {c.data.trees.map((t) => treeNamePt(t.name)).join(" · ")}
+                  {c.data.trees.map((t) => t.namePt || treeNamePt(t.name)).join(" · ")}
                 </p>
               </div>
               <ChevronRight className="h-4 w-4 text-pedra transition group-hover:text-marfim" />

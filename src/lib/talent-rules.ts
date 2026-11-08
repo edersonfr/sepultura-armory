@@ -19,10 +19,14 @@ export interface Talent {
   cost: string | null;
   hotfix: string | null;
   classic: { status?: "same" | "changed" | "moved" | "new"; text?: string; note?: string } | null;
+  /** Tradução pt-BR (textos oficiais do cliente); null = usar o original */
+  namePt?: string | null;
+  descPt?: Array<string | null>;
 }
 
 export interface TalentTree {
   name: string;
+  namePt?: string | null;
   icon: string;
   talents: Talent[];
   removed: Array<{ name: string; max: number; text: string; row?: number }>;
@@ -87,6 +91,18 @@ export const TREE_NAMES_PT: Record<string, string> = {
 };
 
 export const treeNamePt = (name: string) => TREE_NAMES_PT[name] ?? name;
+
+/** Nome do talento para exibição (pt-BR quando houver). */
+export const talentName = (t: Talent) => t.namePt || t.name;
+
+/** Descrição do rank (1-based) e se veio da tradução. */
+export function talentDesc(t: Talent, rank: number): { text: string; translated: boolean } | null {
+  const i = rank - 1;
+  const pt = t.descPt?.[i];
+  if (pt) return { text: pt, translated: true };
+  const en = t.desc[i];
+  return en ? { text: en, translated: false } : null;
+}
 
 // ---------------------------------------------------------------------------
 // Regras

@@ -23,7 +23,7 @@ export function TalentCredit({ data }: { data?: ClassTalentData }) {
       >
         CC BY 4.0
       </a>
-      . Nomes e textos dos talentos pertencem à Blizzard Entertainment.
+      . Tradução: textos oficiais do cliente em português do WoW: Forever. Nomes e textos dos talentos pertencem à Blizzard Entertainment.
       {data?.build && <> Build {data.build}</>}
       {date && <> · atualizado em {date}</>}.
     </p>
