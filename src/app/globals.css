@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Códice da Horda — tokens (espelham as variáveis do Figma).
+ * Formato "R G B" para o Tailwind aplicar opacidade: bg-sangue/20.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Primitivos */
+  --color-onix-profundo: 10 10 10; /* #0A0A0A */
+  --color-aco-negro: 26 26 26; /* #1A1A1A */
+  --color-aco-alto: 35 33 31; /* #23211F — superfície elevada */
+  --color-borda-sutil: 53 51 47; /* #35332F */
+  --color-marfim-presa-de-kodo: 227 218 201; /* #E3DAC9 */
+  --color-cinza-secundario: 164 158 147; /* #A49E93 */
+  --color-texto-desabilitado: 119 114 104; /* #777268 */
+  --color-cinza-desabilitado: 41 39 37; /* #292725 */
+  --color-sangue-orc: 138 3 3; /* #8A0303 */
+  --color-sangue-hover: 161 11 11; /* #A10B0B */
+  --color-sangue-pressionado: 105 2 2; /* #690202 */
+  --color-sangue-vivo: 200 55 45; /* #C8372D */
+  --color-erro-claro: 223 143 134; /* #DF8F86 */
+  --color-verde-vil: 141 191 106; /* #8DBF6A */
+  --color-verde-profundo: 23 40 29; /* #17281D */
+  --color-brasa: 255 90 31; /* #FF5A1F — somente ilustração */
+}
+
+/* Borda padrão do Códice (substitui o cinza-claro padrão do Tailwind) */
+*,
+::before,
+::after {
+  border-color: rgb(var(--color-borda-sutil));
+}
+
+body {
+  background-color: rgb(var(--color-onix-profundo));
+  color: rgb(var(--color-marfim-presa-de-kodo));
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  /* Brasa discreta vinda do topo, como o fogo do emblema */
+  background-image: radial-gradient(
+    ellipse 70% 40% at 50% -5%,
+    rgb(var(--color-sangue-orc) / 0.22) 0%,
+    transparent 70%
+  );
+  background-attachment: fixed;
+}
+
+/* Foco visível do DS: anel marfim de 1px, afastado 4px */
+:focus-visible {
+  outline: 1px solid rgb(var(--color-marfim-presa-de-kodo));
+  outline-offset: 4px;
+}
+
+/* Filete de título de seção (Cinzel + linha), como no Códice */
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: rgb(var(--color-borda-sutil));
+}
+
+/* Emblema do hero: borda de fumaça dissolvida no fundo.
+   "closest-side" garante opacidade zero antes da borda do quadrado. */
+.emblem-fade {
+  -webkit-mask-image: radial-gradient(circle closest-side at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(circle closest-side at 50% 50%, #000 62%, transparent 100%);
+}
+
+/* Emblema em brasa: brilho pulsando + leve tremulação da imagem */
+.ember-emblem__glow {
+  position: absolute;
+  inset: 8%;
+  border-radius: 9999px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle closest-side,
+    transparent 58%,
+    rgb(var(--color-brasa) / 0.35) 74%,
+    rgb(var(--color-sangue-orc) / 0.18) 86%,
+    transparent 100%
+  );
+  animation: ember-glow 3.2s ease-in-out infinite;
+}
+
+.ember-emblem__img {
+  animation: ember-flicker 2.6s steps(1, end) infinite;
+}
+
+@keyframes ember-glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  22% { opacity: 0.85; }
+  37% { opacity: 0.6; transform: scale(1.012); }
+  58% { opacity: 1; }
+  76% { opacity: 0.7; transform: scale(0.995); }
+}
+
+@keyframes ember-flicker {
+  0% { filter: brightness(1) saturate(1); }
+  18% { filter: brightness(1.05) saturate(1.05); }
+  31% { filter: brightness(0.98) saturate(1); }
+  47% { filter: brightness(1.07) saturate(1.08); }
+  63% { filter: brightness(1.01) saturate(1); }
+  82% { filter: brightness(1.04) saturate(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ember-emblem__glow,
+  .ember-emblem__img {
+    animation: none;
+  }
+}
+
+/* Tabela responsiva (responsive-table) */
+.table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  max-block-size: min(680px, 80vh);
+  container-type: inline-size;
+}
+
+.roster-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  --label-2: "Classe";
+  --label-3: "Raça";
+  --label-4: "Nível";
+  --label-5: "Rank";
+  --label-6: "Armory";
+}
+
+.roster-table thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 10;
+}
+
+.roster-table tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 5;
+  background-color: rgb(var(--color-aco-negro));
+}
+
+.roster-table tbody tr:hover th {
+  background-color: rgb(var(--color-aco-alto));
+}
+
+@container (width < 720px) {
+  .roster-table,
+  .roster-table thead,
+  .roster-table tbody,
+  .roster-table tr,
+  .roster-table th,
+  .roster-table td {
+    display: block;
+  }
+
+  .roster-table thead {
+    display: none;
+  }
+
+  .roster-table tbody tr {
+    margin: 0.75rem;
+    border: 1px solid rgb(var(--color-borda-sutil));
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: rgb(var(--color-aco-negro));
+  }
+
+  .roster-table tbody th {
+    position: static;
+    background-color: rgb(var(--color-aco-alto));
+    border-bottom: 1px solid rgb(var(--color-borda-sutil));
+  }
+
+  .roster-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem !important;
+    border-bottom: 1px solid rgb(var(--color-borda-sutil) / 0.5);
+    text-align: start !important;
+  }
+
+  .roster-table td::before {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgb(var(--color-cinza-secundario));
+  }
+
+  .roster-table td:nth-child(2)::before {
+    content: var(--label-2) / var(--label-2);
+  }
+  .roster-table td:nth-child(3)::before {
+    content: var(--label-3) / var(--label-3);
+  }
+  .roster-table td:nth-child(4)::before {
+    content: var(--label-4) / var(--label-4);
+  }
+  .roster-table td:nth-child(5)::before {
+    content: var(--label-5) / var(--label-5);
+  }
+  .roster-table td:nth-child(6)::before {
+    content: var(--label-6) / var(--label-6);
+  }
+}
