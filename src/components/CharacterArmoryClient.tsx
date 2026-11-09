@@ -25,12 +25,16 @@ import {
   PaperdollSlotDef,
   getQualityStyle,
 } from "@/lib/wow-constants";
+import type { CharacterTalentTree } from "@/lib/character-talents";
+import { TalentCalculator } from "./TalentCalculator";
 
 interface Props {
   character: CharacterFullProfile;
+  /** Talentos já posicionados na árvore (null = não deu para casar com os dados) */
+  talentTree?: CharacterTalentTree | null;
 }
 
-export function CharacterArmoryClient({ character }: Props) {
+export function CharacterArmoryClient({ character, talentTree }: Props) {
   const firstEquipped = character.equippedItemsList[0] || null;
   const [selectedItem, setSelectedItem] = useState<EquippedItemEnriched | null>(
     firstEquipped
@@ -531,7 +535,26 @@ export function CharacterArmoryClient({ character }: Props) {
             )}
 
             {/* ABA 2: TALENTOS */}
-            {activeTab === "talents" && (
+            {activeTab === "talents" && talentTree && (
+              <div className="space-y-3">
+                <TalentCalculator
+                  data={talentTree.data}
+                  classLabel={talentTree.className}
+                  readOnly
+                  initialCode={talentTree.code}
+                  calculatorHref={`/talentos/${talentTree.classSlug}?b=${talentTree.code}`}
+                />
+                {talentTree.unmatched.length > 0 && (
+                  <p className="text-xs text-pedra">
+                    Não encontrados nos dados da calculadora:{" "}
+                    {talentTree.unmatched.join(", ")}.
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Sem árvore (classe/talentos não reconhecidos): lista simples */}
+            {activeTab === "talents" && !talentTree && (
               <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                 {character.specializations.length === 0 ? (
                   <div className="col-span-3 rounded-lg border border-borda bg-aco p-8 text-center text-pedra">

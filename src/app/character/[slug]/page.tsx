@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getCharacterFullProfile } from "@/lib/blizzard";
 import { CharacterArmoryClient } from "@/components/CharacterArmoryClient";
+import { characterTalentTree } from "@/lib/character-talents";
 
 export const revalidate = 300;
 
@@ -35,5 +36,7 @@ export default async function CharacterArmoryPage({ params }: PageProps) {
     notFound();
   }
 
-  return <CharacterArmoryClient character={character} />;
+  const talentTree = characterTalentTree(character);
+
+  return <CharacterArmoryClient character={character} talentTree={talentTree} />;
 }

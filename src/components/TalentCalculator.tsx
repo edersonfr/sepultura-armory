@@ -32,6 +32,12 @@ interface Props {
   classLabel: string;
   /** slug dos dados (paladin), usado no contador de builds populares */
   classKey?: string;
+  /** Somente visualização (perfil do personagem): sem editar, sem mexer na URL */
+  readOnly?: boolean;
+  /** Build inicial no formato do link (?b=) */
+  initialCode?: string;
+  /** No modo leitura: link "Abrir na calculadora" */
+  calculatorHref?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -76,8 +82,10 @@ interface Hover {
   pinned: boolean; // toque (mobile): tooltip fixo com botões
 }
 
-export function TalentCalculator({ data, classLabel, classKey }: Props) {
-  const [build, setBuild] = useState<Build>(() => emptyBuild(data));
+export function TalentCalculator({ data, classLabel, classKey, readOnly = false, initialCode, calculatorHref }: Props) {
+  const [build, setBuild] = useState<Build>(() =>
+    initialCode ? decodeBuild(data, initialCode) : emptyBuild(data)
+  );
   const [hover, setHover] = useState<Hover | null>(null);
   const [copied, setCopied] = useState(false);
   const pointerType = useRef<string>("mouse");
@@ -85,6 +93,7 @@ export function TalentCalculator({ data, classLabel, classKey }: Props) {
 
   // Carrega a build do link (?b=...) no primeiro render do cliente
   useEffect(() => {
+    if (readOnly) return;
     const code = new URLSearchParams(window.location.search).get("b");
     if (code) {
       const loaded = decodeBuild(data, code);
@@ -92,26 +101,27 @@ export function TalentCalculator({ data, classLabel, classKey }: Props) {
       openedCode.current = encodeBuild(loaded);
       if (totalPoints(loaded) >= PLANNED_MIN_POINTS) trackBuild(classKey, openedCode.current, "opened");
     }
-  }, [data, classKey]);
+  }, [data, classKey, readOnly]);
 
   // Conta como "planejada" quando a build fica parada com 41+ pontos
   // (abrir um link sem mexer conta só como "opened")
   useEffect(() => {
-    if (totalPoints(build) < PLANNED_MIN_POINTS) return;
+    if (readOnly || totalPoints(build) < PLANNED_MIN_POINTS) return;
     const code = encodeBuild(build);
     if (code === openedCode.current) return;
     const timer = setTimeout(() => trackBuild(classKey, code, "planned"), PLANNED_IDLE_MS);
     return () => clearTimeout(timer);
-  }, [build, classKey]);
+  }, [build, classKey, readOnly]);
 
   // Mantém o link sempre atualizado
   useEffect(() => {
+    if (readOnly) return;
     const code = encodeBuild(build);
     const url = new URL(window.location.href);
     if (code) url.searchParams.set("b", code);
     else url.searchParams.delete("b");
     window.history.replaceState(null, "", url.toString());
-  }, [build]);
+  }, [build, readOnly]);
 
   const spent = totalPoints(build);
   const perTree = data.trees.map((_, i) => treePoints(build, i));
@@ -168,6 +178,17 @@ export function TalentCalculator({ data, classLabel, classKey }: Props) {
           </div>
         </dl>
 
+        {readOnly ? (
+          calculatorHref && (
+            <a
+              href={calculatorHref}
+              className="inline-flex h-10 items-center gap-2 self-start rounded border border-borda bg-onix px-4 text-sm font-medium text-marfim transition hover:border-pedra lg:self-auto"
+            >
+              <Link2 className="h-4 w-4" />
+              Abrir na calculadora
+            </a>
+          )
+        ) : (
         <div className="flex flex-wrap items-center gap-2">
           <p className="mr-2 hidden text-xs text-pedra-escura xl:block">
             Clique para aprender · clique direito ou Shift+clique para remover
@@ -191,6 +212,7 @@ export function TalentCalculator({ data, classLabel, classKey }: Props) {
             Resetar
           </button>
         </div>
+        )}
       </div>
 
       {/* Árvores */}
@@ -210,6 +232,7 @@ export function TalentCalculator({ data, classLabel, classKey }: Props) {
                 <p className="text-[11px] uppercase tracking-[0.14em] text-pedra-escura">{tree.name}</p>
               </div>
               <span className="text-2xl font-semibold text-marfim">{perTree[ti]}</span>
+              {!readOnly && (
               <button
                 type="button"
                 onClick={() => setBuild((b) => resetTree(b, ti))}
@@ -220,6 +243,7 @@ export function TalentCalculator({ data, classLabel, classKey }: Props) {
               >
                 <RotateCcw className="h-4 w-4" />
               </button>
+              )}
             </header>
 
             <div className="flex justify-center px-4 py-6">
@@ -230,7 +254,8 @@ export function TalentCalculator({ data, classLabel, classKey }: Props) {
                     key={talent.name}
                     talent={talent}
                     rank={build[ti][index]}
-                    available={canAdd(data, build, ti, index)}
+                    available={!readOnly && canAdd(data, build, ti, index)}
+                    readOnly={readOnly}
                     onAdd={() => add(ti, index)}
                     onRemove={() => remove(ti, index)}
                     onHover={(rect) => setHover((h) => (h?.pinned ? h : { tree: ti, index, rect, pinned: false }))}
@@ -250,6 +275,7 @@ export function TalentCalculator({ data, classLabel, classKey }: Props) {
           data={data}
           build={build}
           hover={hover}
+          readOnly={readOnly}
           onAdd={() => add(hover.tree, hover.index)}
           onRemove={() => remove(hover.tree, hover.index)}
           onClose={() => setHover(null)}
@@ -269,6 +295,7 @@ function TalentCell({
   talent,
   rank,
   available,
+  readOnly = false,
   onAdd,
   onRemove,
   onHover,
@@ -279,6 +306,7 @@ function TalentCell({
   talent: Talent;
   rank: number;
   available: boolean;
+  readOnly?: boolean;
   onAdd: () => void;
   onRemove: () => void;
   onHover: (rect: DOMRect) => void;
@@ -310,7 +338,7 @@ function TalentCell({
       data-talent-cell
       aria-label={`${talentName(talent)}, ${rank} de ${talent.max}`}
       className={`group absolute rounded border-2 bg-onix transition ${border} ${
-        active ? "" : "cursor-default"
+        active || readOnly ? "" : "cursor-default"
       } focus-visible:outline-offset-2`}
       style={{
         left: (talent.col - 1) * STEP,
@@ -330,14 +358,17 @@ function TalentCell({
           onPin(e.currentTarget.getBoundingClientRect());
           return;
         }
+        if (readOnly) return;
         if (e.shiftKey) onRemove();
         else onAdd();
       }}
       onContextMenu={(e) => {
+        if (readOnly) return;
         e.preventDefault();
         onRemove();
       }}
       onKeyDown={(e) => {
+        if (readOnly) return;
         if (e.key === "Backspace" || e.key === "Delete" || e.key === "-") {
           e.preventDefault();
           onRemove();
@@ -439,6 +470,7 @@ function TalentTooltip({
   data,
   build,
   hover,
+  readOnly = false,
   onAdd,
   onRemove,
   onClose,
@@ -446,6 +478,7 @@ function TalentTooltip({
   data: ClassTalentData;
   build: Build;
   hover: Hover;
+  readOnly?: boolean;
   onAdd: () => void;
   onRemove: () => void;
   onClose: () => void;
@@ -456,7 +489,7 @@ function TalentTooltip({
   const tree = data.trees[hover.tree];
   const talent = tree.talents[hover.index];
   const rank = build[hover.tree][hover.index];
-  const blocker = rank < talent.max ? addBlocker(data, build, hover.tree, hover.index) : null;
+  const blocker = !readOnly && rank < talent.max ? addBlocker(data, build, hover.tree, hover.index) : null;
   const current = rank > 0 ? talentDesc(talent, rank) : null;
   const next = rank < talent.max ? talentDesc(talent, rank + 1) : null;
   const treeLabel = tree.namePt || treeNamePt(tree.name);
@@ -552,7 +585,7 @@ function TalentTooltip({
         </p>
       )}
 
-      {hover.pinned ? (
+      {readOnly ? null : hover.pinned ? (
         <div className="mt-4 grid grid-cols-2 gap-2">
           <button
             type="button"
