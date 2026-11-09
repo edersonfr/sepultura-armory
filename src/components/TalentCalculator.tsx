@@ -30,6 +30,36 @@ import {
 interface Props {
   data: ClassTalentData;
   classLabel: string;
+  /** slug dos dados (paladin), usado no contador de builds populares */
+  classKey?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Contador de builds populares (anônimo; veja src/lib/build-stats.ts)
+// ---------------------------------------------------------------------------
+
+/** Pontos mínimos para a build contar como "planejada". */
+const PLANNED_MIN_POINTS = 41;
+/** Tempo parado na mesma build para contar como "planejada". */
+const PLANNED_IDLE_MS = 8000;
+
+/** Envia o evento uma vez por build e por aba (sessionStorage). */
+function trackBuild(cls: string | undefined, build: string, event: "planned" | "opened" | "shared") {
+  if (!cls || !build) return;
+  const key = `talentos:${event}:${cls}:${build}`;
+  try {
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, "1");
+  } catch {
+    /* storage indisponível: envia mesmo assim */
+  }
+  const body = JSON.stringify({ cls, build, event });
+  try {
+    if (navigator.sendBeacon?.("/api/talentos/track", body)) return;
+  } catch {
+    /* cai no fetch */
+  }
+  fetch("/api/talentos/track", { method: "POST", body, keepalive: true }).catch(() => {});
 }
 
 // Geometria da grade (px): ícone de 44 + espaço de 16 → passo de 60
@@ -46,17 +76,33 @@ interface Hover {
   pinned: boolean; // toque (mobile): tooltip fixo com botões
 }
 
-export function TalentCalculator({ data, classLabel }: Props) {
+export function TalentCalculator({ data, classLabel, classKey }: Props) {
   const [build, setBuild] = useState<Build>(() => emptyBuild(data));
   const [hover, setHover] = useState<Hover | null>(null);
   const [copied, setCopied] = useState(false);
   const pointerType = useRef<string>("mouse");
+  const openedCode = useRef<string | null>(null);
 
   // Carrega a build do link (?b=...) no primeiro render do cliente
   useEffect(() => {
     const code = new URLSearchParams(window.location.search).get("b");
-    if (code) setBuild(decodeBuild(data, code));
-  }, [data]);
+    if (code) {
+      const loaded = decodeBuild(data, code);
+      setBuild(loaded);
+      openedCode.current = encodeBuild(loaded);
+      if (totalPoints(loaded) >= PLANNED_MIN_POINTS) trackBuild(classKey, openedCode.current, "opened");
+    }
+  }, [data, classKey]);
+
+  // Conta como "planejada" quando a build fica parada com 41+ pontos
+  // (abrir um link sem mexer conta só como "opened")
+  useEffect(() => {
+    if (totalPoints(build) < PLANNED_MIN_POINTS) return;
+    const code = encodeBuild(build);
+    if (code === openedCode.current) return;
+    const timer = setTimeout(() => trackBuild(classKey, code, "planned"), PLANNED_IDLE_MS);
+    return () => clearTimeout(timer);
+  }, [build, classKey]);
 
   // Mantém o link sempre atualizado
   useEffect(() => {
@@ -81,6 +127,7 @@ export function TalentCalculator({ data, classLabel }: Props) {
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
+      if (totalPoints(build) >= PLANNED_MIN_POINTS) trackBuild(classKey, encodeBuild(build), "shared");
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {

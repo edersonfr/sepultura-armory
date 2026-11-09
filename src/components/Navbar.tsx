@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { DISCORD_URL } from "@/lib/site";
+import { DiscordIcon } from "./DiscordIcon";
 
 const navLink =
   "rounded px-3 py-2 text-sm font-medium text-pedra transition hover:text-marfim";
@@ -36,6 +38,16 @@ export function Navbar() {
           <Link href="/talentos" className={navLink}>
             Talentos
           </Link>
+          <a
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Discord da guilda (abre em nova aba)"
+            className="ml-1 inline-flex items-center gap-1.5 rounded border border-sangue bg-sangue px-3 py-2 text-xs font-semibold text-marfim transition hover:bg-sangue-hover"
+          >
+            <DiscordIcon className="h-4 w-4" />
+            <span className="hidden md:inline">Discord</span>
+          </a>
           <a
             href="https://worldofwarcraft.blizzard.com/pt-br/forever/us/armory/guild/sepultura"
             target="_blank"

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cinzel, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
+import { DiscordIcon } from "@/components/DiscordIcon";
+import { DISCORD_URL } from "@/lib/site";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -40,6 +42,15 @@ export default function RootLayout({
               Guilda <span className="text-marfim">Sepultura</span> · World of
               Warcraft: Forever · US Normal · Horda
             </p>
+            <a
+              href={DISCORD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-marfim underline-offset-4 transition hover:text-white hover:underline"
+            >
+              <DiscordIcon className="h-4 w-4" />
+              Entre no Discord da guilda
+            </a>
             <p className="font-display text-sm font-semibold tracking-[0.2em] text-marfim">
               Sangue e Honra
             </p>

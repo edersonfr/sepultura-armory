@@ -5,6 +5,11 @@ import { WOW_CLASSES } from "@/lib/wow-constants";
 import { TalentCalculator } from "@/components/TalentCalculator";
 import { TalentClassTabs } from "@/components/TalentClassTabs";
 import { TalentCredit } from "@/components/TalentCredit";
+import { PopularBuilds } from "@/components/PopularBuilds";
+import { getPopularStats } from "@/lib/build-stats";
+
+/** Recontagem das builds populares: no máximo a cada 3 horas. */
+export const revalidate = 10800;
 
 interface PageProps {
   params: Promise<{ classe: string }>;
@@ -30,6 +35,7 @@ export default async function TalentClassPage({ params }: PageProps) {
   const c = getTalentClass(classe);
   if (!c) notFound();
   const info = WOW_CLASSES[c.classId];
+  const popular = await getPopularStats(c.dataSlug, c.data, revalidate);
 
   return (
     <div className="space-y-8">
@@ -51,7 +57,11 @@ export default async function TalentClassPage({ params }: PageProps) {
         <TalentClassTabs active={c.slug} />
       </header>
 
-      <TalentCalculator data={c.data} classLabel={c.name} />
+      <TalentCalculator data={c.data} classLabel={c.name} classKey={c.dataSlug} />
+
+      {popular && (
+        <PopularBuilds stats={popular} data={c.data} classSlug={c.slug} classColor={info?.color} />
+      )}
 
       <TalentCredit data={c.data} />
     </div>
