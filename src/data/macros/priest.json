@@ -1,0 +1,1336 @@
+{
+  "slug": "priest",
+  "fetched": "2026-11-10T01:48:14.273Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/priest/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-dispel",
+          "title": "Mouseover Dispel Magic",
+          "desc": "Dispel a friendly or hostile mouseover, or your selected target.",
+          "icon": "spell_holy_dispelmagic",
+          "iconKind": "ability",
+          "code": "#showtooltip Dispel Magic\n/cast [@mouseover,exists,nodead][] Dispel Magic",
+          "origin": "classic",
+          "needs": "Dispel Magic learned",
+          "codePt": "#showtooltip Dissipar Magia\n/cast [@mouseover,exists,nodead][] Dissipar Magia"
+        },
+        {
+          "id": "class-wide-fortitude",
+          "title": "Mouseover Fortitude",
+          "desc": "Buff a friendly unit under your cursor without retargeting.",
+          "icon": "spell_holy_wordfortitude",
+          "iconKind": "ability",
+          "code": "#showtooltip Power Word: Fortitude\n/cast [@mouseover,help,nodead][help,nodead][@player] Power Word: Fortitude",
+          "origin": "classic",
+          "codePt": "#showtooltip Palavra de Poder: Fortitude\n/cast [@mouseover,help,nodead][help,nodead][@player] Palavra de Poder: Fortitude"
+        },
+        {
+          "id": "class-wide-fear-ward",
+          "title": "Mouseover Fear Ward",
+          "desc": "Ward the friend under your cursor against Fear, or your target, or yourself if neither is a friend.",
+          "icon": "spell_holy_excorcism",
+          "iconKind": "ability",
+          "code": "#showtooltip Fear Ward\n/cast [@mouseover,help,nodead][help,nodead][@player] Fear Ward",
+          "origin": "forever",
+          "needs": "Fear Ward learned (level 20). Every Priest gets it in Forever, with a 3 min cooldown and a 3 min ward. In Classic it was a racial spell.",
+          "codePt": "#showtooltip Proteção contra Medo\n/cast [@mouseover,help,nodead][help,nodead][@player] Proteção contra Medo"
+        },
+        {
+          "id": "class-wide-shackle-undead",
+          "title": "Mouseover Shackle Undead",
+          "desc": "Shackle an undead enemy under your cursor, or your target, without switching what you're attacking.",
+          "icon": "spell_nature_slow",
+          "iconKind": "ability",
+          "code": "#showtooltip Shackle Undead\n/cast [@mouseover,harm,nodead][harm,nodead] Shackle Undead",
+          "origin": "classic",
+          "needs": "Shackle Undead learned (level 20). Only one target can be shackled at a time.",
+          "codePt": "#showtooltip Agrilhoar Morto-vivo\n/cast [@mouseover,harm,nodead][harm,nodead] Agrilhoar Morto-vivo"
+        },
+        {
+          "id": "class-wide-wand",
+          "title": "Wand that stays on",
+          "desc": "Start wanding. Pressing it again keeps the wand firing instead of switching it off.",
+          "icon": "classicon_priest",
+          "iconKind": "class",
+          "code": "#showtooltip Shoot\n/cast !Shoot",
+          "origin": "classic",
+          "needs": "A wand equipped in the ranged slot",
+          "codePt": "#showtooltip Atirar\n/cast !Atirar"
+        },
+        {
+          "id": "class-wide-resurrection",
+          "title": "Mouseover Resurrection",
+          "desc": "Resurrect the dead player under your cursor, or your dead target.",
+          "icon": "spell_holy_resurrection",
+          "iconKind": "ability",
+          "code": "#showtooltip Resurrection\n/cast [@mouseover,help,dead][help,dead] Resurrection",
+          "origin": "classic",
+          "needs": "Resurrection learned. It can't be cast in combat.",
+          "codePt": "#showtooltip Ressurreição\n/cast [@mouseover,help,dead][help,dead] Ressurreição"
+        },
+        {
+          "id": "class-wide-levitate",
+          "title": "Dismount and Levitate",
+          "desc": "Get off your mount and Levitate yourself. Hold Shift to cancel Levitate.",
+          "icon": "spell_holy_layonhands",
+          "iconKind": "ability",
+          "code": "#showtooltip Levitate\n/dismount\n/cancelaura [mod:shift] Levitate\n/cast [nomod] Levitate",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Dismount, then Levitate yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel Levitate"
+            }
+          ],
+          "needs": "Levitate learned (level 34). Mounting or taking damage ends it.",
+          "level": 34,
+          "codePt": "#showtooltip Levitar\n/dismount\n/cancelaura [mod:shift] Levitar\n/cast [nomod] Levitar"
+        },
+        {
+          "id": "class-wide-self-buffs",
+          "title": "Self buffs in order",
+          "desc": "Buff yourself one spell per press: Inner Fire, then Power Word: Fortitude, then Divine Spirit.",
+          "icon": "classicon_priest",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence [@player] reset=15 Inner Fire, Power Word: Fortitude, Divine Spirit",
+          "origin": "adapted",
+          "needs": "Divine Spirit learned (level 30). It's baseline in Forever, so it joins the Classic buff sequence. Drop it from the end until then.",
+          "level": 30,
+          "codePt": "#showtooltip\n/castsequence [@player] reset=15 Fogo Interior, Palavra de Poder: Fortitude, Espírito Divino"
+        },
+        {
+          "id": "class-wide-lesser-heal-or-smite",
+          "title": "Lesser Heal on friends, Smite on enemies",
+          "desc": "Heal a friendly mouseover first. Otherwise, Smite a hostile target, heal a friendly target, or heal yourself with no valid target. Useful from level 1.",
+          "icon": "classicon_priest",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [@mouseover,help,nodead] Lesser Heal; [harm,nodead] Smite; [help,nodead][@player] Lesser Heal",
+          "origin": "classic",
+          "codePt": "#showtooltip\n/cast [@mouseover,help,nodead] Cura Inferior; [harm,nodead] Punição; [help,nodead][@player] Cura Inferior"
+        }
+      ]
+    },
+    {
+      "id": "discipline",
+      "name": "Discipline",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "discipline-shield",
+          "title": "Mouseover Power Word: Shield",
+          "desc": "Shield a friendly mouseover, your target, or yourself.",
+          "icon": "spell_holy_powerwordshield",
+          "iconKind": "ability",
+          "code": "#showtooltip Power Word: Shield\n/cast [@mouseover,help,nodead][help,nodead][@player] Power Word: Shield",
+          "origin": "classic",
+          "needs": "Power Word: Shield learned",
+          "codePt": "#showtooltip Palavra de Poder: Escudo\n/cast [@mouseover,help,nodead][help,nodead][@player] Palavra de Poder: Escudo"
+        },
+        {
+          "id": "discipline-shield-modifiers",
+          "title": "Power Word: Shield with Shift and Alt",
+          "desc": "Shield your mouseover, target or yourself. Shift shields your target's target, Alt shields you.",
+          "icon": "spell_holy_powerwordshield",
+          "iconKind": "ability",
+          "code": "#showtooltip Power Word: Shield\n/cast [mod:alt,@player][mod:shift,@targettarget,help,nodead][@mouseover,help,nodead][help,nodead][@player] Power Word: Shield",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Shield your mouseover, then your target, then yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Shield your target's target if it's a friend"
+            },
+            {
+              "key": "Alt",
+              "text": "Shield yourself"
+            }
+          ],
+          "needs": "Power Word: Shield learned",
+          "codePt": "#showtooltip Palavra de Poder: Escudo\n/cast [mod:alt,@player][mod:shift,@targettarget,help,nodead][@mouseover,help,nodead][help,nodead][@player] Palavra de Poder: Escudo"
+        },
+        {
+          "id": "discipline-shield-downrank",
+          "title": "Power Word: Shield, Rank 6 with Shift",
+          "desc": "Shield your mouseover, target or yourself. Hold Shift for Rank 6 when a lighter, cheaper shield will do.",
+          "icon": "spell_holy_powerwordshield",
+          "iconKind": "ability",
+          "code": "#showtooltip Power Word: Shield\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Power Word: Shield(Rank 6); [@mouseover,help,nodead][help,nodead][@player] Power Word: Shield",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Top-rank shield on your mouseover, target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Rank 6 shield on the same aim"
+            }
+          ],
+          "needs": "Power Word: Shield Rank 6 learned (level 36)",
+          "codePt": "#showtooltip Palavra de Poder: Escudo\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Palavra de Poder: Escudo(Grau 6); [@mouseover,help,nodead][help,nodead][@player] Palavra de Poder: Escudo"
+        },
+        {
+          "id": "discipline-penance",
+          "title": "Penance for heals, Shift for damage",
+          "desc": "Heal a friendly mouseover, target or yourself; hold Shift to damage your hostile target. Repeated presses let your current Penance channel finish.",
+          "icon": "spell_holy_penance",
+          "iconKind": "ability",
+          "code": "#showtooltip Penance\n/stopmacro [channeling:Penance]\n/cast [mod:shift,harm,nodead][@mouseover,help,nodead][help,nodead][@player] Penance",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Heal your mouseover, then your target, then yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Damage your hostile target"
+            }
+          ],
+          "needs": "Penance talent (Discipline). Rank 1 is level 30, with a 12 sec cooldown.",
+          "level": 30,
+          "codePt": "#showtooltip Penitência\n/stopmacro [channeling:Penance]\n/cast [mod:shift,harm,nodead][@mouseover,help,nodead][help,nodead][@player] Penitência"
+        },
+        {
+          "id": "discipline-inner-focus-heal",
+          "title": "Inner Focus into Greater Heal",
+          "desc": "Pop Inner Focus and start a free Greater Heal on your mouseover, target or yourself.",
+          "icon": "spell_holy_greaterheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Greater Heal\n/cast Inner Focus\n/cast [@mouseover,help,nodead][help,nodead][@player] Greater Heal",
+          "origin": "classic",
+          "needs": "Inner Focus talent and Greater Heal learned (level 40)",
+          "level": 40,
+          "codePt": "#showtooltip Cura Maior\n/cast Concentração Interior\n/cast [@mouseover,help,nodead][help,nodead][@player] Cura Maior"
+        },
+        {
+          "id": "discipline-power-infusion",
+          "title": "Power Infusion on a friend or you",
+          "desc": "Put Power Infusion on the friend under your cursor, then your target, then yourself. Alt always picks you.",
+          "icon": "spell_holy_powerinfusion",
+          "iconKind": "ability",
+          "code": "#showtooltip Power Infusion\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Power Infusion",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Infuse your mouseover, then your target, then yourself"
+            },
+            {
+              "key": "Alt",
+              "text": "Infuse yourself"
+            }
+          ],
+          "needs": "Power Infusion talent (Discipline, level 40)",
+          "level": 40,
+          "codePt": "#showtooltip Infusão de Poder\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Infusão de Poder"
+        },
+        {
+          "id": "discipline-mana-burn",
+          "title": "Mouseover Mana Burn",
+          "desc": "Burn another enemy’s mana while keeping your selected target.",
+          "icon": "spell_shadow_manaburn",
+          "iconKind": "ability",
+          "code": "#showtooltip Mana Burn\n/cast [@mouseover,harm,nodead][] Mana Burn",
+          "origin": "classic",
+          "needs": "Mana Burn learned",
+          "level": 24,
+          "codePt": "#showtooltip Exaurir Mana\n/cast [@mouseover,harm,nodead][] Exaurir Mana"
+        },
+        {
+          "id": "discipline-contingency-plan",
+          "title": "Mouseover Contingency Plan",
+          "desc": "Ward a friend under your cursor, your target or yourself. When their Health drops below 35% they get a shield and a heal over time. Its shield and heal-over-time can coexist with Power Word: Shield and Renew.",
+          "icon": "ability_priest_soulwarding",
+          "iconKind": "ability",
+          "code": "#showtooltip Contingency Plan\n/cast [@mouseover,help,nodead][help,nodead][@player] Contingency Plan",
+          "origin": "forever",
+          "needs": "Gnome Priest, level 20; one ward per target. Blizzard's 30 September guide gives a 5 min cooldown; the live client still shows 10 min.",
+          "codePt": "#showtooltip Plano de Contingência\n/cast [@mouseover,help,nodead][help,nodead][@player] Plano de Contingência"
+        },
+        {
+          "id": "discipline-divine-grace",
+          "title": "Divine Grace on a hurt friend",
+          "desc": "Heal a friend below half health right away and clear their Weakened Soul so you can shield them again.",
+          "icon": "ability_priest_savinggrace",
+          "iconKind": "ability",
+          "code": "#showtooltip Divine Grace\n/cast [@mouseover,help,nodead][help,nodead] Divine Grace",
+          "origin": "forever",
+          "needs": "Human Priest. Target below 50% Health; cannot target yourself. Blizzard's 30 September guide gives a 5 min cooldown; the live client still shows 10 min.",
+          "codePt": "#showtooltip Graça Divina\n/cast [@mouseover,help,nodead][help,nodead] Graça Divina"
+        },
+        {
+          "id": "discipline-divine-spirit",
+          "title": "Mouseover Divine Spirit",
+          "desc": "Buff the friend under your cursor with Divine Spirit, or your target, or yourself.",
+          "icon": "spell_holy_divinespirit",
+          "iconKind": "ability",
+          "code": "#showtooltip Divine Spirit\n/cast [@mouseover,help,nodead][help,nodead][@player] Divine Spirit",
+          "origin": "forever",
+          "needs": "Divine Spirit learned (level 30). Every Priest gets it in Forever. In Classic it was a Discipline talent.",
+          "level": 30,
+          "codePt": "#showtooltip Espírito Divino\n/cast [@mouseover,help,nodead][help,nodead][@player] Espírito Divino"
+        },
+        {
+          "id": "discipline-prayer-of-fortitude",
+          "title": "Mouseover Prayer of Fortitude",
+          "desc": "Cast Prayer of Fortitude on the friend under your cursor, your target or yourself.",
+          "icon": "spell_holy_prayeroffortitude",
+          "iconKind": "ability",
+          "code": "#showtooltip Prayer of Fortitude\n/cast [@mouseover,help,nodead][help,nodead][@player] Prayer of Fortitude",
+          "origin": "adapted",
+          "needs": "Prayer of Fortitude learned (level 48). Forever's tooltip covers all party and raid members, where Classic's covered the target's party.",
+          "level": 48,
+          "codePt": "#showtooltip Prece da Fortitude\n/cast [@mouseover,help,nodead][help,nodead][@player] Prece da Fortitude"
+        }
+      ]
+    },
+    {
+      "id": "holy",
+      "name": "Holy",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "holy-flash-heal",
+          "title": "Mouseover Flash Heal",
+          "desc": "Heal a party frame under your cursor, then your target, then yourself.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash Heal\n/cast [@mouseover,help,nodead][help,nodead][@player] Flash Heal",
+          "origin": "classic",
+          "needs": "Flash Heal learned",
+          "codePt": "#showtooltip Cura Célere\n/cast [@mouseover,help,nodead][help,nodead][@player] Cura Célere"
+        },
+        {
+          "id": "holy-holy-fire",
+          "title": "Holy Fire or Smite",
+          "desc": "Hold Shift for Smite; press normally for Holy Fire.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Smite; Holy Fire\n/cast [mod:shift] Smite; Holy Fire",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Holy Fire"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Smite"
+            }
+          ],
+          "needs": "Holy Fire learned",
+          "codePt": "#showtooltip [mod:shift] Punição; Fogo Sagrado\n/cast [mod:shift] Punição; Fogo Sagrado"
+        },
+        {
+          "id": "holy-greater-heal",
+          "title": "Greater Heal, Rank 1 with Shift",
+          "desc": "Greater Heal your mouseover, target or yourself. Hold Shift for Rank 1 when the damage is small.",
+          "icon": "spell_holy_greaterheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Greater Heal\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Greater Heal(Rank 1); [@mouseover,help,nodead][help,nodead][@player] Greater Heal",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Top-rank Greater Heal on your mouseover, target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Rank 1 Greater Heal on the same aim"
+            }
+          ],
+          "needs": "Greater Heal learned (level 40)",
+          "level": 40,
+          "codePt": "#showtooltip Cura Maior\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Cura Maior(Grau 1); [@mouseover,help,nodead][help,nodead][@player] Cura Maior"
+        },
+        {
+          "id": "holy-renew",
+          "title": "Mouseover Renew, Rank 5 with Shift",
+          "desc": "Renew your mouseover, target or yourself. Hold Shift for Rank 5 to save Mana. Blizzard confirms Renew from different Priests can stay active on the same target.",
+          "icon": "spell_holy_renew",
+          "iconKind": "ability",
+          "code": "#showtooltip Renew\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Renew(Rank 5); [@mouseover,help,nodead][help,nodead][@player] Renew",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Top-rank Renew on your mouseover, target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Rank 5 Renew on the same aim"
+            }
+          ],
+          "needs": "Renew learned. Rank 5 comes at level 32.",
+          "codePt": "#showtooltip Renovar\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Renovar(Grau 5); [@mouseover,help,nodead][help,nodead][@player] Renovar"
+        },
+        {
+          "id": "holy-prayer-of-healing",
+          "title": "Prayer of Healing on a chosen group",
+          "desc": "Cast Prayer of Healing on the friend under your cursor to heal their party, including pets, so you pick which party gets it.",
+          "icon": "spell_holy_prayerofhealing02",
+          "iconKind": "ability",
+          "code": "#showtooltip Prayer of Healing\n/cast [@mouseover,help,nodead][help,nodead][@player] Prayer of Healing",
+          "origin": "adapted",
+          "needs": "Prayer of Healing learned (level 30). Blizzard confirms it heals the target's party, including pets; the client lists a 40 yard radius. Classic healed your own party.",
+          "level": 30,
+          "codePt": "#showtooltip Prece de Cura\n/cast [@mouseover,help,nodead][help,nodead][@player] Prece de Cura"
+        },
+        {
+          "id": "holy-prayer-of-mending",
+          "title": "Mouseover Prayer of Mending",
+          "desc": "Put Prayer of Mending on your mouseover, target or yourself. Damage or non-periodic healing triggers its heal and a jump to a nearby party or raid member.",
+          "icon": "spell_holy_prayerofmendingtga",
+          "iconKind": "ability",
+          "code": "#showtooltip Prayer of Mending\n/cast [@mouseover,help,nodead][help,nodead][@player] Prayer of Mending",
+          "origin": "forever",
+          "needs": "Prayer of Mending talent (Holy); rank 1 is level 40 in the client, with a 10 sec cooldown. Blizzard describes five heals and one active application per target; the tooltip says five jumps and one target per caster. We haven't tested those limits in game.",
+          "level": 40,
+          "codePt": "#showtooltip Prece da Recomposição\n/cast [@mouseover,help,nodead][help,nodead][@player] Prece da Recomposição"
+        },
+        {
+          "id": "holy-disease-cleanse",
+          "title": "Abolish Disease, Cure Disease with Shift",
+          "desc": "Abolish Disease on your mouseover, target or yourself. Hold Shift for a one-off Cure Disease.",
+          "icon": "spell_nature_nullifydisease",
+          "iconKind": "ability",
+          "code": "#showtooltip Abolish Disease\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Cure Disease; [@mouseover,help,nodead][help,nodead][@player] Abolish Disease",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Abolish Disease on your mouseover, target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Cure Disease on the same aim"
+            }
+          ],
+          "needs": "Abolish Disease learned (level 32). Before that, use a Cure Disease macro on its own.",
+          "level": 32,
+          "codePt": "#showtooltip Abolir Doença\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Curar Doença; [@mouseover,help,nodead][help,nodead][@player] Abolir Doença"
+        },
+        {
+          "id": "holy-pull-wand",
+          "title": "Holy Fire pull, then wand",
+          "desc": "Open with Holy Fire on the first press, then press again to start wanding.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Fire\n/castsequence reset=target/combat Holy Fire, !Shoot",
+          "origin": "classic",
+          "needs": "Holy Fire learned and a wand equipped",
+          "codePt": "#showtooltip Fogo Sagrado\n/castsequence reset=target/combat Fogo Sagrado, !Atirar"
+        },
+        {
+          "id": "holy-litany-alternate",
+          "title": "Alternate two heals for Litany of Light",
+          "desc": "Alternate Flash Heal and Greater Heal on one button so each cast differs from the last, which is what Litany of Light rewards.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash Heal\n/castsequence [@mouseover,help,nodead][help,nodead][@player] reset=4 Flash Heal, Greater Heal",
+          "origin": "forever",
+          "needs": "Litany of Light talent (Holy) and Greater Heal learned (level 40). The sequence starts over after 4 seconds without a press.",
+          "level": 40,
+          "codePt": "#showtooltip Cura Célere\n/castsequence [@mouseover,help,nodead][help,nodead][@player] reset=4 Cura Célere, Cura Maior"
+        },
+        {
+          "id": "holy-smite-target-of-target",
+          "title": "Smite your tank's target",
+          "desc": "Smite your hostile target, or the enemy your friendly target is attacking. Leave your tank selected while dealing damage between heals; it won't interrupt a channel.",
+          "icon": "spell_holy_holysmite",
+          "iconKind": "ability",
+          "code": "#showtooltip Smite\n/stopmacro [channeling]\n/cast [harm,nodead][@targettarget,harm,nodead] Smite",
+          "origin": "classic",
+          "codePt": "#showtooltip Punição\n/stopmacro [channeling]\n/cast [harm,nodead][@targettarget,harm,nodead] Punição"
+        }
+      ]
+    },
+    {
+      "id": "shadow",
+      "name": "Shadow",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "shadow-pain",
+          "title": "Mouseover Shadow Word: Pain",
+          "desc": "Apply your damage-over-time spell to a mouseover without switching target.",
+          "icon": "spell_shadow_shadowwordpain",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Word: Pain\n/cast [@mouseover,harm,nodead][] Shadow Word: Pain",
+          "origin": "classic",
+          "codePt": "#showtooltip Palavra Sombria: Dor\n/cast [@mouseover,harm,nodead][] Palavra Sombria: Dor"
+        },
+        {
+          "id": "shadow-death",
+          "title": "Mouseover Shadow Word: Death",
+          "desc": "Use Forever’s finisher on a mouseover or your target. If it hits and fails to kill, you take 30% of your max health as damage.",
+          "icon": "spell_shadow_demonicfortitude",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Word: Death\n/cast [@mouseover,harm,nodead][] Shadow Word: Death",
+          "origin": "forever",
+          "needs": "Shadow Word: Death learned",
+          "level": 32,
+          "codePt": "#showtooltip Palavra Sombria: Morte\n/cast [@mouseover,harm,nodead][] Palavra Sombria: Morte"
+        },
+        {
+          "id": "shadow-shadowform",
+          "title": "Shadowform on, Shift to drop it",
+          "desc": "Enter Shadowform when you're not in it. Hold Shift to drop it.",
+          "icon": "spell_shadow_shadowform",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadowform\n/cancelaura [mod:shift] Shadowform\n/cast [nomod,noform:1] Shadowform",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Enter Shadowform if you aren't in it"
+            },
+            {
+              "key": "Shift",
+              "text": "Drop Shadowform"
+            }
+          ],
+          "needs": "Shadowform talent (Shadow, level 40). Classic macros count Shadowform as form 1. We haven't checked that in Forever's client.",
+          "level": 40,
+          "codePt": "#showtooltip Forma de Sombra\n/cancelaura [mod:shift] Forma de Sombra\n/cast [nomod,noform:1] Forma de Sombra"
+        },
+        {
+          "id": "shadow-heal-from-shadowform",
+          "title": "Drop Shadowform and Flash Heal",
+          "desc": "Drop Shadowform and Flash Heal your mouseover, target or yourself in one press. Recast Shadowform afterwards.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash Heal\n/cancelaura Shadowform\n/cast [@mouseover,help,nodead][help,nodead][@player] Flash Heal",
+          "origin": "classic",
+          "needs": "Shadowform talent and Flash Heal learned. Forever blocks healing spells while you're in Shadowform.",
+          "codePt": "#showtooltip Cura Célere\n/cancelaura Forma de Sombra\n/cast [@mouseover,help,nodead][help,nodead][@player] Cura Célere"
+        },
+        {
+          "id": "shadow-mind-flay",
+          "title": "Mind Flay that won't restart",
+          "desc": "Spam Mind Flay without restarting the channel every time you press it.",
+          "icon": "spell_shadow_siphonmana",
+          "iconKind": "ability",
+          "code": "#showtooltip Mind Flay\n/cast [nochanneling:Mind Flay] Mind Flay",
+          "origin": "classic",
+          "needs": "Mind Flay talent (Shadow, level 20)",
+          "codePt": "#showtooltip Açoite Mental\n/cast [nochanneling:Mind Flay] Açoite Mental"
+        },
+        {
+          "id": "shadow-mind-blast-flay",
+          "title": "Mind Blast, Shift for Mind Flay",
+          "desc": "Press for Mind Blast. Hold Shift for Mind Flay, which won't restart while you're already channeling it.",
+          "icon": "spell_shadow_unholyfrenzy",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Mind Flay; Mind Blast\n/cast [mod:shift,nochanneling:Mind Flay] Mind Flay; [nomod] Mind Blast",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Mind Blast"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Mind Flay unless you're already channeling it"
+            }
+          ],
+          "needs": "Mind Flay talent (Shadow, level 20)",
+          "codePt": "#showtooltip [mod:shift] Açoite Mental; Impacto Mental\n/cast [mod:shift,nochanneling:Mind Flay] Açoite Mental; [nomod] Impacto Mental"
+        },
+        {
+          "id": "shadow-devouring-plague",
+          "title": "Mouseover Devouring Plague",
+          "desc": "Put Devouring Plague on your mouseover or target. The damage it does heals you.",
+          "icon": "spell_shadow_blackplague",
+          "iconKind": "ability",
+          "code": "#showtooltip Devouring Plague\n/cast [@mouseover,harm,nodead][harm,nodead] Devouring Plague",
+          "origin": "forever",
+          "needs": "Devouring Plague learned (level 20). Every Priest gets it in Forever, with a 24 sec cooldown since 15 October. In Classic it was an Undead racial spell with a 3 min cooldown.",
+          "codePt": "#showtooltip Peste Devoradora\n/cast [@mouseover,harm,nodead][harm,nodead] Peste Devoradora"
+        },
+        {
+          "id": "shadow-vampiric-embrace",
+          "title": "Mouseover Vampiric Embrace",
+          "desc": "Afflict your mouseover or target so your Shadow damage heals your party.",
+          "icon": "spell_shadow_unsummonbuilding",
+          "iconKind": "ability",
+          "code": "#showtooltip Vampiric Embrace\n/cast [@mouseover,harm,nodead][harm,nodead] Vampiric Embrace",
+          "origin": "adapted",
+          "needs": "Vampiric Embrace talent (Shadow), a 16-point talent you can take at 25. It lasts 30 sec with a 30 sec cooldown since 15 October, so you can keep it up. Classic's lasted 1 min with a 10 sec cooldown.",
+          "level": 25,
+          "codePt": "#showtooltip Abraço Vampírico\n/cast [@mouseover,harm,nodead][harm,nodead] Abraço Vampírico"
+        },
+        {
+          "id": "shadow-starshards",
+          "title": "Mouseover Starshards",
+          "desc": "Rain Starshards on your mouseover or target.",
+          "icon": "spell_arcane_starfire",
+          "iconKind": "ability",
+          "code": "#showtooltip Starshards\n/cast [@mouseover,harm,nodead][harm,nodead] Starshards",
+          "origin": "adapted",
+          "needs": "Night Elf Priest. Starshards is a Night Elf racial spell. It has a 30 sec cooldown in Forever, and Classic's had none.",
+          "codePt": "#showtooltip Fragmentos Estelares\n/cast [@mouseover,harm,nodead][harm,nodead] Fragmentos Estelares"
+        },
+        {
+          "id": "shadow-pain-wand",
+          "title": "Shadow Word: Pain, then wand",
+          "desc": "The first press applies Shadow Word: Pain. Each press after that starts or keeps up the wand.",
+          "icon": "spell_shadow_shadowwordpain",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Word: Pain\n/castsequence reset=target/combat Shadow Word: Pain, !Shoot",
+          "origin": "classic",
+          "needs": "A wand equipped in the ranged slot",
+          "codePt": "#showtooltip Palavra Sombria: Dor\n/castsequence reset=target/combat Palavra Sombria: Dor, !Atirar"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-scream-fade",
+          "title": "Psychic Scream, Shift for Fade",
+          "desc": "Cancel your current cast, then Psychic Scream the enemies around you. Hold Shift for Fade instead. Blizzard's 30 September guide says Fade's threat reduction is doubled.",
+          "icon": "spell_shadow_psychicscream",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Fade; Psychic Scream\n/stopcasting\n/cast [mod:shift] Fade; Psychic Scream",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop your cast, Psychic Scream"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, Fade"
+            }
+          ],
+          "codePt": "#showtooltip [mod:shift] Desvanecer; Grito Psíquico\n/stopcasting\n/cast [mod:shift] Desvanecer; Grito Psíquico"
+        },
+        {
+          "id": "pvp-control",
+          "title": "Mind Control, Shift for Shackle Undead",
+          "desc": "Mind Control the enemy under your cursor, or your target. Hold Shift to Shackle Undead instead.",
+          "icon": "spell_shadow_shadowworddominate",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Shackle Undead; Mind Control\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Shackle Undead; [@mouseover,harm,nodead][harm,nodead] Mind Control",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mind Control your mouseover, then your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Shackle Undead your mouseover, then your target"
+            }
+          ],
+          "needs": "Mind Control learned (level 30). Rank 3 works on humanoids up to level 62. Shackle Undead learned for Shift.",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Agrilhoar Morto-vivo; Controle Mental\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Agrilhoar Morto-vivo; [@mouseover,harm,nodead][harm,nodead] Controle Mental"
+        },
+        {
+          "id": "pvp-dispel-keys",
+          "title": "Dispel Magic on four aims",
+          "desc": "One Dispel Magic button: target by default, mouseover with Shift, you with Ctrl, your target's target with Alt.",
+          "icon": "spell_holy_dispelmagic",
+          "iconKind": "ability",
+          "code": "#showtooltip Dispel Magic\n/cast [mod:ctrl,@player][mod:shift,@mouseover,exists,nodead][mod:alt,@targettarget,help,nodead][] Dispel Magic",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Dispel your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Dispel your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Dispel yourself"
+            },
+            {
+              "key": "Alt",
+              "text": "Dispel your target's target if it's a friend"
+            }
+          ],
+          "needs": "Dispel Magic learned",
+          "codePt": "#showtooltip Dissipar Magia\n/cast [mod:ctrl,@player][mod:shift,@mouseover,exists,nodead][mod:alt,@targettarget,help,nodead][] Dissipar Magia"
+        },
+        {
+          "id": "pvp-trinket-shield",
+          "title": "Trinket and shield",
+          "desc": "Cancel your cast, use your top trinket and shield yourself. Hold Shift to shield your mouseover ally with no trinket.",
+          "icon": "spell_holy_powerwordshield",
+          "iconKind": "ability",
+          "code": "#showtooltip Power Word: Shield\n/stopcasting\n/use [nomod] 13\n/cast [mod:shift,@mouseover,help,nodead][@player] Power Word: Shield",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop your cast, use trinket slot 13, shield yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, shield your mouseover ally"
+            }
+          ],
+          "needs": "An on-use trinket in the top trinket slot. Weakened Soul stops a second shield on the same target.",
+          "codePt": "#showtooltip Palavra de Poder: Escudo\n/stopcasting\n/use [nomod] 13\n/cast [mod:shift,@mouseover,help,nodead][@player] Palavra de Poder: Escudo"
+        },
+        {
+          "id": "pvp-shield-party",
+          "title": "Shield party 1 or 2, or your enemy's target",
+          "desc": "Shield your friendly mouseover or target. With an enemy targeted, it shields the friend that enemy has targeted, or you. Shift shields party member 1 and Ctrl party member 2.",
+          "icon": "spell_holy_powerwordshield",
+          "iconKind": "ability",
+          "code": "#showtooltip Power Word: Shield\n/cast [mod:shift,@party1][mod:ctrl,@party2][@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Power Word: Shield",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Shield your mouseover, your target, your enemy's target, then you"
+            },
+            {
+              "key": "Shift",
+              "text": "Shield party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Shield party member 2"
+            }
+          ],
+          "needs": "Power Word: Shield learned. Weakened Soul stops a second shield on the same target for 15 sec.",
+          "codePt": "#showtooltip Palavra de Poder: Escudo\n/cast [mod:shift,@party1][mod:ctrl,@party2][@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Palavra de Poder: Escudo"
+        },
+        {
+          "id": "pvp-emergency-heal",
+          "title": "Stop and Flash Heal",
+          "desc": "Cancel your cast and Flash Heal your mouseover, target or yourself. Hold Shift to heal yourself.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash Heal\n/stopcasting\n/cast [mod:shift,@player][@mouseover,help,nodead][help,nodead][@player] Flash Heal",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop your cast, heal your mouseover, target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, heal yourself"
+            }
+          ],
+          "needs": "Flash Heal learned",
+          "codePt": "#showtooltip Cura Célere\n/stopcasting\n/cast [mod:shift,@player][@mouseover,help,nodead][help,nodead][@player] Cura Célere"
+        },
+        {
+          "id": "pvp-dot-button",
+          "title": "Shadow Word: Pain, Shift for Devouring Plague",
+          "desc": "Shadow Word: Pain on your mouseover or target. Hold Shift for Devouring Plague on the same aim.",
+          "icon": "spell_shadow_shadowwordpain",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Word: Pain\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Devouring Plague; [@mouseover,harm,nodead][harm,nodead] Shadow Word: Pain",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Shadow Word: Pain on your mouseover, then your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Devouring Plague on your mouseover, then your target"
+            }
+          ],
+          "needs": "Devouring Plague learned (level 20). Every Priest gets it in Forever, with a 24 sec cooldown.",
+          "codePt": "#showtooltip Palavra Sombria: Dor\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Peste Devoradora; [@mouseover,harm,nodead][harm,nodead] Palavra Sombria: Dor"
+        },
+        {
+          "id": "pvp-nearest-enemy-pain",
+          "title": "Nearest enemy, then Shadow Word: Pain",
+          "desc": "Pick up the nearest enemy if you have no living hostile target, then put Shadow Word: Pain on it.",
+          "icon": "spell_shadow_shadowwordpain",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Word: Pain\n/targetenemy [noharm][dead]\n/cast Shadow Word: Pain",
+          "origin": "classic",
+          "codePt": "#showtooltip Palavra Sombria: Dor\n/targetenemy [noharm][dead]\n/cast Palavra Sombria: Dor"
+        },
+        {
+          "id": "pvp-pain-rank-1",
+          "title": "Shadow Word: Pain Rank 1 on stealthers",
+          "desc": "Put a cheap Rank 1 Shadow Word: Pain on your hostile mouseover or target. Its ticks break Stealth, so a Rogue or Druid has a hard time slipping away while it's up.",
+          "icon": "spell_shadow_shadowwordpain",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Word: Pain\n/cast [@mouseover,harm,nodead][harm,nodead] Shadow Word: Pain(Rank 1)",
+          "origin": "classic",
+          "needs": "Shadow Word: Pain learned. Rank 1 costs 25 Mana and lasts 18 sec. It won’t replace a higher rank of your own that’s already on the target.",
+          "codePt": "#showtooltip Palavra Sombria: Dor\n/cast [@mouseover,harm,nodead][harm,nodead] Palavra Sombria: Dor(Grau 1)"
+        },
+        {
+          "id": "pvp-shadow-protection",
+          "title": "Shadow Protection, Shift for the group",
+          "desc": "Give Shadow resistance to your mouseover, target or yourself. Hold Shift for Prayer of Shadow Protection.",
+          "icon": "spell_shadow_antishadow",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Protection\n/cast [mod:shift,@player] Prayer of Shadow Protection; [@mouseover,help,nodead][help,nodead][@player] Shadow Protection",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Shadow Protection on your mouseover, target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Prayer of Shadow Protection"
+            }
+          ],
+          "needs": "Shadow Protection learned (level 30). Prayer of Shadow Protection comes at level 56, and Forever's tooltip covers all party and raid members.",
+          "level": 56,
+          "codePt": "#showtooltip Proteção Sombria\n/cast [mod:shift,@player] Prece de Proteção Sombria; [@mouseover,help,nodead][help,nodead][@player] Proteção Sombria"
+        },
+        {
+          "id": "pvp-hex-of-weakness",
+          "title": "Hex of Weakness on target or mouseover",
+          "desc": "Put Hex of Weakness on your target, which lowers its melee attack power and the healing it receives. Hold Shift for your mouseover.",
+          "icon": "spell_shadow_fingerofdeath",
+          "iconKind": "ability",
+          "code": "#showtooltip Hex of Weakness\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Hex of Weakness",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Hex your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Hex your mouseover"
+            }
+          ],
+          "needs": "Troll Priest. Hex of Weakness is a Troll racial spell. Forever's cuts melee attack power. Classic's cut damage. Blizzard’s September 30 overview calls it unchanged; the saved client and Classic descriptions differ.",
+          "codePt": "#showtooltip Bagata da Fraqueza\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Bagata da Fraqueza"
+        },
+        {
+          "id": "pvp-chastise",
+          "title": "Chastise target or mouseover",
+          "desc": "Chastise your target to immobilize them for 2 seconds. Hold Shift for your mouseover.",
+          "icon": "spell_holy_chastise",
+          "iconKind": "ability",
+          "code": "#showtooltip Chastise\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Chastise",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Chastise your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Chastise your mouseover"
+            }
+          ],
+          "needs": "Dwarf Priest. Chastise is a Dwarf racial spell in Forever (2 min cooldown, 20 yards). It only works on Humanoids.",
+          "codePt": "#showtooltip Castigar\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Castigar"
+        },
+        {
+          "id": "pvp-confounding-flash",
+          "title": "Stop and Confounding Flash",
+          "desc": "Cancel your cast and confuse every enemy within 8 yards for 3 seconds. Any damage breaks it.",
+          "icon": "ability_paladin_blindinglight2",
+          "iconKind": "ability",
+          "code": "#showtooltip Confounding Flash\n/stopcasting\n/cast Confounding Flash",
+          "origin": "forever",
+          "needs": "Gnome Priest. Confounding Flash is a Gnome racial spell (level 10, 0.5 sec cast, 2 min cooldown).",
+          "codePt": "#showtooltip Clarão Desconcertante\n/stopcasting\n/cast Clarão Desconcertante"
+        },
+        {
+          "id": "pvp-desperate-prayer",
+          "title": "Desperate Prayer, Shift for a shield",
+          "desc": "Cancel your cast and use Desperate Prayer. Hold Shift to shield yourself instead.",
+          "icon": "spell_holy_restoration",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Power Word: Shield; Desperate Prayer\n/stopcasting\n/cast [mod:shift,@player] Power Word: Shield; Desperate Prayer",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop your cast, Desperate Prayer"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, shield yourself"
+            }
+          ],
+          "needs": "Dwarf Priest. Desperate Prayer is a Dwarf racial spell in Forever (10 min cooldown). Humans get Divine Grace instead.",
+          "codePt": "#showtooltip [mod:shift] Palavra de Poder: Escudo; Prece Desesperada\n/stopcasting\n/cast [mod:shift,@player] Palavra de Poder: Escudo; Prece Desesperada"
+        },
+        {
+          "id": "pvp-feedback",
+          "title": "Stop and Feedback",
+          "desc": "Cancel your cast and raise Feedback. For 15 sec, every spell that hits you burns some of the caster's Mana and deals them Shadow damage for each point burned.",
+          "icon": "spell_shadow_ritualofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip Feedback\n/stopcasting\n/cast Feedback",
+          "origin": "classic",
+          "needs": "Human Priest. Feedback is a Human racial spell in Forever (level 20, 3 min cooldown). Rank 1 burns 18 Mana per spell.",
+          "codePt": "#showtooltip Ciclo Elétrico\n/stopcasting\n/cast Ciclo Elétrico"
+        },
+        {
+          "id": "pvp-elunes-grace",
+          "title": "Elune's Grace, Shift for a shield",
+          "desc": "Cancel your cast and use Elune's Grace when a melee player or Hunter turns on you. Hold Shift to shield yourself instead.",
+          "icon": "spell_holy_elunesgrace",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Power Word: Shield; Elune's Grace\n/stopcasting\n/cast [mod:shift,@player] Power Word: Shield; Elune's Grace",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop your cast, Elune's Grace"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, shield yourself"
+            }
+          ],
+          "needs": "Night Elf Priest. Elune's Grace is a Night Elf racial spell (level 20, 5 min cooldown). Forever's makes melee and ranged attacks 50% less likely to hit you for 15 sec or until three miss. Classic's cut ranged damage and added dodge.",
+          "codePt": "#showtooltip [mod:shift] Palavra de Poder: Escudo; A graça de Eluna\n/stopcasting\n/cast [mod:shift,@player] Palavra de Poder: Escudo; A graça de Eluna"
+        }
+      ]
+    },
+    {
+      "id": "pvp-discipline",
+      "name": "Discipline PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-inner-focus-flash-heal",
+          "title": "Stop, Inner Focus and Flash Heal",
+          "desc": "Cancel your cast, pop Inner Focus and Flash Heal your mouseover, friendly target, your enemy's target or yourself. Shift heals you. With Inner Focus on cooldown you still get the heal.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash Heal\n/stopcasting\n/cast Inner Focus\n/cast [mod:shift,@player][@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Flash Heal",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop your cast, Inner Focus, Flash Heal your mouseover, target, enemy's target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, Inner Focus, Flash Heal yourself"
+            }
+          ],
+          "needs": "Inner Focus talent (Discipline, 3 min cooldown) and Flash Heal learned (level 20)",
+          "codePt": "#showtooltip Cura Célere\n/stopcasting\n/cast Concentração Interior\n/cast [mod:shift,@player][@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Cura Célere"
+        },
+        {
+          "id": "pvp-shield-then-heal",
+          "title": "Shield, Shift to Flash Heal the same friend",
+          "desc": "Shield your mouseover, friendly target or yourself. Hold Shift to Flash Heal the same friend while Weakened Soul is on them, which Renewed Hope rewards with more crit and a shorter Weakened Soul.",
+          "icon": "classicon_priest",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Flash Heal; [@mouseover,help,nodead][help,nodead][@player] Power Word: Shield",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Shield your mouseover, then your target, then yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Flash Heal your mouseover, then your target, then yourself"
+            }
+          ],
+          "needs": "Renewed Hope talent (Discipline) for the bonus; the macro works without it. Flash Heal learned (level 20).",
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Cura Célere; [@mouseover,help,nodead][help,nodead][@player] Palavra de Poder: Escudo"
+        },
+        {
+          "id": "pvp-inner-focus-penance",
+          "title": "Inner Focus into Penance",
+          "desc": "Pop Inner Focus and Penance your mouseover, friendly target, your enemy's target or yourself for free. Shift aims it at your hostile target. Pressing again lets a running Penance finish.",
+          "icon": "spell_holy_penance",
+          "iconKind": "ability",
+          "code": "#showtooltip Penance\n/stopmacro [channeling:Penance]\n/cast Inner Focus\n/cast [mod:shift,harm,nodead][@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Penance",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Inner Focus, Penance heal on your mouseover, target, enemy's target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Inner Focus, Penance damage on your hostile target"
+            }
+          ],
+          "needs": "Inner Focus and Penance talents (Discipline). Penance rank 1 is level 30, with a 12 sec cooldown.",
+          "level": 30,
+          "codePt": "#showtooltip Penitência\n/stopmacro [channeling:Penance]\n/cast Concentração Interior\n/cast [mod:shift,harm,nodead][@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Penitência"
+        },
+        {
+          "id": "pvp-penance-enemy-target",
+          "title": "Penance an enemy, Shift to heal its target",
+          "desc": "Penance your hostile mouseover or target. Hold Shift to heal the friend your targeted enemy is after instead, without switching off it. Pressing again lets a running Penance finish.",
+          "icon": "spell_holy_penance",
+          "iconKind": "ability",
+          "code": "#showtooltip Penance\n/stopmacro [channeling:Penance]\n/cast [mod:shift,@targettarget,help,nodead][nomod,@mouseover,harm,nodead][nomod,harm,nodead] Penance",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Penance damage on your hostile mouseover, then your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Penance heal on your enemy's target if it's a friend"
+            }
+          ],
+          "needs": "Penance talent (Discipline). Rank 1 is level 30, with a 12 sec cooldown.",
+          "level": 30,
+          "codePt": "#showtooltip Penitência\n/stopmacro [channeling:Penance]\n/cast [mod:shift,@targettarget,help,nodead][nomod,@mouseover,harm,nodead][nomod,harm,nodead] Penitência"
+        },
+        {
+          "id": "pvp-power-infusion-party",
+          "title": "Power Infusion on party 1 or 2",
+          "desc": "Infuse your friendly mouseover or target. Shift infuses party member 1, Ctrl party member 2 and Alt yourself, so you can hand it to your caster without retargeting.",
+          "icon": "spell_holy_powerinfusion",
+          "iconKind": "ability",
+          "code": "#showtooltip Power Infusion\n/cast [mod:shift,@party1][mod:ctrl,@party2][mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Power Infusion",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Infuse your mouseover, then your friendly target, then yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Infuse party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Infuse party member 2"
+            },
+            {
+              "key": "Alt",
+              "text": "Infuse yourself"
+            }
+          ],
+          "needs": "Power Infusion talent (Discipline, level 40). It has a 3 min cooldown.",
+          "level": 40,
+          "codePt": "#showtooltip Infusão de Poder\n/cast [mod:shift,@party1][mod:ctrl,@party2][mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Infusão de Poder"
+        },
+        {
+          "id": "pvp-inner-focus-mana-burn",
+          "title": "Inner Focus into Mana Burn",
+          "desc": "Pop Inner Focus so your next Mana Burn costs nothing, then start it on your hostile mouseover or target. With no enemy to burn, Inner Focus waits for your next spell.",
+          "icon": "spell_shadow_manaburn",
+          "iconKind": "ability",
+          "code": "#showtooltip Mana Burn\n/cast Inner Focus\n/cast [@mouseover,harm,nodead][harm,nodead] Mana Burn",
+          "origin": "classic",
+          "needs": "Inner Focus talent (Discipline) and Mana Burn learned (level 24). Improved Mana Burn (Discipline) cuts its 3 sec cast by up to 1 sec.",
+          "level": 24,
+          "codePt": "#showtooltip Exaurir Mana\n/cast Concentração Interior\n/cast [@mouseover,harm,nodead][harm,nodead] Exaurir Mana"
+        },
+        {
+          "id": "pvp-inner-focus-mind-blast",
+          "title": "Inner Focus into Mind Blast",
+          "desc": "Pop Inner Focus and Mind Blast your hostile mouseover or target, for a free Mind Blast with a better chance to crit. A good opener on a caster.",
+          "icon": "spell_shadow_unholyfrenzy",
+          "iconKind": "ability",
+          "code": "#showtooltip Mind Blast\n/cast Inner Focus\n/cast [@mouseover,harm,nodead][harm,nodead] Mind Blast",
+          "origin": "classic",
+          "needs": "Inner Focus talent (Discipline, 3 min cooldown). Mind Blast learned (level 10).",
+          "codePt": "#showtooltip Impacto Mental\n/cast Concentração Interior\n/cast [@mouseover,harm,nodead][harm,nodead] Impacto Mental"
+        }
+      ]
+    },
+    {
+      "id": "pvp-holy",
+      "name": "Holy PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-holy-nova-sweep",
+          "title": "Holy Nova Rank 1 sweep, Shift for top rank",
+          "desc": "Rank 1 Holy Nova hits enemies within 10 yards for little Mana, enough to knock a nearby Rogue or Druid out of Stealth. Hold Shift to stop your cast and use your top rank as a quick group heal.",
+          "icon": "spell_holy_holynova",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Nova\n/stopcasting [mod:shift]\n/cast [mod:shift] Holy Nova; Holy Nova(Rank 1)",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Holy Nova Rank 1"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, top-rank Holy Nova"
+            }
+          ],
+          "needs": "Holy Nova talent (Holy). Rank 1 costs 185 Mana; the level 60 rank costs 750.",
+          "codePt": "#showtooltip Nova Sagrada\n/stopcasting [mod:shift]\n/cast [mod:shift] Nova Sagrada; Nova Sagrada(Grau 1)"
+        },
+        {
+          "id": "pvp-holy-fire-nova",
+          "title": "Holy Fire, Shift for Holy Nova",
+          "desc": "Holy Fire your hostile mouseover or target. Hold Shift for Holy Nova once they close in; Searing Light can make it free after Holy Fire's damage over time ticks.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Holy Nova; Holy Fire\n/cast [mod:shift] Holy Nova; [@mouseover,harm,nodead][harm,nodead] Holy Fire",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Holy Fire your hostile mouseover, then your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Holy Nova around you"
+            }
+          ],
+          "needs": "Holy Nova and Searing Light talents (Holy). Searing Light gives each Holy Fire tick a chance to make your next Holy Nova cost no Mana.",
+          "codePt": "#showtooltip [mod:shift] Nova Sagrada; Fogo Sagrado\n/cast [mod:shift] Nova Sagrada; [@mouseover,harm,nodead][harm,nodead] Fogo Sagrado"
+        },
+        {
+          "id": "pvp-flash-heal-enemy-target",
+          "title": "Flash Heal through your enemy target",
+          "desc": "Flash Heal your friendly mouseover or target. With an enemy targeted, it heals the friend that enemy is after, so you never have to drop the enemy.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash Heal\n/cast [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead] Flash Heal",
+          "origin": "forever",
+          "needs": "Holy Binding talent (Holy), so half of each Flash Heal on a friend heals you too",
+          "codePt": "#showtooltip Cura Célere\n/cast [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead] Cura Célere"
+        },
+        {
+          "id": "pvp-flash-heal-party",
+          "title": "Stop and Flash Heal, party 1 or 2",
+          "desc": "Cancel your cast and Flash Heal your friendly mouseover or target. Shift heals party member 1 and Ctrl party member 2, and Holy Binding heals you for half each time.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash Heal\n/stopcasting\n/cast [mod:shift,@party1][mod:ctrl,@party2][@mouseover,help,nodead][help,nodead] Flash Heal",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop your cast, Flash Heal your mouseover, then your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, Flash Heal party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Stop your cast, Flash Heal party member 2"
+            }
+          ],
+          "needs": "Holy Binding talent (Holy) for the heal on you",
+          "codePt": "#showtooltip Cura Célere\n/stopcasting\n/cast [mod:shift,@party1][mod:ctrl,@party2][@mouseover,help,nodead][help,nodead] Cura Célere"
+        },
+        {
+          "id": "pvp-litany-renew-flash",
+          "title": "Alternate Renew and Flash Heal",
+          "desc": "Alternate Renew and Flash Heal on your mouseover, friendly target or your enemy's target. Litany of Light pays Mana back when each heal differs from the last, and Renew is instant.",
+          "icon": "classicon_priest",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead] reset=4 Renew, Flash Heal",
+          "origin": "forever",
+          "needs": "Litany of Light talent (Holy); Holy Binding heals you for half of each Flash Heal. The sequence starts over after 4 seconds without a press.",
+          "codePt": "#showtooltip\n/castsequence [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead] reset=4 Renovar, Cura Célere"
+        },
+        {
+          "id": "pvp-mending-enemy-target",
+          "title": "Prayer of Mending through your enemy target",
+          "desc": "Put Prayer of Mending on your friendly mouseover or target. With an enemy targeted, it goes on the friend that enemy is after, or on you. Alt always picks you, handy before a Rogue opens.",
+          "icon": "spell_holy_prayerofmendingtga",
+          "iconKind": "ability",
+          "code": "#showtooltip Prayer of Mending\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Prayer of Mending",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mend your mouseover, your target, your enemy's target, then you"
+            },
+            {
+              "key": "Alt",
+              "text": "Mend yourself"
+            }
+          ],
+          "needs": "Prayer of Mending talent (Holy); rank 1 is level 40 in the client, with a 10 sec cooldown. You can have one active at a time.",
+          "level": 40,
+          "codePt": "#showtooltip Prece da Recomposição\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Prece da Recomposição"
+        }
+      ]
+    },
+    {
+      "id": "pvp-shadow",
+      "name": "Shadow PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-silence",
+          "title": "Silence your target or mouseover",
+          "desc": "Cancel your current cast and Silence your target. Hold Shift for your mouseover.",
+          "icon": "spell_shadow_impphaseshift",
+          "iconKind": "ability",
+          "code": "#showtooltip Silence\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Silence",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop your cast, Silence your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop your cast, Silence your mouseover"
+            }
+          ],
+          "needs": "Silence talent (Shadow, level 30). It has a 20 yard range and a 45 sec cooldown.",
+          "level": 30,
+          "codePt": "#showtooltip Silêncio\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Silêncio"
+        },
+        {
+          "id": "pvp-mind-flay-slow",
+          "title": "Mind Flay slow on target or mouseover",
+          "desc": "Mind Flay your target without restarting the channel. Hold Shift to slow your mouseover instead.",
+          "icon": "spell_shadow_siphonmana",
+          "iconKind": "ability",
+          "code": "#showtooltip Mind Flay\n/cast [mod:shift,@mouseover,harm,nodead,nochanneling:Mind Flay][nochanneling:Mind Flay,harm,nodead] Mind Flay",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mind Flay your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Mind Flay your mouseover"
+            }
+          ],
+          "needs": "Mind Flay talent (Shadow, level 20). It slows the target by 50%; since 15 October Improved Mind Flay makes each tick hit harder instead.",
+          "codePt": "#showtooltip Açoite Mental\n/cast [mod:shift,@mouseover,harm,nodead,nochanneling:Mind Flay][nochanneling:Mind Flay,harm,nodead] Açoite Mental"
+        },
+        {
+          "id": "pvp-mind-flay-rank-1",
+          "title": "Mind Flay Rank 1 slow, Shift for top rank",
+          "desc": "Rank 1 Mind Flay slows your hostile target by 50% for a fraction of the Mana, which is often all you need to kite a melee player. Hold Shift for your top rank. Neither restarts a running channel.",
+          "icon": "spell_shadow_siphonmana",
+          "iconKind": "ability",
+          "code": "#showtooltip Mind Flay\n/cast [mod:shift,harm,nodead,nochanneling:Mind Flay] Mind Flay; [harm,nodead,nochanneling:Mind Flay] Mind Flay(Rank 1)",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Rank 1 Mind Flay on your hostile target"
+            },
+            {
+              "key": "Shift",
+              "text": "Top-rank Mind Flay on your hostile target"
+            }
+          ],
+          "needs": "Mind Flay talent (Shadow, level 20). Rank 1 costs 45 Mana; the level 60 rank costs 205.",
+          "codePt": "#showtooltip Açoite Mental\n/cast [mod:shift,harm,nodead,nochanneling:Mind Flay] Açoite Mental; [harm,nodead,nochanneling:Mind Flay] Açoite Mental(Grau 1)"
+        },
+        {
+          "id": "pvp-assist-flay",
+          "title": "Mind Flay your friend's target",
+          "desc": "Mind Flay your hostile target. With a friend targeted, it flays and slows whatever that friend has targeted, like the enemy your Warrior is chasing, without switching off your friend.",
+          "icon": "spell_shadow_siphonmana",
+          "iconKind": "ability",
+          "code": "#showtooltip Mind Flay\n/cast [harm,nodead,nochanneling:Mind Flay][@targettarget,harm,nodead,nochanneling:Mind Flay] Mind Flay",
+          "origin": "classic",
+          "needs": "Mind Flay talent (Shadow, level 20)",
+          "codePt": "#showtooltip Açoite Mental\n/cast [harm,nodead,nochanneling:Mind Flay][@targettarget,harm,nodead,nochanneling:Mind Flay] Açoite Mental"
+        },
+        {
+          "id": "pvp-flay-silence",
+          "title": "Mind Flay, Shift to Silence",
+          "desc": "Mind Flay your hostile target without restarting the channel. Hold Shift to stop the channel and Silence your hostile mouseover or target, so your interrupt sits on your main damage key.",
+          "icon": "spell_shadow_siphonmana",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Silence; Mind Flay\n/stopcasting [mod:shift]\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Silence; [harm,nodead,nochanneling:Mind Flay] Mind Flay",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mind Flay your hostile target unless you're channeling it"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop the channel, Silence your mouseover, then your target"
+            }
+          ],
+          "needs": "Mind Flay and Silence talents (Shadow). Silence is level 30, with a 20 yard range and a 45 sec cooldown.",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Silêncio; Açoite Mental\n/stopcasting [mod:shift]\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Silêncio; [harm,nodead,nochanneling:Mind Flay] Açoite Mental"
+        },
+        {
+          "id": "pvp-flay-death",
+          "title": "Mind Flay, Shift for Shadow Word: Death",
+          "desc": "Mind Flay your hostile target without restarting the channel. Hold Shift to stop the channel and finish your hostile mouseover or target with Shadow Word: Death.",
+          "icon": "spell_shadow_siphonmana",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Shadow Word: Death; Mind Flay\n/stopcasting [mod:shift]\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Shadow Word: Death; [harm,nodead,nochanneling:Mind Flay] Mind Flay",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mind Flay your hostile target unless you're channeling it"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop the channel, Shadow Word: Death your mouseover, then your target"
+            }
+          ],
+          "needs": "Mind Flay talent (Shadow, level 20) and Shadow Word: Death learned (level 32). If Shadow Word: Death hits and doesn't kill, you take 30% of your max health. Early Demise (Shadow) adds crit at 20% health or lower.",
+          "level": 32,
+          "codePt": "#showtooltip [mod:shift] Palavra Sombria: Morte; Açoite Mental\n/stopcasting [mod:shift]\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Palavra Sombria: Morte; [harm,nodead,nochanneling:Mind Flay] Açoite Mental"
+        },
+        {
+          "id": "pvp-shadowform-flay",
+          "title": "Mind Flay that puts Shadowform back on",
+          "desc": "Out of Shadowform, the first press puts it back on. In it, the same key Mind Flays your hostile mouseover or target without restarting the channel. Handy after you drop form to heal.",
+          "icon": "spell_shadow_siphonmana",
+          "iconKind": "ability",
+          "code": "#showtooltip [noform:1] Shadowform; Mind Flay\n/cast [noform:1] Shadowform; [@mouseover,harm,nodead,nochanneling:Mind Flay][harm,nodead,nochanneling:Mind Flay] Mind Flay",
+          "origin": "classic",
+          "needs": "Shadowform and Mind Flay talents (Shadow); Shadowform is level 40 and costs 40% of base Mana each time. Classic macros count Shadowform as form 1. We haven't checked that in Forever's client.",
+          "level": 40,
+          "codePt": "#showtooltip [noform:1] Forma de Sombra; Açoite Mental\n/cast [noform:1] Forma de Sombra; [@mouseover,harm,nodead,nochanneling:Mind Flay][harm,nodead,nochanneling:Mind Flay] Açoite Mental"
+        },
+        {
+          "id": "pvp-form-blast-or-heal",
+          "title": "Mind Blast in Shadowform, Flash Heal out of it",
+          "desc": "In Shadowform it Mind Blasts your hostile mouseover or target. Out of Shadowform the same key Flash Heals your friendly mouseover or you, so one bind covers both sides of a form swap.",
+          "icon": "classicon_priest",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [form:1,@mouseover,harm,nodead][form:1,harm,nodead] Mind Blast; [noform:1,@mouseover,help,nodead][noform:1,@player] Flash Heal",
+          "origin": "classic",
+          "needs": "Shadowform talent (Shadow, level 40) and Flash Heal learned (level 20). Classic macros count Shadowform as form 1. We haven't checked that in Forever's client.",
+          "codePt": "#showtooltip\n/cast [form:1,@mouseover,harm,nodead][form:1,harm,nodead] Impacto Mental; [noform:1,@mouseover,help,nodead][noform:1,@player] Cura Célere"
+        }
+      ]
+    }
+  ]
+}

@@ -38,6 +38,9 @@ export function Navbar() {
           <Link href="/talentos" className={navLink}>
             Talentos
           </Link>
+          <Link href="/macros" className={navLink}>
+            Macros
+          </Link>
           <a
             href={DISCORD_URL}
             target="_blank"

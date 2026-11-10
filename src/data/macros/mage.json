@@ -1,0 +1,1504 @@
+{
+  "slug": "mage",
+  "fetched": "2026-11-10T01:48:17.521Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/mage/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-counterspell",
+          "title": "Counterspell without waiting on your cast",
+          "desc": "Drops whatever you’re casting and Counterspells your target right away.",
+          "icon": "spell_frost_iceshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Counterspell\n/stopcasting\n/cast Counterspell",
+          "origin": "classic",
+          "needs": "Counterspell learned (24). It cancels your cast even when Counterspell is on cooldown.",
+          "level": 24,
+          "codePt": "#showtooltip Contrafeitiço\n/stopcasting\n/cast Contrafeitiço"
+        },
+        {
+          "id": "class-wide-polymorph",
+          "title": "Polymorph the mouseover or your target",
+          "desc": "Polymorphs the enemy under your cursor and leaves your target alone. With no enemy under the cursor it polymorphs your target.",
+          "icon": "spell_nature_polymorph",
+          "iconKind": "ability",
+          "code": "#showtooltip Polymorph\n/cast [@mouseover,harm,nodead][] Polymorph",
+          "origin": "classic",
+          "needs": "Polymorph learned",
+          "codePt": "#showtooltip Polimorfia\n/cast [@mouseover,harm,nodead][] Polimorfia"
+        },
+        {
+          "id": "class-wide-arcane-intellect",
+          "title": "Arcane Intellect on a friend or yourself",
+          "desc": "Buffs the friendly unit under your cursor, else your friendly target, else you. Hold Alt to buff yourself no matter what.",
+          "icon": "spell_holy_magicalsentry",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Intellect\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Arcane Intellect",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Buff your mouseover, friendly target or yourself"
+            },
+            {
+              "key": "Alt",
+              "text": "Buff yourself"
+            }
+          ],
+          "needs": "Arcane Intellect learned",
+          "codePt": "#showtooltip Intelecto Arcano\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Intelecto Arcano"
+        },
+        {
+          "id": "class-wide-dampen-amplify",
+          "title": "Dampen or Amplify Magic on a friend",
+          "desc": "Dampen Magic on the friend under your cursor, your friendly target or yourself. Shift swaps to Amplify Magic.",
+          "icon": "spell_nature_abolishmagic",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Amplify Magic; Dampen Magic\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Amplify Magic; [@mouseover,help,nodead][help,nodead][@player] Dampen Magic",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Dampen Magic on your mouseover, friendly target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Amplify Magic on the same units"
+            }
+          ],
+          "needs": "Dampen Magic (12) and Amplify Magic (18) learned",
+          "codePt": "#showtooltip [mod:shift] Amplificar Magia; Atenuar Magia\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Amplificar Magia; [@mouseover,help,nodead][help,nodead][@player] Atenuar Magia"
+        },
+        {
+          "id": "class-wide-remove-lesser-curse",
+          "title": "Remove Lesser Curse on a friend or yourself",
+          "desc": "Decurses your mouseover, friendly target or you. Shift decurses you straight away.",
+          "icon": "spell_nature_removecurse",
+          "iconKind": "ability",
+          "code": "#showtooltip Remove Lesser Curse\n/cast [mod:shift,@player][@mouseover,help,nodead][help,nodead][@player] Remove Lesser Curse",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Decurse your mouseover, friendly target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Decurse yourself"
+            }
+          ],
+          "needs": "Remove Lesser Curse learned (18). Forever’s version also removes a Bane.",
+          "codePt": "#showtooltip Remover Maldição Inferior\n/cast [mod:shift,@player][@mouseover,help,nodead][help,nodead][@player] Remover Maldição Inferior"
+        },
+        {
+          "id": "class-wide-conjure-water-food",
+          "title": "Conjure water, or food with Shift",
+          "desc": "One button conjures your top rank of water. Hold Shift for food instead.",
+          "icon": "inv_drink_06",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Conjure Food; Conjure Water\n/cast [mod:shift] Conjure Food; Conjure Water",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Conjure water"
+            },
+            {
+              "key": "Shift",
+              "text": "Conjure food"
+            }
+          ],
+          "needs": "Conjure Water and Conjure Food learned",
+          "codePt": "#showtooltip [mod:shift] Conjurar Comida; Conjurar Água\n/cast [mod:shift] Conjurar Comida; Conjurar Água"
+        },
+        {
+          "id": "class-wide-mana-gems",
+          "title": "Use whichever mana gem you have",
+          "desc": "Tries Mana Ruby, Citrine, Jade and Agate in that order. Press it when you need mana.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use Mana Ruby\n/use Mana Citrine\n/use Mana Jade\n/use Mana Agate",
+          "origin": "classic",
+          "needs": "A conjured mana gem in your bags. The item names are the Classic ones.",
+          "codePt": "#showtooltip\n/use Mana Ruby\n/use Mana Citrine\n/use Mana Jade\n/use Mana Agate",
+          "untranslated": [
+            "Mana Ruby",
+            "Mana Citrine",
+            "Mana Jade",
+            "Mana Agate"
+          ]
+        },
+        {
+          "id": "class-wide-armors",
+          "title": "Ice Armor, Mage Armor or Frost Armor",
+          "desc": "Ice Armor by default, Shift for Mage Armor and Ctrl for Frost Armor. Only one armor can be up at a time.",
+          "icon": "spell_frost_frostarmor02",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Mage Armor; [mod:ctrl] Frost Armor; Ice Armor\n/cast [mod:shift] Mage Armor; [mod:ctrl] Frost Armor; Ice Armor",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Ice Armor"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Mage Armor"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cast Frost Armor"
+            }
+          ],
+          "needs": "Ice Armor (30) and Mage Armor (34). Frost Armor covers the levels before that.",
+          "level": 34,
+          "codePt": "#showtooltip [mod:shift] Armadura de Mago; [mod:ctrl] Armadura Gélida; Armadura de Gelo\n/cast [mod:shift] Armadura de Mago; [mod:ctrl] Armadura Gélida; Armadura de Gelo"
+        },
+        {
+          "id": "class-wide-teleports-alliance",
+          "title": "Alliance teleports on one key",
+          "desc": "Teleports you to Stormwind. Shift goes to Ironforge, Ctrl to Darnassus and Alt to Dalaran.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Teleport: Ironforge; [mod:ctrl] Teleport: Darnassus; [mod:alt] Teleport: Dalaran; Teleport: Stormwind",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Teleport: Stormwind"
+            },
+            {
+              "key": "Shift",
+              "text": "Teleport: Ironforge"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Teleport: Darnassus"
+            },
+            {
+              "key": "Alt",
+              "text": "Teleport: Dalaran"
+            }
+          ],
+          "needs": "The teleport spells you want (20 and 30). Teleport: Dalaran is new in Forever and comes at 50.",
+          "level": 50,
+          "codePt": "#showtooltip\n/cast [mod:shift] Teleporte: Altaforja; [mod:ctrl] Teleporte: Darnassus; [mod:alt] Teleporte: Dalaran; Teleporte: Ventobravo"
+        },
+        {
+          "id": "class-wide-teleports-horde",
+          "title": "Horde teleports on one key",
+          "desc": "Teleports you to Orgrimmar. Shift goes to Undercity, Ctrl to Thunder Bluff and Alt to Dalaran.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Teleport: Undercity; [mod:ctrl] Teleport: Thunder Bluff; [mod:alt] Teleport: Dalaran; Teleport: Orgrimmar",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Teleport: Orgrimmar"
+            },
+            {
+              "key": "Shift",
+              "text": "Teleport: Undercity"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Teleport: Thunder Bluff"
+            },
+            {
+              "key": "Alt",
+              "text": "Teleport: Dalaran"
+            }
+          ],
+          "needs": "The teleport spells you want (20 and 30). Teleport: Dalaran is new in Forever and comes at 50.",
+          "level": 50,
+          "codePt": "#showtooltip\n/cast [mod:shift] Teleporte: Cidade Baixa; [mod:ctrl] Teleporte: Penhasco do Trovão; [mod:alt] Teleporte: Dalaran; Teleporte: Orgrimmar"
+        },
+        {
+          "id": "class-wide-portals-alliance",
+          "title": "Alliance portals on one key",
+          "desc": "Opens a portal to Stormwind. Shift makes it Ironforge and Ctrl makes it Darnassus.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Portal: Ironforge; [mod:ctrl] Portal: Darnassus; Portal: Stormwind",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Portal: Stormwind"
+            },
+            {
+              "key": "Shift",
+              "text": "Portal: Ironforge"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Portal: Darnassus"
+            }
+          ],
+          "needs": "The portal spells you want (40, and 50 for Darnassus)",
+          "level": 50,
+          "codePt": "#showtooltip\n/cast [mod:shift] Portal: Altaforja; [mod:ctrl] Portal: Darnassus; Portal: Ventobravo",
+          "untranslated": [
+            "Portal: Darnassus"
+          ]
+        },
+        {
+          "id": "class-wide-portals-horde",
+          "title": "Horde portals on one key",
+          "desc": "Opens a portal to Orgrimmar. Shift makes it Undercity and Ctrl makes it Thunder Bluff.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Portal: Undercity; [mod:ctrl] Portal: Thunder Bluff; Portal: Orgrimmar",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Portal: Orgrimmar"
+            },
+            {
+              "key": "Shift",
+              "text": "Portal: Undercity"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Portal: Thunder Bluff"
+            }
+          ],
+          "needs": "The portal spells you want (40, and 50 for Thunder Bluff)",
+          "level": 50,
+          "codePt": "#showtooltip\n/cast [mod:shift] Portal: Cidade Baixa; [mod:ctrl] Portal: Penhasco do Trovão; Portal: Orgrimmar",
+          "untranslated": [
+            "Portal: Orgrimmar"
+          ]
+        },
+        {
+          "id": "class-wide-slow-fall",
+          "title": "Slow Fall, Shift to cancel",
+          "desc": "Dismount and cast Slow Fall on yourself. Hold Shift to remove the effect when you're back on the ground.",
+          "icon": "spell_magic_featherfall",
+          "iconKind": "ability",
+          "code": "#showtooltip Slow Fall\n/dismount [nomod:shift]\n/cancelaura [mod:shift] Slow Fall\n/cast [nomod:shift,@player] Slow Fall",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Dismount and cast Slow Fall"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel Slow Fall"
+            }
+          ],
+          "needs": "Slow Fall learned; a Light Feather",
+          "codePt": "#showtooltip Queda Lenta\n/dismount [nomod:shift]\n/cancelaura [mod:shift] Queda Lenta\n/cast [nomod:shift,@player] Queda Lenta"
+        },
+        {
+          "id": "class-wide-party-intellect",
+          "title": "Intellect, Shift for Arcane Brilliance",
+          "desc": "Buff one friend with Arcane Intellect, or hold Shift for Arcane Brilliance. Both choose your friendly mouseover, target or yourself.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Arcane Brilliance; [@mouseover,help,nodead][help,nodead][@player] Arcane Intellect",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Arcane Intellect"
+            },
+            {
+              "key": "Shift",
+              "text": "Arcane Brilliance"
+            }
+          ],
+          "needs": "Arcane Brilliance learned; Arcane Powder for the group buff",
+          "level": 56,
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Inteligência Arcana; [@mouseover,help,nodead][help,nodead][@player] Intelecto Arcano"
+        }
+      ]
+    },
+    {
+      "id": "arcane",
+      "name": "Arcane",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "arcane-arcane-missiles",
+          "title": "Protect Arcane Missiles channel",
+          "desc": "Repeated presses won’t restart a channel you’re already in.",
+          "icon": "spell_nature_starfall",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Missiles\n/cast [nochanneling:Arcane Missiles] Arcane Missiles",
+          "origin": "classic",
+          "needs": "Arcane Missiles learned",
+          "codePt": "#showtooltip Mísseis Arcanos\n/cast [nochanneling:Arcane Missiles] Mísseis Arcanos"
+        },
+        {
+          "id": "arcane-arcane-blast",
+          "title": "Arcane Blast, with Missiles and Frostbolt on modifiers",
+          "desc": "Arcane Blast on the button, Shift for Arcane Missiles and Ctrl for a cheaper Frostbolt when the stack gets expensive. Nothing fires while you’re channeling Missiles.",
+          "icon": "spell_arcane_blast",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Blast\n/cast [mod:shift,nochanneling:Arcane Missiles] Arcane Missiles; [mod:ctrl,nochanneling:Arcane Missiles] Frostbolt; [nochanneling:Arcane Missiles] Arcane Blast",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Arcane Blast"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Arcane Missiles while your Blast stacks are up"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cast Frostbolt as a cheaper filler"
+            }
+          ],
+          "needs": "Arcane Blast talent",
+          "codePt": "#showtooltip Impacto Arcano\n/cast [mod:shift,nochanneling:Arcane Missiles] Mísseis Arcanos; [mod:ctrl,nochanneling:Arcane Missiles] Seta de Gelo; [nochanneling:Arcane Missiles] Impacto Arcano"
+        },
+        {
+          "id": "arcane-arcane-blast-stack",
+          "title": "Three Blasts, then Missiles",
+          "desc": "Each press moves along the sequence: three Arcane Blasts, then Arcane Missiles while the stacks last (18 seconds from the first Blast). It starts over after 10 seconds or a new target.",
+          "icon": "spell_arcane_blast",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Blast\n/castsequence [nochanneling:Arcane Missiles] reset=10/target Arcane Blast, Arcane Blast, Arcane Blast, Arcane Missiles",
+          "origin": "forever",
+          "needs": "Arcane Blast talent and Arcane Missiles. Stop early if mana is short, because each stack adds 100% to Blast’s cost.",
+          "codePt": "#showtooltip Impacto Arcano\n/castsequence [nochanneling:Arcane Missiles] reset=10/target Impacto Arcano, Impacto Arcano, Impacto Arcano, Mísseis Arcanos"
+        },
+        {
+          "id": "arcane-target-and-blast",
+          "title": "Grab the nearest enemy and Arcane Blast",
+          "desc": "Clears a dead or friendly target, picks the nearest enemy if you have none, then opens with Arcane Blast.",
+          "icon": "spell_arcane_blast",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Blast\n/cleartarget [dead][help]\n/targetenemy [noexists]\n/cast [harm,nochanneling:Arcane Missiles] Arcane Blast",
+          "origin": "forever",
+          "needs": "Arcane Blast talent",
+          "codePt": "#showtooltip Impacto Arcano\n/cleartarget [dead][help]\n/targetenemy [noexists]\n/cast [harm,nochanneling:Arcane Missiles] Impacto Arcano"
+        },
+        {
+          "id": "arcane-arcane-burst",
+          "title": "Trinkets and Arcane Power, then Blast",
+          "desc": "Pops both trinkets and Arcane Power, then starts an Arcane Blast. Arcane Power makes your spells cost 30% more mana for 15 sec.",
+          "icon": "spell_arcane_blast",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Blast\n/use 13\n/use 14\n/cast Arcane Power\n/cast [nochanneling:Arcane Missiles] Arcane Blast",
+          "origin": "forever",
+          "needs": "Arcane Power and Arcane Blast talents",
+          "level": 40,
+          "codePt": "#showtooltip Impacto Arcano\n/use 13\n/use 14\n/cast Poder Arcano\n/cast [nochanneling:Arcane Missiles] Impacto Arcano"
+        },
+        {
+          "id": "arcane-mana-gem-blast",
+          "title": "Arcane Blast, with a mana gem on Shift",
+          "desc": "Arcane Blast on the button. Hold Shift to use a mana gem first; the gem is instant, so the cast still starts on the same press.",
+          "icon": "spell_arcane_blast",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Blast\n/use [mod:shift] Mana Ruby\n/use [mod:shift] Mana Citrine\n/use [mod:shift] Mana Jade\n/use [mod:shift] Mana Agate\n/cast [nochanneling:Arcane Missiles] Arcane Blast",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Arcane Blast"
+            },
+            {
+              "key": "Shift",
+              "text": "Use a mana gem, then cast Arcane Blast"
+            }
+          ],
+          "needs": "Arcane Blast talent and a conjured mana gem. The item names are the Classic ones.",
+          "codePt": "#showtooltip Impacto Arcano\n/use [mod:shift] Mana Ruby\n/use [mod:shift] Mana Citrine\n/use [mod:shift] Mana Jade\n/use [mod:shift] Mana Agate\n/cast [nochanneling:Arcane Missiles] Impacto Arcano",
+          "untranslated": [
+            "Mana Ruby",
+            "Mana Citrine",
+            "Mana Jade",
+            "Mana Agate"
+          ]
+        },
+        {
+          "id": "arcane-arcane-explosion-rank",
+          "title": "Arcane Explosion, rank 1 out of combat",
+          "desc": "Top rank once you’re in a fight and rank 1 before it, so an opening pull costs less mana.",
+          "icon": "spell_nature_wispsplode",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Explosion\n/cast [combat] Arcane Explosion; Arcane Explosion(Rank 1)",
+          "origin": "classic",
+          "needs": "Arcane Explosion learned",
+          "codePt": "#showtooltip Explosão Arcana\n/cast [combat] Explosão Arcana; Explosão Arcana(Grau 1)"
+        },
+        {
+          "id": "arcane-conjure-mana-gems",
+          "title": "Conjure any mana gem on one key",
+          "desc": "Conjures a Mana Ruby by default. Shift makes a Citrine, Ctrl a Jade and Alt an Agate.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Conjure Mana Citrine; [mod:ctrl] Conjure Mana Jade; [mod:alt] Conjure Mana Agate; Conjure Mana Ruby",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Conjure Mana Ruby"
+            },
+            {
+              "key": "Shift",
+              "text": "Conjure Mana Citrine"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Conjure Mana Jade"
+            },
+            {
+              "key": "Alt",
+              "text": "Conjure Mana Agate"
+            }
+          ],
+          "needs": "Each gem spell learned: Agate at 28, Jade at 38, Citrine at 48 and Ruby at 58",
+          "level": 58,
+          "codePt": "#showtooltip\n/cast [mod:shift] Conjurar Citrino de Mana; [mod:ctrl] Conjurar Jade de Mana; [mod:alt] Conjurar Ágata de Mana; Conjurar Rubi de Mana"
+        },
+        {
+          "id": "arcane-wand",
+          "title": "Wand that doesn’t toggle off",
+          "desc": "Starts your wand and keeps it going if you press the button again.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip Shoot\n/cast !Shoot",
+          "origin": "classic",
+          "needs": "A wand equipped",
+          "codePt": "#showtooltip Atirar\n/cast !Atirar"
+        },
+        {
+          "id": "arcane-evocation-channel",
+          "title": "Evocation, Shift to stop",
+          "desc": "Start Evocation without cutting it short on repeated presses. Hold Shift to stop the channel when you need to move or cast something else.",
+          "icon": "spell_nature_purge",
+          "iconKind": "ability",
+          "code": "#showtooltip Evocation\n/stopcasting [mod:shift]\n/stopmacro [mod:shift]\n/cast [nochanneling:Evocation] Evocation",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Start Evocation without restarting an active channel"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop casting"
+            }
+          ],
+          "needs": "Evocation learned",
+          "codePt": "#showtooltip Evocação\n/stopcasting [mod:shift]\n/stopmacro [mod:shift]\n/cast [nochanneling:Evocation] Evocação"
+        }
+      ]
+    },
+    {
+      "id": "fire",
+      "name": "Fire",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "fire-fireball-scorch",
+          "title": "Fireball or Scorch",
+          "desc": "Hold Shift for Scorch when you need a shorter cast.",
+          "icon": "spell_fire_flamebolt",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Scorch; Fireball\n/cast [mod:shift] Scorch; Fireball",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Fireball"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Scorch"
+            }
+          ],
+          "needs": "Scorch learned (22)",
+          "level": 22,
+          "codePt": "#showtooltip [mod:shift] Calcinar; Bola de Fogo\n/cast [mod:shift] Calcinar; Bola de Fogo"
+        },
+        {
+          "id": "fire-fire-blast",
+          "title": "Immediate Fire Blast",
+          "desc": "Cancels your current cast for an instant Fire Blast.",
+          "icon": "spell_fire_fireball",
+          "iconKind": "ability",
+          "code": "#showtooltip Fire Blast\n/stopcasting\n/cast Fire Blast",
+          "origin": "classic",
+          "needs": "Fire Blast learned; this cancels your current cast",
+          "codePt": "#showtooltip Impacto de Fogo\n/stopcasting\n/cast Impacto de Fogo"
+        },
+        {
+          "id": "fire-target-and-fireball",
+          "title": "Grab the nearest enemy and Fireball",
+          "desc": "Clears a dead or friendly target, picks the nearest enemy if you have none, then casts Fireball at it.",
+          "icon": "spell_fire_flamebolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Fireball\n/cleartarget [dead][help]\n/targetenemy [noexists]\n/cast [harm] Fireball",
+          "origin": "classic",
+          "needs": "Fireball learned",
+          "codePt": "#showtooltip Bola de Fogo\n/cleartarget [dead][help]\n/targetenemy [noexists]\n/cast [harm] Bola de Fogo"
+        },
+        {
+          "id": "fire-pyroblast-opener",
+          "title": "Pyroblast to open, Fireball after",
+          "desc": "Out of combat the button casts Pyroblast as a long-range opener. Once you’re in the fight it casts Fireball.",
+          "icon": "spell_fire_flamebolt",
+          "iconKind": "ability",
+          "code": "#showtooltip [nocombat] Pyroblast; Fireball\n/cast [nocombat] Pyroblast; Fireball",
+          "origin": "classic",
+          "needs": "Pyroblast talent",
+          "codePt": "#showtooltip [nocombat] Ignimpacto; Bola de Fogo\n/cast [nocombat] Ignimpacto; Bola de Fogo"
+        },
+        {
+          "id": "fire-hot-streak",
+          "title": "Fireball, with Pyroblast and Fire Blast on modifiers",
+          "desc": "Fireball on the button. Shift casts Pyroblast once Heating Up has shortened it, and Ctrl casts an instant Fire Blast while you move.",
+          "icon": "spell_fire_flamebolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Fireball\n/cast [mod:shift] Pyroblast; [mod:ctrl] Fire Blast; Fireball",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Fireball"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Pyroblast"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cast Fire Blast"
+            }
+          ],
+          "needs": "Heating Up and Pyroblast talents",
+          "codePt": "#showtooltip Bola de Fogo\n/cast [mod:shift] Ignimpacto; [mod:ctrl] Impacto de Fogo; Bola de Fogo"
+        },
+        {
+          "id": "fire-combustion-burst",
+          "title": "Trinkets and Combustion, then Fireball",
+          "desc": "Uses both trinkets, pops Combustion and starts a Fireball. Hold Shift for Scorch instead. Combustion lasts for three non-periodic Fire crits.",
+          "icon": "spell_fire_sealoffire",
+          "iconKind": "ability",
+          "code": "#showtooltip Combustion\n/use 13\n/use 14\n/cast Combustion\n/cast [mod:shift] Scorch; Fireball",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Trinkets, Combustion, then Fireball"
+            },
+            {
+              "key": "Shift",
+              "text": "Trinkets, Combustion, then Scorch"
+            }
+          ],
+          "needs": "Combustion talent (40)",
+          "level": 40,
+          "codePt": "#showtooltip Combustão\n/use 13\n/use 14\n/cast Combustão\n/cast [mod:shift] Calcinar; Bola de Fogo"
+        },
+        {
+          "id": "fire-flamestrike-rank",
+          "title": "Flamestrike, rank 1 on Shift",
+          "desc": "Casts your top Flamestrike, or rank 1 with Shift to save mana, then you click the ground. Forever allows only one active Flamestrike per mage.",
+          "icon": "spell_fire_selfdestruct",
+          "iconKind": "ability",
+          "code": "#showtooltip Flamestrike\n/cast [mod:shift] Flamestrike(Rank 1); Flamestrike",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast your highest Flamestrike rank"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Flamestrike rank 1"
+            }
+          ],
+          "needs": "Flamestrike learned",
+          "codePt": "#showtooltip Golpe Flamejante\n/cast [mod:shift] Golpe Flamejante(Grau 1); Golpe Flamejante"
+        },
+        {
+          "id": "fire-frostfire-kite",
+          "title": "Fireball, with Frostfire Bolt for kiting",
+          "desc": "Fireball on the button. Shift casts Frostfire Bolt, which slows the target by 40% and can help build Heating Up.",
+          "icon": "spell_fire_flamebolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Fireball\n/cast [mod:shift] Frostfire Bolt; Fireball",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Fireball"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Frostfire Bolt"
+            }
+          ],
+          "needs": "Frostfire Bolt, which the trainer teaches at 40; Heating Up talent for its Pyroblast benefit",
+          "level": 40,
+          "codePt": "#showtooltip Bola de Fogo\n/cast [mod:shift] Seta de Fogofrio; Bola de Fogo"
+        },
+        {
+          "id": "fire-blast-wave",
+          "title": "Immediate Blast Wave",
+          "desc": "Cancels your current cast and blasts everything close, dazing it for 6 sec.",
+          "icon": "spell_holy_excorcism_02",
+          "iconKind": "ability",
+          "code": "#showtooltip Blast Wave\n/stopcasting\n/cast Blast Wave",
+          "origin": "classic",
+          "needs": "Blast Wave talent; this cancels your current cast",
+          "level": 30,
+          "codePt": "#showtooltip Onda de Impacto\n/stopcasting\n/cast Onda de Impacto"
+        }
+      ]
+    },
+    {
+      "id": "frost",
+      "name": "Frost",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "frost-frostbolt",
+          "title": "Quick slow or full Frostbolt",
+          "desc": "Hold Shift to cast rank 1 for a cheaper slow; press normally for your highest rank.",
+          "icon": "spell_frost_frostbolt02",
+          "iconKind": "ability",
+          "code": "#showtooltip Frostbolt\n/cast [mod:shift] Frostbolt(Rank 1); Frostbolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast your highest Frostbolt rank"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Frostbolt rank 1"
+            }
+          ],
+          "needs": "Frostbolt learned; rank syntax uses the English client",
+          "codePt": "#showtooltip Seta de Gelo\n/cast [mod:shift] Seta de Gelo(Grau 1); Seta de Gelo"
+        },
+        {
+          "id": "frost-frost-nova",
+          "title": "Immediate Frost Nova",
+          "desc": "Cancels your current cast to freeze enemies in melee range.",
+          "icon": "spell_frost_frostnova",
+          "iconKind": "ability",
+          "code": "#showtooltip Frost Nova\n/stopcasting\n/cast Frost Nova",
+          "origin": "classic",
+          "needs": "Frost Nova learned; this cancels your current cast",
+          "codePt": "#showtooltip Nova Congelante\n/stopcasting\n/cast Nova Congelante"
+        },
+        {
+          "id": "frost-target-and-frostbolt",
+          "title": "Grab the nearest enemy and Frostbolt",
+          "desc": "Clears a dead or friendly target, picks the nearest enemy if you have none, then casts Frostbolt at it.",
+          "icon": "spell_frost_frostbolt02",
+          "iconKind": "ability",
+          "code": "#showtooltip Frostbolt\n/cleartarget [dead][help]\n/targetenemy [noexists]\n/cast [harm] Frostbolt",
+          "origin": "classic",
+          "needs": "Frostbolt learned",
+          "codePt": "#showtooltip Seta de Gelo\n/cleartarget [dead][help]\n/targetenemy [noexists]\n/cast [harm] Seta de Gelo"
+        },
+        {
+          "id": "frost-nova-lance",
+          "title": "Frost Nova, then Ice Lance",
+          "desc": "The first press freezes nearby enemies. A second press within 6 seconds throws Ice Lance at the frozen target. Give Ice Lance its own key too, since this one waits on Nova’s cooldown.",
+          "icon": "spell_frost_frostnova",
+          "iconKind": "ability",
+          "code": "#showtooltip Frost Nova\n/stopcasting\n/castsequence reset=6/target Frost Nova, Ice Lance",
+          "origin": "forever",
+          "needs": "Ice Lance talent; this cancels your current cast",
+          "codePt": "#showtooltip Nova Congelante\n/stopcasting\n/castsequence reset=6/target Nova Congelante, Lança de Gelo"
+        },
+        {
+          "id": "frost-ice-lance-key",
+          "title": "Ice Lance, Fire Blast and Cone of Cold on one key",
+          "desc": "Ice Lance on the button, or Fire Blast with Shift when the target isn’t frozen; the two share an 8 sec cooldown. Ctrl casts a Cone of Cold slow.",
+          "icon": "spell_frost_frostblast",
+          "iconKind": "ability",
+          "code": "#showtooltip Ice Lance\n/stopcasting\n/cast [mod:shift] Fire Blast; [mod:ctrl] Cone of Cold; Ice Lance",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Ice Lance"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Fire Blast"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cast Cone of Cold"
+            }
+          ],
+          "needs": "Ice Lance talent; Cone of Cold learned (26). This cancels your current cast.",
+          "level": 26,
+          "codePt": "#showtooltip Lança de Gelo\n/stopcasting\n/cast [mod:shift] Impacto de Fogo; [mod:ctrl] Cone de Frio; Lança de Gelo"
+        },
+        {
+          "id": "frost-blizzard-rank",
+          "title": "Blizzard, rank 1 on Shift",
+          "desc": "Casts your top Blizzard, or rank 1 with Shift to save mana, then you click the ground.",
+          "icon": "spell_frost_icestorm",
+          "iconKind": "ability",
+          "code": "#showtooltip Blizzard\n/cast [mod:shift] Blizzard(Rank 1); Blizzard",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast your highest Blizzard rank"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Blizzard rank 1"
+            }
+          ],
+          "needs": "Blizzard learned",
+          "codePt": "#showtooltip Nevasca\n/cast [mod:shift] Nevasca(Grau 1); Nevasca"
+        },
+        {
+          "id": "frost-frostbolt-trinkets",
+          "title": "Frostbolt, with trinkets on Shift",
+          "desc": "Frostbolt on the button. Hold Shift to use both trinkets as you cast.",
+          "icon": "spell_frost_frostbolt02",
+          "iconKind": "ability",
+          "code": "#showtooltip Frostbolt\n/use [mod:shift] 13\n/use [mod:shift] 14\n/cast Frostbolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Frostbolt"
+            },
+            {
+              "key": "Shift",
+              "text": "Use both trinkets, then cast Frostbolt"
+            }
+          ],
+          "needs": "Frostbolt learned",
+          "codePt": "#showtooltip Seta de Gelo\n/use [mod:shift] 13\n/use [mod:shift] 14\n/cast Seta de Gelo"
+        },
+        {
+          "id": "frost-buff-sequence",
+          "title": "Ice Armor, then Arcane Intellect",
+          "desc": "Press once for Ice Armor and again within 10 seconds for Arcane Intellect, both on yourself.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence [@player] reset=10 Ice Armor, Arcane Intellect",
+          "origin": "classic",
+          "needs": "Ice Armor (30) and Arcane Intellect learned",
+          "level": 30,
+          "codePt": "#showtooltip\n/castsequence [@player] reset=10 Armadura de Gelo, Intelecto Arcano"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-pvp-counterspell",
+          "title": "Counterspell your target, mouseover or a follow-up",
+          "desc": "Cancels your cast and Ice Block, then Counterspells your target. Shift hits the mouseover and Ctrl starts a Frostbolt right after.",
+          "icon": "spell_frost_iceshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Counterspell\n/stopcasting\n/cancelaura Ice Block\n/cast [mod:shift,@mouseover,harm,nodead][] Counterspell\n/cast [mod:ctrl] Frostbolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Counterspell your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Counterspell your mouseover instead"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Counterspell your target, then start a Frostbolt"
+            }
+          ],
+          "needs": "Counterspell learned (24). It cancels your cast even when Counterspell is on cooldown. Counterspell is off the global cooldown, so the Frostbolt line can follow it.",
+          "level": 24,
+          "codePt": "#showtooltip Contrafeitiço\n/stopcasting\n/cancelaura Bloco de Gelo\n/cast [mod:shift,@mouseover,harm,nodead][] Contrafeitiço\n/cast [mod:ctrl] Seta de Gelo"
+        },
+        {
+          "id": "pvp-pvp-polymorph",
+          "title": "Polymorph the mouseover or target, rank 1 on Shift",
+          "desc": "Cancels your cast and polymorphs the enemy under your cursor, or your target. Shift casts rank 1, which costs less mana and lasts a shorter time.",
+          "icon": "spell_nature_polymorph",
+          "iconKind": "ability",
+          "code": "#showtooltip Polymorph\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Polymorph(Rank 1); [@mouseover,harm,nodead][harm,nodead] Polymorph",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Polymorph your mouseover, or your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Polymorph rank 1 on the same enemy"
+            }
+          ],
+          "needs": "Polymorph learned",
+          "codePt": "#showtooltip Polimorfia\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead] Polimorfia(Grau 1); [@mouseover,harm,nodead][harm,nodead] Polimorfia"
+        },
+        {
+          "id": "pvp-pvp-sheep-and-back",
+          "title": "Sheep a second enemy and jump back",
+          "desc": "Tab to a second enemy, press this to sheep it, and you’re back on your first target right away.",
+          "icon": "spell_nature_polymorph",
+          "iconKind": "ability",
+          "code": "#showtooltip Polymorph\n/stopcasting\n/cast [harm,nodead] Polymorph\n/targetlasttarget",
+          "origin": "classic",
+          "needs": "Polymorph learned, and a previous target to return to",
+          "codePt": "#showtooltip Polimorfia\n/stopcasting\n/cast [harm,nodead] Polimorfia\n/targetlasttarget"
+        },
+        {
+          "id": "pvp-sheep-evocation",
+          "title": "Sheep them, then Evocation",
+          "desc": "First press sheeps your target. The second starts Evocation while they wander, so you get your mana back in a long duel. A new target or 20 sec idle starts it over.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=target/20 Polymorph, Evocation",
+          "origin": "classic",
+          "needs": "Polymorph and Evocation (20) learned. Any damage on the sheep wakes it, and Evocation has an 8 min cooldown.",
+          "codePt": "#showtooltip\n/castsequence reset=target/20 Polimorfia, Evocação"
+        },
+        {
+          "id": "pvp-pvp-peel",
+          "title": "Frost Nova, Cone of Cold and Blast Wave peel",
+          "desc": "Dismounts, cancels your cast and Ice Block, then casts Frost Nova rank 1, which costs less and hits for far less (damage can break the freeze). Shift is Cone of Cold and Ctrl is Blast Wave.",
+          "icon": "spell_frost_frostnova",
+          "iconKind": "ability",
+          "code": "#showtooltip Frost Nova\n/stopcasting\n/dismount\n/cancelaura Ice Block\n/cast [mod:shift] Cone of Cold; [mod:ctrl] Blast Wave; Frost Nova(Rank 1)",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Frost Nova rank 1"
+            },
+            {
+              "key": "Shift",
+              "text": "Cone of Cold"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Blast Wave"
+            }
+          ],
+          "needs": "Frost Nova learned; Cone of Cold (26); Blast Wave talent for Ctrl",
+          "level": 30,
+          "codePt": "#showtooltip Nova Congelante\n/stopcasting\n/dismount\n/cancelaura Bloco de Gelo\n/cast [mod:shift] Cone de Frio; [mod:ctrl] Onda de Impacto; Nova Congelante(Grau 1)"
+        },
+        {
+          "id": "pvp-pvp-escape",
+          "title": "Blink, racial escape, trinkets and Free Action Potion",
+          "desc": "Dismounts, cancels your cast and Blinks. Shift uses your racial escape instead, Ctrl adds both trinkets to the Blink and Alt adds a Free Action Potion.",
+          "icon": "spell_arcane_blink",
+          "iconKind": "ability",
+          "code": "#showtooltip Blink\n/stopcasting\n/dismount\n/use [mod:ctrl] 13\n/use [mod:ctrl] 14\n/use [mod:alt] Free Action Potion\n/cast [mod:shift] Will to Survive\n/cast [mod:shift] Escape Artist\n/cast [mod:shift] Will of the Forsaken\n/cast [nomod:shift] Blink",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Blink"
+            },
+            {
+              "key": "Shift",
+              "text": "Use your racial escape"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Use both trinkets, then Blink"
+            },
+            {
+              "key": "Alt",
+              "text": "Drink a Free Action Potion, then Blink"
+            }
+          ],
+          "needs": "Blink learned (20). The racial lines only work for Humans (Will to Survive), Gnomes (Escape Artist) and Undead (Will of the Forsaken).",
+          "codePt": "#showtooltip Lampejo\n/stopcasting\n/dismount\n/use [mod:ctrl] 13\n/use [mod:ctrl] 14\n/use [mod:alt] Poção de Ação Desimpedida\n/cast [mod:shift] Desejo de Sobreviver\n/cast [mod:shift] Artista da Fuga\n/cast [mod:shift] Determinação dos Renegados\n/cast [nomod:shift] Lampejo"
+        },
+        {
+          "id": "pvp-nova-then-blink",
+          "title": "Frost Nova, then Blink on the next press",
+          "desc": "First press drops your cast and freezes everything next to you. Turn away and press again to Blink clear. After 8 sec without a press it starts over on Nova.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/dismount\n/castsequence reset=8 Frost Nova, Blink",
+          "origin": "classic",
+          "needs": "Frost Nova and Blink (20) learned. The sequence waits on Nova’s cooldown, so keep a plain Blink key as well.",
+          "codePt": "#showtooltip\n/stopcasting\n/dismount\n/castsequence reset=8 Nova Congelante, Lampejo"
+        },
+        {
+          "id": "pvp-pvp-shields",
+          "title": "Mana Shield, Ice Barrier and both Wards on one key",
+          "desc": "Cancels your cast and shields up. Mana Shield on the button, Shift for Ice Barrier, Ctrl for Frost Ward and Alt for Fire Ward.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/cast [mod:shift] Ice Barrier; [mod:ctrl] Frost Ward; [mod:alt] Fire Ward; Mana Shield",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mana Shield"
+            },
+            {
+              "key": "Shift",
+              "text": "Ice Barrier"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Frost Ward"
+            },
+            {
+              "key": "Alt",
+              "text": "Fire Ward"
+            }
+          ],
+          "needs": "Mana Shield (20), Fire Ward (20), Frost Ward (22) and the Ice Barrier talent (40)",
+          "level": 40,
+          "codePt": "#showtooltip\n/stopcasting\n/cast [mod:shift] Barreira de Gelo; [mod:ctrl] Proteção contra Gelo; [mod:alt] Proteção contra Fogo; Escudo de Mana"
+        },
+        {
+          "id": "pvp-pvp-slow",
+          "title": "Frostbolt the mouseover to slow it",
+          "desc": "Frostbolts the enemy under your cursor, or your target if none is there. Shift casts rank 1, which is cheaper and gives a shorter slow.",
+          "icon": "spell_frost_frostbolt02",
+          "iconKind": "ability",
+          "code": "#showtooltip Frostbolt\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Frostbolt(Rank 1); [@mouseover,harm,nodead][] Frostbolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Frostbolt your mouseover, or your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Frostbolt rank 1 on the same enemy"
+            }
+          ],
+          "needs": "Frostbolt learned",
+          "codePt": "#showtooltip Seta de Gelo\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Seta de Gelo(Grau 1); [@mouseover,harm,nodead][] Seta de Gelo"
+        },
+        {
+          "id": "pvp-pvp-finisher",
+          "title": "Fire Blast or Ice Lance on the mouseover",
+          "desc": "Cancels your cast for an instant Fire Blast on the enemy under your cursor, or your target. Shift throws Ice Lance instead, the better hit on a frozen target. The two share an 8 sec cooldown.",
+          "icon": "spell_fire_fireball",
+          "iconKind": "ability",
+          "code": "#showtooltip Fire Blast\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Ice Lance; [@mouseover,harm,nodead][] Fire Blast",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Fire Blast your mouseover, or your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Ice Lance your mouseover, or your target"
+            }
+          ],
+          "needs": "Fire Blast learned; Ice Lance talent for Shift. This cancels your current cast.",
+          "codePt": "#showtooltip Impacto de Fogo\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Lança de Gelo; [@mouseover,harm,nodead][] Impacto de Fogo"
+        },
+        {
+          "id": "pvp-pvp-school-swap",
+          "title": "Swap schools after a Counterspell lockout",
+          "desc": "Frostbolt on the button. If an enemy Counterspell locks Frost, Shift casts Fireball and Ctrl casts Arcane Missiles.",
+          "icon": "spell_frost_frostbolt02",
+          "iconKind": "ability",
+          "code": "#showtooltip Frostbolt\n/cast [mod:shift] Fireball; [mod:ctrl] Arcane Missiles; Frostbolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Frostbolt"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Fireball"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cast Arcane Missiles"
+            }
+          ],
+          "needs": "Frostbolt, Fireball and Arcane Missiles learned",
+          "codePt": "#showtooltip Seta de Gelo\n/cast [mod:shift] Bola de Fogo; [mod:ctrl] Mísseis Arcanos; Seta de Gelo"
+        },
+        {
+          "id": "pvp-pvp-decurse-counter",
+          "title": "Decurse a friend or Counterspell an enemy under the cursor",
+          "desc": "Cancels your cast, then decurses the friend under your cursor or Counterspells the enemy there. With nothing under the cursor it uses your target. Shift decurses you.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/cast [mod:shift,@player][@mouseover,help,nodead] Remove Lesser Curse; [@mouseover,harm,nodead] Counterspell; [help,nodead] Remove Lesser Curse; [harm,nodead] Counterspell",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Decurse a friendly mouseover or target, or Counterspell an enemy one"
+            },
+            {
+              "key": "Shift",
+              "text": "Decurse yourself"
+            }
+          ],
+          "needs": "Remove Lesser Curse (18) and Counterspell (24) learned. This cancels your current cast.",
+          "level": 24,
+          "codePt": "#showtooltip\n/stopcasting\n/cast [mod:shift,@player][@mouseover,help,nodead] Remover Maldição Inferior; [@mouseover,harm,nodead] Contrafeitiço; [help,nodead] Remover Maldição Inferior; [harm,nodead] Contrafeitiço"
+        },
+        {
+          "id": "pvp-pvp-trinkets",
+          "title": "Trinkets on one key",
+          "desc": "Uses your top trinket, Shift uses the bottom one and Ctrl uses both.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use [nomod][mod:ctrl] 13\n/use [mod:shift][mod:ctrl] 14",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Use your top trinket"
+            },
+            {
+              "key": "Shift",
+              "text": "Use your bottom trinket"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Use both trinkets"
+            }
+          ],
+          "needs": "Trinkets equipped in both slots",
+          "codePt": "#showtooltip\n/use [nomod][mod:ctrl] 13\n/use [mod:shift][mod:ctrl] 14"
+        },
+        {
+          "id": "pvp-racial-burst",
+          "title": "Trinkets and your racial burst on one key",
+          "desc": "Uses both trinkets and Berserking, Blood Fury or Eureka!, whichever your race has. Press it just before your burst so everything lines up.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use 13\n/use 14\n/cast Berserking\n/cast Blood Fury\n/cast Eureka!",
+          "origin": "adapted",
+          "needs": "Trolls (Berserking), Orcs (Blood Fury) and Gnomes (Eureka!) get something from the racial lines. Other races only get the trinkets.",
+          "codePt": "#showtooltip\n/use 13\n/use 14\n/cast Berserk\n/cast Fúria Sangrenta\n/cast Eureca!"
+        }
+      ]
+    },
+    {
+      "id": "pvp-arcane",
+      "name": "Arcane PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-pvp-presence",
+          "title": "Presence of Mind plus an instant spell",
+          "desc": "Uses Presence of Mind and casts one spell instantly. Arcane Blast by default, Shift for Pyroblast, Ctrl for Polymorph and Alt for Frostbolt.",
+          "icon": "spell_nature_enchantarmor",
+          "iconKind": "ability",
+          "code": "#showtooltip Presence of Mind\n/stopcasting\n/cast Presence of Mind\n/cast [mod:shift] Pyroblast; [mod:ctrl] Polymorph; [mod:alt] Frostbolt; Arcane Blast",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Instant Arcane Blast"
+            },
+            {
+              "key": "Shift",
+              "text": "Instant Pyroblast"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Instant Polymorph on your target"
+            },
+            {
+              "key": "Alt",
+              "text": "Instant Frostbolt"
+            }
+          ],
+          "needs": "Presence of Mind talent. Arcane Blast and Pyroblast need their own talents; Polymorph and Frostbolt don’t.",
+          "level": 30,
+          "codePt": "#showtooltip Presença de Espírito\n/stopcasting\n/cast Presença de Espírito\n/cast [mod:shift] Ignimpacto; [mod:ctrl] Polimorfia; [mod:alt] Seta de Gelo; Impacto Arcano"
+        },
+        {
+          "id": "pvp-pvp-burst",
+          "title": "Trinkets, Arcane Power and Presence of Mind burst",
+          "desc": "Uses both trinkets, Arcane Power and Presence of Mind, then casts an instant Pyroblast. Hold Shift for Frostbolt if you don’t have Pyroblast.",
+          "icon": "spell_fire_fireball02",
+          "iconKind": "ability",
+          "code": "#showtooltip Pyroblast\n/stopcasting\n/use 13\n/use 14\n/cast Arcane Power\n/cast Presence of Mind\n/cast [mod:shift] Frostbolt; Pyroblast",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cooldowns, then instant Pyroblast"
+            },
+            {
+              "key": "Shift",
+              "text": "Cooldowns, then instant Frostbolt"
+            }
+          ],
+          "needs": "Arcane Power and Presence of Mind talents (Arcane), plus the Pyroblast talent (Fire) for the default cast",
+          "level": 40,
+          "codePt": "#showtooltip Ignimpacto\n/stopcasting\n/use 13\n/use 14\n/cast Poder Arcano\n/cast Presença de Espírito\n/cast [mod:shift] Seta de Gelo; Ignimpacto"
+        },
+        {
+          "id": "pvp-counterspell-instant-sheep",
+          "title": "Counterspell, then an instant sheep",
+          "desc": "Counterspells the enemy under your cursor, or your target, then uses Presence of Mind to sheep the same enemy instantly. Good on a healer mid-cast.",
+          "icon": "spell_nature_polymorph",
+          "iconKind": "ability",
+          "code": "#showtooltip Polymorph\n/stopcasting\n/cast [@mouseover,harm,nodead][] Counterspell\n/cast Presence of Mind\n/cast [@mouseover,harm,nodead][] Polymorph",
+          "origin": "classic",
+          "needs": "Presence of Mind talent and Counterspell (24). With Presence of Mind on cooldown the sheep is a normal cast. If you cut a cast you’d only just started, press again.",
+          "level": 30,
+          "codePt": "#showtooltip Polimorfia\n/stopcasting\n/cast [@mouseover,harm,nodead][] Contrafeitiço\n/cast Presença de Espírito\n/cast [@mouseover,harm,nodead][] Polimorfia"
+        },
+        {
+          "id": "pvp-presence-arcane-wrath",
+          "title": "Instant Arcane Wrath, with Arcane Power on Shift",
+          "desc": "Presence of Mind turns your next Arcane Wrath into an instant hit. Shift also fires both trinkets and Arcane Power. It hits hardest after a few Arcane Blasts.",
+          "icon": "ability_mage_netherwindpresence",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Wrath\n/stopcasting\n/use [mod:shift] 13\n/use [mod:shift] 14\n/cast [mod:shift] Arcane Power\n/cast Presence of Mind\n/cast Arcane Wrath",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Presence of Mind, then instant Arcane Wrath"
+            },
+            {
+              "key": "Shift",
+              "text": "Trinkets and Arcane Power too, then instant Arcane Wrath"
+            }
+          ],
+          "needs": "Presence of Mind and Arcane Wrath (25) talents, plus Arcane Power for Shift. All three are in the Arcane tree.",
+          "level": 40,
+          "codePt": "#showtooltip Ira Arcana\n/stopcasting\n/use [mod:shift] 13\n/use [mod:shift] 14\n/cast [mod:shift] Poder Arcano\n/cast Presença de Espírito\n/cast Ira Arcana"
+        },
+        {
+          "id": "pvp-counterspell-arcane-wrath",
+          "title": "Counterspell, then Arcane Wrath inside the silence",
+          "desc": "Counterspells your target and starts Arcane Wrath straight away. With both ranks of Improved Counterspell they’re silenced for 4 sec, longer than Wrath’s 3.5 sec cast.",
+          "icon": "spell_frost_iceshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Counterspell\n/stopcasting\n/cast Counterspell\n/cast Arcane Wrath",
+          "origin": "forever",
+          "needs": "Improved Counterspell and Arcane Wrath (25) talents; Counterspell (24). A silence doesn’t stop melee interrupts such as Kick or Pummel.",
+          "level": 25,
+          "codePt": "#showtooltip Contrafeitiço\n/stopcasting\n/cast Contrafeitiço\n/cast Ira Arcana"
+        },
+        {
+          "id": "pvp-mana-shield-gem",
+          "title": "Mana Shield, with a mana gem on Shift",
+          "desc": "Cancels your cast and puts up Mana Shield. Hold Shift to use a mana gem first, since the shield drains mana with every hit it soaks.",
+          "icon": "spell_shadow_detectlesserinvisibility",
+          "iconKind": "ability",
+          "code": "#showtooltip Mana Shield\n/stopcasting\n/use [mod:shift] Mana Ruby\n/use [mod:shift] Mana Citrine\n/use [mod:shift] Mana Jade\n/use [mod:shift] Mana Agate\n/cast Mana Shield",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Mana Shield"
+            },
+            {
+              "key": "Shift",
+              "text": "Use a mana gem, then cast Mana Shield"
+            }
+          ],
+          "needs": "Mana Shield (20), and a conjured gem for Shift. Arcane Shielding cuts the mana each point of damage costs by a third. The item names are the Classic ones.",
+          "codePt": "#showtooltip Escudo de Mana\n/stopcasting\n/use [mod:shift] Mana Ruby\n/use [mod:shift] Mana Citrine\n/use [mod:shift] Mana Jade\n/use [mod:shift] Mana Agate\n/cast Escudo de Mana",
+          "untranslated": [
+            "Mana Ruby",
+            "Mana Citrine",
+            "Mana Jade",
+            "Mana Agate"
+          ]
+        },
+        {
+          "id": "pvp-missile-barrage",
+          "title": "Arcane Missiles for a Missile Barrage proc",
+          "desc": "When Missile Barrage lights up, this drops your Fireball or Frostbolt and fires the quick, free Missiles at the enemy under your cursor, or your target. Mashing it won’t restart the channel.",
+          "icon": "spell_nature_starfall",
+          "iconKind": "ability",
+          "code": "#showtooltip Arcane Missiles\n/stopcasting [nochanneling:Arcane Missiles]\n/cast [nochanneling:Arcane Missiles,@mouseover,harm,nodead][nochanneling:Arcane Missiles] Arcane Missiles",
+          "origin": "forever",
+          "needs": "Missile Barrage talent. A cast you started less than 1.5 sec ago still holds the global cooldown, so the Missiles wait for it.",
+          "codePt": "#showtooltip Mísseis Arcanos\n/stopcasting [nochanneling:Arcane Missiles]\n/cast [nochanneling:Arcane Missiles,@mouseover,harm,nodead][nochanneling:Arcane Missiles] Mísseis Arcanos"
+        },
+        {
+          "id": "pvp-arcane-wrath-opener",
+          "title": "Arcane Wrath to open, Arcane Blast after",
+          "desc": "Out of combat the button casts Arcane Wrath, your biggest Arcane hit, on someone who hasn’t seen you yet. Once you’re fighting it casts Arcane Blast.",
+          "icon": "spell_arcane_blast",
+          "iconKind": "ability",
+          "code": "#showtooltip [nocombat] Arcane Wrath; Arcane Blast\n/cast [nocombat] Arcane Wrath; Arcane Blast",
+          "origin": "forever",
+          "needs": "Arcane Wrath (25) and Arcane Blast talents. Keep Wrath on its own key too, for its 6 sec cooldown mid-fight.",
+          "level": 25,
+          "codePt": "#showtooltip [nocombat] Ira Arcana; Impacto Arcano\n/cast [nocombat] Ira Arcana; Impacto Arcano"
+        }
+      ]
+    },
+    {
+      "id": "pvp-fire",
+      "name": "Fire PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-sheep-pyro",
+          "title": "Sheep, Pyroblast, then Fire Blast",
+          "desc": "A 1v1 opener: press once to sheep your target, again to hard-cast Pyroblast on the sheep, and once more for Fire Blast as it lands. A new target or 20 sec idle starts it over.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=target/20 Polymorph, Pyroblast, Fire Blast",
+          "origin": "classic",
+          "needs": "Pyroblast talent. A sheep heals fast, so don’t wait long before the Pyroblast. If Fire Blast is cooling down, the last step waits for it.",
+          "codePt": "#showtooltip\n/castsequence reset=target/20 Polimorfia, Ignimpacto, Impacto de Fogo"
+        },
+        {
+          "id": "pvp-dismount-pyro-opener",
+          "title": "Dismount into a Pyroblast opener with trinkets",
+          "desc": "Out of combat, one press takes you off your mount, fires both trinkets and starts Pyroblast on your target. Once you’re fighting, the same key is Fire Blast.",
+          "icon": "spell_fire_fireball",
+          "iconKind": "ability",
+          "code": "#showtooltip [nocombat] Pyroblast; Fire Blast\n/dismount\n/use [nocombat] 13\n/use [nocombat] 14\n/cast [nocombat] Pyroblast; Fire Blast",
+          "origin": "classic",
+          "needs": "Pyroblast talent; on-use trinkets for the trinket lines",
+          "codePt": "#showtooltip [nocombat] Ignimpacto; Impacto de Fogo\n/dismount\n/use [nocombat] 13\n/use [nocombat] 14\n/cast [nocombat] Ignimpacto; Impacto de Fogo"
+        },
+        {
+          "id": "pvp-fire-blast-pyro",
+          "title": "Fire Blast, then a faster Pyroblast",
+          "desc": "First press is Fire Blast, which adds a Heating Up stack when it hits (two on a crit), so the Pyroblast on the next press casts at least 25% faster. Hold Shift to add Combustion.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Combustion\n/castsequence reset=target/10 Fire Blast, Pyroblast",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Fire Blast, then Pyroblast on the next press"
+            },
+            {
+              "key": "Shift",
+              "text": "Combustion as well"
+            }
+          ],
+          "needs": "Heating Up and Pyroblast talents; Combustion (40) for Shift. While Fire Blast is cooling down the first press does nothing.",
+          "level": 40,
+          "codePt": "#showtooltip\n/cast [mod:shift] Combustão\n/castsequence reset=target/10 Impacto de Fogo, Ignimpacto"
+        },
+        {
+          "id": "pvp-nova-pyro",
+          "title": "Frost Nova, then Pyroblast while they’re rooted",
+          "desc": "First press freezes everything next to you. Step out of melee range and press again to hard-cast Pyroblast before the freeze ends. It resets after 8 sec.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=8 Frost Nova, Pyroblast",
+          "origin": "classic",
+          "needs": "Pyroblast talent. Nova holds for up to 8 sec and a full Pyroblast takes 6, so Heating Up stacks give you room. It won’t cancel a cast you’re in the middle of.",
+          "codePt": "#showtooltip\n/castsequence reset=8 Nova Congelante, Ignimpacto"
+        },
+        {
+          "id": "pvp-blast-wave-blink",
+          "title": "Blast Wave, then Blink",
+          "desc": "First press drops your cast and Blast Waves everyone close, dazing them to half speed for 6 sec. Turn away and press again to Blink. Handy when Frost Nova is down.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/dismount\n/castsequence reset=6 Blast Wave, Blink",
+          "origin": "classic",
+          "needs": "Blast Wave talent (30) and Blink (20). The sequence waits on Blast Wave’s cooldown and resets after 6 sec.",
+          "level": 30,
+          "codePt": "#showtooltip\n/stopcasting\n/dismount\n/castsequence reset=6 Onda de Impacto, Lampejo"
+        },
+        {
+          "id": "pvp-frostfire-slow",
+          "title": "Frostfire Bolt the mouseover, rank 1 Frostbolt on Shift",
+          "desc": "Frostfire Bolts the enemy under your cursor, or your target, leaving a burn and a slow. Shift casts rank 1 Frostbolt instead, a 1.5 sec cast, when you need the slow sooner.",
+          "icon": "ability_mage_frostfirebolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Frostfire Bolt\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Frostbolt(Rank 1); [@mouseover,harm,nodead][] Frostfire Bolt",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Frostfire Bolt your mouseover, or your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Frostbolt rank 1 on the same enemy"
+            }
+          ],
+          "needs": "Frostfire Bolt, which the trainer teaches at 40. Frostfire Bolt crits also build Heating Up.",
+          "level": 40,
+          "codePt": "#showtooltip Seta de Fogofrio\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Seta de Gelo(Grau 1); [@mouseover,harm,nodead][] Seta de Fogofrio"
+        }
+      ]
+    },
+    {
+      "id": "pvp-frost",
+      "name": "Frost PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-pvp-ice-block",
+          "title": "Ice Block toggle with Cold Snap on Shift",
+          "desc": "Casts Ice Block, and a second press drops it early. Shift casts Cold Snap to finish your Frost cooldowns, so the next press can Block again.",
+          "icon": "spell_frost_frost",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Cold Snap; Ice Block\n/stopcasting\n/cancelaura Ice Block\n/cast [mod:shift] Cold Snap; Ice Block",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Ice Block, or cancel it if it is up"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel Ice Block if it is up, then cast Cold Snap"
+            }
+          ],
+          "needs": "Ice Block and Cold Snap talents. While Ice Block is on cooldown, the second press only cancels the aura.",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Ruptura do Gelo; Bloco de Gelo\n/stopcasting\n/cancelaura Bloco de Gelo\n/cast [mod:shift] Ruptura do Gelo; Bloco de Gelo"
+        },
+        {
+          "id": "pvp-frostbolt-kite",
+          "title": "Frostbolt to slow, Cone of Cold when they close",
+          "desc": "Frostbolts the enemy under your cursor, or your target. Shift casts rank 1, a 1.5 sec cast with a shorter slow. Ctrl drops your cast for Cone of Cold, which your Winter’s Chill stacks make hit harder.",
+          "icon": "spell_frost_frostbolt02",
+          "iconKind": "ability",
+          "code": "#showtooltip Frostbolt\n/stopcasting [mod:ctrl]\n/cast [mod:ctrl] Cone of Cold; [mod:shift,@mouseover,harm,nodead][mod:shift] Frostbolt(Rank 1); [@mouseover,harm,nodead][] Frostbolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Frostbolt your mouseover, or your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Frostbolt rank 1 on the same enemy"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Stop casting, then Cone of Cold"
+            }
+          ],
+          "needs": "Cone of Cold (26) for Ctrl",
+          "level": 26,
+          "codePt": "#showtooltip Seta de Gelo\n/stopcasting [mod:ctrl]\n/cast [mod:ctrl] Cone de Frio; [mod:shift,@mouseover,harm,nodead][mod:shift] Seta de Gelo(Grau 1); [@mouseover,harm,nodead][] Seta de Gelo"
+        },
+        {
+          "id": "pvp-shatter-cone",
+          "title": "Frost Nova, Frostbolt and Cone of Cold shatter",
+          "desc": "Press once to freeze them and take a step back, then press for Frostbolt and again for Cone of Cold. Each gets Shatter’s crit bonus while they stay frozen. A new target or 8 sec idle resets it.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=target/8 Frost Nova, Frostbolt, Cone of Cold",
+          "origin": "classic",
+          "needs": "Shatter talent for the crits; Cone of Cold (26). Damage can break Frost Nova early, and the Frostbolt’s Winter’s Chill stack adds to the Cone.",
+          "level": 26,
+          "codePt": "#showtooltip\n/castsequence reset=target/8 Nova Congelante, Seta de Gelo, Cone de Frio"
+        },
+        {
+          "id": "pvp-cold-snap-nova",
+          "title": "Cold Snap into a second Frost Nova or Ice Barrier",
+          "desc": "Drops your cast for Frost Nova. Once Nova or Ice Barrier is on cooldown, Shift uses Cold Snap and Novas again, and Ctrl uses Cold Snap and puts Ice Barrier back up.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/cast [mod:shift][mod:ctrl] Cold Snap\n/cast [mod:ctrl] Ice Barrier; Frost Nova",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Frost Nova"
+            },
+            {
+              "key": "Shift",
+              "text": "Cold Snap, then Frost Nova"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cold Snap, then Ice Barrier"
+            }
+          ],
+          "needs": "Cold Snap talent; Ice Barrier talent (40) for Ctrl. Cold Snap has a 10 min cooldown and resets all your Frost spells, Ice Block included.",
+          "level": 40,
+          "codePt": "#showtooltip\n/stopcasting\n/cast [mod:shift][mod:ctrl] Ruptura do Gelo\n/cast [mod:ctrl] Barreira de Gelo; Nova Congelante"
+        },
+        {
+          "id": "pvp-ice-block-exit",
+          "title": "Leave Ice Block with Blink, Ice Barrier or Ice Lance",
+          "desc": "Cancels Ice Block and Blinks away. Shift comes out with Ice Barrier instead, and Ctrl with an Ice Lance at your target. If only the Block drops, press again.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cancelaura Ice Block\n/cast [mod:shift] Ice Barrier; [mod:ctrl] Ice Lance; Blink",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cancel Ice Block, then Blink"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel Ice Block, then Ice Barrier"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cancel Ice Block, then Ice Lance your target"
+            }
+          ],
+          "needs": "Ice Block talent; Ice Barrier (40) and Ice Lance talents for the modifiers. The spell after the cancel sometimes needs that second press.",
+          "level": 40,
+          "codePt": "#showtooltip\n/cancelaura Bloco de Gelo\n/cast [mod:shift] Barreira de Gelo; [mod:ctrl] Lança de Gelo; Lampejo"
+        },
+        {
+          "id": "pvp-frostbolt-ice-lance",
+          "title": "Frostbolt, then Ice Lance as it lands",
+          "desc": "On a frozen target, press once for Frostbolt and again just before it lands for Ice Lance, so both hit while the freeze holds. A new target or 4 sec idle resets it.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=target/4 Frostbolt, Ice Lance",
+          "origin": "forever",
+          "needs": "Ice Lance talent. Frost Nova, Frostbite or Fingers of Frost gives you the freeze, and Ice Lance hits a frozen target much harder. Its 8 sec cooldown is shared with Fire Blast.",
+          "codePt": "#showtooltip\n/castsequence reset=target/4 Seta de Gelo, Lança de Gelo"
+        },
+        {
+          "id": "pvp-cone-then-blink",
+          "title": "Cone of Cold, then Blink",
+          "desc": "First press drops your cast and Cones everyone in front of you. Turn away and press again to Blink while they’re slowed. Use it when Frost Nova is on cooldown.",
+          "icon": "classicon_mage",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/dismount\n/castsequence reset=6 Cone of Cold, Blink",
+          "origin": "classic",
+          "needs": "Cone of Cold (26) and Blink (20). The sequence waits on Cone of Cold’s cooldown and resets after 6 sec.",
+          "level": 26,
+          "codePt": "#showtooltip\n/stopcasting\n/dismount\n/castsequence reset=6 Cone de Frio, Lampejo"
+        }
+      ]
+    }
+  ]
+}

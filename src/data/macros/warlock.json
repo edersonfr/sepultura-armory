@@ -1,0 +1,1410 @@
+{
+  "slug": "warlock",
+  "fetched": "2026-11-10T01:48:19.407Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/warlock/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-fear",
+          "title": "Mouseover Fear",
+          "desc": "Fear another enemy without losing your main target.",
+          "icon": "spell_shadow_possession",
+          "iconKind": "ability",
+          "code": "#showtooltip Fear\n/cast [@mouseover,harm,nodead][] Fear",
+          "origin": "adapted",
+          "needs": "Fear learned",
+          "codePt": "#showtooltip Medo\n/cast [@mouseover,harm,nodead][] Medo"
+        },
+        {
+          "id": "class-wide-pet-back",
+          "title": "Call your demon back",
+          "desc": "Stop its attack and bring it back before it breaks crowd control or pulls another enemy.",
+          "icon": "spell_shadow_summonimp",
+          "iconKind": "ability",
+          "code": "/petpassive\n/petfollow",
+          "origin": "adapted",
+          "needs": "A living demon",
+          "codePt": "/petpassive\n/petfollow"
+        },
+        {
+          "id": "class-wide-summon-demon",
+          "title": "Summon a demon with modifier keys",
+          "desc": "Summon your Voidwalker, or hold a modifier to call a different demon instead.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Summon Imp; [mod:ctrl] Summon Succubus; [mod:alt] Summon Felhunter; Summon Voidwalker",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Summon your Voidwalker"
+            },
+            {
+              "key": "Shift",
+              "text": "Summon your Imp"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Summon your Succubus"
+            },
+            {
+              "key": "Alt",
+              "text": "Summon your Felhunter"
+            }
+          ],
+          "needs": "Each demon's summon learned. The Incubus is its own summon in Forever and isn't on this button. We haven't confirmed the Soul Shard cost of each summon",
+          "level": 30,
+          "codePt": "#showtooltip\n/cast [mod:shift] Evocar Diabrete; [mod:ctrl] Evocar Súcubo; [mod:alt] Evocar Caçador Vil; Evocar Emissário do Caos"
+        },
+        {
+          "id": "class-wide-curse-choice",
+          "title": "Pick your curse with a modifier key",
+          "desc": "Curse your mouseover or target with Curse of the Elements, or hold a modifier for Weakness, Recklessness or Tongues.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Curse of Weakness; [mod:ctrl,@mouseover,harm,nodead][mod:ctrl] Curse of Recklessness; [mod:alt] Curse of Tongues; [@mouseover,harm,nodead][] Curse of the Elements",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Curse of the Elements"
+            },
+            {
+              "key": "Shift",
+              "text": "Curse of Weakness"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Curse of Recklessness"
+            },
+            {
+              "key": "Alt",
+              "text": "Curse of Tongues on your target"
+            }
+          ],
+          "needs": "Each curse learned (Elements at 20, Tongues at 26). Blizzard removed Curse of Shadow, and Curse of the Elements now covers every magic school",
+          "level": 26,
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Maldição da Fraqueza; [mod:ctrl,@mouseover,harm,nodead][mod:ctrl] Maldição da Temeridade; [mod:alt] Maldição de Línguas; [@mouseover,harm,nodead][] Maldição dos Elementos"
+        },
+        {
+          "id": "class-wide-leveling-dots",
+          "title": "Dot sequence for leveling",
+          "desc": "Send your demon in, then press repeatedly to run Immolate, Bane of Agony and Corruption and finish with your wand.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petattack [harm,nodead]\n/castsequence reset=target Immolate, Bane of Agony, Corruption, !Shoot",
+          "origin": "adapted",
+          "needs": "Bane of Agony learned (level 8); a wand equipped for the last step; a demon out",
+          "codePt": "#showtooltip\n/petattack [harm,nodead]\n/castsequence reset=target Imolação, Ruína da Agonia, Corrupção, !Atirar"
+        },
+        {
+          "id": "class-wide-wand",
+          "title": "Wand without toggling it off",
+          "desc": "Start your wand and keep pressing the button without switching Shoot off again.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip 18\n/cast !Shoot",
+          "origin": "classic",
+          "needs": "A wand equipped",
+          "codePt": "#showtooltip 18\n/cast !Atirar"
+        },
+        {
+          "id": "class-wide-healthstone",
+          "title": "Use your Healthstone",
+          "desc": "Use whichever Healthstone you're carrying, and hold Shift to start Drain Life in the same press.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use Major Healthstone\n/use Greater Healthstone\n/use Healthstone\n/use Lesser Healthstone\n/use Minor Healthstone\n/cast [mod:shift] Drain Life",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Use your Healthstone"
+            },
+            {
+              "key": "Shift",
+              "text": "Use it and start Drain Life on your target"
+            }
+          ],
+          "needs": "A Healthstone in your bags (Create Healthstone at 10)",
+          "codePt": "#showtooltip\n/use Pedra de Vida Elevada\n/use Pedra de Vida Maior\n/use Pedra de Vida\n/use Pedra de Vida Inferior\n/use Pedra de Vida Menor\n/cast [mod:shift] Drenar Vida"
+        },
+        {
+          "id": "class-wide-soulstone",
+          "title": "Soulstone your mouseover or target",
+          "desc": "Use your Soulstone on the friendly player under your cursor, or on your target if nothing's hovered.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use [@mouseover,help,nodead][] Major Soulstone\n/use [@mouseover,help,nodead][] Greater Soulstone\n/use [@mouseover,help,nodead][] Soulstone\n/use [@mouseover,help,nodead][] Lesser Soulstone\n/use [@mouseover,help,nodead][] Minor Soulstone",
+          "origin": "classic",
+          "needs": "A Soulstone in your bags (Create Soulstone at 18)",
+          "codePt": "#showtooltip\n/use [@mouseover,help,nodead][] Major Soulstone\n/use [@mouseover,help,nodead][] Greater Soulstone\n/use [@mouseover,help,nodead][] Soulstone\n/use [@mouseover,help,nodead][] Lesser Soulstone\n/use [@mouseover,help,nodead][] Minor Soulstone",
+          "untranslated": [
+            "Major Soulstone",
+            "Greater Soulstone",
+            "Soulstone",
+            "Lesser Soulstone",
+            "Minor Soulstone"
+          ]
+        },
+        {
+          "id": "class-wide-stones",
+          "title": "Create your stones with one button",
+          "desc": "Create a Healthstone, or hold a modifier to create a Soulstone, Spellstone or Firestone instead.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Create Soulstone; [mod:ctrl] Create Spellstone; [mod:alt] Create Firestone; Create Healthstone",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Create a Healthstone"
+            },
+            {
+              "key": "Shift",
+              "text": "Create a Soulstone"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Create a Spellstone"
+            },
+            {
+              "key": "Alt",
+              "text": "Create a Firestone"
+            }
+          ],
+          "needs": "Each Create spell learned (Soulstone 18, Firestone 28, Spellstone 36). Firestone and Spellstone are weapon imbues in Forever and stack with wizard oil",
+          "level": 36,
+          "codePt": "#showtooltip\n/cast [mod:shift] Criar Pedra da Alma; [mod:ctrl] Criar Pedra Mágica; [mod:alt] Criar Pedra de Fogo; Criar Pedra de Vida"
+        },
+        {
+          "id": "class-wide-ritual-summoning",
+          "title": "Announce Ritual of Summoning",
+          "desc": "Tell your party who you're summoning, then start the ritual on your target.",
+          "icon": "spell_shadow_twilight",
+          "iconKind": "ability",
+          "code": "#showtooltip Ritual of Summoning\n/party Summoning %t, please click the portal\n/cast Ritual of Summoning",
+          "origin": "classic",
+          "needs": "A party member targeted, plus two more players to click the portal",
+          "codePt": "#showtooltip Ritual de Evocação\n/party Summoning %t, please click the portal\n/cast Ritual de Evocação"
+        },
+        {
+          "id": "class-wide-armor-or-ward",
+          "title": "Demon Armor, Shift for Shadow Ward",
+          "desc": "Refresh Demon Armor, or hold Shift for Shadow Ward before incoming Shadow damage. Each press casts only the spell you choose.",
+          "icon": "spell_shadow_ragingscream",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Shadow Ward; Demon Armor\n/cast [mod:shift] Shadow Ward; Demon Armor",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Demon Armor"
+            },
+            {
+              "key": "Shift",
+              "text": "Shadow Ward"
+            }
+          ],
+          "needs": "Demon Armor and Shadow Ward learned",
+          "level": 32,
+          "codePt": "#showtooltip [mod:shift] Proteção contra Sombra; Armadura Demoníaca\n/cast [mod:shift] Proteção contra Sombra; Armadura Demoníaca"
+        }
+      ]
+    },
+    {
+      "id": "affliction",
+      "name": "Affliction",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "affliction-bane-agony",
+          "title": "Mouseover Bane of Agony",
+          "desc": "Apply Forever’s renamed damage-over-time spell to a mouseover or your target.",
+          "icon": "spell_shadow_curseofsargeras",
+          "iconKind": "ability",
+          "code": "#showtooltip Bane of Agony\n/cast [@mouseover,harm,nodead][] Bane of Agony",
+          "origin": "forever",
+          "needs": "Bane of Agony learned",
+          "codePt": "#showtooltip Ruína da Agonia\n/cast [@mouseover,harm,nodead][] Ruína da Agonia"
+        },
+        {
+          "id": "affliction-corruption",
+          "title": "Mouseover Corruption",
+          "desc": "Spread Corruption without switching away from your main target.",
+          "icon": "spell_shadow_abominationexplosion",
+          "iconKind": "ability",
+          "code": "#showtooltip Corruption\n/cast [@mouseover,harm,nodead][] Corruption",
+          "origin": "adapted",
+          "codePt": "#showtooltip Corrupção\n/cast [@mouseover,harm,nodead][] Corrupção"
+        },
+        {
+          "id": "affliction-siphon-life",
+          "title": "Mouseover Siphon Life",
+          "desc": "Put Siphon Life on your mouseover without changing target, or on your target if nothing's hovered.",
+          "icon": "spell_shadow_requiem",
+          "iconKind": "ability",
+          "code": "#showtooltip Siphon Life\n/cast [@mouseover,harm,nodead][] Siphon Life",
+          "origin": "classic",
+          "needs": "Siphon Life talent (level 30)",
+          "level": 30,
+          "codePt": "#showtooltip Sifão de Vida\n/cast [@mouseover,harm,nodead][] Sifão de Vida"
+        },
+        {
+          "id": "affliction-dot-opener",
+          "title": "Corruption, Bane of Agony, Siphon Life, Wrack",
+          "desc": "Send your demon in and press repeatedly to lay your dots one after another and finish with Wrack.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petattack [harm,nodead]\n/castsequence reset=target Corruption, Bane of Agony, Siphon Life, Wrack",
+          "origin": "forever",
+          "needs": "Siphon Life and Wrack learned (Wrack needs Siphon Life, level 40); a demon out",
+          "level": 40,
+          "codePt": "#showtooltip\n/petattack [harm,nodead]\n/castsequence reset=target Corrupção, Ruína da Agonia, Sifão de Vida, Destruição"
+        },
+        {
+          "id": "affliction-amplify-bane",
+          "title": "Amplify Curse into Bane of Agony",
+          "desc": "Pop Amplify Curse and start Bane of Agony in one press, which Forever's Amplify Curse now boosts by 50%.",
+          "icon": "spell_shadow_curseofsargeras",
+          "iconKind": "ability",
+          "code": "#showtooltip Bane of Agony\n/cast Amplify Curse\n/cast Bane of Agony",
+          "origin": "adapted",
+          "needs": "Amplify Curse talent",
+          "codePt": "#showtooltip Ruína da Agonia\n/cast Amplificar Maldição\n/cast Ruína da Agonia"
+        },
+        {
+          "id": "affliction-channel-swap",
+          "title": "One button for your channels",
+          "desc": "Start Drain Life, Drain Soul or Wrack from one button without restarting a channel you're already in, and use Alt for Life Tap.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:alt] Life Tap; [nochanneling,mod:ctrl] Wrack; [nochanneling,mod:shift] Drain Soul; [nochanneling] Drain Life",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Drain Life on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Drain Soul on your target"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Wrack on your target"
+            },
+            {
+              "key": "Alt",
+              "text": "Life Tap, which also ends a channel"
+            }
+          ],
+          "needs": "Wrack learned (level 40)",
+          "level": 40,
+          "codePt": "#showtooltip\n/cast [mod:alt] Conversão de Vida; [nochanneling,mod:ctrl] Destruição; [nochanneling,mod:shift] Drenar Alma; [nochanneling] Drenar Vida"
+        },
+        {
+          "id": "affliction-drain-soul-mouseover",
+          "title": "Mouseover Drain Soul",
+          "desc": "Drain Soul your mouseover or target for a shot at a Soul Shard, without restarting a channel you're already in.",
+          "icon": "spell_shadow_haunting",
+          "iconKind": "ability",
+          "code": "#showtooltip Drain Soul\n/cast [nochanneling,@mouseover,harm,nodead][nochanneling] Drain Soul",
+          "origin": "forever",
+          "needs": "Drain Soul learned; only non-trivial targets can give a shard",
+          "codePt": "#showtooltip Drenar Alma\n/cast [nochanneling,@mouseover,harm,nodead][nochanneling] Drenar Alma"
+        },
+        {
+          "id": "affliction-pull-dots",
+          "title": "Send your demon, then open with a dot",
+          "desc": "Send your demon at the target and open with Corruption, or with Bane of Agony or Immolate on a modifier.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petattack [harm,nodead]\n/cast [mod:shift] Bane of Agony; [mod:ctrl] Immolate; Corruption",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Corruption"
+            },
+            {
+              "key": "Shift",
+              "text": "Bane of Agony"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Immolate"
+            }
+          ],
+          "needs": "A demon out",
+          "codePt": "#showtooltip\n/petattack [harm,nodead]\n/cast [mod:shift] Ruína da Agonia; [mod:ctrl] Imolação; Corrupção"
+        }
+      ]
+    },
+    {
+      "id": "demonology",
+      "name": "Demonology",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "demonology-health-funnel",
+          "title": "Health Funnel, Shift to stop",
+          "desc": "Channel into your living demon. Repeated presses won't restart Health Funnel; hold Shift to stop once your pet is healthy.",
+          "icon": "spell_shadow_lifedrain",
+          "iconKind": "ability",
+          "code": "#showtooltip Health Funnel\n/stopcasting [mod:shift]\n/stopmacro [mod:shift]\n/cast [@pet,exists,nodead,nochanneling:Health Funnel] Health Funnel",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Channel Health Funnel without restarting it"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop casting"
+            }
+          ],
+          "needs": "Health Funnel learned; living pet",
+          "codePt": "#showtooltip Funil de Vida\n/stopcasting [mod:shift]\n/stopmacro [mod:shift]\n/cast [@pet,exists,nodead,nochanneling:Health Funnel] Funil de Vida"
+        },
+        {
+          "id": "demonology-subjugate-demon",
+          "title": "Mouseover Subjugate Demon",
+          "desc": "Use Forever’s renamed demon control spell on a mouseover.",
+          "icon": "spell_shadow_enslavedemon",
+          "iconKind": "ability",
+          "code": "#showtooltip Subjugate Demon\n/cast [@mouseover,harm,nodead][] Subjugate Demon",
+          "origin": "forever",
+          "needs": "Subjugate Demon learned",
+          "level": 30,
+          "codePt": "#showtooltip Subjugar Demônio\n/cast [@mouseover,harm,nodead][] Subjugar Demônio"
+        },
+        {
+          "id": "demonology-fel-domination-summon",
+          "title": "Fel Domination and summon",
+          "desc": "Fire Fel Domination and start the summon in the same press: Voidwalker, or a modifier for another demon.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast Fel Domination\n/cast [mod:shift] Summon Imp; [mod:ctrl] Summon Succubus; [mod:alt] Summon Felhunter; Summon Voidwalker",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Summon your Voidwalker"
+            },
+            {
+              "key": "Shift",
+              "text": "Summon your Imp"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Summon your Succubus"
+            },
+            {
+              "key": "Alt",
+              "text": "Summon your Felhunter"
+            }
+          ],
+          "needs": "Fel Domination talent (level 25) and each demon learned. Its cooldown is 5 minutes in Forever",
+          "level": 30,
+          "codePt": "#showtooltip\n/cast Dominância Vil\n/cast [mod:shift] Evocar Diabrete; [mod:ctrl] Evocar Súcubo; [mod:alt] Evocar Caçador Vil; Evocar Emissário do Caos"
+        },
+        {
+          "id": "demonology-sacrifice-resummon",
+          "title": "Sacrifice, then summon a different demon",
+          "desc": "Sacrifice your demon for its 2 hour effect and summon another one straight away.",
+          "icon": "spell_shadow_psychicscream",
+          "iconKind": "ability",
+          "code": "#showtooltip Demonic Sacrifice\n/cast Demonic Sacrifice\n/cast [mod:shift] Summon Imp; [mod:ctrl] Summon Voidwalker; [mod:alt] Summon Succubus; Summon Felhunter",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Summon your Felhunter"
+            },
+            {
+              "key": "Shift",
+              "text": "Summon your Imp"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Summon your Voidwalker"
+            },
+            {
+              "key": "Alt",
+              "text": "Summon your Succubus"
+            }
+          ],
+          "needs": "Demonic Sacrifice and Demonic Pact talents, with a demon out. Pact needs 31 Demonology points, level 40 in the planner; we haven't tested when it unlocks in game. Summoning the demon you sacrificed ends the effect.",
+          "level": 40,
+          "codePt": "#showtooltip Sacrifício Demoníaco\n/cast Sacrifício Demoníaco\n/cast [mod:shift] Evocar Diabrete; [mod:ctrl] Evocar Emissário do Caos; [mod:alt] Evocar Súcubo; Evocar Caçador Vil"
+        },
+        {
+          "id": "demonology-sayaad-summon",
+          "title": "Summon your Succubus or Incubus",
+          "desc": "Summon your Succubus, or hold Shift for the Incubus, which is its own summon in Forever.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Summon Incubus; Summon Succubus",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Summon your Succubus"
+            },
+            {
+              "key": "Shift",
+              "text": "Summon your Incubus"
+            }
+          ],
+          "needs": "Summon Succubus and Summon Incubus, both learned at 20. Either one gives the Fire damage sacrifice",
+          "codePt": "#showtooltip\n/cast [mod:shift] Evocar Íncubo; Evocar Súcubo"
+        },
+        {
+          "id": "demonology-banish",
+          "title": "Mouseover Banish",
+          "desc": "Banish a demon or elemental under your cursor without leaving your main target.",
+          "icon": "spell_shadow_cripple",
+          "iconKind": "ability",
+          "code": "#showtooltip Banish\n/cast [@mouseover,harm,nodead][] Banish",
+          "origin": "classic",
+          "needs": "Banish learned; it only works on Demons and Elementals",
+          "level": 28,
+          "codePt": "#showtooltip Banir\n/cast [@mouseover,harm,nodead][] Banir"
+        },
+        {
+          "id": "demonology-summon-or-recall",
+          "title": "Summon your Voidwalker or call it back",
+          "desc": "Summon the Voidwalker when it's missing or dead, otherwise send it back to your side.",
+          "icon": "spell_shadow_summonvoidwalker",
+          "iconKind": "ability",
+          "code": "#showtooltip Summon Voidwalker\n/cast [nopet][@pet,dead] Summon Voidwalker\n/petfollow [pet]",
+          "origin": "classic",
+          "needs": "Summon Voidwalker learned (level 10)",
+          "codePt": "#showtooltip Evocar Emissário do Caos\n/cast [nopet][@pet,dead] Evocar Emissário do Caos\n/petfollow [pet]"
+        },
+        {
+          "id": "demonology-breath-and-sight",
+          "title": "Unending Breath and Detect Invisibility",
+          "desc": "Give Unending Breath to your mouseover, friendly target or yourself, and hold Shift for Detect Invisibility instead.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help][mod:shift,@player] Detect Invisibility; [@mouseover,help,nodead][help][@player] Unending Breath",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Unending Breath"
+            },
+            {
+              "key": "Shift",
+              "text": "Detect Invisibility"
+            }
+          ],
+          "level": 26,
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help][mod:shift,@player] Detectar Invisibilidade; [@mouseover,help,nodead][help][@player] Fôlego Interminável"
+        },
+        {
+          "id": "demonology-torment",
+          "title": "Voidwalker Torment on your mouseover or target",
+          "desc": "Taunt your mouseover with the Voidwalker, or the enemy you're targeting.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip Torment\n/cast [@mouseover,harm,nodead][] Torment",
+          "origin": "classic",
+          "needs": "A living Voidwalker (level 10)",
+          "codePt": "#showtooltip Tormento\n/cast [@mouseover,harm,nodead][] Tormento"
+        }
+      ]
+    },
+    {
+      "id": "destruction",
+      "name": "Destruction",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "destruction-shadow-bolt",
+          "title": "Shadow Bolt and pet attack",
+          "desc": "Send your demon at the enemy as you begin Shadow Bolt.",
+          "icon": "spell_shadow_shadowbolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Bolt\n/petattack\n/cast Shadow Bolt",
+          "origin": "adapted",
+          "needs": "Living demon for the pet command",
+          "codePt": "#showtooltip Seta Sombria\n/petattack\n/cast Seta Sombria"
+        },
+        {
+          "id": "destruction-immolate",
+          "title": "Mouseover Immolate",
+          "desc": "Apply Immolate to another enemy without changing targets.",
+          "icon": "spell_fire_immolation",
+          "iconKind": "ability",
+          "code": "#showtooltip Immolate\n/cast [@mouseover,harm,nodead][] Immolate",
+          "origin": "adapted",
+          "needs": "Immolate learned",
+          "codePt": "#showtooltip Imolação\n/cast [@mouseover,harm,nodead][] Imolação"
+        },
+        {
+          "id": "destruction-conflagrate",
+          "title": "Mouseover Conflagrate",
+          "desc": "Conflagrate a mouseover that's carrying your Immolate, or your target if nothing's hovered.",
+          "icon": "spell_fire_fireball",
+          "iconKind": "ability",
+          "code": "#showtooltip Conflagrate\n/cast [@mouseover,harm,nodead][] Conflagrate",
+          "origin": "adapted",
+          "needs": "Conflagrate talent, which you can reach at level 25 in Forever",
+          "level": 25,
+          "codePt": "#showtooltip Conflagrar\n/cast [@mouseover,harm,nodead][] Conflagrar"
+        },
+        {
+          "id": "destruction-incinerate-loop",
+          "title": "Immolate, then Incinerate",
+          "desc": "Send your demon in and press repeatedly: Immolate first, then five Incinerates that hit harder while Immolate is on the target.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petattack [harm,nodead]\n/castsequence reset=target Immolate, Incinerate, Incinerate, Incinerate, Incinerate, Incinerate",
+          "origin": "forever",
+          "needs": "Incinerate talent (level 40); a demon out",
+          "level": 40,
+          "codePt": "#showtooltip\n/petattack [harm,nodead]\n/castsequence reset=target Imolação, Incinerar, Incinerar, Incinerar, Incinerar, Incinerar"
+        },
+        {
+          "id": "destruction-shadowburn",
+          "title": "Mouseover Shadowburn",
+          "desc": "Finish a mouseover with Shadowburn, and you get a Soul Shard back if it dies within 8 seconds.",
+          "icon": "spell_shadow_scourgebuild",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadowburn\n/cast [@mouseover,harm,nodead][] Shadowburn",
+          "origin": "adapted",
+          "needs": "Shadowburn talent and a Soul Shard to cast it",
+          "codePt": "#showtooltip Sombra Ardente\n/cast [@mouseover,harm,nodead][] Sombra Ardente"
+        },
+        {
+          "id": "destruction-hellfire-toggle",
+          "title": "Hellfire on and off",
+          "desc": "Start Hellfire and press again to stop it, since it burns you as well as nearby enemies. It can critically strike after the October 1 update.",
+          "icon": "spell_fire_incinerate",
+          "iconKind": "ability",
+          "code": "#showtooltip Hellfire\n/stopcasting [channeling:Hellfire]\n/stopmacro [channeling:Hellfire]\n/cast Hellfire",
+          "origin": "classic",
+          "needs": "Hellfire learned (level 30)",
+          "level": 30,
+          "codePt": "#showtooltip Fogo do Inferno\n/stopcasting [channeling:Hellfire]\n/stopmacro [channeling:Hellfire]\n/cast Fogo do Inferno"
+        },
+        {
+          "id": "destruction-bane-of-havoc",
+          "title": "Mouseover Bane of Havoc",
+          "desc": "Put Bane of Havoc on the enemy under your cursor, or on your target, so 15% of your damage to other targets also hits it.",
+          "icon": "ability_warlock_baneofhavoc",
+          "iconKind": "ability",
+          "code": "#showtooltip Bane of Havoc\n/cast [@mouseover,harm,nodead][] Bane of Havoc",
+          "origin": "forever",
+          "needs": "Bane of Havoc talent. It takes the Bane slot on that enemy, so Bane of Agony can't share it",
+          "level": 30,
+          "codePt": "#showtooltip Ruína Devastadora\n/cast [@mouseover,harm,nodead][] Ruína Devastadora"
+        },
+        {
+          "id": "destruction-nuke-chooser",
+          "title": "Pick your nuke with a modifier key",
+          "desc": "Cast Shadow Bolt, or hold a modifier for Incinerate, Conflagrate or Shadowburn.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Incinerate; [mod:ctrl] Conflagrate; [mod:alt] Shadowburn; Shadow Bolt",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Shadow Bolt"
+            },
+            {
+              "key": "Shift",
+              "text": "Incinerate"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Conflagrate"
+            },
+            {
+              "key": "Alt",
+              "text": "Shadowburn"
+            }
+          ],
+          "needs": "Incinerate, Conflagrate and Shadowburn talents, and a Soul Shard for Shadowburn",
+          "level": 40,
+          "codePt": "#showtooltip\n/cast [mod:shift] Incinerar; [mod:ctrl] Conflagrar; [mod:alt] Sombra Ardente; Seta Sombria"
+        },
+        {
+          "id": "destruction-shadow-bolt-imp",
+          "title": "Shadow Bolt with an Imp Firebolt command",
+          "desc": "Cast Shadow Bolt at your target and request Firebolt at your Imp's current enemy. This doesn't send the Imp to a new target or bypass its mana, cast time or cooldown.",
+          "icon": "spell_shadow_shadowbolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Bolt\n/cast [harm,nodead] Shadow Bolt\n/cast [@pettarget,harm,nodead] Firebolt",
+          "origin": "classic",
+          "needs": "A living Imp with Firebolt learned and an enemy target",
+          "codePt": "#showtooltip Seta Sombria\n/cast [harm,nodead] Seta Sombria\n/cast [@pettarget,harm,nodead] Seta de Fogo"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-fear-stop",
+          "title": "Drop your cast and Fear",
+          "desc": "Cancel whatever you're casting, hop off your mount and Fear your target, or your mouseover with Shift.",
+          "icon": "spell_shadow_possession",
+          "iconKind": "ability",
+          "code": "#showtooltip Fear\n/dismount\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][] Fear",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cancel your cast and Fear your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Fear your mouseover instead"
+            }
+          ],
+          "needs": "Fear learned",
+          "codePt": "#showtooltip Medo\n/dismount\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][] Medo"
+        },
+        {
+          "id": "pvp-coil-howl",
+          "title": "Death Coil or Howl of Terror",
+          "desc": "Cancel your cast and Death Coil your target, or your mouseover with Shift, or Howl of Terror with Ctrl.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/cast [mod:ctrl] Howl of Terror; [mod:shift,@mouseover,harm,nodead][] Death Coil",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cancel your cast and Death Coil your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Death Coil your mouseover instead"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cancel your cast and Howl of Terror"
+            }
+          ],
+          "needs": "Death Coil (level 42) and Howl of Terror (level 40) learned. Death Coil has a 2 minute cooldown",
+          "level": 42,
+          "codePt": "#showtooltip\n/stopcasting\n/cast [mod:ctrl] Uivo do Terror; [mod:shift,@mouseover,harm,nodead][] Espiral da Morte"
+        },
+        {
+          "id": "pvp-curse-swap",
+          "title": "Curse of Tongues, Exhaustion, Weakness or Elements",
+          "desc": "Curse your mouseover or target with Tongues, or hold a modifier for Exhaustion, Weakness or the Elements.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Curse of Exhaustion; [mod:ctrl,@mouseover,harm,nodead][mod:ctrl] Curse of Weakness; [mod:alt] Curse of the Elements; [@mouseover,harm,nodead][] Curse of Tongues",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Curse of Tongues"
+            },
+            {
+              "key": "Shift",
+              "text": "Curse of Exhaustion"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Curse of Weakness"
+            },
+            {
+              "key": "Alt",
+              "text": "Curse of the Elements on your target"
+            }
+          ],
+          "needs": "Curse of Exhaustion talent (level 25); Tongues at 26",
+          "level": 26,
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Maldição da Exaustão; [mod:ctrl,@mouseover,harm,nodead][mod:ctrl] Maldição da Fraqueza; [mod:alt] Maldição dos Elementos; [@mouseover,harm,nodead][] Maldição de Línguas"
+        },
+        {
+          "id": "pvp-drain-swap",
+          "title": "Drain Life, Drain Mana or Life Tap",
+          "desc": "Drain Life your target without restarting the channel, or hold a modifier for a mouseover, Drain Mana or Life Tap.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:alt] Life Tap; [nochanneling,mod:ctrl] Drain Mana; [nochanneling,mod:shift,@mouseover,harm,nodead][nochanneling] Drain Life",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Drain Life on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Drain Life on your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Drain Mana on your target"
+            },
+            {
+              "key": "Alt",
+              "text": "Life Tap, which also ends a channel"
+            }
+          ],
+          "needs": "Drain Mana learned (level 24). Blizzard removed Dark Pact, so Alt is Life Tap",
+          "level": 24,
+          "codePt": "#showtooltip\n/cast [mod:alt] Conversão de Vida; [nochanneling,mod:ctrl] Drenar Mana; [nochanneling,mod:shift,@mouseover,harm,nodead][nochanneling] Drenar Vida"
+        },
+        {
+          "id": "pvp-pet-command",
+          "title": "Pet attack, recall and passive on one key",
+          "desc": "Send your demon at your target, or your mouseover with Shift, call it back with Ctrl or set it to passive with Alt.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "/petattack [mod:shift,@mouseover,harm,nodead][nomod:ctrl,nomod:alt,harm,nodead]\n/petfollow [mod:ctrl]\n/petpassive [mod:alt]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Pet attacks your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Pet attacks your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Pet follows you"
+            },
+            {
+              "key": "Alt",
+              "text": "Pet goes passive"
+            }
+          ],
+          "needs": "A living demon",
+          "codePt": "/petattack [mod:shift,@mouseover,harm,nodead][nomod:ctrl,nomod:alt,harm,nodead]\n/petfollow [mod:ctrl]\n/petpassive [mod:alt]"
+        },
+        {
+          "id": "pvp-shadow-ward",
+          "title": "Drop your cast and Shadow Ward",
+          "desc": "Cancel your cast and put up Shadow Ward when a shadow caster starts on you.",
+          "icon": "spell_shadow_antishadow",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Ward\n/stopcasting\n/cast Shadow Ward",
+          "origin": "classic",
+          "needs": "Shadow Ward learned (level 32). It has a 30 second cooldown",
+          "level": 32,
+          "codePt": "#showtooltip Proteção contra Sombra\n/stopcasting\n/cast Proteção contra Sombra"
+        },
+        {
+          "id": "pvp-assist-strike",
+          "title": "Assist, then curse or Bane",
+          "desc": "Assist the friendly player you're targeting and open with Bane of Agony on their target, or a curse on a modifier.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/assist [help,nodead]\n/cast [harm,nodead,mod:shift] Curse of Tongues; [harm,nodead,mod:ctrl] Curse of Exhaustion; [harm,nodead] Bane of Agony",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Bane of Agony on your ally's target"
+            },
+            {
+              "key": "Shift",
+              "text": "Curse of Tongues on it"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Curse of Exhaustion on it"
+            }
+          ],
+          "needs": "A friendly player targeted; Curse of Exhaustion talent for Ctrl",
+          "level": 26,
+          "codePt": "#showtooltip\n/assist [help,nodead]\n/cast [harm,nodead,mod:shift] Maldição de Línguas; [harm,nodead,mod:ctrl] Maldição da Exaustão; [harm,nodead] Ruína da Agonia"
+        },
+        {
+          "id": "pvp-swap-cc",
+          "title": "Death Coil or Fear your last target",
+          "desc": "Cancel your cast, Death Coil your previous target and swing back to your current one, or hold Shift to Fear the previous target instead.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/targetlasttarget\n/cast [mod:shift] Fear; Death Coil\n/targetlasttarget",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Death Coil your previous target, then swap back"
+            },
+            {
+              "key": "Shift",
+              "text": "Fear your previous target, then swap back"
+            }
+          ],
+          "needs": "Death Coil learned (level 42); a previous target to swap to",
+          "level": 42,
+          "codePt": "#showtooltip\n/stopcasting\n/targetlasttarget\n/cast [mod:shift] Medo; Espiral da Morte\n/targetlasttarget"
+        },
+        {
+          "id": "pvp-racial-break",
+          "title": "Break free with your racial",
+          "desc": "Press to use whichever of these racials your warlock has: Will to Survive, Will of the Forsaken, Escape Artist or Shatter Curse.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast Will to Survive\n/cast Will of the Forsaken\n/cast Escape Artist\n/cast Shatter Curse",
+          "origin": "forever",
+          "needs": "A Human (removes Stuns), Undead (removes Charm, Fear and Sleep), Gnome (breaks movement-impairing effects) or Orc (removes Curses and Banes) warlock. The other lines do nothing for your race",
+          "codePt": "#showtooltip\n/cast Desejo de Sobreviver\n/cast Determinação dos Renegados\n/cast Artista da Fuga\n/cast Estilhaçar Maldição"
+        },
+        {
+          "id": "pvp-spell-lock",
+          "title": "Felhunter Spell Lock on your mouseover or target",
+          "desc": "Send the Felhunter's Spell Lock at your mouseover with Shift, or at whatever it's already fighting.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip Spell Lock\n/cast [mod:shift,@mouseover,harm,nodead][@pettarget,harm,nodead][] Spell Lock",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Spell Lock your demon's target, or yours if it has none"
+            },
+            {
+              "key": "Shift",
+              "text": "Spell Lock your mouseover"
+            }
+          ],
+          "needs": "A living Felhunter (level 30)",
+          "codePt": "#showtooltip Bloquear Feitiço\n/cast [mod:shift,@mouseover,harm,nodead][@pettarget,harm,nodead][] Bloquear Feitiço"
+        },
+        {
+          "id": "pvp-devour-magic",
+          "title": "Felhunter Devour Magic on yourself or a friend",
+          "desc": "Devour Magic your mouseover or target, or yourself with Shift.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip Devour Magic\n/cast [mod:shift,@player][@mouseover,exists,nodead][] Devour Magic",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Devour Magic your mouseover, or your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Devour Magic yourself"
+            }
+          ],
+          "needs": "A living Felhunter",
+          "codePt": "#showtooltip Devorar Magia\n/cast [mod:shift,@player][@mouseover,exists,nodead][] Devorar Magia"
+        },
+        {
+          "id": "pvp-devour-party",
+          "title": "Felhunter Devour Magic on your party",
+          "desc": "Clear a magic effect off your first party member without targeting them, or hold a modifier for the second, third or fourth. In a battleground raid that's your own group of five.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip Devour Magic\n/cast [mod:shift,@party2][mod:ctrl,@party3][mod:alt,@party4][@party1] Devour Magic",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Devour Magic on your first party member"
+            },
+            {
+              "key": "Shift",
+              "text": "Devour Magic on your second party member"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Devour Magic on your third party member"
+            },
+            {
+              "key": "Alt",
+              "text": "Devour Magic on your fourth party member"
+            }
+          ],
+          "needs": "A living Felhunter. Party members are numbered in the order the default party frames list them",
+          "codePt": "#showtooltip Devorar Magia\n/cast [mod:shift,@party2][mod:ctrl,@party3][mod:alt,@party4][@party1] Devorar Magia"
+        },
+        {
+          "id": "pvp-seduction",
+          "title": "Succubus Seduction on your mouseover or target",
+          "desc": "Send the Succubus at your mouseover with Shift, or at the enemy it's already fighting.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip Seduction\n/cast [mod:shift,@mouseover,harm,nodead][@pettarget,harm,nodead][] Seduction",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Seduce your demon's target, or yours if it has none"
+            },
+            {
+              "key": "Shift",
+              "text": "Seduce your mouseover"
+            }
+          ],
+          "needs": "A living Succubus. We haven't confirmed whether the Incubus has Seduction",
+          "codePt": "#showtooltip Sedução\n/cast [mod:shift,@mouseover,harm,nodead][@pettarget,harm,nodead][] Sedução"
+        },
+        {
+          "id": "pvp-seduce-fear",
+          "title": "Seduce your mouseover and Fear your target",
+          "desc": "Hover a second enemy and press: your Succubus seduces that one while you start Fear on your target. With nothing hovered it's a plain Fear.",
+          "icon": "spell_shadow_possession",
+          "iconKind": "ability",
+          "code": "#showtooltip Fear\n/cast [@mouseover,harm,nodead] Seduction\n/cast Fear",
+          "origin": "classic",
+          "needs": "A living Succubus and Fear learned. Damage on either enemy can break the effect",
+          "codePt": "#showtooltip Medo\n/cast [@mouseover,harm,nodead] Sedução\n/cast Medo"
+        },
+        {
+          "id": "pvp-pet-ability",
+          "title": "Your demon's key ability on one button",
+          "desc": "Press for Fire Shield, Sacrifice, Spell Lock or Seduction, whichever your current demon has.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [pet:imp] Fire Shield; [pet:voidwalker] Sacrifice; [pet:felhunter] Spell Lock; [pet:succubus] Seduction",
+          "origin": "classic",
+          "needs": "A living demon",
+          "codePt": "#showtooltip\n/cast [pet:imp] Escudo de Fogo; [pet:voidwalker] Sacrificar; [pet:felhunter] Bloquear Feitiço; [pet:succubus] Sedução"
+        },
+        {
+          "id": "pvp-rain-of-fire-flush",
+          "title": "Rank 1 Rain of Fire to flush stealth",
+          "desc": "Drop the cheapest Rain of Fire on a flag room or a node you're guarding. Its ticks pull any rogue or druid inside out of stealth. Click the ground to place it.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast Rain of Fire(Rank 1)",
+          "origin": "adapted",
+          "needs": "Rain of Fire learned (level 20). Rank 1 costs 295 Mana, against 1,185 for rank 4",
+          "codePt": "#showtooltip\n/cast Chuva de Fogo(Grau 1)"
+        }
+      ]
+    },
+    {
+      "id": "pvp-affliction",
+      "name": "Affliction PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-dot-spread",
+          "title": "Spread dots with one button",
+          "desc": "Put Corruption on your mouseover or target, or hold a modifier for Bane of Agony or Siphon Life.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Bane of Agony; [mod:ctrl,@mouseover,harm,nodead][mod:ctrl] Siphon Life; [@mouseover,harm,nodead][] Corruption",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Corruption"
+            },
+            {
+              "key": "Shift",
+              "text": "Bane of Agony"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Siphon Life"
+            }
+          ],
+          "needs": "Siphon Life talent (level 30). Bane of Agony can sit on the same player as a curse",
+          "level": 30,
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Ruína da Agonia; [mod:ctrl,@mouseover,harm,nodead][mod:ctrl] Sifão de Vida; [@mouseover,harm,nodead][] Corrupção"
+        },
+        {
+          "id": "pvp-kite-dots",
+          "title": "Instant dot sequence for kiting",
+          "desc": "Press while you run: Curse of Exhaustion, Corruption, Bane of Agony, then Siphon Life on your target. Hold Shift to lead with Curse of Tongues on a caster.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence [mod:shift] reset=target/combat Curse of Tongues, Corruption, Bane of Agony, Siphon Life; reset=target/combat Curse of Exhaustion, Corruption, Bane of Agony, Siphon Life",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Exhaustion, then Corruption, Bane of Agony and Siphon Life"
+            },
+            {
+              "key": "Shift",
+              "text": "Tongues, then Corruption, Bane of Agony and Siphon Life"
+            }
+          ],
+          "needs": "Curse of Exhaustion and Siphon Life talents, and 5 points in Improved Corruption so Corruption is instant. In Forever a Bane and a Curse can sit on the same enemy. It starts over when you change target or leave combat",
+          "level": 30,
+          "codePt": "#showtooltip\n/castsequence [mod:shift] reset=target/combat Maldição de Línguas, Corrupção, Ruína da Agonia, Sifão de Vida; reset=target/combat Maldição da Exaustão, Corrupção, Ruína da Agonia, Sifão de Vida"
+        },
+        {
+          "id": "pvp-amplify-exhaustion",
+          "title": "Amplify Curse into Curse of Exhaustion",
+          "desc": "Cancel your cast, pop Amplify Curse and slow your mouseover or target with Curse of Exhaustion. If Amplify is cooling down you still get the slow.",
+          "icon": "spell_shadow_grimward",
+          "iconKind": "ability",
+          "code": "#showtooltip Curse of Exhaustion\n/stopcasting\n/cast Amplify Curse\n/cast [@mouseover,harm,nodead][] Curse of Exhaustion",
+          "origin": "classic",
+          "needs": "Amplify Curse and Curse of Exhaustion talents. Amplify makes the slow stronger and has a 3 minute cooldown. Pressed in the first 1.5 seconds of another cast, the curse doesn't go out, so press again",
+          "level": 25,
+          "codePt": "#showtooltip Maldição da Exaustão\n/stopcasting\n/cast Amplificar Maldição\n/cast [@mouseover,harm,nodead][] Maldição da Exaustão"
+        },
+        {
+          "id": "pvp-amplify-weakness",
+          "title": "Amplify Curse into Curse of Weakness",
+          "desc": "Pop Amplify Curse and put Curse of Weakness on the rogue or warrior hitting you, on your mouseover or target. Amplify makes the curse 50% stronger.",
+          "icon": "spell_shadow_curseofmannoroth",
+          "iconKind": "ability",
+          "code": "#showtooltip Curse of Weakness\n/cast Amplify Curse\n/cast [@mouseover,harm,nodead][] Curse of Weakness",
+          "origin": "classic",
+          "needs": "Amplify Curse talent (3 minute cooldown). In Forever Curse of Weakness lowers the Physical damage the enemy deals. You get one curse per enemy, so it replaces Exhaustion or Tongues",
+          "codePt": "#showtooltip Maldição da Fraqueza\n/cast Amplificar Maldição\n/cast [@mouseover,harm,nodead][] Maldição da Fraqueza"
+        },
+        {
+          "id": "pvp-nightfall-bolt",
+          "title": "Instant Shadow Bolt when Shadow Trance procs",
+          "desc": "When Shadow Trance lights up, press to stop your drain or cast and fire the instant Shadow Bolt at your target, or at your mouseover with Shift.",
+          "icon": "spell_shadow_shadowbolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadow Bolt\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][] Shadow Bolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cancel your cast and Shadow Bolt your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel your cast and Shadow Bolt your mouseover"
+            }
+          ],
+          "needs": "Nightfall talent. Without Shadow Trance it starts a normal 3 second Shadow Bolt. Pressed in the first 1.5 seconds of a drain or cast, it only cancels that",
+          "level": 25,
+          "codePt": "#showtooltip Seta Sombria\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][] Seta Sombria"
+        },
+        {
+          "id": "pvp-corruption-rank-1",
+          "title": "Rank 1 Corruption to keep stealthers out",
+          "desc": "Tag a rogue or druid on your mouseover or target with rank 1 Corruption, which costs 35 Mana. Its ticks keep knocking them out of stealth, and each one can still trigger Nightfall.",
+          "icon": "spell_shadow_abominationexplosion",
+          "iconKind": "ability",
+          "code": "#showtooltip Corruption\n/cast [@mouseover,harm,nodead][] Corruption(Rank 1)",
+          "origin": "classic",
+          "needs": "5 points in Improved Corruption, or it's a 2 second cast. A higher rank of your own Corruption already on that enemy blocks it",
+          "codePt": "#showtooltip Corrupção\n/cast [@mouseover,harm,nodead][] Corrupção(Grau 1)"
+        },
+        {
+          "id": "pvp-wrack-mouseover",
+          "title": "Mouseover Wrack without clipping it",
+          "desc": "Channel Wrack on your mouseover or target once your dots are ticking. Presses during the channel won't restart it.",
+          "icon": "ability_deathknight_hemorrhagicfever",
+          "iconKind": "ability",
+          "code": "#showtooltip Wrack\n/cast [nochanneling:Wrack,@mouseover,harm,nodead][nochanneling:Wrack] Wrack",
+          "origin": "forever",
+          "needs": "Wrack talent (needs Siphon Life, level 40). For its 6 seconds your other Shadow dots hit that enemy 10% harder",
+          "level": 40,
+          "codePt": "#showtooltip Destruição\n/cast [nochanneling:Wrack,@mouseover,harm,nodead][nochanneling:Wrack] Destruição"
+        }
+      ]
+    },
+    {
+      "id": "pvp-demonology",
+      "name": "Demonology PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-soul-link-summon",
+          "title": "Soul Link, or Fel Domination and a new demon",
+          "desc": "With a demon out it casts Soul Link. With none it summons a Felhunter, or a Voidwalker with Shift, using Fel Domination first in combat.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [pet] Soul Link\n/stopmacro [@pet,exists,nodead]\n/cast [combat] Fel Domination\n/cast [mod:shift] Summon Voidwalker; Summon Felhunter",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Soul Link, or a Felhunter if no demon is out"
+            },
+            {
+              "key": "Shift",
+              "text": "Summon a Voidwalker instead when no demon is out"
+            }
+          ],
+          "needs": "Soul Link (level 30) and Fel Domination talents. Soul Link ends when your demon dies, so press again once the new one is out. With 2 points in Master Summoner the fast summon takes about half a second",
+          "level": 30,
+          "codePt": "#showtooltip\n/cast [pet] Vínculo Anímico\n/stopmacro [@pet,exists,nodead]\n/cast [combat] Dominância Vil\n/cast [mod:shift] Evocar Emissário do Caos; Evocar Caçador Vil"
+        },
+        {
+          "id": "pvp-felhunter-lock",
+          "title": "Spell Lock, or Fel Domination for a new Felhunter",
+          "desc": "With your Felhunter out it Spell Locks the enemy it's fighting, or your mouseover with Shift. Without one it summons a Felhunter, with Fel Domination first in combat.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [pet:felhunter,mod:shift,@mouseover,harm,nodead][pet:felhunter,@pettarget,harm,nodead][pet:felhunter] Spell Lock\n/stopmacro [pet:felhunter]\n/cast [combat] Fel Domination\n/cast Summon Felhunter",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Spell Lock, or summon a Felhunter if it isn't out"
+            },
+            {
+              "key": "Shift",
+              "text": "Spell Lock your mouseover"
+            }
+          ],
+          "needs": "Fel Domination talent and Summon Felhunter (level 30). Any other demon you have out gets replaced. Improved Felhunter takes up to 6 seconds off Spell Lock's cooldown",
+          "level": 30,
+          "codePt": "#showtooltip\n/cast [pet:felhunter,mod:shift,@mouseover,harm,nodead][pet:felhunter,@pettarget,harm,nodead][pet:felhunter] Bloquear Feitiço\n/stopmacro [pet:felhunter]\n/cast [combat] Dominância Vil\n/cast Evocar Caçador Vil"
+        },
+        {
+          "id": "pvp-voidwalker-panic",
+          "title": "Sacrifice, Fel Domination and re-summon",
+          "desc": "In a fight, sacrifice the Voidwalker for its shield and bring a new one back fast.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip Sacrifice\n/stopmacro [nocombat][nopet:voidwalker]\n/cast Sacrifice\n/cast Fel Domination\n/cast Summon Voidwalker",
+          "origin": "adapted",
+          "needs": "A living Voidwalker and the Fel Domination talent (level 25). The Sacrifice shield now scales with 10% of your spell healing",
+          "level": 25,
+          "codePt": "#showtooltip Sacrificar\n/stopmacro [nocombat][nopet:voidwalker]\n/cast Sacrificar\n/cast Dominância Vil\n/cast Evocar Emissário do Caos"
+        },
+        {
+          "id": "pvp-pact-swap",
+          "title": "Sacrifice mid-fight and bring a new demon fast",
+          "desc": "Sacrifice your demon, then Fel Domination and a Voidwalker in the same press, or a modifier for another demon. A sacrificed Felhunter restores 3% of your health every 4 seconds.",
+          "icon": "spell_shadow_psychicscream",
+          "iconKind": "ability",
+          "code": "#showtooltip Demonic Sacrifice\n/stopmacro [nopet]\n/cast Demonic Sacrifice\n/cast Fel Domination\n/cast [mod:shift] Summon Felhunter; [mod:ctrl] Summon Succubus; Summon Voidwalker",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Summon your Voidwalker"
+            },
+            {
+              "key": "Shift",
+              "text": "Summon your Felhunter"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Summon your Succubus"
+            }
+          ],
+          "needs": "Demonic Sacrifice, Fel Domination and Demonic Pact talents, with a demon out. Pact keeps the effect when a different demon arrives; summoning the one you sacrificed ends it",
+          "level": 40,
+          "codePt": "#showtooltip Sacrifício Demoníaco\n/stopmacro [nopet]\n/cast Sacrifício Demoníaco\n/cast Dominância Vil\n/cast [mod:shift] Evocar Caçador Vil; [mod:ctrl] Evocar Súcubo; Evocar Emissário do Caos"
+        },
+        {
+          "id": "pvp-funnel-or-sacrifice",
+          "title": "Health Funnel, Shift to sacrifice instead",
+          "desc": "Keep your demon up with Health Funnel without restarting the channel. If it's going down anyway, hold Shift to sacrifice it for the 2 hour effect.",
+          "icon": "spell_shadow_lifedrain",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Demonic Sacrifice; Health Funnel\n/cast [mod:shift] Demonic Sacrifice; [@pet,exists,nodead,nochanneling:Health Funnel] Health Funnel",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Health Funnel your demon without restarting it"
+            },
+            {
+              "key": "Shift",
+              "text": "Demonic Sacrifice"
+            }
+          ],
+          "needs": "Demonic Sacrifice talent and a living demon. Without Demonic Pact, summoning any demon ends the effect",
+          "codePt": "#showtooltip [mod:shift] Sacrifício Demoníaco; Funil de Vida\n/cast [mod:shift] Sacrifício Demoníaco; [@pet,exists,nodead,nochanneling:Health Funnel] Funil de Vida"
+        },
+        {
+          "id": "pvp-demonic-brand",
+          "title": "Brand an enemy with Searing Pain for your demon",
+          "desc": "Send your demon at your mouseover or target and Searing Pain it, so the demon's next few hits on that enemy deal extra Fire or Shadow damage.",
+          "icon": "spell_fire_soulburn",
+          "iconKind": "ability",
+          "code": "#showtooltip Searing Pain\n/petattack [@mouseover,harm,nodead][harm,nodead]\n/cast [@mouseover,harm,nodead][] Searing Pain",
+          "origin": "forever",
+          "needs": "Demonic Brand talent and a demon out. The brand lasts 10 seconds and covers up to 6 pet attacks at 3 points",
+          "level": 25,
+          "codePt": "#showtooltip Dor Lancinante\n/petattack [@mouseover,harm,nodead][harm,nodead]\n/cast [@mouseover,harm,nodead][] Dor Lancinante"
+        },
+        {
+          "id": "pvp-decimation-soul-fire",
+          "title": "Searing Pain into a Decimation Soul Fire",
+          "desc": "Hold Shift for Searing Pain on an enemy under 35% health, then press for Soul Fire, which Decimation makes faster and free of shards for 10 seconds.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Searing Pain; Soul Fire",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Soul Fire on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Searing Pain on your target"
+            }
+          ],
+          "needs": "Decimation talent and Soul Fire (level 48). At 2 points Decimation also cuts Soul Fire's 1 minute cooldown by 90%. Shadow Bolt triggers it as well",
+          "level": 48,
+          "codePt": "#showtooltip\n/cast [mod:shift] Dor Lancinante; Fogo d'Alma"
+        }
+      ]
+    },
+    {
+      "id": "pvp-destruction",
+      "name": "Destruction PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-burst-trinkets",
+          "title": "Trinkets, racial and a nuke",
+          "desc": "Use both trinkets and your Orc or Troll racial, then cast Shadow Bolt, or a modifier for Conflagrate or Shadowburn.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use 13\n/use 14\n/cast Blood Fury\n/cast Berserking\n/cast [mod:shift] Conflagrate; [mod:ctrl] Shadowburn; Shadow Bolt",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cooldowns, then Shadow Bolt"
+            },
+            {
+              "key": "Shift",
+              "text": "Cooldowns, then Conflagrate"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cooldowns, then Shadowburn"
+            }
+          ],
+          "needs": "On-use trinkets if you have them; Blood Fury (Orc) or Berserking (Troll) if that's your race; Conflagrate and Shadowburn talents for the modifiers",
+          "level": 25,
+          "codePt": "#showtooltip\n/use 13\n/use 14\n/cast Fúria Sangrenta\n/cast Berserk\n/cast [mod:shift] Conflagrar; [mod:ctrl] Sombra Ardente; Seta Sombria"
+        },
+        {
+          "id": "pvp-fire-burst",
+          "title": "Immolate, Conflagrate, Shadowburn burst",
+          "desc": "Press it three times for Immolate, Conflagrate and Shadowburn on your target, or hold Shift to lead with Curse of the Elements. Changing target starts it over.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence [mod:shift] reset=target Curse of the Elements, Immolate, Conflagrate, Shadowburn; reset=target Immolate, Conflagrate, Shadowburn",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Immolate, Conflagrate, Shadowburn"
+            },
+            {
+              "key": "Shift",
+              "text": "Curse of the Elements, then the same three"
+            }
+          ],
+          "needs": "Conflagrate and Shadowburn talents and a Soul Shard. If Conflagrate or Shadowburn is still cooling down, that press does nothing until it's ready",
+          "level": 25,
+          "codePt": "#showtooltip\n/castsequence [mod:shift] reset=target Maldição dos Elementos, Imolação, Conflagrar, Sombra Ardente; reset=target Imolação, Conflagrar, Sombra Ardente"
+        },
+        {
+          "id": "pvp-shadowburn-stop",
+          "title": "Drop your cast and Shadowburn",
+          "desc": "Cancel your Shadow Bolt and finish your target with an instant Shadowburn before the heal lands, or your mouseover with Shift.",
+          "icon": "spell_shadow_scourgebuild",
+          "iconKind": "ability",
+          "code": "#showtooltip Shadowburn\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][] Shadowburn",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cancel your cast and Shadowburn your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel your cast and Shadowburn your mouseover"
+            }
+          ],
+          "needs": "Shadowburn talent and a Soul Shard; 15 second cooldown. Pressed in the first 1.5 seconds of another cast, it only cancels that cast",
+          "codePt": "#showtooltip Sombra Ardente\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][] Sombra Ardente"
+        },
+        {
+          "id": "pvp-conflag-daze",
+          "title": "Drop your cast and Conflagrate a runner",
+          "desc": "Cancel your cast and Conflagrate your target, or your mouseover with Shift. With 5 points in Aftermath every Conflagrate dazes them, slowing them by 50% for 5 seconds.",
+          "icon": "spell_fire_fireball",
+          "iconKind": "ability",
+          "code": "#showtooltip Conflagrate\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][] Conflagrate",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cancel your cast and Conflagrate your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel your cast and Conflagrate your mouseover"
+            }
+          ],
+          "needs": "Conflagrate talent and your Immolate on the target; Aftermath for the daze. Pressed in the first 1.5 seconds of another cast, it only cancels that cast",
+          "level": 25,
+          "codePt": "#showtooltip Conflagrar\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][] Conflagrar"
+        },
+        {
+          "id": "pvp-searing-pain",
+          "title": "Mouseover Searing Pain",
+          "desc": "Searing Pain your mouseover or target. It's your shortest cast, so it's the one to keep going while someone's hitting you.",
+          "icon": "spell_fire_soulburn",
+          "iconKind": "ability",
+          "code": "#showtooltip Searing Pain\n/cast [@mouseover,harm,nodead][] Searing Pain",
+          "origin": "classic",
+          "needs": "Searing Pain learned (level 18). Agonizing Flames adds up to 10% crit to it and Intensity helps it through pushback",
+          "codePt": "#showtooltip Dor Lancinante\n/cast [@mouseover,harm,nodead][] Dor Lancinante"
+        },
+        {
+          "id": "pvp-bane-picker",
+          "title": "Bane of Havoc or Bane of Agony on one key",
+          "desc": "Put Bane of Havoc on your mouseover or target, such as their healer, so 15% of your damage to other enemies hits it too. Hold Shift for Bane of Agony on your target.",
+          "icon": "classicon_warlock",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Bane of Agony; [@mouseover,harm,nodead][] Bane of Havoc",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Bane of Havoc on your mouseover or target"
+            },
+            {
+              "key": "Shift",
+              "text": "Bane of Agony on your target"
+            }
+          ],
+          "needs": "Bane of Havoc talent. Havoc sits on one enemy at a time, and each enemy holds one Bane from you",
+          "level": 30,
+          "codePt": "#showtooltip\n/cast [mod:shift] Ruína da Agonia; [@mouseover,harm,nodead][] Ruína Devastadora"
+        },
+        {
+          "id": "pvp-soul-fire-opener",
+          "title": "Soul Fire opener with your demon sent in",
+          "desc": "Open on an enemy who hasn't seen you: your demon runs in as Soul Fire starts. Pyroclasm gives the hit a chance to stun.",
+          "icon": "spell_fire_fireball02",
+          "iconKind": "ability",
+          "code": "#showtooltip Soul Fire\n/stopmacro [noharm][dead]\n/petattack\n/cast Soul Fire",
+          "origin": "forever",
+          "needs": "Soul Fire (level 48), which costs a Soul Shard and has a 1 minute cooldown. Pyroclasm adds the stun chance, and 5 points in Bane take 2 seconds off its 6 second cast",
+          "level": 48,
+          "codePt": "#showtooltip Fogo d'Alma\n/stopmacro [noharm][dead]\n/petattack\n/cast Fogo d'Alma"
+        }
+      ]
+    }
+  ]
+}

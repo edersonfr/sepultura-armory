@@ -1,0 +1,1337 @@
+{
+  "slug": "rogue",
+  "fetched": "2026-11-10T01:48:13.036Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/rogue/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-kick",
+          "title": "Mouseover Kick",
+          "desc": "Interrupt the caster under your cursor, or your current target when the cursor is on nothing.",
+          "icon": "ability_kick",
+          "iconKind": "ability",
+          "code": "#showtooltip Kick\n/cast [@mouseover,harm,nodead][] Kick",
+          "origin": "classic",
+          "needs": "Kick learned (level 12)",
+          "codePt": "#showtooltip Chute\n/cast [@mouseover,harm,nodead][] Chute"
+        },
+        {
+          "id": "class-wide-sap",
+          "title": "Mouseover Sap",
+          "desc": "Sap the enemy under your cursor and keep your main target selected.",
+          "icon": "ability_sap",
+          "iconKind": "ability",
+          "code": "#showtooltip Sap\n/cast [@mouseover,harm,nodead][] Sap",
+          "origin": "adapted",
+          "needs": "Sap learned (level 10); a Humanoid that isn't in combat. Classic also wanted Stealth. The tooltip doesn't ask for it, but we haven't tested that in play",
+          "codePt": "#showtooltip Aturdir\n/cast [@mouseover,harm,nodead][] Aturdir"
+        },
+        {
+          "id": "class-wide-stealth",
+          "title": "Stealth that won't switch itself off",
+          "desc": "Dismount if you need to and slip into Stealth; pressing it again while hidden does nothing instead of dropping you out.",
+          "icon": "ability_stealth",
+          "iconKind": "ability",
+          "code": "#showtooltip Stealth\n/dismount\n/cast [nostealth,nocombat] Stealth",
+          "origin": "classic",
+          "needs": "Out of combat; Stealth has a 10 second cooldown",
+          "codePt": "#showtooltip Furtividade\n/dismount\n/cast [nostealth,nocombat] Furtividade"
+        },
+        {
+          "id": "class-wide-pick-pocket",
+          "title": "Mouseover Pick Pocket",
+          "desc": "Pick the pocket of the enemy under your cursor, or your target when the cursor is on nothing.",
+          "icon": "inv_misc_bag_11",
+          "iconKind": "ability",
+          "code": "#showtooltip Pick Pocket\n/cast [@mouseover,harm,nodead][] Pick Pocket",
+          "origin": "classic",
+          "needs": "Pick Pocket learned; Stealth and a Humanoid within melee range, as in Classic",
+          "codePt": "#showtooltip Bater Carteira\n/cast [@mouseover,harm,nodead][] Bater Carteira"
+        },
+        {
+          "id": "class-wide-stealth-opener",
+          "title": "Pick Pocket, then open from Stealth",
+          "desc": "One key for the whole opener: it enters Stealth if you're visible, then Pick Pocket and Cheap Shot on your target.",
+          "icon": "ability_cheapshot",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth,mod:shift] Garrote; [stealth,mod:ctrl] Ambush; Cheap Shot\n/cast [stealth] Pick Pocket\n/cast [nostealth] Stealth; [mod:shift] Garrote; [mod:ctrl] Ambush; Cheap Shot",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stealth if you're visible, otherwise Pick Pocket and Cheap Shot"
+            },
+            {
+              "key": "Shift",
+              "text": "Pick Pocket and Garrote instead of Cheap Shot"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Pick Pocket and Ambush instead of Cheap Shot"
+            }
+          ],
+          "needs": "Cheap Shot learned (level 26); a dagger in your main hand for Ambush; behind your target for Garrote and Ambush",
+          "level": 26,
+          "codePt": "#showtooltip [stealth,mod:shift] Garrote; [stealth,mod:ctrl] Emboscar; Golpe Baixo\n/cast [stealth] Bater Carteira\n/cast [nostealth] Furtividade; [mod:shift] Garrote; [mod:ctrl] Emboscar; Golpe Baixo",
+          "untranslated": [
+            "Garrote"
+          ]
+        },
+        {
+          "id": "class-wide-evasion-sprint",
+          "title": "Evasion and Sprint together",
+          "desc": "Press once in a bad fight to raise your dodge and pick up speed at the same time.",
+          "icon": "spell_shadow_shadowward",
+          "iconKind": "ability",
+          "code": "#showtooltip Evasion\n/cast Evasion\n/cast Sprint",
+          "origin": "classic",
+          "needs": "Evasion (level 8) and Sprint (level 10) off cooldown; neither uses the global cooldown",
+          "codePt": "#showtooltip Evasão\n/cast Evasão\n/cast Disparada"
+        },
+        {
+          "id": "class-wide-both-trinkets",
+          "title": "Use both trinkets",
+          "desc": "Fire the trinkets in both trinket slots with one press.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use 13\n/use 14",
+          "origin": "classic",
+          "needs": "On-use trinkets equipped",
+          "codePt": "#showtooltip\n/use 13\n/use 14"
+        },
+        {
+          "id": "class-wide-poison",
+          "title": "Apply a poison from one key",
+          "desc": "Coat your main hand with Instant Poison, or your off hand with Alt; put in the full name of the rank you carry, such as Instant Poison II.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use [mod:shift] Deadly Poison; Instant Poison\n/use [mod:alt] 17; 16\n/click StaticPopup1Button1",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Instant Poison on your main hand"
+            },
+            {
+              "key": "Shift",
+              "text": "Deadly Poison instead of Instant Poison"
+            },
+            {
+              "key": "Alt",
+              "text": "Your off hand instead of your main hand"
+            }
+          ],
+          "needs": "Poisons trained (Instant Poison at level 20, Deadly Poison at 30) and the poison in your bags",
+          "codePt": "#showtooltip\n/use [mod:shift] Veneno Mortal; Veneno Instantâneo\n/use [mod:alt] 17; 16\n/click StaticPopup1Button1"
+        },
+        {
+          "id": "class-wide-sharpening-stones",
+          "title": "Sharpen your weapons from one key",
+          "desc": "Put a Heavy Sharpening Stone on your main hand, or your off hand with Alt; Shift uses a Heavy Weightstone for blunt weapons.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use [mod:shift] Heavy Weightstone; Heavy Sharpening Stone\n/use [mod:alt] 17; 16\n/click StaticPopup1Button1",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Heavy Sharpening Stone on your main hand"
+            },
+            {
+              "key": "Shift",
+              "text": "Heavy Weightstone instead"
+            },
+            {
+              "key": "Alt",
+              "text": "Your off hand instead of your main hand"
+            }
+          ],
+          "needs": "A stone in your bags (Heavy stones from level 15). In Forever a stone and a poison can share a weapon (Blizzard, 7 October)",
+          "codePt": "#showtooltip\n/use [mod:shift] Contrapeso Pesado; Pedra de Afiar Pesada\n/use [mod:alt] 17; 16\n/click StaticPopup1Button1"
+        },
+        {
+          "id": "class-wide-vanish",
+          "title": "Stealth out of combat, Vanish in it",
+          "desc": "Out of combat this puts you in Stealth; in combat it stops your swings and Vanishes so the next auto attack doesn't pull you out.",
+          "icon": "ability_vanish",
+          "iconKind": "ability",
+          "code": "#showtooltip [nocombat] Stealth; Vanish\n/stopattack [combat]\n/cast [nocombat] !Stealth; Vanish",
+          "origin": "classic",
+          "needs": "Vanish learned (level 22)",
+          "level": 22,
+          "codePt": "#showtooltip [nocombat] Furtividade; Sumir\n/stopattack [combat]\n/cast [nocombat] !Furtividade; Sumir"
+        },
+        {
+          "id": "class-wide-shank",
+          "title": "Shank and auto attack",
+          "desc": "Stab with your off-hand weapon and keep swinging. Shank costs 5 Energy, gives 15 back and can't miss, on a 10 sec cooldown.",
+          "icon": "ability_theblackarrow",
+          "iconKind": "ability",
+          "code": "#showtooltip Shank\n/startattack\n/cast Shank",
+          "origin": "forever",
+          "needs": "Shank learned (level 24); an off-hand weapon. Venom, Flash of Steel and Boot Knife each build on it",
+          "level": 24,
+          "codePt": "#showtooltip Estocar\n/startattack\n/cast Estocar"
+        }
+      ]
+    },
+    {
+      "id": "assassination",
+      "name": "Assassination",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "assassination-rupture",
+          "title": "Rupture and auto attack",
+          "desc": "Rupture your target and keep auto attack swinging.",
+          "icon": "ability_rogue_rupture",
+          "iconKind": "ability",
+          "code": "#showtooltip Rupture\n/startattack\n/cast Rupture",
+          "origin": "classic",
+          "needs": "Rupture learned (level 20); combo points",
+          "codePt": "#showtooltip Ruptura\n/startattack\n/cast Ruptura"
+        },
+        {
+          "id": "assassination-mutilate",
+          "title": "Mutilate and auto attack",
+          "desc": "Mutilate and keep auto attack going in the same press.",
+          "icon": "ability_rogue_deadlybrew",
+          "iconKind": "ability",
+          "code": "#showtooltip Mutilate\n/startattack\n/cast Mutilate",
+          "origin": "forever",
+          "needs": "Mutilate talent; daggers equipped",
+          "level": 40,
+          "codePt": "#showtooltip Mutilar\n/startattack\n/cast Mutilar"
+        },
+        {
+          "id": "assassination-finisher-key",
+          "title": "One key for your finishers",
+          "desc": "Spend combo points on Eviscerate; the modifiers switch to Rupture or Expose Armor. Coordinate Expose Armor with the Warrior; Blizzard confirms Sunder Armor can still be used under stronger Expose Armor.",
+          "icon": "ability_rogue_eviscerate",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Rupture; [mod:ctrl] Expose Armor; Eviscerate\n/startattack\n/cast [mod:shift] Rupture; [mod:ctrl] Expose Armor; Eviscerate",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Eviscerate"
+            },
+            {
+              "key": "Shift",
+              "text": "Rupture"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Expose Armor"
+            }
+          ],
+          "needs": "Rupture learned (level 20); combo points",
+          "codePt": "#showtooltip [mod:shift] Ruptura; [mod:ctrl] Expor Armadura; Eviscerar\n/startattack\n/cast [mod:shift] Ruptura; [mod:ctrl] Expor Armadura; Eviscerar"
+        },
+        {
+          "id": "assassination-shank-venom",
+          "title": "Shank for Venom, else Mutilate",
+          "desc": "Shank whenever it's off cooldown, so Venom keeps your poisons hitting harder and landing more often, and Mutilate in between.",
+          "icon": "ability_theblackarrow",
+          "iconKind": "ability",
+          "code": "#showtooltip Shank\n/startattack\n/cast Shank\n/cast Mutilate",
+          "origin": "forever",
+          "needs": "Venom and Mutilate talents; Shank learned (level 24); daggers equipped. Venom is a passive since 2 November",
+          "level": 40,
+          "codePt": "#showtooltip Estocar\n/startattack\n/cast Estocar\n/cast Mutilar"
+        },
+        {
+          "id": "assassination-cold-blood-finisher",
+          "title": "Cold Blood into Eviscerate or Mutilate",
+          "desc": "Pop Cold Blood and strike in the same press; Cold Blood now covers Mutilate as well as Eviscerate.",
+          "icon": "ability_rogue_eviscerate",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Mutilate; Eviscerate\n/cast Cold Blood\n/cast [mod:shift] Mutilate; Eviscerate",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cold Blood, then Eviscerate"
+            },
+            {
+              "key": "Shift",
+              "text": "Cold Blood, then Mutilate"
+            }
+          ],
+          "needs": "Cold Blood and Mutilate talents; combo points for Eviscerate",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Mutilar; Eviscerar\n/cast Sangue Frio\n/cast [mod:shift] Mutilar; Eviscerar"
+        },
+        {
+          "id": "assassination-dagger-builder",
+          "title": "Ambush from Stealth, then Mutilate",
+          "desc": "Ambush while you're hidden and Mutilate once the fight is on; Shift swaps Mutilate for Backstab.",
+          "icon": "ability_rogue_deadlybrew",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Ambush; [mod:shift] Backstab; Mutilate\n/cast [stealth] Ambush; [mod:shift] Backstab; Mutilate\n/startattack [nostealth]",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Ambush from Stealth, otherwise Mutilate"
+            },
+            {
+              "key": "Shift",
+              "text": "Backstab instead of Mutilate"
+            }
+          ],
+          "needs": "Mutilate talent; a dagger in each hand; behind your target for Ambush and Backstab",
+          "level": 40,
+          "codePt": "#showtooltip [stealth] Emboscar; [mod:shift] Punhalada pelas Costas; Mutilar\n/cast [stealth] Emboscar; [mod:shift] Punhalada pelas Costas; Mutilar\n/startattack [nostealth]"
+        },
+        {
+          "id": "assassination-sinister-or-backstab",
+          "title": "Sinister Strike, or Backstab with Shift",
+          "desc": "Build combo points with Sinister Strike, and hold Shift for Backstab when you're behind the target with a dagger in hand.",
+          "icon": "spell_shadow_ritualofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Backstab; Sinister Strike\n/startattack\n/cast [mod:shift] Backstab; Sinister Strike",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Sinister Strike"
+            },
+            {
+              "key": "Shift",
+              "text": "Backstab"
+            }
+          ],
+          "needs": "Backstab needs a dagger in your main hand and you behind the target",
+          "codePt": "#showtooltip [mod:shift] Punhalada pelas Costas; Golpe Sinistro\n/startattack\n/cast [mod:shift] Punhalada pelas Costas; Golpe Sinistro"
+        },
+        {
+          "id": "assassination-bleed-key",
+          "title": "Garrote from Stealth, Rupture in the fight",
+          "desc": "Garrote while you're hidden; once the fight is on, the same key is Rupture with auto attack.",
+          "icon": "ability_rogue_rupture",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Garrote; Rupture\n/cast [stealth] Garrote; Rupture\n/startattack [nostealth]",
+          "origin": "classic",
+          "needs": "Garrote (level 14) and Rupture (level 20) learned; behind your target for Garrote unless you have Dirty Deeds; combo points for Rupture",
+          "codePt": "#showtooltip [stealth] Garrote; Ruptura\n/cast [stealth] Garrote; Ruptura\n/startattack [nostealth]",
+          "untranslated": [
+            "Garrote"
+          ]
+        },
+        {
+          "id": "assassination-three-mutilates",
+          "title": "Three Mutilates, then Eviscerate",
+          "desc": "Press repeatedly: three Mutilates for a full set of points, then Eviscerate, then it starts over.",
+          "icon": "ability_rogue_deadlybrew",
+          "iconKind": "ability",
+          "code": "#showtooltip Mutilate\n/startattack\n/castsequence reset=8/target Mutilate, Mutilate, Mutilate, Eviscerate",
+          "origin": "forever",
+          "needs": "Mutilate talent; daggers equipped. Each Mutilate gives 2 points, and a miss or dodge leaves Eviscerate a couple short",
+          "level": 40,
+          "codePt": "#showtooltip Mutilar\n/startattack\n/castsequence reset=8/target Mutilar, Mutilar, Mutilar, Eviscerar"
+        },
+        {
+          "id": "assassination-mutilate-slice",
+          "title": "Mutilate, then Slice and Dice to start a long fight",
+          "desc": "Mutilate for two points and Slice and Dice on the next press; after that, go back to your normal keys.",
+          "icon": "ability_rogue_deadlybrew",
+          "iconKind": "ability",
+          "code": "#showtooltip Mutilate\n/startattack\n/castsequence reset=8/target Mutilate, Slice and Dice",
+          "origin": "forever",
+          "needs": "Mutilate talent; daggers equipped; Slice and Dice learned (level 10)",
+          "level": 40,
+          "codePt": "#showtooltip Mutilar\n/startattack\n/castsequence reset=8/target Mutilar, Retalhar"
+        }
+      ]
+    },
+    {
+      "id": "combat",
+      "name": "Combat",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "combat-riposte",
+          "title": "Riposte, then Sinister Strike",
+          "desc": "Riposte when a parry lights it, with Sinister Strike in the same press since Riposte is off the global cooldown; otherwise plain Sinister Strike.",
+          "icon": "spell_shadow_ritualofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip Sinister Strike\n/startattack\n/cast Riposte\n/cast Sinister Strike",
+          "origin": "classic",
+          "needs": "Riposte talent; Riposte only works right after a parry",
+          "codePt": "#showtooltip Golpe Sinistro\n/startattack\n/cast Ripostar\n/cast Golpe Sinistro"
+        },
+        {
+          "id": "combat-blade-flurry",
+          "title": "Blade Flurry, Shift to cancel it",
+          "desc": "Start Blade Flurry and auto attack, or hold Shift to drop the buff when the extra strikes could hit a Sapped enemy.",
+          "icon": "ability_warrior_punishingblow",
+          "iconKind": "ability",
+          "code": "#showtooltip Blade Flurry\n/cancelaura [mod:shift] Blade Flurry\n/startattack [nomod]\n/cast [nomod] Blade Flurry",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Blade Flurry and auto attack"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel Blade Flurry"
+            }
+          ],
+          "needs": "Blade Flurry talent",
+          "level": 30,
+          "codePt": "#showtooltip Rajada de Lâminas\n/cancelaura [mod:shift] Rajada de Lâminas\n/startattack [nomod]\n/cast [nomod] Rajada de Lâminas"
+        },
+        {
+          "id": "combat-adrenaline-burst",
+          "title": "Trinkets, Adrenaline Rush, then Blade Flurry",
+          "desc": "The first press uses your trinkets and Adrenaline Rush; press again within 20 seconds to add Blade Flurry.",
+          "icon": "spell_shadow_shadowworddominate",
+          "iconKind": "ability",
+          "code": "#showtooltip Adrenaline Rush\n/use 13\n/use 14\n/castsequence reset=20 Adrenaline Rush, Blade Flurry",
+          "origin": "classic",
+          "needs": "Adrenaline Rush and Blade Flurry talents; on-use trinkets are optional",
+          "level": 40,
+          "codePt": "#showtooltip Adrenalina\n/use 13\n/use 14\n/castsequence reset=20 Adrenalina, Rajada de Lâminas"
+        },
+        {
+          "id": "combat-core-key",
+          "title": "Your core attacks on one key",
+          "desc": "Auto attack and Sinister Strike on a plain press, with the modifiers switching to your finishers and Feint.",
+          "icon": "spell_shadow_ritualofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Slice and Dice; [mod:ctrl] Eviscerate; [mod:alt] Feint; Sinister Strike\n/startattack\n/cast [mod:shift] Slice and Dice; [mod:ctrl] Eviscerate; [mod:alt] Feint; Sinister Strike",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Sinister Strike"
+            },
+            {
+              "key": "Shift",
+              "text": "Slice and Dice"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Eviscerate"
+            },
+            {
+              "key": "Alt",
+              "text": "Feint"
+            }
+          ],
+          "needs": "Combo points for Slice and Dice and Eviscerate",
+          "codePt": "#showtooltip [mod:shift] Retalhar; [mod:ctrl] Eviscerar; [mod:alt] Finta; Golpe Sinistro\n/startattack\n/cast [mod:shift] Retalhar; [mod:ctrl] Eviscerar; [mod:alt] Finta; Golpe Sinistro"
+        },
+        {
+          "id": "combat-garrote-then-strike",
+          "title": "Garrote from Stealth, Sinister Strike after",
+          "desc": "Open with Garrote while you're hidden; from then on the same key is Sinister Strike with auto attack.",
+          "icon": "spell_shadow_ritualofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Garrote; Sinister Strike\n/cast [stealth] Garrote; Sinister Strike\n/startattack [nostealth]",
+          "origin": "classic",
+          "needs": "Garrote learned (level 14); behind your target unless you have Dirty Deeds",
+          "codePt": "#showtooltip [stealth] Garrote; Golpe Sinistro\n/cast [stealth] Garrote; Golpe Sinistro\n/startattack [nostealth]",
+          "untranslated": [
+            "Garrote"
+          ]
+        },
+        {
+          "id": "combat-backstab-else-strike",
+          "title": "Backstab when you can, Sinister Strike when you can't",
+          "desc": "Backstab whenever you're behind the target with a dagger in hand; otherwise, or if you're short of its 60 Energy, the press is Sinister Strike.",
+          "icon": "ability_backstab",
+          "iconKind": "ability",
+          "code": "#showtooltip Backstab\n/startattack [nostealth]\n/cast Backstab\n/cast Sinister Strike",
+          "origin": "classic",
+          "needs": "A dagger in your main hand for Backstab (Puncturing Wounds makes it crit more for Combat)",
+          "codePt": "#showtooltip Punhalada pelas Costas\n/startattack [nostealth]\n/cast Punhalada pelas Costas\n/cast Golpe Sinistro"
+        },
+        {
+          "id": "combat-slice-open",
+          "title": "Two Sinister Strikes, then Slice and Dice",
+          "desc": "Start a long fight by pressing this three times: two Sinister Strikes, then Slice and Dice.",
+          "icon": "ability_rogue_slicedice",
+          "iconKind": "ability",
+          "code": "#showtooltip Slice and Dice\n/startattack\n/castsequence reset=8/target Sinister Strike, Sinister Strike, Slice and Dice",
+          "origin": "classic",
+          "needs": "Slice and Dice learned (level 10)",
+          "codePt": "#showtooltip Retalhar\n/startattack\n/castsequence reset=8/target Golpe Sinistro, Golpe Sinistro, Retalhar"
+        },
+        {
+          "id": "combat-quick-kill",
+          "title": "Five Sinister Strikes, then Eviscerate",
+          "desc": "Press repeatedly on a mob you want dead fast: five Sinister Strikes, then Eviscerate, then it starts over.",
+          "icon": "spell_shadow_ritualofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip Sinister Strike\n/startattack\n/castsequence reset=8/target Sinister Strike, Sinister Strike, Sinister Strike, Sinister Strike, Sinister Strike, Eviscerate",
+          "origin": "classic",
+          "needs": "A miss or dodge leaves Eviscerate a point short; better for grinding than for bosses",
+          "codePt": "#showtooltip Golpe Sinistro\n/startattack\n/castsequence reset=8/target Golpe Sinistro, Golpe Sinistro, Golpe Sinistro, Golpe Sinistro, Golpe Sinistro, Eviscerar"
+        },
+        {
+          "id": "combat-frenzy-slice",
+          "title": "Slice and Dice, with a Frenzy Potion on Shift",
+          "desc": "Slice and Dice on a plain press; hold Shift to drink a Lesser Frenzy Potion first before a hard fight.",
+          "icon": "ability_rogue_slicedice",
+          "iconKind": "ability",
+          "code": "#showtooltip Slice and Dice\n/use [mod:shift] Lesser Frenzy Potion\n/cast Slice and Dice",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Slice and Dice"
+            },
+            {
+              "key": "Shift",
+              "text": "Lesser Frenzy Potion, then Slice and Dice"
+            }
+          ],
+          "needs": "Lesser Frenzy Potion (level 15, new in Forever) in your bags; combo points for Slice and Dice",
+          "codePt": "#showtooltip Retalhar\n/use [mod:shift] Poção Inferior de Frenesi\n/cast Retalhar"
+        },
+        {
+          "id": "combat-sinister-weapon-swap",
+          "title": "Equip your weapons for Sinister Strike",
+          "desc": "Replace both weapon names with yours. Swap back from your opening dagger to your chosen main hand and off hand, then Sinister Strike. Press again after the swap's global cooldown if needed.",
+          "icon": "spell_shadow_ritualofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip Sinister Strike\n/equipslot 16 Main-Hand Name\n/equipslot 17 Off-Hand Name\n/startattack\n/cast Sinister Strike",
+          "origin": "classic",
+          "needs": "The named weapons in your bags; Dual Wield for the off-hand",
+          "codePt": "#showtooltip Golpe Sinistro\n/equipslot 16 Nome da Arma Principal\n/equipslot 17 Nome da Arma Secundária\n/startattack\n/cast Golpe Sinistro"
+        }
+      ]
+    },
+    {
+      "id": "subtlety",
+      "name": "Subtlety",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "subtlety-hemorrhage",
+          "title": "Hemorrhage and auto attack",
+          "desc": "Hemorrhage and keep swinging; in Forever it boosts your own Rupture and Garrote instead of adding Physical damage.",
+          "icon": "spell_shadow_lifedrain",
+          "iconKind": "ability",
+          "code": "#showtooltip Hemorrhage\n/startattack\n/cast Hemorrhage",
+          "origin": "adapted",
+          "needs": "Hemorrhage talent",
+          "level": 30,
+          "codePt": "#showtooltip Hemorragia\n/startattack\n/cast Hemorragia"
+        },
+        {
+          "id": "subtlety-cheap-shot",
+          "title": "Cheap Shot from Stealth",
+          "desc": "Press once to enter Stealth and again to Cheap Shot your target.",
+          "icon": "ability_cheapshot",
+          "iconKind": "ability",
+          "code": "#showtooltip Cheap Shot\n/cast [nostealth] Stealth; Cheap Shot",
+          "origin": "classic",
+          "needs": "Stealth and Cheap Shot learned",
+          "level": 26,
+          "codePt": "#showtooltip Golpe Baixo\n/cast [nostealth] Furtividade; Golpe Baixo"
+        },
+        {
+          "id": "subtlety-ghostly-ambush",
+          "title": "Ambush after Ghostly Strike, else Backstab",
+          "desc": "Ambush from Stealth, or in the open within 7 sec of a Ghostly Strike; every other press is a Backstab.",
+          "icon": "ability_rogue_ambush",
+          "iconKind": "ability",
+          "code": "#showtooltip Ambush\n/cast Ambush\n/cast Backstab\n/startattack [nostealth]",
+          "origin": "forever",
+          "needs": "Ghostly Strike talent for Ambush out of Stealth; a dagger in your main hand; behind your target",
+          "codePt": "#showtooltip Emboscar\n/cast Emboscar\n/cast Punhalada pelas Costas\n/startattack [nostealth]"
+        },
+        {
+          "id": "subtlety-premeditation-chain",
+          "title": "Premeditation, Cheap Shot, then Kidney Shot",
+          "desc": "From Stealth this adds Premeditation's two points and Cheap Shot; press again once you're in the fight for Kidney Shot.",
+          "icon": "ability_rogue_kidneyshot",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Cheap Shot; Kidney Shot\n/cast [stealth] Premeditation\n/cast [stealth] Cheap Shot; Kidney Shot",
+          "origin": "adapted",
+          "needs": "Premeditation talent (its window is 20 seconds in Forever, 10 in Classic); Kidney Shot learned (level 30)",
+          "level": 30,
+          "codePt": "#showtooltip [stealth] Golpe Baixo; Golpe no Rim\n/cast [stealth] Premeditação\n/cast [stealth] Golpe Baixo; Golpe no Rim"
+        },
+        {
+          "id": "subtlety-sap-nearest",
+          "title": "Target and Sap the nearest enemy",
+          "desc": "Stops your swings, picks the nearest enemy if you have no hostile target and Saps it; press again once you're in range.",
+          "icon": "ability_sap",
+          "iconKind": "ability",
+          "code": "#showtooltip Sap\n/stopattack\n/targetenemy [noharm][dead]\n/cast [harm,nodead] Sap",
+          "origin": "adapted",
+          "needs": "Sap learned (level 10); a Humanoid that isn't in combat. Clear your target first if it's the wrong kind of enemy",
+          "codePt": "#showtooltip Aturdir\n/stopattack\n/targetenemy [noharm][dead]\n/cast [harm,nodead] Aturdir"
+        },
+        {
+          "id": "subtlety-ghostly-backstab",
+          "title": "Ghostly Strike when ready, else Backstab",
+          "desc": "Ghostly Strike every time it comes off its 20 second cooldown and Backstab in between.",
+          "icon": "spell_shadow_curse",
+          "iconKind": "ability",
+          "code": "#showtooltip Ghostly Strike\n/startattack [nostealth]\n/cast Ghostly Strike\n/cast Backstab",
+          "origin": "adapted",
+          "needs": "Ghostly Strike talent; a dagger in your main hand and a spot behind the target for Backstab",
+          "level": 25,
+          "codePt": "#showtooltip Golpe Fantasmagórico\n/startattack [nostealth]\n/cast Golpe Fantasmagórico\n/cast Punhalada pelas Costas"
+        },
+        {
+          "id": "subtlety-hemorrhage-key",
+          "title": "Hemorrhage, Rupture and Backstab on one key",
+          "desc": "One key for the Rupture loop: Hemorrhage on a plain press, Rupture with Shift and Backstab with Ctrl.",
+          "icon": "spell_shadow_lifedrain",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Rupture; [mod:ctrl] Backstab; Hemorrhage\n/startattack\n/cast [mod:shift] Rupture; [mod:ctrl] Backstab; Hemorrhage",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Hemorrhage"
+            },
+            {
+              "key": "Shift",
+              "text": "Rupture"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Backstab"
+            }
+          ],
+          "needs": "Hemorrhage talent (it boosts your own Rupture and Garrote in Forever); Rupture learned (level 20); a dagger and a spot behind the target for Backstab",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Ruptura; [mod:ctrl] Punhalada pelas Costas; Hemorragia\n/startattack\n/cast [mod:shift] Ruptura; [mod:ctrl] Punhalada pelas Costas; Hemorragia"
+        },
+        {
+          "id": "subtlety-preparation-reset",
+          "title": "Burn your escapes, then Preparation",
+          "desc": "Evasion and Sprint go off and Preparation resets them; hold Shift to Vanish and stop swinging instead of Evasion.",
+          "icon": "spell_shadow_antishadow",
+          "iconKind": "ability",
+          "code": "#showtooltip Preparation\n/stopattack [mod:shift]\n/cast [mod:shift] Vanish; Evasion\n/cast Sprint\n/cast Preparation",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Evasion and Sprint, then Preparation"
+            },
+            {
+              "key": "Shift",
+              "text": "Vanish and Sprint, then Preparation"
+            }
+          ],
+          "needs": "Preparation talent; Evasion and Sprint ready",
+          "level": 30,
+          "codePt": "#showtooltip Preparação\n/stopattack [mod:shift]\n/cast [mod:shift] Sumir; Evasão\n/cast Disparada\n/cast Preparação"
+        },
+        {
+          "id": "subtlety-pick-pocket-sap",
+          "title": "Pick Pocket, then Sap from Stealth",
+          "desc": "Pick the pocket of the enemy under your cursor (or your target) and Sap it in the same press.",
+          "icon": "ability_sap",
+          "iconKind": "ability",
+          "code": "#showtooltip Sap\n/cast [stealth,@mouseover,harm,nodead][stealth] Pick Pocket\n/cast [@mouseover,harm,nodead][] Sap",
+          "origin": "adapted",
+          "needs": "Stealth; Sap learned (level 10); a Humanoid outside combat. Sap doesn't break Stealth (Blizzard, 7 October)",
+          "codePt": "#showtooltip Aturdir\n/cast [stealth,@mouseover,harm,nodead][stealth] Bater Carteira\n/cast [@mouseover,harm,nodead][] Aturdir"
+        },
+        {
+          "id": "subtlety-dagger-openers",
+          "title": "Equip a dagger for Ambush or Backstab",
+          "desc": "Replace both weapon names with yours. Equip the dagger for Ambush, or Backstab with Shift. A combat weapon swap may need another press after the global cooldown.",
+          "icon": "ability_rogue_ambush",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Backstab; Ambush\n/equipslot 16 Dagger Name\n/equipslot 17 Off-Hand Name\n/cast [mod:shift] Backstab; Ambush\n/startattack [nostealth]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Equip your dagger and attempt Ambush"
+            },
+            {
+              "key": "Shift",
+              "text": "Equip your dagger and attempt Backstab"
+            }
+          ],
+          "needs": "Main-hand dagger; Dual Wield for the off-hand; behind the target; Stealth for Ambush",
+          "codePt": "#showtooltip [mod:shift] Punhalada pelas Costas; Emboscar\n/equipslot 16 Nome da Adaga\n/equipslot 17 Nome da Arma Secundária\n/cast [mod:shift] Punhalada pelas Costas; Emboscar\n/startattack [nostealth]"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-interrupt-keys",
+          "title": "Kick or Gouge on target or mouseover",
+          "desc": "Kick your target on a plain press; Shift moves it to your mouseover, and Ctrl or Alt swap in Gouge.",
+          "icon": "ability_kick",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:ctrl] Gouge; Kick\n/cast [mod:shift,@mouseover,harm,nodead] Kick; [mod:alt,@mouseover,harm,nodead] Gouge; [mod:ctrl] Gouge; Kick",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Kick your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Kick your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Gouge your target"
+            },
+            {
+              "key": "Alt",
+              "text": "Gouge your mouseover"
+            }
+          ],
+          "needs": "Kick (level 12) and Gouge (level 6) learned; Gouge needs the target facing you",
+          "codePt": "#showtooltip [mod:ctrl] Esfaquear; Chute\n/cast [mod:shift,@mouseover,harm,nodead] Chute; [mod:alt,@mouseover,harm,nodead] Esfaquear; [mod:ctrl] Esfaquear; Chute"
+        },
+        {
+          "id": "pvp-kick-then-gouge",
+          "title": "Kick, then Gouge while Kick recharges",
+          "desc": "Kick on the first press and Gouge on the next while Kick is still on cooldown, against your mouseover or your target.",
+          "icon": "ability_kick",
+          "iconKind": "ability",
+          "code": "#showtooltip Kick\n/cast [@mouseover,harm,nodead][] Kick\n/cast [@mouseover,harm,nodead][] Gouge",
+          "origin": "classic",
+          "needs": "Kick and Gouge learned; Gouge needs the target facing you",
+          "codePt": "#showtooltip Chute\n/cast [@mouseover,harm,nodead][] Chute\n/cast [@mouseover,harm,nodead][] Esfaquear"
+        },
+        {
+          "id": "pvp-stun",
+          "title": "Cheap Shot from Stealth, Kidney Shot in the fight",
+          "desc": "Open with Cheap Shot while hidden and use Kidney Shot once the fight is on; Shift aims either one at your mouseover.",
+          "icon": "ability_rogue_kidneyshot",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Cheap Shot; Kidney Shot\n/cast [stealth,mod:shift,@mouseover,harm,nodead] Cheap Shot; [stealth] Cheap Shot; [mod:shift,@mouseover,harm,nodead] Kidney Shot; Kidney Shot",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cheap Shot from Stealth, otherwise Kidney Shot, on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "The same on your mouseover"
+            }
+          ],
+          "needs": "Cheap Shot (level 26) and Kidney Shot (level 30) learned; Kidney Shot needs combo points",
+          "level": 30,
+          "codePt": "#showtooltip [stealth] Golpe Baixo; Golpe no Rim\n/cast [stealth,mod:shift,@mouseover,harm,nodead] Golpe Baixo; [stealth] Golpe Baixo; [mod:shift,@mouseover,harm,nodead] Golpe no Rim; Golpe no Rim"
+        },
+        {
+          "id": "pvp-blind-sap",
+          "title": "Blind and Sap on target or mouseover",
+          "desc": "Blind your target, with Shift for your mouseover; Ctrl and Alt Sap the mouseover or the target instead.",
+          "icon": "spell_shadow_mindsteal",
+          "iconKind": "ability",
+          "code": "#showtooltip Blind\n/cast [mod:shift,@mouseover,harm,nodead] Blind; [mod:ctrl,@mouseover,harm,nodead] Sap; [mod:alt] Sap; Blind",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Blind your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Blind your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Sap your mouseover"
+            },
+            {
+              "key": "Alt",
+              "text": "Sap your target"
+            }
+          ],
+          "needs": "Blind (level 34) with Blinding Powder in your bags; Sap needs a Humanoid outside combat and now flags you for PvP when it hits a flagged player (Blizzard, 24 September)",
+          "level": 34,
+          "codePt": "#showtooltip Cegar\n/cast [mod:shift,@mouseover,harm,nodead] Cegar; [mod:ctrl,@mouseover,harm,nodead] Aturdir; [mod:alt] Aturdir; Cegar"
+        },
+        {
+          "id": "pvp-vanish-sprint",
+          "title": "Vanish and Sprint away",
+          "desc": "Stop swinging, Vanish and Sprint to break contact; Shift is Sprint alone and Ctrl is Evasion alone.",
+          "icon": "ability_vanish",
+          "iconKind": "ability",
+          "code": "#showtooltip Vanish\n/stopattack [nomod]\n/cast [nomod] Vanish\n/cast [nomod] Sprint\n/cast [mod:shift] Sprint; [mod:ctrl] Evasion",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop attacking, Vanish, then Sprint"
+            },
+            {
+              "key": "Shift",
+              "text": "Sprint only"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Evasion only"
+            }
+          ],
+          "needs": "Vanish (level 22) and Sprint (level 10) ready; neither uses the global cooldown",
+          "level": 22,
+          "codePt": "#showtooltip Sumir\n/stopattack [nomod]\n/cast [nomod] Sumir\n/cast [nomod] Disparada\n/cast [mod:shift] Disparada; [mod:ctrl] Evasão"
+        },
+        {
+          "id": "pvp-sneak-sprint",
+          "title": "Dismount, Stealth and Sprint",
+          "desc": "Get off your mount, slip into Stealth and Sprint in one press to close the gap while hidden.",
+          "icon": "ability_rogue_sprint",
+          "iconKind": "ability",
+          "code": "#showtooltip Sprint\n/dismount\n/cast [nostealth] Stealth\n/cast Sprint",
+          "origin": "classic",
+          "needs": "Out of combat for Stealth; the Sprint tooltip says it doesn't break Stealth",
+          "codePt": "#showtooltip Disparada\n/dismount\n/cast [nostealth] Furtividade\n/cast Disparada"
+        },
+        {
+          "id": "pvp-racial-break",
+          "title": "Racial break, or a trinket with Shift or Ctrl",
+          "desc": "Press for the racial that shakes off an effect for your race; Shift and Ctrl use the top and bottom trinkets.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [nomod] Will to Survive\n/cast [nomod] Will of the Forsaken\n/cast [nomod] Escape Artist\n/cast [nomod] Stoneform\n/use [mod:shift] 13; [mod:ctrl] 14",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Your race's Will to Survive, Will of the Forsaken, Escape Artist or Stoneform"
+            },
+            {
+              "key": "Shift",
+              "text": "Use the trinket in slot 13"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Use the trinket in slot 14"
+            }
+          ],
+          "needs": "Human (Will to Survive removes stuns), Undead (Will of the Forsaken removes charm, fear and sleep), Gnome (Escape Artist breaks movement impairing effects) or Dwarf (Stoneform removes bleeds, poisons and diseases); on-use trinkets for Shift and Ctrl",
+          "codePt": "#showtooltip\n/cast [nomod] Desejo de Sobreviver\n/cast [nomod] Determinação dos Renegados\n/cast [nomod] Artista da Fuga\n/cast [nomod] Forma de Pedra\n/use [mod:shift] 13; [mod:ctrl] 14"
+        },
+        {
+          "id": "pvp-free-action-sprint",
+          "title": "Free Action Potion and Sprint",
+          "desc": "Drink a Free Action Potion and Sprint before you're caught; Shift drinks a Swiftness Potion on its own instead.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip [mod:shift] Swiftness Potion; Free Action Potion\n/use [mod:shift] Swiftness Potion; Free Action Potion\n/cast [nomod] Sprint",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Free Action Potion and Sprint"
+            },
+            {
+              "key": "Shift",
+              "text": "Swiftness Potion only"
+            }
+          ],
+          "needs": "Free Action Potion (level 20) or Swiftness Potion in your bags; Free Action doesn't remove effects already on you",
+          "codePt": "#showtooltip [mod:shift] Poção de Rapidez; Poção de Ação Desimpedida\n/use [mod:shift] Poção de Rapidez; Poção de Ação Desimpedida\n/cast [nomod] Disparada"
+        },
+        {
+          "id": "pvp-throw",
+          "title": "Throw at your target or mouseover",
+          "desc": "Throw a weapon at your target, or at whoever is under your cursor with Shift.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip Throw\n/cast [mod:shift,@mouseover,harm,nodead] Throw; Throw",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Throw at your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Throw at your mouseover"
+            }
+          ],
+          "needs": "A thrown weapon in your ranged slot",
+          "codePt": "#showtooltip Lançar\n/cast [mod:shift,@mouseover,harm,nodead] Lançar; Lançar"
+        },
+        {
+          "id": "pvp-pvp-poisons",
+          "title": "Poisons for fighting players",
+          "desc": "Crippling Poison on a plain press, Wound Poison with Shift for healers and Mind-numbing Poison with Ctrl for casters; Alt picks the off hand.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use [mod:shift] Wound Poison; [mod:ctrl] Mind-numbing Poison; Crippling Poison\n/use [mod:alt] 17; 16\n/click StaticPopup1Button1",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Crippling Poison on your main hand"
+            },
+            {
+              "key": "Shift",
+              "text": "Wound Poison instead"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Mind-numbing Poison instead"
+            },
+            {
+              "key": "Alt",
+              "text": "Your off hand instead of your main hand"
+            }
+          ],
+          "needs": "Crippling Poison (level 20), Mind-numbing Poison (24) and Wound Poison (32) trained and in your bags; use each poison's exact rank name",
+          "codePt": "#showtooltip\n/use [mod:shift] Veneno Ferino; [mod:ctrl] Veneno Entorpecente; Veneno Debilitante\n/use [mod:alt] 17; 16\n/click StaticPopup1Button1"
+        },
+        {
+          "id": "pvp-kidney-blind",
+          "title": "Kidney Shot, then Blind",
+          "desc": "Kidney Shot on the first press; press again as the stun runs out to Blind the same target. It stops auto attack on each press so a stray swing can't break Blind.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopattack\n/castsequence reset=10/target Kidney Shot, Blind",
+          "origin": "classic",
+          "needs": "Kidney Shot (level 30) with combo points; Blind (level 34) with Blinding Powder in your bags. Changing target starts it over at Kidney Shot",
+          "level": 34,
+          "codePt": "#showtooltip\n/stopattack\n/castsequence reset=10/target Golpe no Rim, Cegar"
+        },
+        {
+          "id": "pvp-blind-bandage",
+          "title": "Blind, then bandage yourself",
+          "desc": "Stop swinging and Blind your target, then hold Shift to bandage yourself while they wander. Swap in the bandage you actually carry.",
+          "icon": "spell_shadow_mindsteal",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Heavy Runecloth Bandage; Blind\n/stopattack [nomod]\n/cast [nomod] Blind\n/use [mod:shift,@player] Heavy Runecloth Bandage",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop attacking and Blind your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Bandage yourself"
+            }
+          ],
+          "needs": "Blind (level 34) with Blinding Powder; First Aid and the bandage in your bags. Any damage ends Blind early, and getting hit stops the bandage",
+          "level": 34,
+          "codePt": "#showtooltip [mod:shift] Bandagem Grossa de Runatrama; Cegar\n/stopattack [nomod]\n/cast [nomod] Cegar\n/use [mod:shift,@player] Bandagem Grossa de Runatrama"
+        },
+        {
+          "id": "pvp-vanish-sap",
+          "title": "Vanish, then Sap",
+          "desc": "In a fight this stops your swings and Vanishes; press again while hidden to Sap your mouseover or target. Out of combat the first press is plain Stealth.",
+          "icon": "ability_stealth",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Sap; [combat] Vanish; Stealth\n/stopattack\n/cast [nostealth,combat] Vanish; [nostealth] Stealth; [@mouseover,harm,nodead][] Sap",
+          "origin": "classic",
+          "needs": "Vanish (level 22) and Sap learned. Sap only lands once the enemy drops out of combat, so your bleeds and poisons on them get in the way. Sap no longer breaks Stealth (Blizzard, 7 October)",
+          "level": 22,
+          "codePt": "#showtooltip [stealth] Aturdir; [combat] Sumir; Furtividade\n/stopattack\n/cast [nostealth,combat] Sumir; [nostealth] Furtividade; [@mouseover,harm,nodead][] Aturdir"
+        },
+        {
+          "id": "pvp-gouge-vanish",
+          "title": "Gouge, then Vanish",
+          "desc": "Gouge on the first press, then press again while they stand there to Vanish and get back into Stealth for a fresh opener.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopattack\n/castsequence reset=6/target Gouge, Vanish",
+          "origin": "classic",
+          "needs": "Gouge (level 6) and Vanish (level 22) learned; Gouge needs the target facing you. Improved Gouge, an Assassination talent in Forever, adds up to 1.5 sec",
+          "level": 22,
+          "codePt": "#showtooltip\n/stopattack\n/castsequence reset=6/target Esfaquear, Sumir"
+        }
+      ]
+    },
+    {
+      "id": "pvp-assassination",
+      "name": "Assassination PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-burst",
+          "title": "Burst window: trinkets, Cold Blood and racial",
+          "desc": "Fire both trinkets, Cold Blood and your Orc or Troll racial together, then follow with your biggest attack.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use 13\n/use 14\n/cast Cold Blood\n/cast Blood Fury\n/cast Berserking",
+          "origin": "adapted",
+          "needs": "Cold Blood talent (level 25); on-use trinkets; Blood Fury (Orc) or Berserking (Troll), which both changed in Forever. Anything you don't have is skipped",
+          "level": 25,
+          "codePt": "#showtooltip\n/use 13\n/use 14\n/cast Sangue Frio\n/cast Fúria Sangrenta\n/cast Berserk"
+        },
+        {
+          "id": "pvp-cold-blood-opener",
+          "title": "Cold Blood into Ambush or Backstab",
+          "desc": "Cold Blood, then Ambush from Stealth for a 100% crit chance opener; hold Shift for Backstab when you're already visible.",
+          "icon": "ability_rogue_ambush",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Backstab; Ambush\n/cast Cold Blood\n/cast [mod:shift] Backstab; Ambush",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cold Blood, then Ambush"
+            },
+            {
+              "key": "Shift",
+              "text": "Cold Blood, then Backstab"
+            }
+          ],
+          "needs": "Cold Blood talent (level 25); a dagger in your main hand; behind your target",
+          "level": 25,
+          "codePt": "#showtooltip [mod:shift] Punhalada pelas Costas; Emboscar\n/cast Sangue Frio\n/cast [mod:shift] Punhalada pelas Costas; Emboscar"
+        },
+        {
+          "id": "pvp-cheap-shot-mutilate",
+          "title": "Cheap Shot from Stealth, Mutilate after",
+          "desc": "Open with Cheap Shot while hidden; after that the same key is Mutilate with auto attack for the rest of the stun. Shift opens with Garrote instead.",
+          "icon": "ability_rogue_deadlybrew",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth,mod:shift] Garrote; [stealth] Cheap Shot; Mutilate\n/cast [stealth,mod:shift] Garrote; [stealth] Cheap Shot; Mutilate\n/startattack [nostealth]",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cheap Shot from Stealth, otherwise Mutilate"
+            },
+            {
+              "key": "Shift",
+              "text": "Garrote from Stealth instead of Cheap Shot"
+            }
+          ],
+          "needs": "Mutilate talent and a dagger in each hand; Cheap Shot learned (level 26); behind your target for Garrote",
+          "level": 40,
+          "codePt": "#showtooltip [stealth,mod:shift] Garrote; [stealth] Golpe Baixo; Mutilar\n/cast [stealth,mod:shift] Garrote; [stealth] Golpe Baixo; Mutilar\n/startattack [nostealth]",
+          "untranslated": [
+            "Garrote"
+          ]
+        },
+        {
+          "id": "pvp-mutilate-kidney",
+          "title": "Two Mutilates, then Kidney Shot",
+          "desc": "Press repeatedly: two Mutilates for four or more points, then Kidney Shot, then it starts over. Improved Kidney Shot makes your attacks and poisons hit harder during the stun.",
+          "icon": "ability_rogue_deadlybrew",
+          "iconKind": "ability",
+          "code": "#showtooltip Mutilate\n/startattack\n/castsequence reset=8/target Mutilate, Mutilate, Kidney Shot",
+          "origin": "forever",
+          "needs": "Mutilate talent; daggers equipped; Kidney Shot learned (level 30). A miss or dodge leaves the stun shorter. Improved Kidney Shot is optional",
+          "level": 40,
+          "codePt": "#showtooltip Mutilar\n/startattack\n/castsequence reset=8/target Mutilar, Mutilar, Golpe no Rim"
+        },
+        {
+          "id": "pvp-cold-blood-kidney",
+          "title": "Kidney Shot, then a Cold Blood Mutilate in the stun",
+          "desc": "The first press pops Cold Blood and Kidney Shots your target. Kidney Shot doesn't use up Cold Blood, so the next press is a Mutilate with the extra crit chance.",
+          "icon": "ability_rogue_kidneyshot",
+          "iconKind": "ability",
+          "code": "#showtooltip Kidney Shot\n/cast Cold Blood\n/castsequence reset=8/target Kidney Shot, Mutilate",
+          "origin": "forever",
+          "needs": "Cold Blood and Mutilate talents; daggers equipped; Kidney Shot (level 30) and combo points. Cold Blood goes off even if Kidney Shot fails, so press it with points ready",
+          "level": 40,
+          "codePt": "#showtooltip Golpe no Rim\n/cast Sangue Frio\n/castsequence reset=8/target Golpe no Rim, Mutilar"
+        },
+        {
+          "id": "pvp-kidney-burst",
+          "title": "Kidney Shot with trinkets and racial",
+          "desc": "Kidney Shot, both trinkets and your Orc or Troll racial in one press, so your damage cooldowns run while Improved Kidney Shot has them taking extra damage.",
+          "icon": "ability_rogue_kidneyshot",
+          "iconKind": "ability",
+          "code": "#showtooltip Kidney Shot\n/cast Kidney Shot\n/use 13\n/use 14\n/cast Blood Fury\n/cast Berserking",
+          "origin": "classic",
+          "needs": "Kidney Shot (level 30) and combo points; Improved Kidney Shot talent; on-use trinkets; Blood Fury (Orc) or Berserking (Troll). Anything you don't have is skipped, and the trinkets fire even if Kidney Shot doesn't",
+          "level": 30,
+          "codePt": "#showtooltip Golpe no Rim\n/cast Golpe no Rim\n/use 13\n/use 14\n/cast Fúria Sangrenta\n/cast Berserk"
+        },
+        {
+          "id": "pvp-cheap-gouge-kidney",
+          "title": "Cheap Shot, Gouge, then Kidney Shot",
+          "desc": "Cheap Shot from Stealth and build points during the stun; press again as it ends for Gouge, hold off while they're Gouged, then press once more for Kidney Shot.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=12/target Cheap Shot, Gouge, Kidney Shot",
+          "origin": "classic",
+          "needs": "Cheap Shot (level 26) and Kidney Shot (level 30) learned; start in Stealth; Gouge needs them facing you. Improved Gouge and Improved Kidney Shot, both Assassination talents in Forever, make Gouge last longer and Kidney Shot hurt more",
+          "level": 30,
+          "codePt": "#showtooltip\n/castsequence reset=12/target Golpe Baixo, Esfaquear, Golpe no Rim"
+        },
+        {
+          "id": "pvp-finisher-control",
+          "title": "Eviscerate, Kidney Shot or Shank for Venom",
+          "desc": "Eviscerate on a plain press, Kidney Shot with Shift when you need the stun, and Shank with Ctrl so Venom makes your Crippling or Mind-numbing Poison land more often.",
+          "icon": "ability_rogue_eviscerate",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Kidney Shot; [mod:ctrl] Shank; Eviscerate\n/startattack\n/cast [mod:shift] Kidney Shot; [mod:ctrl] Shank; Eviscerate",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Eviscerate"
+            },
+            {
+              "key": "Shift",
+              "text": "Kidney Shot"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Shank"
+            }
+          ],
+          "needs": "Venom talent; Shank (level 24) and Kidney Shot (level 30) learned; combo points for the finishers",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Golpe no Rim; [mod:ctrl] Estocar; Eviscerar\n/startattack\n/cast [mod:shift] Golpe no Rim; [mod:ctrl] Estocar; Eviscerar"
+        }
+      ]
+    },
+    {
+      "id": "pvp-combat",
+      "name": "Combat PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-riposte-finisher",
+          "title": "Riposte, then Eviscerate or Kidney Shot",
+          "desc": "Tries Riposte, which only goes off right after a parry, then casts your finisher in the same press: Eviscerate, or Kidney Shot with Shift.",
+          "icon": "ability_rogue_eviscerate",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Kidney Shot; Eviscerate\n/startattack\n/cast Riposte\n/cast [mod:shift] Kidney Shot; Eviscerate",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Riposte if a parry lit it, then Eviscerate"
+            },
+            {
+              "key": "Shift",
+              "text": "Riposte if a parry lit it, then Kidney Shot"
+            }
+          ],
+          "needs": "Riposte talent; Riposte is off the global cooldown. Kidney Shot learned (level 30); combo points",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Golpe no Rim; Eviscerar\n/startattack\n/cast Ripostar\n/cast [mod:shift] Golpe no Rim; Eviscerar"
+        },
+        {
+          "id": "pvp-riposte-mouseover",
+          "title": "Riposte the enemy under your cursor",
+          "desc": "After a parry, Riposte and disarm the Warrior or Rogue under your cursor while you stay on your own target. With nothing under the cursor it hits your target.",
+          "icon": "ability_warrior_challange",
+          "iconKind": "ability",
+          "code": "#showtooltip Riposte\n/cast [@mouseover,harm,nodead][] Riposte",
+          "origin": "classic",
+          "needs": "Riposte talent; it only works right after a parry. The disarm lasts 6 sec",
+          "codePt": "#showtooltip Ripostar\n/cast [@mouseover,harm,nodead][] Ripostar"
+        },
+        {
+          "id": "pvp-sprint-kick",
+          "title": "Kick, with Sprint on Shift to reach the caster",
+          "desc": "Kick your mouseover or target. Hold Shift to Sprint first, which with Improved Sprint pulls you out of roots and snares; press again once you're in range to Kick.",
+          "icon": "ability_kick",
+          "iconKind": "ability",
+          "code": "#showtooltip Kick\n/cast [mod:shift] Sprint\n/cast [@mouseover,harm,nodead][] Kick",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Kick your mouseover or target"
+            },
+            {
+              "key": "Shift",
+              "text": "Sprint, then Kick if you're already in range"
+            }
+          ],
+          "needs": "Kick learned (level 12); Improved Sprint talent to clear roots and snares; Improved Kick adds a 2 sec silence",
+          "codePt": "#showtooltip Chute\n/cast [mod:shift] Disparada\n/cast [@mouseover,harm,nodead][] Chute"
+        },
+        {
+          "id": "pvp-kick-kidney",
+          "title": "Kick, then Kidney Shot",
+          "desc": "Kick on the first press and Kidney Shot on the next, so a healer goes straight from the interrupt into a stun. Improved Kick's silence stops them casting anything in between.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=8/target Kick, Kidney Shot",
+          "origin": "classic",
+          "needs": "Kick (level 12) and Kidney Shot (level 30) learned; combo points for Kidney Shot. Improved Kick talent for the 2 sec silence",
+          "level": 30,
+          "codePt": "#showtooltip\n/castsequence reset=8/target Chute, Golpe no Rim"
+        },
+        {
+          "id": "pvp-gouge-backstab",
+          "title": "Gouge, then Backstab from behind",
+          "desc": "Gouge on the first press, step behind them while they stand still, then press again for Backstab.",
+          "icon": "classicon_rogue",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=6/target Gouge, Backstab",
+          "origin": "classic",
+          "needs": "A dagger in your main hand; Gouge needs them facing you. Puncturing Wounds gives Backstab more crit and a chance at an extra combo point",
+          "codePt": "#showtooltip\n/castsequence reset=6/target Esfaquear, Punhalada pelas Costas"
+        },
+        {
+          "id": "pvp-gouge-sprint",
+          "title": "Gouge and Sprint away",
+          "desc": "Sprint and Gouge your target in the same press to get out of a fight you're losing. With Improved Sprint it also clears Hamstring and other snares.",
+          "icon": "ability_gouge",
+          "iconKind": "ability",
+          "code": "#showtooltip Gouge\n/cast Sprint\n/cast Gouge",
+          "origin": "classic",
+          "needs": "Sprint ready (it's off the global cooldown); Gouge needs the target facing you. Improved Sprint talent to clear snares",
+          "codePt": "#showtooltip Esfaquear\n/cast Disparada\n/cast Esfaquear"
+        },
+        {
+          "id": "pvp-adrenaline-no-flurry",
+          "title": "Adrenaline Rush, trinkets and racial, no Blade Flurry",
+          "desc": "Adrenaline Rush, both trinkets and your Orc or Troll racial in one press. Blade Flurry stays off, so it won't break a Sap, Blind or Gouge on someone next to you.",
+          "icon": "spell_shadow_shadowworddominate",
+          "iconKind": "ability",
+          "code": "#showtooltip Adrenaline Rush\n/use 13\n/use 14\n/cast Adrenaline Rush\n/cast Blood Fury\n/cast Berserking",
+          "origin": "classic",
+          "needs": "Adrenaline Rush talent; on-use trinkets; Blood Fury (Orc) or Berserking (Troll). Anything you don't have is skipped",
+          "level": 40,
+          "codePt": "#showtooltip Adrenalina\n/use 13\n/use 14\n/cast Adrenalina\n/cast Fúria Sangrenta\n/cast Berserk"
+        }
+      ]
+    },
+    {
+      "id": "pvp-subtlety",
+      "name": "Subtlety PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-premeditation-garrote",
+          "title": "Premeditation with Garrote or Ambush",
+          "desc": "From Stealth, adds Premeditation's two points and opens with Garrote; hold Shift to open with Ambush instead.",
+          "icon": "ability_rogue_garrote",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Ambush; Garrote\n/cast [stealth] Premeditation\n/cast [mod:shift] Ambush; Garrote",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Premeditation, then Garrote"
+            },
+            {
+              "key": "Shift",
+              "text": "Premeditation, then Ambush"
+            }
+          ],
+          "needs": "Premeditation talent; Stealth. Garrote needs you behind the target unless you have Dirty Deeds; Ambush needs a main-hand dagger and you behind",
+          "codePt": "#showtooltip [mod:shift] Emboscar; Garrote\n/cast [stealth] Premeditação\n/cast [mod:shift] Emboscar; Garrote",
+          "untranslated": [
+            "Garrote"
+          ]
+        },
+        {
+          "id": "pvp-vanish-premeditation",
+          "title": "Vanish, then Premeditation and Cheap Shot",
+          "desc": "In a fight the first press stops your swings and Vanishes; the next press, while you're hidden, adds Premeditation and opens again with Cheap Shot.",
+          "icon": "ability_stealth",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Cheap Shot; [combat] Vanish; Stealth\n/stopattack [nostealth]\n/cast [nostealth,combat] Vanish; [nostealth] Stealth\n/cast [stealth] Premeditation\n/cast [stealth] Cheap Shot",
+          "origin": "classic",
+          "needs": "Vanish (level 22) and Cheap Shot (level 26) learned; Premeditation talent. Out of combat the first press is plain Stealth",
+          "level": 26,
+          "codePt": "#showtooltip [stealth] Golpe Baixo; [combat] Sumir; Furtividade\n/stopattack [nostealth]\n/cast [nostealth,combat] Sumir; [nostealth] Furtividade\n/cast [stealth] Premeditação\n/cast [stealth] Golpe Baixo"
+        },
+        {
+          "id": "pvp-sap-then-open",
+          "title": "Sap one enemy, then open on another",
+          "desc": "Hold Shift to Sap the enemy under your cursor, then let go and press again to open on your target with Premeditation and Cheap Shot. Sap no longer breaks Stealth in Forever.",
+          "icon": "ability_cheapshot",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Sap; Cheap Shot\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Sap\n/cast [nomod,stealth] Premeditation\n/cast [nomod,stealth] Cheap Shot",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Premeditation and Cheap Shot on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Sap your mouseover, or your target with nothing under the cursor"
+            }
+          ],
+          "needs": "Sap and Cheap Shot (level 26) learned; Premeditation talent; the Sapped enemy has to be a Humanoid out of combat. Dirty Tricks and Dirty Deeds cut the Energy for both",
+          "level": 26,
+          "codePt": "#showtooltip [mod:shift] Aturdir; Golpe Baixo\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Aturdir\n/cast [nomod,stealth] Premeditação\n/cast [nomod,stealth] Golpe Baixo"
+        },
+        {
+          "id": "pvp-ghostly-evasion",
+          "title": "Evasion and Ghostly Strike together",
+          "desc": "When a Warrior or Rogue is on you, one press stacks Evasion's dodge with Ghostly Strike's. With Setup, attacks you dodge from your target can add a combo point.",
+          "icon": "spell_shadow_curse",
+          "iconKind": "ability",
+          "code": "#showtooltip Ghostly Strike\n/cast Evasion\n/cast Ghostly Strike\n/startattack",
+          "origin": "classic",
+          "needs": "Ghostly Strike talent; Evasion ready (it's off the global cooldown). Setup is optional",
+          "level": 25,
+          "codePt": "#showtooltip Golpe Fantasmagórico\n/cast Evasão\n/cast Golpe Fantasmagórico\n/startattack"
+        },
+        {
+          "id": "pvp-ghostly-hemorrhage",
+          "title": "Ghostly Strike, else Hemorrhage",
+          "desc": "Ghostly Strike goes first; when it can't be cast, because it's cooling down or you're short of its 40 Energy, the same press falls through to Hemorrhage.",
+          "icon": "spell_shadow_curse",
+          "iconKind": "ability",
+          "code": "#showtooltip Ghostly Strike\n/startattack\n/cast Ghostly Strike\n/cast Hemorrhage",
+          "origin": "classic",
+          "needs": "Ghostly Strike and Hemorrhage talents",
+          "level": 30,
+          "codePt": "#showtooltip Golpe Fantasmagórico\n/startattack\n/cast Golpe Fantasmagórico\n/cast Hemorragia"
+        },
+        {
+          "id": "pvp-backstab-hemorrhage",
+          "title": "Backstab from behind, Hemorrhage from the front",
+          "desc": "Backstab goes first; when you're not behind them or are short of its 60 Energy, the same press falls through to Hemorrhage. Handy when a player keeps turning to face you.",
+          "icon": "ability_backstab",
+          "iconKind": "ability",
+          "code": "#showtooltip Backstab\n/startattack\n/cast Backstab\n/cast Hemorrhage",
+          "origin": "adapted",
+          "needs": "Hemorrhage talent; a dagger in your main hand, which in Forever also raises Hemorrhage's damage",
+          "level": 30,
+          "codePt": "#showtooltip Punhalada pelas Costas\n/startattack\n/cast Punhalada pelas Costas\n/cast Hemorragia"
+        },
+        {
+          "id": "pvp-preparation-blind",
+          "title": "Blind, and Preparation for a second Blind",
+          "desc": "Stop swinging and Blind your target. Hold Ctrl for Preparation, which finishes Blind's cooldown along with your other Rogue cooldowns, so you can Blind a second enemy.",
+          "icon": "spell_shadow_mindsteal",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:ctrl] Preparation; Blind\n/stopattack [nomod:ctrl]\n/cast [mod:ctrl] Preparation; Blind",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop attacking and Blind your target"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Preparation"
+            }
+          ],
+          "needs": "Blind (level 34) with Blinding Powder; Preparation talent (10 min cooldown). Its tooltip says it finishes the cooldown on all your other Rogue abilities; we haven't seen that on Blind in play yet. Elusiveness also shortens Blind's cooldown",
+          "level": 34,
+          "codePt": "#showtooltip [mod:ctrl] Preparação; Cegar\n/stopattack [nomod:ctrl]\n/cast [mod:ctrl] Preparação; Cegar"
+        }
+      ]
+    }
+  ]
+}

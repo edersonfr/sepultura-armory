@@ -1,0 +1,1187 @@
+{
+  "slug": "warrior",
+  "fetched": "2026-11-10T01:48:08.804Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/warrior/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-charge",
+          "title": "Charge and start attacking",
+          "desc": "Get off your mount, start swinging and Charge in one press.",
+          "icon": "ability_warrior_charge",
+          "iconKind": "ability",
+          "code": "#showtooltip Charge\n/dismount\n/startattack\n/cast Charge",
+          "origin": "adapted",
+          "needs": "Battle Stance (Defensive Stance with Vanguard); out of combat",
+          "codePt": "#showtooltip Investida\n/dismount\n/startattack\n/cast Investida"
+        },
+        {
+          "id": "class-wide-charge-or-intercept",
+          "title": "Charge out of combat, Intercept in it",
+          "desc": "Charge from Battle Stance out of combat and Intercept from Berserker Stance in combat. If you're in the wrong stance the press swaps first, then press again.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#show [combat] Intercept; Charge\n/startattack\n/cast [nocombat,stance:1] Charge; [combat,stance:3] Intercept; [nocombat,nostance:1] Battle Stance; [combat,nostance:3] Berserker Stance",
+          "origin": "classic",
+          "needs": "Charge and Intercept learned",
+          "level": 30,
+          "codePt": "#show [combat] Interceptar; Investida\n/startattack\n/cast [nocombat,stance:1] Investida; [combat,stance:3] Interceptar; [nocombat,nostance:1] Postura de Batalha; [combat,nostance:3] Postura de Berserker"
+        },
+        {
+          "id": "class-wide-victory-rush",
+          "title": "Victory Rush after a kill",
+          "desc": "Use the new follow-up strike within 20 seconds of defeating a non-trivial enemy; it also heals you for 10% of your maximum health.",
+          "icon": "ability_warrior_devastate",
+          "iconKind": "ability",
+          "code": "#showtooltip Victory Rush\n/startattack\n/cast Victory Rush",
+          "origin": "forever",
+          "needs": "Victory Rush learned; a qualifying recent kill",
+          "codePt": "#showtooltip Ímpeto da Vitória\n/startattack\n/cast Ímpeto da Vitória"
+        },
+        {
+          "id": "class-wide-berserker-rage",
+          "title": "Berserker Rage with a stance swap",
+          "desc": "Swap into Berserker Stance if you aren't in it and use Berserker Rage, which makes you immune to Fear and Incapacitate for 10 sec.",
+          "icon": "spell_nature_ancestralguardian",
+          "iconKind": "ability",
+          "code": "#showtooltip Berserker Rage\n/cast [nostance:3] Berserker Stance\n/cast Berserker Rage",
+          "origin": "classic",
+          "needs": "Berserker Stance. Learned at 30",
+          "level": 30,
+          "codePt": "#showtooltip Raiva Incontrolada\n/cast [nostance:3] Postura de Berserker\n/cast Raiva Incontrolada"
+        },
+        {
+          "id": "class-wide-execute",
+          "title": "Execute your target or mouseover",
+          "desc": "Start attacking and Execute a target under 20% health, or your mouseover with Shift. From Defensive Stance it swaps to Battle Stance first.",
+          "icon": "inv_sword_48",
+          "iconKind": "ability",
+          "code": "#showtooltip Execute\n/startattack\n/cast [stance:2] Battle Stance\n/cast [mod:shift,@mouseover,harm,nodead] Execute; Execute",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Execute your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Execute your mouseover instead"
+            }
+          ],
+          "needs": "Battle or Berserker Stance; target under 20% health",
+          "level": 24,
+          "codePt": "#showtooltip Executar\n/startattack\n/cast [stance:2] Postura de Batalha\n/cast [mod:shift,@mouseover,harm,nodead] Executar; Executar"
+        },
+        {
+          "id": "class-wide-heroic-strike-cleave",
+          "title": "Heroic Strike or Cleave",
+          "desc": "Start attacking and queue Heroic Strike on your next swing, or Cleave with Shift when a second enemy is close by.",
+          "icon": "ability_rogue_ambush",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Cleave; Heroic Strike\n/startattack\n/cast [mod:shift] Cleave; Heroic Strike",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Queue Heroic Strike on your next swing"
+            },
+            {
+              "key": "Shift",
+              "text": "Queue Cleave instead"
+            }
+          ],
+          "codePt": "#showtooltip [mod:shift] Cutilada; Golpe Heroico\n/startattack\n/cast [mod:shift] Cutilada; Golpe Heroico"
+        },
+        {
+          "id": "class-wide-trinkets",
+          "title": "Use both trinkets",
+          "desc": "Use your top and bottom trinkets together.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use 13\n/use 14",
+          "origin": "classic",
+          "needs": "Trinkets equipped in both slots",
+          "codePt": "#showtooltip\n/use 13\n/use 14"
+        },
+        {
+          "id": "class-wide-bloodrage-rage-potion",
+          "title": "Bloodrage and a Rage Potion",
+          "desc": "Bloodrage and a Rage Potion together, so the potion's 20 to 40 Rage lands on top of Bloodrage's.",
+          "icon": "ability_racial_bloodrage",
+          "iconKind": "ability",
+          "code": "#showtooltip Bloodrage\n/cast Bloodrage\n/use Rage Potion",
+          "origin": "classic",
+          "needs": "Rage Potion in your bags (an Alchemy craft)",
+          "codePt": "#showtooltip Fúria Sanguinária\n/cast Fúria Sanguinária\n/use Poção de Raiva"
+        },
+        {
+          "id": "class-wide-shout-picker",
+          "title": "Battle Shout, Shift for Demoralizing Shout",
+          "desc": "Refresh Battle Shout, or hold Shift to weaken nearby enemies with Demoralizing Shout. You choose which shout to spend Rage on.",
+          "icon": "ability_warrior_battleshout",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Demoralizing Shout; Battle Shout\n/cast [mod:shift] Demoralizing Shout; Battle Shout",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Battle Shout"
+            },
+            {
+              "key": "Shift",
+              "text": "Demoralizing Shout"
+            }
+          ],
+          "needs": "Both shouts learned",
+          "codePt": "#showtooltip [mod:shift] Brado Desmoralizador; Brado de Batalha\n/cast [mod:shift] Brado Desmoralizador; Brado de Batalha"
+        }
+      ]
+    },
+    {
+      "id": "arms",
+      "name": "Arms",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "arms-overpower",
+          "title": "Overpower stance",
+          "desc": "Swap to Battle Stance if you aren't in it, then Overpower after a dodge or when Bloodthrill opens the window. If you swap, press again to cast.",
+          "icon": "ability_meleedamage",
+          "iconKind": "ability",
+          "code": "#showtooltip Overpower\n/startattack\n/cast [nostance:1] Battle Stance\n/cast Overpower",
+          "origin": "adapted",
+          "needs": "Battle Stance; target dodged or a Bloodthrill proc; Overpower learned",
+          "codePt": "#showtooltip Subjugar\n/startattack\n/cast [nostance:1] Postura de Batalha\n/cast Subjugar"
+        },
+        {
+          "id": "arms-spearing-strike",
+          "title": "Spearing Strike",
+          "desc": "Start swinging and use Spearing Strike, which hits Giants, Dragonkin and mounted enemies harder and dismounts riders.",
+          "icon": "inv_spear_01",
+          "iconKind": "ability",
+          "code": "#showtooltip Spearing Strike\n/startattack\n/cast Spearing Strike",
+          "origin": "forever",
+          "needs": "Spearing Strike talent; Battle Stance. The October 1 update removed the two-handed weapon requirement",
+          "level": 25,
+          "codePt": "#showtooltip Golpe Lanceador\n/startattack\n/cast Golpe Lanceador"
+        },
+        {
+          "id": "arms-arms-priority",
+          "title": "Victory Rush, Overpower, Mortal Strike",
+          "desc": "One button for whatever is ready: Victory Rush after a kill, Overpower when Bloodthrill or a dodge opens it, then Mortal Strike.",
+          "icon": "ability_warrior_savageblow",
+          "iconKind": "ability",
+          "code": "#showtooltip Mortal Strike\n/startattack\n/cast [nostance:1] Battle Stance\n/cast Victory Rush\n/cast Overpower\n/cast Mortal Strike",
+          "origin": "forever",
+          "needs": "Mortal Strike talent; Battle Stance; Bloodthrill talent for the extra Overpower windows",
+          "level": 40,
+          "codePt": "#showtooltip Golpe Mortal\n/startattack\n/cast [nostance:1] Postura de Batalha\n/cast Ímpeto da Vitória\n/cast Subjugar\n/cast Golpe Mortal"
+        },
+        {
+          "id": "arms-mortal-strike-hamstring",
+          "title": "Mortal Strike, Hamstring on Shift",
+          "desc": "Start attacking and use Mortal Strike, or Hamstring with Shift to slow a runner.",
+          "icon": "ability_warrior_savageblow",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Hamstring; Mortal Strike\n/startattack\n/cast [mod:shift] Hamstring; Mortal Strike",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mortal Strike your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Hamstring your target instead"
+            }
+          ],
+          "needs": "Mortal Strike talent; Battle Stance for Hamstring",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Cortar Tendão; Golpe Mortal\n/startattack\n/cast [mod:shift] Cortar Tendão; Golpe Mortal"
+        },
+        {
+          "id": "arms-rend",
+          "title": "Rend your target or mouseover",
+          "desc": "Start attacking and Rend your target, or your mouseover with Shift. Bloodthrill only works on enemies that have your Rend on them.",
+          "icon": "ability_gouge",
+          "iconKind": "ability",
+          "code": "#showtooltip Rend\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead] Rend; Rend",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Rend your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Rend your mouseover instead"
+            }
+          ],
+          "needs": "Battle or Defensive Stance",
+          "codePt": "#showtooltip Dilacerar\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead] Dilacerar; Dilacerar"
+        },
+        {
+          "id": "arms-sweeping-strikes",
+          "title": "Sweeping Strikes with a stance swap",
+          "desc": "Swap to Battle Stance if you need to and start Sweeping Strikes, so your next 5 melee attacks hit a second enemy.",
+          "icon": "ability_rogue_slicedice",
+          "iconKind": "ability",
+          "code": "#showtooltip Sweeping Strikes\n/cast [nostance:1] Battle Stance\n/cast Sweeping Strikes",
+          "origin": "classic",
+          "needs": "Sweeping Strikes talent; it needs Battle Stance",
+          "level": 30,
+          "codePt": "#showtooltip Golpes a Esmo\n/cast [nostance:1] Postura de Batalha\n/cast Golpes a Esmo"
+        },
+        {
+          "id": "arms-charge-hamstring",
+          "title": "Charge, then Hamstring",
+          "desc": "Charge when you're out of combat, and once you're fighting the same key Hamstrings.",
+          "icon": "ability_shockwave",
+          "iconKind": "ability",
+          "code": "#showtooltip [nocombat] Charge; Hamstring\n/startattack\n/cast [nocombat] Charge\n/cast Hamstring",
+          "origin": "classic",
+          "needs": "Battle Stance",
+          "codePt": "#showtooltip [nocombat] Investida; Cortar Tendão\n/startattack\n/cast [nocombat] Investida\n/cast Cortar Tendão"
+        },
+        {
+          "id": "arms-retaliation",
+          "title": "Retaliation with a stance swap",
+          "desc": "Swap to Battle Stance if needed and use Retaliation: up to 30 melee counterattacks over 15 sec. Its 15 minute cooldown is independent of Shield Wall and Recklessness.",
+          "icon": "ability_warrior_challange",
+          "iconKind": "ability",
+          "code": "#showtooltip Retaliation\n/cast [nostance:1] Battle Stance\n/cast Retaliation",
+          "origin": "adapted",
+          "needs": "Battle Stance",
+          "codePt": "#showtooltip Retaliação\n/cast [nostance:1] Postura de Batalha\n/cast Retaliação"
+        },
+        {
+          "id": "arms-two-hander-swap",
+          "title": "Swap to your two-hander",
+          "desc": "Equip your two-hander and drop into Battle Stance. Put your own weapon's name where it says Two-Hander Name.",
+          "icon": "ability_warrior_offensivestance",
+          "iconKind": "ability",
+          "code": "#showtooltip Battle Stance\n/equip Two-Hander Name\n/cast [nostance:1] Battle Stance",
+          "origin": "classic",
+          "needs": "A two-handed weapon in your bags",
+          "codePt": "#showtooltip Postura de Batalha\n/equip Nome da Arma de Duas Mãos\n/cast [nostance:1] Postura de Batalha"
+        }
+      ]
+    },
+    {
+      "id": "fury",
+      "name": "Fury",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "fury-bloodthirst",
+          "title": "Bloodthirst and auto attack",
+          "desc": "Start your swings and use Bloodthirst, which now also gives 10% movement speed for 10 sec. Hold Shift to queue Heroic Strike as well.",
+          "icon": "spell_nature_bloodlust",
+          "iconKind": "ability",
+          "code": "#showtooltip Bloodthirst\n/startattack\n/cast Bloodthirst\n/cast [mod:shift] Heroic Strike",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Bloodthirst your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Bloodthirst and queue Heroic Strike"
+            }
+          ],
+          "needs": "Bloodthirst talent",
+          "level": 40,
+          "codePt": "#showtooltip Sede de Sangue\n/startattack\n/cast Sede de Sangue\n/cast [mod:shift] Golpe Heroico"
+        },
+        {
+          "id": "fury-whirlwind",
+          "title": "Whirlwind stance",
+          "desc": "Enter Berserker Stance if you need to and use Whirlwind. If it only swaps stance, press again.",
+          "icon": "ability_whirlwind",
+          "iconKind": "ability",
+          "code": "#showtooltip Whirlwind\n/cast [nostance:3] Berserker Stance\n/cast Whirlwind",
+          "origin": "adapted",
+          "needs": "Berserker Stance and Whirlwind learned",
+          "level": 36,
+          "codePt": "#showtooltip Redemoinho\n/cast [nostance:3] Postura de Berserker\n/cast Redemoinho"
+        },
+        {
+          "id": "fury-fury-priority",
+          "title": "Execute, Bloodthirst, Whirlwind",
+          "desc": "One button for whatever is ready: Execute under 20% health, then Bloodthirst, then Whirlwind.",
+          "icon": "spell_nature_bloodlust",
+          "iconKind": "ability",
+          "code": "#showtooltip Bloodthirst\n/startattack\n/cast [nostance:3] Berserker Stance\n/cast Execute\n/cast Bloodthirst\n/cast Whirlwind",
+          "origin": "adapted",
+          "needs": "Bloodthirst talent; Berserker Stance",
+          "level": 40,
+          "codePt": "#showtooltip Sede de Sangue\n/startattack\n/cast [nostance:3] Postura de Berserker\n/cast Executar\n/cast Sede de Sangue\n/cast Redemoinho"
+        },
+        {
+          "id": "fury-whirlwind-cleave",
+          "title": "Whirlwind into Cleave",
+          "desc": "Whirlwind now strikes with both weapons without a talent, and Cleave on the next swing catches the second enemy too.",
+          "icon": "ability_whirlwind",
+          "iconKind": "ability",
+          "code": "#showtooltip Whirlwind\n/startattack\n/cast [nostance:3] Berserker Stance\n/cast Whirlwind\n/cast Cleave",
+          "origin": "forever",
+          "needs": "Berserker Stance; a second enemy close by",
+          "level": 36,
+          "codePt": "#showtooltip Redemoinho\n/startattack\n/cast [nostance:3] Postura de Berserker\n/cast Redemoinho\n/cast Cutilada"
+        },
+        {
+          "id": "fury-cooldowns",
+          "title": "Death Wish then Recklessness",
+          "desc": "First press starts Death Wish, the next starts Recklessness, and both trinkets fire each time. Death Wish now makes you take 5% more damage.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=30 Death Wish, Recklessness\n/use 13\n/use 14",
+          "origin": "adapted",
+          "needs": "Death Wish talent; Berserker Stance",
+          "level": 50,
+          "codePt": "#showtooltip\n/castsequence reset=30 Desejo de Matar, Temeridade\n/use 13\n/use 14"
+        },
+        {
+          "id": "fury-recklessness",
+          "title": "Recklessness from any stance",
+          "desc": "Use Recklessness from Berserker Stance; otherwise the first press swaps stance. Its cooldown is independent of Shield Wall and Retaliation.",
+          "icon": "ability_criticalstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip Recklessness\n/cast [stance:3] Recklessness; Berserker Stance",
+          "origin": "classic",
+          "needs": "Recklessness learned",
+          "level": 50,
+          "codePt": "#showtooltip Temeridade\n/cast [stance:3] Temeridade; Postura de Berserker"
+        },
+        {
+          "id": "fury-rage-start",
+          "title": "Bloodrage and Berserker Rage",
+          "desc": "Start a pull with Bloodrage and Berserker Rage together. Improved Berserker Rage adds Rage the moment you use it.",
+          "icon": "spell_nature_ancestralguardian",
+          "iconKind": "ability",
+          "code": "#showtooltip Berserker Rage\n/cast [nostance:3] Berserker Stance\n/cast Bloodrage\n/cast Berserker Rage",
+          "origin": "classic",
+          "needs": "Berserker Stance; Improved Berserker Rage for instant Rage",
+          "level": 30,
+          "codePt": "#showtooltip Raiva Incontrolada\n/cast [nostance:3] Postura de Berserker\n/cast Fúria Sanguinária\n/cast Raiva Incontrolada"
+        },
+        {
+          "id": "fury-pummel-mouseover",
+          "title": "Mouseover Pummel",
+          "desc": "Start attacking and Pummel the enemy under your cursor, or your target, from Berserker Stance.",
+          "icon": "inv_gauntlets_04",
+          "iconKind": "ability",
+          "code": "#showtooltip Pummel\n/startattack\n/cast [nostance:3] Berserker Stance\n/cast [@mouseover,harm,nodead][] Pummel",
+          "origin": "classic",
+          "needs": "Pummel learned",
+          "level": 38,
+          "codePt": "#showtooltip Murro\n/startattack\n/cast [nostance:3] Postura de Berserker\n/cast [@mouseover,harm,nodead][] Murro"
+        }
+      ]
+    },
+    {
+      "id": "protection",
+      "name": "Protection",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "protection-taunt",
+          "title": "Mouseover Taunt",
+          "desc": "Taunt the enemy under your cursor without dropping your current target.",
+          "icon": "spell_nature_reincarnation",
+          "iconKind": "ability",
+          "code": "#showtooltip Taunt\n/cast [@mouseover,harm,nodead][] Taunt",
+          "origin": "adapted",
+          "needs": "Defensive Stance and Taunt learned",
+          "codePt": "#showtooltip Provocar\n/cast [@mouseover,harm,nodead][] Provocar"
+        },
+        {
+          "id": "protection-shield-bash",
+          "title": "Mouseover Shield Bash",
+          "desc": "Interrupt a nearby caster under your cursor, or your target.",
+          "icon": "ability_warrior_shieldbash",
+          "iconKind": "ability",
+          "code": "#showtooltip Shield Bash\n/cast [@mouseover,harm,nodead][] Shield Bash",
+          "origin": "adapted",
+          "needs": "Shield equipped; Shield Bash learned",
+          "codePt": "#showtooltip Trombada com Escudo\n/cast [@mouseover,harm,nodead][] Trombada com Escudo"
+        },
+        {
+          "id": "protection-sunder-armor",
+          "title": "Mouseover Sunder Armor",
+          "desc": "Sunder your mouseover or target for armor reduction and threat. It remains usable for threat under a stronger Expose Armor.",
+          "icon": "ability_warrior_sunder",
+          "iconKind": "ability",
+          "code": "#showtooltip Sunder Armor\n/startattack\n/cast [@mouseover,harm,nodead][] Sunder Armor",
+          "origin": "classic",
+          "codePt": "#showtooltip Fender Armadura\n/startattack\n/cast [@mouseover,harm,nodead][] Fender Armadura"
+        },
+        {
+          "id": "protection-revenge-shield-block",
+          "title": "Revenge, Shield Block on Shift",
+          "desc": "Revenge when a block, dodge or parry lets you. Hold Shift to Shield Block first, which now blocks up to 2 attacks over 7 sec.",
+          "icon": "ability_warrior_revenge",
+          "iconKind": "ability",
+          "code": "#showtooltip Revenge\n/startattack\n/cast [mod:shift,equipped:Shields] Shield Block\n/cast Revenge",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Revenge your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Shield Block first, then Revenge"
+            }
+          ],
+          "needs": "Shield equipped; Defensive Stance",
+          "codePt": "#showtooltip Revanche\n/startattack\n/cast [mod:shift,equipped:Escudos] Levantar Escudo\n/cast Revanche"
+        },
+        {
+          "id": "protection-threat-priority",
+          "title": "Shield Slam, Revenge, Sunder Armor",
+          "desc": "Shield Slam when it's ready, then Revenge after a block, dodge or parry, then Sunder Armor.",
+          "icon": "inv_shield_05",
+          "iconKind": "ability",
+          "code": "#showtooltip Shield Slam\n/startattack\n/cast Shield Slam\n/cast Revenge\n/cast Sunder Armor",
+          "origin": "classic",
+          "needs": "Shield Slam talent; shield equipped; Defensive Stance",
+          "level": 40,
+          "codePt": "#showtooltip Escudada\n/startattack\n/cast Escudada\n/cast Revanche\n/cast Fender Armadura"
+        },
+        {
+          "id": "protection-thunder-clap",
+          "title": "Thunder Clap from Defensive Stance",
+          "desc": "Thunder Clap works from Defensive Stance, so tanks don't have to swap to Battle Stance. Pressed from Berserker Stance it swaps you to Battle Stance instead.",
+          "icon": "spell_nature_thunderclap",
+          "iconKind": "ability",
+          "code": "#showtooltip Thunder Clap\n/startattack\n/cast [nostance:3] Thunder Clap; Battle Stance",
+          "origin": "adapted",
+          "needs": "Battle or Defensive Stance",
+          "codePt": "#showtooltip Trovoada\n/startattack\n/cast [nostance:3] Trovoada; Postura de Batalha"
+        },
+        {
+          "id": "protection-last-stand-shield-wall",
+          "title": "Shield Wall, Last Stand on Shift",
+          "desc": "Swap to Defensive Stance if needed and use Shield Wall (60% less damage for 12 sec). Shift adds Last Stand. Shield Wall's 15 minute cooldown is independent of Retaliation and Recklessness.",
+          "icon": "ability_warrior_shieldwall",
+          "iconKind": "ability",
+          "code": "#showtooltip Shield Wall\n/cast [mod:shift] Last Stand\n/cast [nostance:2] Defensive Stance\n/cast Shield Wall",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Shield Wall, swapping to Defensive Stance first"
+            },
+            {
+              "key": "Shift",
+              "text": "Last Stand and Shield Wall together"
+            }
+          ],
+          "needs": "Shield equipped; Last Stand talent for Shift",
+          "level": 28,
+          "codePt": "#showtooltip Muralha de Escudos\n/cast [mod:shift] Último Recurso\n/cast [nostance:2] Postura de Defesa\n/cast Muralha de Escudos"
+        },
+        {
+          "id": "protection-vanguard-charge",
+          "title": "Charge and Bloodrage from Defensive Stance",
+          "desc": "Charge without leaving Defensive Stance, then Bloodrage as you land. Charge goes first because Bloodrage counts as being in combat.",
+          "icon": "ability_warrior_charge",
+          "iconKind": "ability",
+          "code": "#showtooltip Charge\n/dismount\n/cast [nocombat] Charge\n/cast [nocombat] Bloodrage",
+          "origin": "forever",
+          "needs": "Vanguard talent; Defensive Stance; out of combat",
+          "codePt": "#showtooltip Investida\n/dismount\n/cast [nocombat] Investida\n/cast [nocombat] Fúria Sanguinária"
+        },
+        {
+          "id": "protection-shield-swap",
+          "title": "Swap to sword and board",
+          "desc": "Put your one-hander and shield on and drop into Defensive Stance. Put your own weapon and shield names in place of One-Hand Name and Shield Name.",
+          "icon": "ability_warrior_defensivestance",
+          "iconKind": "ability",
+          "code": "#showtooltip Defensive Stance\n/equipslot [noequipped:Shields] 16 One-Hand Name\n/equip [noequipped:Shields] Shield Name\n/cast [nostance:2] Defensive Stance",
+          "origin": "classic",
+          "needs": "A one-handed weapon and a shield in your bags",
+          "codePt": "#showtooltip Postura de Defesa\n/equipslot [noequipped:Escudos] 16 Nome da Arma de Uma Mão\n/equip [noequipped:Escudos] Nome do Escudo\n/cast [nostance:2] Postura de Defesa"
+        },
+        {
+          "id": "protection-mocking-blow",
+          "title": "Battle Stance into mouseover Mocking Blow",
+          "desc": "Switch to Battle Stance, then Mocking Blow a hostile mouseover or target. Press again after the stance cooldown if needed. Its brief forced attack is different from Taunt's threat match.",
+          "icon": "ability_warrior_punishingblow",
+          "iconKind": "ability",
+          "code": "#showtooltip Mocking Blow\n/cast [nostance:1] Battle Stance\n/cast [stance:1,@mouseover,harm,nodead][stance:1,harm,nodead] Mocking Blow",
+          "origin": "classic",
+          "needs": "Mocking Blow learned; enough Rage after the stance change",
+          "codePt": "#showtooltip Golpe Zombeteiro\n/cast [nostance:1] Postura de Batalha\n/cast [stance:1,@mouseover,harm,nodead][stance:1,harm,nodead] Golpe Zombeteiro"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-interrupt",
+          "title": "One-button interrupt",
+          "desc": "Shield Bash with a shield in Battle or Defensive Stance, Pummel in Berserker Stance. Without a shield it swaps you to Berserker Stance first. It also stops your own Slam.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead,equipped:Shields,stance:1/2] Shield Bash; [mod:shift,@mouseover,harm,nodead,stance:3] Pummel; [equipped:Shields,stance:1/2] Shield Bash; [stance:3] Pummel; Berserker Stance",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Interrupt your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Interrupt your mouseover instead"
+            }
+          ],
+          "needs": "Shield Bash and Pummel learned",
+          "level": 38,
+          "codePt": "#showtooltip\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead,equipped:Escudos,stance:1/2] Trombada com Escudo; [mod:shift,@mouseover,harm,nodead,stance:3] Murro; [equipped:Escudos,stance:1/2] Trombada com Escudo; [stance:3] Murro; Postura de Berserker"
+        },
+        {
+          "id": "pvp-intercept",
+          "title": "Intercept your target or mouseover",
+          "desc": "Swap to Berserker Stance if needed and Intercept for a 3 sec stun. Hold Shift to pick your mouseover.",
+          "icon": "ability_rogue_sprint",
+          "iconKind": "ability",
+          "code": "#showtooltip Intercept\n/cast [nostance:3] Berserker Stance\n/cast [mod:shift,@mouseover,harm,nodead] Intercept; Intercept",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Intercept your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Intercept your mouseover instead"
+            }
+          ],
+          "needs": "Intercept learned; Berserker Stance",
+          "level": 30,
+          "codePt": "#showtooltip Interceptar\n/cast [nostance:3] Postura de Berserker\n/cast [mod:shift,@mouseover,harm,nodead] Interceptar; Interceptar"
+        },
+        {
+          "id": "pvp-intercept-hamstring",
+          "title": "Intercept, then Hamstring when you land",
+          "desc": "Swap to Berserker Stance if you need to and Intercept for the 3 sec stun. Press again once you reach them to Hamstring before they can run.",
+          "icon": "ability_rogue_sprint",
+          "iconKind": "ability",
+          "code": "#showtooltip Intercept\n/startattack\n/cast [nostance:3] Berserker Stance\n/cast Intercept\n/cast Hamstring",
+          "origin": "classic",
+          "needs": "Intercept learned; Berserker Stance",
+          "level": 30,
+          "codePt": "#showtooltip Interceptar\n/startattack\n/cast [nostance:3] Postura de Berserker\n/cast Interceptar\n/cast Cortar Tendão"
+        },
+        {
+          "id": "pvp-hamstring-howl",
+          "title": "Hamstring, Piercing Howl on Ctrl",
+          "desc": "Slow your target, or your mouseover with Shift. Ctrl dazes everything close to you with Piercing Howl instead.",
+          "icon": "ability_shockwave",
+          "iconKind": "ability",
+          "code": "#showtooltip Hamstring\n/startattack\n/cast [mod:ctrl] Piercing Howl; [mod:shift,@mouseover,harm,nodead] Hamstring; Hamstring",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Hamstring your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Hamstring your mouseover instead"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Piercing Howl on everything near you"
+            }
+          ],
+          "needs": "Battle or Berserker Stance for Hamstring; Piercing Howl talent for Ctrl",
+          "codePt": "#showtooltip Cortar Tendão\n/startattack\n/cast [mod:ctrl] Uivo Perfurante; [mod:shift,@mouseover,harm,nodead] Cortar Tendão; Cortar Tendão"
+        },
+        {
+          "id": "pvp-intimidating-shout",
+          "title": "Intimidating Shout without swinging",
+          "desc": "Stop your auto attack so you don't hit the enemies you just scared, then Intimidating Shout your target, or your mouseover with Shift.",
+          "icon": "ability_golemthunderclap",
+          "iconKind": "ability",
+          "code": "#showtooltip Intimidating Shout\n/stopattack\n/cast [mod:shift,@mouseover,harm,nodead] Intimidating Shout; Intimidating Shout",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Scare your target and the enemies near it"
+            },
+            {
+              "key": "Shift",
+              "text": "Scare your mouseover instead"
+            }
+          ],
+          "level": 22,
+          "codePt": "#showtooltip Brado Intimidador\n/stopattack\n/cast [mod:shift,@mouseover,harm,nodead] Brado Intimidador; Brado Intimidador"
+        },
+        {
+          "id": "pvp-fear-bandage",
+          "title": "Intimidating Shout, bandage on Shift",
+          "desc": "Stop swinging and Intimidating Shout your target, then hold Shift to bandage yourself while they run. Damage breaks the bandage, so watch for DoTs. Put in the bandage you carry.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopattack\n/use [mod:shift,@player] Heavy Runecloth Bandage\n/cast [nomod] Intimidating Shout",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop attacking and Intimidating Shout your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Bandage yourself"
+            }
+          ],
+          "needs": "First Aid; Heavy Runecloth Bandage, or swap in the bandage you carry",
+          "level": 22,
+          "codePt": "#showtooltip\n/stopattack\n/use [mod:shift,@player] Bandagem Grossa de Runatrama\n/cast [nomod] Brado Intimidador"
+        },
+        {
+          "id": "pvp-disarm",
+          "title": "Disarm from Defensive Stance",
+          "desc": "Swap into Defensive Stance if you aren't in it and Disarm your target for 10 sec, or your mouseover with Shift.",
+          "icon": "ability_warrior_disarm",
+          "iconKind": "ability",
+          "code": "#showtooltip Disarm\n/cast [nostance:2] Defensive Stance\n/cast [mod:shift,@mouseover,harm,nodead] Disarm; Disarm",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Disarm your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Disarm your mouseover instead"
+            }
+          ],
+          "needs": "Disarm learned; Defensive Stance",
+          "codePt": "#showtooltip Desarmar\n/cast [nostance:2] Postura de Defesa\n/cast [mod:shift,@mouseover,harm,nodead] Desarmar; Desarmar"
+        },
+        {
+          "id": "pvp-target-swap",
+          "title": "Nearest enemy, or back to your last one",
+          "desc": "Pick the nearest enemy if you don't have a live one and start attacking. Hold Shift to go back to your previous enemy instead.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip Attack\n/targetlastenemy [mod:shift]\n/targetenemy [nomod,noharm][nomod,dead]\n/startattack",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Target the nearest enemy if needed, then attack"
+            },
+            {
+              "key": "Shift",
+              "text": "Go back to your last enemy target and attack"
+            }
+          ],
+          "codePt": "#showtooltip Atacar\n/targetlastenemy [mod:shift]\n/targetenemy [nomod,noharm][nomod,dead]\n/startattack"
+        },
+        {
+          "id": "pvp-drop-protection",
+          "title": "Drop Blessing of Protection and attack",
+          "desc": "A friendly Paladin's Blessing of Protection stops you attacking. This cancels it and starts your swings again.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip Attack\n/cancelaura Blessing of Protection\n/startattack",
+          "origin": "classic",
+          "codePt": "#showtooltip Atacar\n/cancelaura Bênção de Proteção\n/startattack"
+        },
+        {
+          "id": "pvp-break-fear",
+          "title": "Berserker Rage, trinket on Ctrl",
+          "desc": "Berserker Rage against Fear and Incapacitate, swapping to Berserker Stance first if needed. Hold Ctrl to use your top trinket instead.",
+          "icon": "spell_nature_ancestralguardian",
+          "iconKind": "ability",
+          "code": "#showtooltip Berserker Rage\n/cast [nomod:ctrl,nostance:3] Berserker Stance\n/cast [nomod:ctrl] Berserker Rage\n/use [mod:ctrl] 13",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Berserker Rage, swapping stance first if needed"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Use your top trinket"
+            }
+          ],
+          "needs": "Berserker Stance; a PvP trinket in your top trinket slot for Ctrl",
+          "level": 30,
+          "codePt": "#showtooltip Raiva Incontrolada\n/cast [nomod:ctrl,nostance:3] Postura de Berserker\n/cast [nomod:ctrl] Raiva Incontrolada\n/use [mod:ctrl] 13"
+        },
+        {
+          "id": "pvp-break-stun",
+          "title": "Will to Survive, trinket on Ctrl",
+          "desc": "Human racial that removes all Stun effects. Hold Ctrl to use your top trinket instead and keep the racial for later.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip Will to Survive\n/cast [nomod:ctrl] Will to Survive\n/use [mod:ctrl] 13",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Will to Survive"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Use your top trinket"
+            }
+          ],
+          "needs": "Human; a PvP trinket in your top trinket slot for Ctrl",
+          "codePt": "#showtooltip Desejo de Sobreviver\n/cast [nomod:ctrl] Desejo de Sobreviver\n/use [mod:ctrl] 13"
+        },
+        {
+          "id": "pvp-free-action-potion",
+          "title": "Free Action Potion, Swiftness Potion on Shift",
+          "desc": "Drink a Free Action Potion before a root or stun lands, or a Swiftness Potion with Shift to catch a runner. Potions share a cooldown, so it's one or the other.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use [mod:shift] Swiftness Potion; Free Action Potion",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Drink a Free Action Potion"
+            },
+            {
+              "key": "Shift",
+              "text": "Drink a Swiftness Potion instead"
+            }
+          ],
+          "needs": "Free Action Potion and Swiftness Potion in your bags (Alchemy crafts)",
+          "codePt": "#showtooltip\n/use [mod:shift] Poção de Rapidez; Poção de Ação Desimpedida"
+        },
+        {
+          "id": "pvp-one-key-stances",
+          "title": "All three stances on one key",
+          "desc": "Battle Stance on a plain press, Defensive with Shift and Berserker with Ctrl. Stances have a 1 sec cooldown and you keep up to 10 Rage when you swap.",
+          "icon": "ability_warrior_offensivestance",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Defensive Stance; [mod:ctrl] Berserker Stance; Battle Stance\n/cast [mod:shift] Defensive Stance; [mod:ctrl] Berserker Stance; Battle Stance",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Battle Stance"
+            },
+            {
+              "key": "Shift",
+              "text": "Defensive Stance"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Berserker Stance"
+            }
+          ],
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Postura de Defesa; [mod:ctrl] Postura de Berserker; Postura de Batalha\n/cast [mod:shift] Postura de Defesa; [mod:ctrl] Postura de Berserker; Postura de Batalha"
+        },
+        {
+          "id": "pvp-cooldown-by-stance",
+          "title": "The big cooldown for your stance",
+          "desc": "Retaliation in Battle Stance, Shield Wall (15 min cooldown now) in Defensive Stance with a shield, Recklessness in Berserker Stance. In Defensive Stance without a shield it swaps you to Battle Stance.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [stance:1] Retaliation; [stance:2,equipped:Shields] Shield Wall; [stance:2,noequipped:Shields] Battle Stance; [stance:3] Recklessness",
+          "origin": "adapted",
+          "needs": "Retaliation, Shield Wall and Recklessness learned",
+          "level": 50,
+          "codePt": "#showtooltip\n/cast [stance:1] Retaliação; [stance:2,equipped:Escudos] Muralha de Escudos; [stance:2,noequipped:Escudos] Postura de Batalha; [stance:3] Temeridade"
+        },
+        {
+          "id": "pvp-shield-wall-swap",
+          "title": "Shield Wall with a shield swap",
+          "desc": "Equip your one-hander and shield if you don't have a shield on, swap into Defensive Stance and use Shield Wall. Put your own item names in.",
+          "icon": "ability_warrior_shieldwall",
+          "iconKind": "ability",
+          "code": "#showtooltip Shield Wall\n/equipslot [noequipped:Shields] 16 One-Hand Name\n/equip [noequipped:Shields] Shield Name\n/cast [nostance:2] Defensive Stance\n/cast Shield Wall",
+          "origin": "adapted",
+          "needs": "A one-handed weapon and a shield in your bags",
+          "level": 28,
+          "codePt": "#showtooltip Muralha de Escudos\n/equipslot [noequipped:Escudos] 16 Nome da Arma de Uma Mão\n/equip [noequipped:Escudos] Nome do Escudo\n/cast [nostance:2] Postura de Defesa\n/cast Muralha de Escudos"
+        }
+      ]
+    },
+    {
+      "id": "pvp-arms",
+      "name": "Arms PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-mortal-strike-mouseover",
+          "title": "Mortal Strike a healer",
+          "desc": "Mortal Strike your target, or your mouseover with Shift, to cut that enemy's healing by 50% for 10 sec.",
+          "icon": "ability_warrior_savageblow",
+          "iconKind": "ability",
+          "code": "#showtooltip Mortal Strike\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead] Mortal Strike; Mortal Strike",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mortal Strike your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Mortal Strike your mouseover instead"
+            }
+          ],
+          "needs": "Mortal Strike talent",
+          "level": 40,
+          "codePt": "#showtooltip Golpe Mortal\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead] Golpe Mortal; Golpe Mortal"
+        },
+        {
+          "id": "pvp-mortal-strike-two-hander",
+          "title": "Mortal Strike, back to your two-hander first",
+          "desc": "If you're still on sword and board after a Shield Wall or Shield Bash, this puts your two-hander back on and Mortal Strikes. If only the swap happens, press again.",
+          "icon": "ability_warrior_savageblow",
+          "iconKind": "ability",
+          "code": "#showtooltip Mortal Strike\n/startattack\n/equip [equipped:Shields] Two-Hander Name\n/cast Mortal Strike",
+          "origin": "classic",
+          "needs": "Mortal Strike talent; a two-handed weapon in your bags. Put its name where it says Two-Hander Name",
+          "level": 40,
+          "codePt": "#showtooltip Golpe Mortal\n/startattack\n/equip [equipped:Escudos] Nome da Arma de Duas Mãos\n/cast Golpe Mortal"
+        },
+        {
+          "id": "pvp-sweeping-mortal-strike",
+          "title": "Sweeping Strikes and Mortal Strike together",
+          "desc": "Use it when two enemies stand together, like a healer next to your target. Sweeping Strikes is off the global cooldown, so both go out on one press if you have 60 Rage.",
+          "icon": "ability_rogue_slicedice",
+          "iconKind": "ability",
+          "code": "#showtooltip Sweeping Strikes\n/startattack\n/cast [nostance:1] Battle Stance\n/cast Sweeping Strikes\n/cast Mortal Strike",
+          "origin": "classic",
+          "needs": "Sweeping Strikes and Mortal Strike talents; Battle Stance",
+          "level": 40,
+          "codePt": "#showtooltip Golpes a Esmo\n/startattack\n/cast [nostance:1] Postura de Batalha\n/cast Golpes a Esmo\n/cast Golpe Mortal"
+        },
+        {
+          "id": "pvp-overpower-mouseover",
+          "title": "Overpower your target or mouseover",
+          "desc": "Swap to Battle Stance if needed and Overpower the enemy who dodged, or your mouseover with Shift. With Bloodthrill, enemies carrying your Rend can open it too.",
+          "icon": "ability_meleedamage",
+          "iconKind": "ability",
+          "code": "#showtooltip Overpower\n/startattack\n/cast [nostance:1] Battle Stance\n/cast [mod:shift,@mouseover,harm,nodead] Overpower; Overpower",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Overpower your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Overpower your mouseover instead"
+            }
+          ],
+          "needs": "Battle Stance; the enemy dodged, or a Bloodthrill proc",
+          "codePt": "#showtooltip Subjugar\n/startattack\n/cast [nostance:1] Postura de Batalha\n/cast [mod:shift,@mouseover,harm,nodead] Subjugar; Subjugar"
+        },
+        {
+          "id": "pvp-spearing-strike",
+          "title": "Spearing Strike a rider",
+          "desc": "Spearing Strike your target, or your mouseover with Shift, to knock a mounted enemy off their mount.",
+          "icon": "inv_spear_01",
+          "iconKind": "ability",
+          "code": "#showtooltip Spearing Strike\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead] Spearing Strike; Spearing Strike",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Spearing Strike your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Spearing Strike your mouseover instead"
+            }
+          ],
+          "needs": "Spearing Strike talent; Battle Stance. The October 1 update removed the two-handed weapon requirement",
+          "level": 25,
+          "codePt": "#showtooltip Golpe Lanceador\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead] Golpe Lanceador; Golpe Lanceador"
+        },
+        {
+          "id": "pvp-charge-spearing-strike",
+          "title": "Charge a rider, then Spearing Strike",
+          "desc": "Charge a mounted enemy while you're out of combat, then press again to knock them off their mount with Spearing Strike. Once you're in combat the key is just Spearing Strike.",
+          "icon": "inv_spear_01",
+          "iconKind": "ability",
+          "code": "#showtooltip Spearing Strike\n/dismount\n/startattack\n/cast [nostance:1] Battle Stance\n/cast [nocombat] Charge\n/cast Spearing Strike",
+          "origin": "forever",
+          "needs": "Spearing Strike talent; Battle Stance; out of combat for Charge",
+          "level": 25,
+          "codePt": "#showtooltip Golpe Lanceador\n/dismount\n/startattack\n/cast [nostance:1] Postura de Batalha\n/cast [nocombat] Investida\n/cast Golpe Lanceador"
+        },
+        {
+          "id": "pvp-shield-bash-swap",
+          "title": "Shield Bash with a shield swap",
+          "desc": "Put your one-hander and shield on and Shield Bash from Battle Stance, so you don't have to dance to Berserker for Pummel. If only the swap happens, press again to bash.",
+          "icon": "ability_warrior_shieldbash",
+          "iconKind": "ability",
+          "code": "#showtooltip Shield Bash\n/stopcasting [noequipped:Shields]\n/equipslot [noequipped:Shields] 16 One-Hand Name\n/equip [noequipped:Shields] Shield Name\n/cast [stance:3] Battle Stance\n/cast Shield Bash",
+          "origin": "classic",
+          "needs": "Shield Bash learned; a one-handed weapon and a shield in your bags. Put their names in place of One-Hand Name and Shield Name",
+          "codePt": "#showtooltip Trombada com Escudo\n/stopcasting [noequipped:Shields]\n/equipslot [noequipped:Escudos] 16 Nome da Arma de Uma Mão\n/equip [noequipped:Escudos] Nome do Escudo\n/cast [stance:3] Postura de Batalha\n/cast Trombada com Escudo"
+        },
+        {
+          "id": "pvp-disarm-battle",
+          "title": "Disarm and back to Battle Stance",
+          "desc": "Press once to go to Defensive Stance, again to Disarm and drop straight back into Battle Stance. Improved Tactical Mastery lets you keep up to 25 Rage through each swap.",
+          "icon": "ability_warrior_disarm",
+          "iconKind": "ability",
+          "code": "#showtooltip Disarm\n/startattack\n/cast [stance:2] Disarm\n/cast [stance:2] Battle Stance; Defensive Stance",
+          "origin": "classic",
+          "needs": "Disarm learned; a target holding a weapon",
+          "codePt": "#showtooltip Desarmar\n/startattack\n/cast [stance:2] Desarmar\n/cast [stance:2] Postura de Batalha; Postura de Defesa"
+        },
+        {
+          "id": "pvp-berserker-rage-battle",
+          "title": "Berserker Rage and back to Battle Stance",
+          "desc": "Press once before a Fear to get into Berserker Stance, again to use Berserker Rage and go straight back to Battle Stance. The immunity stays with you after the swap.",
+          "icon": "spell_nature_ancestralguardian",
+          "iconKind": "ability",
+          "code": "#showtooltip Berserker Rage\n/cast [stance:3] Berserker Rage\n/cast [stance:3] Battle Stance; Berserker Stance",
+          "origin": "classic",
+          "needs": "Berserker Rage learned",
+          "level": 30,
+          "codePt": "#showtooltip Raiva Incontrolada\n/cast [stance:3] Raiva Incontrolada\n/cast [stance:3] Postura de Batalha; Postura de Berserker"
+        }
+      ]
+    },
+    {
+      "id": "pvp-fury",
+      "name": "Fury PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-berserker-rage-intercept",
+          "title": "Berserker Rage out of a root, then Intercept",
+          "desc": "With Improved Berserker Rage, Berserker Rage clears roots and slows and gives you 10 Rage, then Intercept goes on the same press. If Intercept doesn't go off, press again.",
+          "icon": "spell_nature_ancestralguardian",
+          "iconKind": "ability",
+          "code": "#showtooltip Berserker Rage\n/cast [nostance:3] Berserker Stance\n/cast Berserker Rage\n/cast Intercept",
+          "origin": "forever",
+          "needs": "Improved Berserker Rage talent; Berserker Stance; Intercept learned",
+          "level": 30,
+          "codePt": "#showtooltip Raiva Incontrolada\n/cast [nostance:3] Postura de Berserker\n/cast Raiva Incontrolada\n/cast Interceptar"
+        },
+        {
+          "id": "pvp-death-wish-trinket",
+          "title": "Bloodrage, Death Wish and your bottom trinket",
+          "desc": "Burst with Fear immunity: Bloodrage pays for Death Wish and your bottom trinket goes with it, so the top slot stays free for your PvP trinket. Death Wish now makes you take 5% more damage.",
+          "icon": "spell_shadow_deathpact",
+          "iconKind": "ability",
+          "code": "#showtooltip Death Wish\n/cast Bloodrage\n/cast Death Wish\n/use 14",
+          "origin": "classic",
+          "needs": "Death Wish talent; an on-use trinket in your bottom slot",
+          "level": 30,
+          "codePt": "#showtooltip Desejo de Matar\n/cast Fúria Sanguinária\n/cast Desejo de Matar\n/use 14"
+        },
+        {
+          "id": "pvp-bloodthirst-hamstring",
+          "title": "Bloodthirst, Hamstring on Shift",
+          "desc": "Bloodthirst your target, or Hamstring with Shift to slow a runner. Bloodthirst also gives you 10% run speed for 10 sec, which helps you stay on someone who's kiting.",
+          "icon": "spell_nature_bloodlust",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Hamstring; Bloodthirst\n/startattack\n/cast [mod:shift] Hamstring; Bloodthirst",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Bloodthirst your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Hamstring your target instead"
+            }
+          ],
+          "needs": "Bloodthirst talent; Battle or Berserker Stance for Hamstring",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Cortar Tendão; Sede de Sangue\n/startattack\n/cast [mod:shift] Cortar Tendão; Sede de Sangue"
+        },
+        {
+          "id": "pvp-intercept-bloodthirst",
+          "title": "Intercept, then Bloodthirst when you land",
+          "desc": "Swap to Berserker Stance if needed and Intercept, then press again once you reach them to Bloodthirst. Its run speed helps you stick once the stun wears off.",
+          "icon": "ability_rogue_sprint",
+          "iconKind": "ability",
+          "code": "#showtooltip Intercept\n/startattack\n/cast [nostance:3] Berserker Stance\n/cast Intercept\n/cast Bloodthirst",
+          "origin": "classic",
+          "needs": "Bloodthirst talent; Intercept learned; Berserker Stance",
+          "level": 40,
+          "codePt": "#showtooltip Interceptar\n/startattack\n/cast [nostance:3] Postura de Berserker\n/cast Interceptar\n/cast Sede de Sangue"
+        },
+        {
+          "id": "pvp-howl-or-fear",
+          "title": "Piercing Howl, Intimidating Shout on Shift",
+          "desc": "Daze every enemy within 10 yards with Piercing Howl, or hold Shift to stop swinging and Intimidating Shout your target, which also scares up to five enemies within 8 yards of you.",
+          "icon": "spell_shadow_deathscream",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Intimidating Shout; Piercing Howl\n/stopattack [mod:shift]\n/cast [mod:shift] Intimidating Shout; Piercing Howl",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Piercing Howl on every enemy within 10 yards"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop attacking and Intimidating Shout your target"
+            }
+          ],
+          "needs": "Piercing Howl talent",
+          "level": 22,
+          "codePt": "#showtooltip [mod:shift] Brado Intimidador; Uivo Perfurante\n/stopattack [mod:shift]\n/cast [mod:shift] Brado Intimidador; Uivo Perfurante"
+        },
+        {
+          "id": "pvp-off-hand-shield",
+          "title": "Off-hand to shield and back",
+          "desc": "Swap your off-hand weapon for a shield, or back again, and leave your main hand alone. Handy before a Shield Wall or Shield Block. Put your own item names in.",
+          "icon": "classicon_warrior",
+          "iconKind": "class",
+          "code": "#showtooltip\n/equipslot [equipped:Shields] 17 Off-Hand Name; 17 Shield Name",
+          "origin": "classic",
+          "needs": "Dual Wield; a shield and your off-hand weapon in your bags",
+          "codePt": "#showtooltip\n/equipslot [equipped:Escudos] 17 Nome da Arma Secundária; 17 Nome do Escudo"
+        }
+      ]
+    },
+    {
+      "id": "pvp-protection",
+      "name": "Protection PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-concussion-blow",
+          "title": "Concussion Blow target or mouseover",
+          "desc": "Stun your target for 5 sec, or your mouseover with Shift. It doesn't use the global cooldown, so you can follow it with another attack.",
+          "icon": "ability_thunderbolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Concussion Blow\n/cast [mod:shift,@mouseover,harm,nodead] Concussion Blow; Concussion Blow",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stun your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Stun your mouseover instead"
+            }
+          ],
+          "needs": "Concussion Blow talent",
+          "level": 30,
+          "codePt": "#showtooltip Pancada de Concussão\n/cast [mod:shift,@mouseover,harm,nodead] Pancada de Concussão; Pancada de Concussão"
+        },
+        {
+          "id": "pvp-concussion-shield-slam",
+          "title": "Concussion Blow into Shield Slam",
+          "desc": "Stun and Shield Slam on one press. Concussion Blow doesn't use the global cooldown, so Shield Slam can follow it straight away.",
+          "icon": "ability_thunderbolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Concussion Blow\n/startattack\n/cast Concussion Blow\n/cast Shield Slam",
+          "origin": "adapted",
+          "needs": "Concussion Blow and Shield Slam talents; a shield equipped",
+          "level": 40,
+          "codePt": "#showtooltip Pancada de Concussão\n/startattack\n/cast Pancada de Concussão\n/cast Escudada"
+        },
+        {
+          "id": "pvp-shield-slam-purge",
+          "title": "Shield Slam a buff off your target or mouseover",
+          "desc": "Shield Slam your target, or your mouseover with Shift. It has a 50% chance to strip one magic effect, so it's worth pressing on a shielded Priest or a Paladin with Blessing of Freedom.",
+          "icon": "inv_shield_05",
+          "iconKind": "ability",
+          "code": "#showtooltip Shield Slam\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead] Shield Slam; Shield Slam",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Shield Slam your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Shield Slam your mouseover instead"
+            }
+          ],
+          "needs": "Shield Slam talent; a shield equipped",
+          "level": 40,
+          "codePt": "#showtooltip Escudada\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead] Escudada; Escudada"
+        },
+        {
+          "id": "pvp-vanguard-concussion",
+          "title": "Charge from Defensive Stance into Concussion Blow",
+          "desc": "With Vanguard you can Charge out of combat without leaving Defensive Stance. Press again when you land to Concussion Blow them for 5 sec.",
+          "icon": "ability_warrior_charge",
+          "iconKind": "ability",
+          "code": "#showtooltip Charge\n/dismount\n/startattack\n/cast [nocombat] Charge\n/cast Concussion Blow",
+          "origin": "forever",
+          "needs": "Vanguard and Concussion Blow talents; Defensive Stance; out of combat for Charge",
+          "level": 30,
+          "codePt": "#showtooltip Investida\n/dismount\n/startattack\n/cast [nocombat] Investida\n/cast Pancada de Concussão"
+        },
+        {
+          "id": "pvp-hamstring-defensive",
+          "title": "Hamstring and back to Defensive Stance",
+          "desc": "Hamstring doesn't work in Defensive Stance. Press once to go to Battle Stance, again to Hamstring and step straight back into Defensive. Shift picks your mouseover.",
+          "icon": "ability_shockwave",
+          "iconKind": "ability",
+          "code": "#showtooltip Hamstring\n/startattack\n/cast [stance:1,mod:shift,@mouseover,harm,nodead] Hamstring; [stance:1] Hamstring\n/cast [stance:1] Defensive Stance; Battle Stance",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Hamstring your target, then back to Defensive Stance"
+            },
+            {
+              "key": "Shift",
+              "text": "Hamstring your mouseover instead"
+            }
+          ],
+          "needs": "Hamstring learned",
+          "codePt": "#showtooltip Cortar Tendão\n/startattack\n/cast [stance:1,mod:shift,@mouseover,harm,nodead] Cortar Tendão; [stance:1] Cortar Tendão\n/cast [stance:1] Postura de Defesa; Postura de Batalha"
+        },
+        {
+          "id": "pvp-intercept-defensive",
+          "title": "Intercept and back to Defensive Stance",
+          "desc": "Press once to go to Berserker Stance, again to Intercept and drop straight back into Defensive. If Intercept isn't ready, the second press only takes you back.",
+          "icon": "ability_rogue_sprint",
+          "iconKind": "ability",
+          "code": "#showtooltip Intercept\n/startattack\n/cast [stance:3] Intercept\n/cast [stance:3] Defensive Stance; Berserker Stance",
+          "origin": "classic",
+          "needs": "Intercept learned; 10 Rage for Intercept",
+          "level": 30,
+          "codePt": "#showtooltip Interceptar\n/startattack\n/cast [stance:3] Interceptar\n/cast [stance:3] Postura de Defesa; Postura de Berserker"
+        },
+        {
+          "id": "pvp-last-stand-potion",
+          "title": "Last Stand and a healing potion",
+          "desc": "Last Stand and a healing potion on one press when you're about to drop, say while carrying a flag. Put in the potion you carry.",
+          "icon": "spell_holy_ashestoashes",
+          "iconKind": "ability",
+          "code": "#showtooltip Last Stand\n/cast Last Stand\n/use Greater Healing Potion",
+          "origin": "classic",
+          "needs": "Last Stand talent; a Greater Healing Potion, or swap in the one you carry",
+          "codePt": "#showtooltip Último Recurso\n/cast Último Recurso\n/use Poção Maior de Cura"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1365 @@
+{
+  "slug": "hunter",
+  "fetched": "2026-11-10T01:48:11.703Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/hunter/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-mark-pet",
+          "title": "Mark and send pet",
+          "desc": "Mark your target and send your pet at it with one button.",
+          "icon": "ability_hunter_snipershot",
+          "iconKind": "ability",
+          "code": "#showtooltip Hunter's Mark\n/petattack\n/cast Hunter's Mark",
+          "origin": "classic",
+          "needs": "Hunter's Mark learned; living pet for the pet command",
+          "codePt": "#showtooltip Marca do Caçador\n/petattack\n/cast Marca do Caçador"
+        },
+        {
+          "id": "class-wide-mend-pet",
+          "title": "Mend your pet",
+          "desc": "Heal your pet while keeping your enemy selected.",
+          "icon": "ability_hunter_mendpet",
+          "iconKind": "ability",
+          "code": "#showtooltip Mend Pet\n/cast [@pet,exists,nodead] Mend Pet",
+          "origin": "classic",
+          "needs": "Mend Pet learned",
+          "codePt": "#showtooltip Curar Ajudante\n/cast [@pet,exists,nodead] Curar Ajudante"
+        },
+        {
+          "id": "class-wide-pet-attack-mouseover",
+          "title": "Send your pet at your mouseover",
+          "desc": "Your pet attacks the enemy under your mouse without changing your target; with nothing hovered it goes for your target.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "/petattack [@mouseover,harm,nodead][]",
+          "origin": "classic",
+          "needs": "A living pet",
+          "codePt": "/petattack [@mouseover,harm,nodead][]"
+        },
+        {
+          "id": "class-wide-pet-attack-recall",
+          "title": "Pet attack, Shift to recall",
+          "desc": "Send your pet at your target. Hold Shift to make it passive and bring it back; recalling never sends another attack command in the same press.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "/petattack [nomod:shift,harm,nodead]\n/petpassive [mod:shift]\n/petfollow [mod:shift]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Pet attacks your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Pet goes passive and follows"
+            }
+          ],
+          "needs": "A living pet",
+          "codePt": "/petattack [nomod:shift,harm,nodead]\n/petpassive [mod:shift]\n/petfollow [mod:shift]"
+        },
+        {
+          "id": "class-wide-pet-call-revive",
+          "title": "Call, revive or mend your pet",
+          "desc": "Mends a healthy pet, calls it if it isn't out and revives it if it's dead.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [@pet,dead][mod:shift] Revive Pet; [nopet] Call Pet; Mend Pet",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mend, call or revive, whichever your pet needs"
+            },
+            {
+              "key": "Shift",
+              "text": "Revive Pet"
+            }
+          ],
+          "needs": "Call Pet, Revive Pet and Mend Pet learned",
+          "codePt": "#showtooltip\n/cast [@pet,dead][mod:shift] Reviver Ajudante; [nopet] Chamar Ajudante; Curar Ajudante"
+        },
+        {
+          "id": "class-wide-feed-pet",
+          "title": "Feed your pet outside combat",
+          "desc": "Casts Feed Pet and hands over the food, only when your pet is out and you're out of combat.",
+          "icon": "ability_hunter_beasttraining",
+          "iconKind": "ability",
+          "code": "#showtooltip Feed Pet\n/cast [pet,nocombat] Feed Pet\n/use [pet,nocombat] Chunk of Boar Meat",
+          "origin": "classic",
+          "needs": "Food in your bags that your pet eats; swap in its name for Chunk of Boar Meat",
+          "codePt": "#showtooltip Alimentar Ajudante\n/cast [pet,nocombat] Alimentar Ajudante\n/use [pet,nocombat] Chunk of Boar Meat",
+          "untranslated": [
+            "Chunk of Boar Meat"
+          ]
+        },
+        {
+          "id": "class-wide-aspect-hawk",
+          "title": "Aspect of the Hawk after Cheetah",
+          "desc": "Drops Aspect of the Cheetah and puts Hawk on, without toggling Hawk off if it's already up.",
+          "icon": "spell_nature_ravenform",
+          "iconKind": "ability",
+          "code": "#showtooltip Aspect of the Hawk\n/cancelaura Aspect of the Cheetah\n/cast !Aspect of the Hawk",
+          "origin": "classic",
+          "codePt": "#showtooltip Aspecto do Falcão\n/cancelaura Aspecto do Guepardo\n/cast !Aspecto do Falcão"
+        },
+        {
+          "id": "class-wide-aspect-run",
+          "title": "Cheetah, or Pack on right-click",
+          "desc": "Left-click for Aspect of the Cheetah and right-click for Aspect of the Pack when the group needs to move.",
+          "icon": "ability_mount_jungletiger",
+          "iconKind": "ability",
+          "code": "#showtooltip Aspect of the Cheetah\n/cast [button:2] !Aspect of the Pack; !Aspect of the Cheetah",
+          "origin": "classic",
+          "needs": "Aspect of the Pack learned (level 40)",
+          "level": 40,
+          "codePt": "#showtooltip Aspecto do Guepardo\n/cast [button:2] !Aspecto da Matilha; !Aspecto do Guepardo"
+        },
+        {
+          "id": "class-wide-track",
+          "title": "Tracking on one button",
+          "desc": "Switch tracking with modifier keys instead of opening the spellbook.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Track Beasts; [mod:ctrl] Track Undead; [mod:alt] Track Hidden; Track Humanoids",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Track Humanoids"
+            },
+            {
+              "key": "Shift",
+              "text": "Track Beasts"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Track Undead"
+            },
+            {
+              "key": "Alt",
+              "text": "Track Hidden"
+            }
+          ],
+          "needs": "The Track spells you've learned",
+          "level": 24,
+          "codePt": "#showtooltip\n/cast [mod:shift] Rastrear Feras; [mod:ctrl] Rastrear Mortos-vivos; [mod:alt] Rastrear Furtivos; Rastrear Humanoides"
+        },
+        {
+          "id": "class-wide-feign-death",
+          "title": "Feign Death that lets combat drop",
+          "desc": "Tells your pet to stand down and stops your shooting first, then feigns only if you're in combat.",
+          "icon": "ability_rogue_feigndeath",
+          "iconKind": "ability",
+          "code": "#showtooltip Feign Death\n/petpassive\n/petfollow\n/stopattack\n/stopcasting\n/cast [combat] Feign Death",
+          "origin": "classic",
+          "needs": "Feign Death learned (level 30)",
+          "level": 30,
+          "codePt": "#showtooltip Fingir de Morto\n/petpassive\n/petfollow\n/stopattack\n/stopcasting\n/cast [combat] Fingir de Morto"
+        },
+        {
+          "id": "class-wide-cancel-run-aspects",
+          "title": "Cancel Cheetah or Pack",
+          "desc": "Remove either running aspect immediately without spending mana on another aspect. Useful before incoming damage can daze you or your group.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "/cancelaura Aspect of the Cheetah\n/cancelaura Aspect of the Pack",
+          "origin": "classic",
+          "codePt": "/cancelaura Aspecto do Guepardo\n/cancelaura Aspecto da Matilha"
+        },
+        {
+          "id": "class-wide-eagle-eye",
+          "title": "Chain Eagle Eye viewpoints",
+          "desc": "Open Eagle Eye's targeting circle without cancelling the existing viewpoint. Choose the next spot with a click; movement or Escape ends scouting.",
+          "icon": "ability_hunter_eagleeye",
+          "iconKind": "ability",
+          "code": "#showtooltip Eagle Eye\n/cast !Eagle Eye",
+          "origin": "classic",
+          "needs": "Eagle Eye learned",
+          "codePt": "#showtooltip Olho de Águia\n/cast !Olho de Águia"
+        }
+      ]
+    },
+    {
+      "id": "beast-mastery",
+      "name": "Beast Mastery",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "beast-mastery-intimidation",
+          "title": "Intimidation and pet attack",
+          "desc": "Send your pet; its next successful attack stuns the enemy.",
+          "icon": "ability_devour",
+          "iconKind": "ability",
+          "code": "#showtooltip Intimidation\n/petattack\n/cast Intimidation",
+          "origin": "adapted",
+          "needs": "Intimidation talent; living pet",
+          "level": 30,
+          "codePt": "#showtooltip Intimidação\n/petattack\n/cast Intimidação"
+        },
+        {
+          "id": "beast-mastery-pet-back",
+          "title": "Call your pet back",
+          "desc": "Stop its attack and bring it back before it pulls more enemies.",
+          "icon": "ability_hunter_beastcall",
+          "iconKind": "ability",
+          "code": "/petpassive\n/petfollow",
+          "origin": "adapted",
+          "needs": "A living pet",
+          "codePt": "/petpassive\n/petfollow"
+        },
+        {
+          "id": "beast-mastery-summon-hawk",
+          "title": "Arcane Shot or Summon Hawk",
+          "desc": "Fires Arcane Shot, or sends a hawk at your target or mouseover; both use one cooldown, so you pick one per window.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:ctrl,@mouseover,harm,nodead] Summon Hawk; [mod:shift] Summon Hawk; Arcane Shot\n/cast !Auto Shot",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Arcane Shot"
+            },
+            {
+              "key": "Shift",
+              "text": "Summon Hawk at your target"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Summon Hawk at your mouseover"
+            }
+          ],
+          "needs": "Summon Hawk talent (level 25)",
+          "level": 25,
+          "codePt": "#showtooltip\n/cast [mod:ctrl,@mouseover,harm,nodead] Evocar Falcão; [mod:shift] Evocar Falcão; Tiro Arcano\n/cast !Tiro Automático"
+        },
+        {
+          "id": "beast-mastery-bestial-wrath",
+          "title": "Bestial Wrath with a trinket",
+          "desc": "Sends your pet in, uses the trinket in your first slot and rages your pet.",
+          "icon": "ability_druid_ferociousbite",
+          "iconKind": "ability",
+          "code": "#showtooltip Bestial Wrath\n/petattack\n/use 13\n/cast [mod:shift] Rapid Fire\n/cast Bestial Wrath",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Pet attack, first trinket, Bestial Wrath"
+            },
+            {
+              "key": "Shift",
+              "text": "Also Rapid Fire"
+            }
+          ],
+          "needs": "Bestial Wrath talent; living pet",
+          "level": 40,
+          "codePt": "#showtooltip Ira Bestial\n/petattack\n/use 13\n/cast [mod:shift] Tiro Rápido\n/cast Ira Bestial"
+        },
+        {
+          "id": "beast-mastery-growl-group",
+          "title": "Growl on when solo, off in a group",
+          "desc": "Sets your pet's Growl autocast for the situation: on when you're alone, off in a party or raid.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "/petautocastoff [group] Growl\n/petautocaston [nogroup] Growl",
+          "origin": "classic",
+          "needs": "A pet with Growl",
+          "codePt": "/petautocastoff [group] Growl\n/petautocaston [nogroup] Growl"
+        },
+        {
+          "id": "beast-mastery-pet-stance",
+          "title": "Pet stance on one key",
+          "desc": "Change your pet's stance without opening the pet bar.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "/petdefensive [nomod]\n/petpassive [mod:shift]\n/petaggressive [mod:ctrl]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Defensive"
+            },
+            {
+              "key": "Shift",
+              "text": "Passive"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Aggressive"
+            }
+          ],
+          "needs": "A pet",
+          "codePt": "/petdefensive [nomod]\n/petpassive [mod:shift]\n/petaggressive [mod:ctrl]"
+        },
+        {
+          "id": "beast-mastery-tame-beast",
+          "title": "Beast Lore, then Tame Beast",
+          "desc": "The first press reads the beast's diet and damage, the second starts taming; a new target starts over.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=target Beast Lore, Tame Beast",
+          "origin": "classic",
+          "needs": "Beast Lore (level 24) and Tame Beast learned",
+          "level": 24,
+          "codePt": "#showtooltip\n/castsequence reset=target Tradição das Feras, Domar Fera"
+        },
+        {
+          "id": "beast-mastery-tranq-shot",
+          "title": "Tranquilizing Shot on your mouseover",
+          "desc": "Removes a Frenzy effect from the enemy creature under your mouse, or from your target if you aren't hovering one.",
+          "icon": "spell_nature_drowsy",
+          "iconKind": "ability",
+          "code": "#showtooltip Tranquilizing Shot\n/cast [@mouseover,harm,nodead][] Tranquilizing Shot",
+          "origin": "classic",
+          "needs": "Tranquilizing Shot learned (level 60)",
+          "level": 60,
+          "codePt": "#showtooltip Tiro Tranquilizante\n/cast [@mouseover,harm,nodead][] Tiro Tranquilizante"
+        },
+        {
+          "id": "beast-mastery-eyes-scout",
+          "title": "Park your pet and scout",
+          "desc": "Tells your pet to stay, then lets you see through its eyes for 2 minutes.",
+          "icon": "ability_eyeoftheowl",
+          "iconKind": "ability",
+          "code": "#showtooltip Eyes of the Beast\n/petstay\n/cast Eyes of the Beast",
+          "origin": "classic",
+          "needs": "Eyes of the Beast learned (level 14); living pet",
+          "codePt": "#showtooltip Olhos da Fera\n/petstay\n/cast Olhos da Fera"
+        },
+        {
+          "id": "beast-mastery-concussive-pull",
+          "title": "Concussive Shot pull with your pet",
+          "desc": "Slows the enemy, sends your pet in and keeps Auto Shot running.",
+          "icon": "spell_frost_stun",
+          "iconKind": "ability",
+          "code": "#showtooltip Concussive Shot\n/petattack\n/cast Concussive Shot\n/cast !Auto Shot",
+          "origin": "classic",
+          "needs": "A living pet",
+          "codePt": "#showtooltip Tiro de Concussão\n/petattack\n/cast Tiro de Concussão\n/cast !Tiro Automático"
+        },
+        {
+          "id": "beast-mastery-scare-beast",
+          "title": "Scare Beast on target or mouseover",
+          "desc": "Scares a beast for up to 10 seconds; hold Shift to scare the beast under your mouse.",
+          "icon": "ability_druid_cower",
+          "iconKind": "ability",
+          "code": "#showtooltip Scare Beast\n/cast [mod:shift,@mouseover,harm,nodead] Scare Beast; Scare Beast",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Scare your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Scare your mouseover"
+            }
+          ],
+          "needs": "Scare Beast learned",
+          "codePt": "#showtooltip Assustar Fera\n/cast [mod:shift,@mouseover,harm,nodead] Assustar Fera; Assustar Fera"
+        },
+        {
+          "id": "beast-mastery-pet-gap-closer",
+          "title": "Send your pet with Dash, Dive or Charge",
+          "desc": "Send your pet at a hostile mouseover or your target, then request its movement ability. The pet uses whichever listed ability it has learned.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "/petattack [@mouseover,harm,nodead][harm,nodead]\n/cast [@pettarget,harm,nodead] Charge\n/cast Dash\n/cast Dive",
+          "origin": "classic",
+          "needs": "A living pet trained in Dash, Dive or Charge; pet Focus and cooldowns still apply",
+          "codePt": "/petattack [@mouseover,harm,nodead][harm,nodead]\n/cast [@pettarget,harm,nodead] Investida\n/cast Arremetida\n/cast Mergulho"
+        }
+      ]
+    },
+    {
+      "id": "marksmanship",
+      "name": "Marksmanship",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "marksmanship-auto-shot",
+          "title": "Start Auto Shot",
+          "desc": "Find an enemy if you have no valid target, then start shooting.",
+          "icon": "ability_whirlwind",
+          "iconKind": "ability",
+          "code": "#showtooltip Auto Shot\n/targetenemy [noexists][dead][help]\n/cast !Auto Shot",
+          "origin": "adapted",
+          "codePt": "#showtooltip Tiro Automático\n/targetenemy [noexists][dead][help]\n/cast !Tiro Automático"
+        },
+        {
+          "id": "marksmanship-aimed-shot",
+          "title": "Aimed Shot and pet attack",
+          "desc": "Send your pet when you begin the Aimed Shot cast.",
+          "icon": "inv_spear_07",
+          "iconKind": "ability",
+          "code": "#showtooltip Aimed Shot\n/petattack\n/cast Aimed Shot",
+          "origin": "adapted",
+          "needs": "Aimed Shot learned at 20; living pet for the pet command",
+          "codePt": "#showtooltip Tiro Certo\n/petattack\n/cast Tiro Certo"
+        },
+        {
+          "id": "marksmanship-aimed-multi",
+          "title": "Aimed Shot or Multi-Shot on one key",
+          "desc": "Aimed Shot and Multi-Shot share a 6 second cooldown in Forever, so this gives you one or the other each window.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Multi-Shot; [mod:ctrl,@mouseover,harm,nodead] Multi-Shot; Aimed Shot\n/cast !Auto Shot",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Aimed Shot"
+            },
+            {
+              "key": "Shift",
+              "text": "Multi-Shot at your target"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Multi-Shot at your mouseover"
+            }
+          ],
+          "needs": "Aimed Shot learned (level 20)",
+          "codePt": "#showtooltip\n/cast [mod:shift] Tiro Múltiplo; [mod:ctrl,@mouseover,harm,nodead] Tiro Múltiplo; Tiro Certo\n/cast !Tiro Automático"
+        },
+        {
+          "id": "marksmanship-sniper-shot",
+          "title": "Sniper Shot and Auto Shot",
+          "desc": "Cast Sniper Shot at your target or Shift-mouseover and keep Auto Shot on. The October 1 update sets a 45-yard range and +10 yards for your next three Shots.",
+          "icon": "hunter_pvp_snipershot",
+          "iconKind": "ability",
+          "code": "#showtooltip Sniper Shot\n/cast [mod:shift,@mouseover,harm,nodead][] Sniper Shot\n/cast !Auto Shot",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Sniper Shot at your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Sniper Shot at your mouseover"
+            }
+          ],
+          "needs": "Sniper Shot talent (level 40); target beyond the minimum range. The saved build-70009 tooltip showed 8–35 yards.",
+          "level": 40,
+          "codePt": "#showtooltip Tiro de Franco-atirador\n/cast [mod:shift,@mouseover,harm,nodead][] Tiro de Franco-atirador\n/cast !Tiro Automático"
+        },
+        {
+          "id": "marksmanship-rapid-fire",
+          "title": "Rapid Fire with both trinkets",
+          "desc": "Uses both trinkets and Rapid Fire together, and makes sure Auto Shot is running.",
+          "icon": "ability_hunter_runningshot",
+          "iconKind": "ability",
+          "code": "#showtooltip Rapid Fire\n/use 13\n/use 14\n/cast Rapid Fire\n/cast !Auto Shot",
+          "origin": "classic",
+          "needs": "Rapid Fire learned (level 26)",
+          "level": 26,
+          "codePt": "#showtooltip Tiro Rápido\n/use 13\n/use 14\n/cast Tiro Rápido\n/cast !Tiro Automático"
+        },
+        {
+          "id": "marksmanship-lone-wolf-pet",
+          "title": "Drop or call your pet for Lone Wolf",
+          "desc": "Calls your pet or dismisses it so you can fight petless for Lone Wolf's 20% damage; dismissing costs the pet 50 happiness.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Revive Pet; [nopet] Call Pet; Dismiss Pet",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Call your pet if it's away, dismiss it if it's out"
+            },
+            {
+              "key": "Shift",
+              "text": "Revive Pet"
+            }
+          ],
+          "needs": "Lone Wolf talent",
+          "codePt": "#showtooltip\n/cast [mod:shift] Reviver Ajudante; [nopet] Chamar Ajudante; Dispensar Ajudante"
+        },
+        {
+          "id": "marksmanship-serpent-spread",
+          "title": "Serpent Sting on target or mouseover",
+          "desc": "Puts Serpent Sting on your target, or on the enemy under your mouse with Shift, and keeps Auto Shot on.",
+          "icon": "ability_hunter_quickshot",
+          "iconKind": "ability",
+          "code": "#showtooltip Serpent Sting\n/cast [mod:shift,@mouseover,harm,nodead] Serpent Sting; Serpent Sting\n/cast !Auto Shot",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Serpent Sting on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Serpent Sting on your mouseover"
+            }
+          ],
+          "needs": "Serpent Sting learned",
+          "codePt": "#showtooltip Picada de Serpente\n/cast [mod:shift,@mouseover,harm,nodead] Picada de Serpente; Picada de Serpente\n/cast !Tiro Automático"
+        },
+        {
+          "id": "marksmanship-distracting-shot",
+          "title": "Distracting Shot on your mouseover",
+          "desc": "Pull a loose enemy off a groupmate by hovering it, or hit your target if nothing is hovered.",
+          "icon": "spell_arcane_blink",
+          "iconKind": "ability",
+          "code": "#showtooltip Distracting Shot\n/cast [@mouseover,harm,nodead][] Distracting Shot",
+          "origin": "classic",
+          "needs": "Distracting Shot learned",
+          "codePt": "#showtooltip Tiro Distrativo\n/cast [@mouseover,harm,nodead][] Tiro Distrativo"
+        },
+        {
+          "id": "marksmanship-pull-sequence",
+          "title": "Mark, Serpent Sting, Arcane Shot opener",
+          "desc": "Press up to three times for mark, sting and Arcane Shot while your pet attacks and Auto Shot stays on; a new target or 8 seconds resets it.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/targetenemy [noexists][dead][help]\n/castsequence reset=target/8 Hunter's Mark, Serpent Sting, Arcane Shot\n/petattack\n/cast !Auto Shot",
+          "origin": "classic",
+          "needs": "Hunter's Mark, Serpent Sting and Arcane Shot learned",
+          "codePt": "#showtooltip\n/targetenemy [noexists][dead][help]\n/castsequence reset=target/8 Marca do Caçador, Picada de Serpente, Tiro Arcano\n/petattack\n/cast !Tiro Automático"
+        },
+        {
+          "id": "marksmanship-shoot-after-melee",
+          "title": "Back to shooting after melee",
+          "desc": "Stops your melee swings, finds an enemy if you lost your target and turns Auto Shot back on. The Auto Attack/Auto Shot option added on 15 October can make this switch for you.",
+          "icon": "ability_whirlwind",
+          "iconKind": "ability",
+          "code": "#showtooltip Auto Shot\n/stopattack\n/targetenemy [noexists][dead][help]\n/cast !Auto Shot",
+          "origin": "classic",
+          "codePt": "#showtooltip Tiro Automático\n/stopattack\n/targetenemy [noexists][dead][help]\n/cast !Tiro Automático"
+        }
+      ]
+    },
+    {
+      "id": "survival",
+      "name": "Survival",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "survival-lacerate",
+          "title": "Lacerate and melee attack",
+          "desc": "Puts Lacerate's 21 second bleed on your target and keeps your melee swings going.",
+          "icon": "ability_gouge",
+          "iconKind": "ability",
+          "code": "#showtooltip Lacerate\n/startattack\n/cast Lacerate",
+          "origin": "forever",
+          "needs": "Lacerate learned (level 30)",
+          "level": 30,
+          "codePt": "#showtooltip Lacerar\n/startattack\n/cast Lacerar"
+        },
+        {
+          "id": "survival-strider-kick",
+          "title": "Strider Kick",
+          "desc": "Kick in melee and run 30% faster for 3 seconds; it has an 8 second cooldown.",
+          "icon": "ability_hunter_pet_tallstrider",
+          "iconKind": "ability",
+          "code": "#showtooltip Strider Kick\n/startattack\n/cast Strider Kick",
+          "origin": "forever",
+          "needs": "Strider Kick talent",
+          "level": 30,
+          "codePt": "#showtooltip Chute de Moa\n/startattack\n/cast Chute de Moa"
+        },
+        {
+          "id": "survival-melee-strikes",
+          "title": "Raptor Strike with Mongoose Bite",
+          "desc": "Queues Raptor Strike, starts your swings and casts Mongoose Bite when it's usable; Shift casts Counterattack after a parry instead.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/cast Raptor Strike\n/startattack\n/cast [mod:shift] Counterattack; Mongoose Bite",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Raptor Strike, then Mongoose Bite"
+            },
+            {
+              "key": "Shift",
+              "text": "Raptor Strike, then Counterattack"
+            }
+          ],
+          "needs": "Counterattack talent for Shift",
+          "level": 25,
+          "codePt": "#showtooltip\n/stopcasting\n/cast Golpe do Raptor\n/startattack\n/cast [mod:shift] Contra-ataque; Mordida de Mangusto"
+        },
+        {
+          "id": "survival-mark-melee",
+          "title": "Mark it for Expose Prey",
+          "desc": "Marks your target so Expose Prey can light up Mongoose Bite, sends your pet and starts your swings once you're in range.",
+          "icon": "ability_hunter_snipershot",
+          "iconKind": "ability",
+          "code": "#showtooltip Hunter's Mark\n/petattack\n/startattack\n/cast Hunter's Mark",
+          "origin": "forever",
+          "needs": "Expose Prey talent; Hunter's Mark learned",
+          "codePt": "#showtooltip Marca do Caçador\n/petattack\n/startattack\n/cast Marca do Caçador"
+        },
+        {
+          "id": "survival-wing-clip-raptor",
+          "title": "Wing Clip and Raptor Strike",
+          "desc": "Slows your target in melee, queues Raptor Strike and keeps your swings going.",
+          "icon": "ability_rogue_trip",
+          "iconKind": "ability",
+          "code": "#showtooltip Wing Clip\n/startattack\n/cast Raptor Strike\n/cast Wing Clip",
+          "origin": "classic",
+          "needs": "Wing Clip learned",
+          "codePt": "#showtooltip Cortar Asas\n/startattack\n/cast Golpe do Raptor\n/cast Cortar Asas"
+        },
+        {
+          "id": "survival-fire-trap",
+          "title": "Immolation or Explosive Trap",
+          "desc": "Drop Immolation Trap, or Explosive Trap with Shift, at your feet during combat. Since 2 November every trap shares one 30 sec cooldown.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Explosive Trap; Immolation Trap",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Immolation Trap"
+            },
+            {
+              "key": "Shift",
+              "text": "Explosive Trap"
+            }
+          ],
+          "needs": "Immolation Trap; Explosive Trap (level 34) for Shift",
+          "level": 34,
+          "codePt": "#showtooltip\n/cast [mod:shift] Armadilha Explosiva; Armadilha Imolante"
+        },
+        {
+          "id": "survival-aspect-melee",
+          "title": "Aspects for melee",
+          "desc": "Puts on Monkey for dodge or Beast for melee attack power on one key, with Hawk and Cheetah on the other modifiers.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] !Aspect of the Beast; [mod:ctrl] !Aspect of the Hawk; [mod:alt] !Aspect of the Cheetah; !Aspect of the Monkey",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Aspect of the Monkey"
+            },
+            {
+              "key": "Shift",
+              "text": "Aspect of the Beast"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Aspect of the Hawk"
+            },
+            {
+              "key": "Alt",
+              "text": "Aspect of the Cheetah"
+            }
+          ],
+          "needs": "Aspect of the Beast (level 30); Aspect of the Cheetah (level 20) for Alt",
+          "level": 30,
+          "codePt": "#showtooltip\n/cast [mod:shift] !Aspecto da Fera; [mod:ctrl] !Aspecto do Falcão; [mod:alt] !Aspecto do Guepardo; !Aspecto do Macaco"
+        },
+        {
+          "id": "survival-deterrence-monkey",
+          "title": "Deterrence with Aspect of the Monkey",
+          "desc": "Pops Deterrence and adds Monkey's dodge on top when enemies are on you in melee.",
+          "icon": "ability_whirlwind",
+          "iconKind": "ability",
+          "code": "#showtooltip Deterrence\n/cast Deterrence\n/cast !Aspect of the Monkey",
+          "origin": "classic",
+          "needs": "Deterrence talent",
+          "codePt": "#showtooltip Coibição\n/cast Coibição\n/cast !Aspecto do Macaco"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-freezing-trap",
+          "title": "Freezing Trap or Frost Trap",
+          "desc": "Drops Freezing Trap after calling off your pet and your shots, or Frost Trap with Shift while you keep fighting. Traps work during combat at your feet, and every trap shares one 30 sec cooldown.",
+          "icon": "spell_frost_chainsofice",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Frost Trap; Freezing Trap\n/stopcasting\n/stopattack [nomod]\n/petstay [nomod,@pettarget,harm]\n/petpassive [nomod,@pettarget,harm]\n/cast [mod:shift] Frost Trap; Freezing Trap",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Freezing Trap, pet and shots stopped"
+            },
+            {
+              "key": "Shift",
+              "text": "Frost Trap, pet keeps fighting"
+            }
+          ],
+          "needs": "Freezing Trap learned; Frost Trap (level 28) for Shift",
+          "level": 28,
+          "codePt": "#showtooltip [mod:shift] Armadilha Gélida; Armadilha Congelante\n/stopcasting\n/stopattack [nomod]\n/petstay [nomod,@pettarget,harm]\n/petpassive [nomod,@pettarget,harm]\n/cast [mod:shift] Armadilha Gélida; Armadilha Congelante"
+        },
+        {
+          "id": "pvp-trap-feign",
+          "title": "Trap, then Feign Death",
+          "desc": "Drops a trap and feigns in the same press so chasers run over it; your pet stands down first.",
+          "icon": "spell_frost_chainsofice",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Frost Trap; Freezing Trap\n/petpassive\n/petfollow\n/stopattack\n/stopcasting\n/cast [mod:shift] Frost Trap; Freezing Trap\n/cast [combat] Feign Death",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Freezing Trap, then Feign Death"
+            },
+            {
+              "key": "Shift",
+              "text": "Frost Trap, then Feign Death"
+            }
+          ],
+          "needs": "Freezing Trap learned; Feign Death (level 30); Frost Trap (level 28) for Shift",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Armadilha Gélida; Armadilha Congelante\n/petpassive\n/petfollow\n/stopattack\n/stopcasting\n/cast [mod:shift] Armadilha Gélida; Armadilha Congelante\n/cast [combat] Fingir de Morto"
+        },
+        {
+          "id": "pvp-concussive-wing-clip",
+          "title": "Concussive Shot or Wing Clip",
+          "desc": "Slows your target at range with Concussive Shot, your mouseover with Shift, or with Wing Clip in melee on Ctrl.",
+          "icon": "spell_frost_stun",
+          "iconKind": "ability",
+          "code": "#showtooltip Concussive Shot\n/cast [mod:shift,@mouseover,harm,nodead] Concussive Shot; [mod:ctrl] Wing Clip; Concussive Shot",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Concussive Shot at your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Concussive Shot at your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Wing Clip on your target"
+            }
+          ],
+          "needs": "Concussive Shot and Wing Clip learned",
+          "codePt": "#showtooltip Tiro de Concussão\n/cast [mod:shift,@mouseover,harm,nodead] Tiro de Concussão; [mod:ctrl] Cortar Asas; Tiro de Concussão"
+        },
+        {
+          "id": "pvp-black-arrow",
+          "title": "Black Arrow on target or mouseover",
+          "desc": "Slows the enemy by 70% and drains its mana; Shift sends it at your mouseover.",
+          "icon": "ability_theblackarrow",
+          "iconKind": "ability",
+          "code": "#showtooltip Black Arrow\n/cast [mod:shift,@mouseover,harm,nodead][] Black Arrow",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Black Arrow at your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Black Arrow at your mouseover"
+            }
+          ],
+          "needs": "Black Arrow learned (level 50)",
+          "level": 50,
+          "codePt": "#showtooltip Flecha Negra\n/cast [mod:shift,@mouseover,harm,nodead][] Flecha Negra"
+        },
+        {
+          "id": "pvp-viper-sting",
+          "title": "Viper Sting on healers and casters",
+          "desc": "Drains mana from your target, or your mouseover with Shift; Ctrl uses Scorpid Sting, which lowers their chance to hit in Forever.",
+          "icon": "ability_hunter_aimedshot",
+          "iconKind": "ability",
+          "code": "#showtooltip Viper Sting\n/cast [mod:shift,@mouseover,harm,nodead] Viper Sting; [mod:ctrl] Scorpid Sting; Viper Sting",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Viper Sting at your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Viper Sting at your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Scorpid Sting at your target"
+            }
+          ],
+          "needs": "Viper Sting (level 36); Scorpid Sting for Ctrl",
+          "level": 36,
+          "codePt": "#showtooltip Picada de Víbora\n/cast [mod:shift,@mouseover,harm,nodead] Picada de Víbora; [mod:ctrl] Picada de Escorpídeo; Picada de Víbora"
+        },
+        {
+          "id": "pvp-hunters-mark",
+          "title": "Hunter's Mark on target or mouseover",
+          "desc": "Marks the enemy you hover with Shift; you can always see a marked target, even if it stealths.",
+          "icon": "ability_hunter_snipershot",
+          "iconKind": "ability",
+          "code": "#showtooltip Hunter's Mark\n/cast [mod:shift,@mouseover,harm,nodead][] Hunter's Mark",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Hunter's Mark on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Hunter's Mark on your mouseover"
+            }
+          ],
+          "needs": "Hunter's Mark learned",
+          "codePt": "#showtooltip Marca do Caçador\n/cast [mod:shift,@mouseover,harm,nodead][] Marca do Caçador"
+        },
+        {
+          "id": "pvp-pet-control",
+          "title": "Pet control on one key",
+          "desc": "Send your pet at your target or mouseover, call it back or park it, all on one key.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "/petattack [mod:shift,@mouseover,harm,nodead][nomod]\n/petpassive [mod:ctrl]\n/petfollow [mod:ctrl]\n/petstay [mod:alt]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Pet attacks your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Pet attacks your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Pet goes passive and follows"
+            },
+            {
+              "key": "Alt",
+              "text": "Pet stays where it is"
+            }
+          ],
+          "needs": "A living pet",
+          "codePt": "/petattack [mod:shift,@mouseover,harm,nodead][nomod]\n/petpassive [mod:ctrl]\n/petfollow [mod:ctrl]\n/petstay [mod:alt]"
+        },
+        {
+          "id": "pvp-flare",
+          "title": "Flare or Enchanted Flare",
+          "desc": "Puts a Flare down where you click to expose hidden enemies; Shift uses Enchanted Flare, which also holds off magical darkness.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Enchanted Flare; Flare",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Flare"
+            },
+            {
+              "key": "Shift",
+              "text": "Enchanted Flare"
+            }
+          ],
+          "needs": "Flare learned (level 32)",
+          "level": 32,
+          "codePt": "#showtooltip\n/cast [mod:shift] Sinalizador Encantado; Sinalizador"
+        },
+        {
+          "id": "pvp-aspect-dance",
+          "title": "Aspect swap on modifier keys",
+          "desc": "Hawk by default, dropping Cheetah first, with Cheetah, Monkey and Pack on modifier keys for running or defending.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cancelaura [nomod] Aspect of the Cheetah\n/cast [mod:shift] !Aspect of the Cheetah; [mod:ctrl] !Aspect of the Monkey; [mod:alt] !Aspect of the Pack; !Aspect of the Hawk",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Aspect of the Hawk"
+            },
+            {
+              "key": "Shift",
+              "text": "Aspect of the Cheetah"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Aspect of the Monkey"
+            },
+            {
+              "key": "Alt",
+              "text": "Aspect of the Pack"
+            }
+          ],
+          "needs": "Aspect of the Pack learned (level 40)",
+          "level": 40,
+          "codePt": "#showtooltip\n/cancelaura [nomod] Aspecto do Guepardo\n/cast [mod:shift] !Aspecto do Guepardo; [mod:ctrl] !Aspecto do Macaco; [mod:alt] !Aspecto da Matilha; !Aspecto do Falcão"
+        },
+        {
+          "id": "pvp-scare-beast-pet-off",
+          "title": "Scare Beast with your shots and pet called off",
+          "desc": "Fears an enemy Hunter's pet or a Druid in animal form after stopping your shots and pulling your pet back, so nothing of yours breaks it. Shift aims at your mouseover.",
+          "icon": "ability_druid_cower",
+          "iconKind": "ability",
+          "code": "#showtooltip Scare Beast\n/stopcasting\n/stopattack\n/petfollow [@pettarget,harm]\n/petpassive [@pettarget,harm]\n/cast [mod:shift,@mouseover,harm,nodead][] Scare Beast",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Scare Beast at your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Scare Beast at your mouseover"
+            }
+          ],
+          "needs": "Scare Beast learned. Druid forms count as Beasts in Classic; not confirmed in Forever yet",
+          "codePt": "#showtooltip Assustar Fera\n/stopcasting\n/stopattack\n/petfollow [@pettarget,harm]\n/petpassive [@pettarget,harm]\n/cast [mod:shift,@mouseover,harm,nodead][] Assustar Fera"
+        },
+        {
+          "id": "pvp-shadowmeld-hide",
+          "title": "Shadowmeld with your pet tucked in",
+          "desc": "Stops your shots, brings your pet back on passive, has a cat Prowl and melds you. Forever lets you Shadowmeld in combat on a 2 min cooldown.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip Shadowmeld\n/stopcasting\n/stopattack\n/petpassive\n/petfollow\n/cast !Prowl\n/cast !Shadowmeld",
+          "origin": "adapted",
+          "needs": "Night Elf; a cat with Prowl, since any other pet standing next to you gives you away",
+          "codePt": "#showtooltip Fusão Sombria\n/stopcasting\n/stopattack\n/petpassive\n/petfollow\n/cast !Espreitar\n/cast !Fusão Sombria"
+        }
+      ]
+    },
+    {
+      "id": "pvp-beast-mastery",
+      "name": "Beast Mastery PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-wrath-stun",
+          "title": "Bestial Wrath and Intimidation",
+          "desc": "Sends your pet in, rages it and stuns the target with Intimidation, or your mouseover with Shift.",
+          "icon": "ability_devour",
+          "iconKind": "ability",
+          "code": "#showtooltip Intimidation\n/petattack [mod:shift,@mouseover,harm,nodead][]\n/cast Bestial Wrath\n/cast [mod:shift,@mouseover,harm,nodead][] Intimidation",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Pet attack, Bestial Wrath and Intimidation on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "The same on your mouseover"
+            }
+          ],
+          "needs": "Intimidation and Bestial Wrath talents; living pet",
+          "level": 40,
+          "codePt": "#showtooltip Intimidação\n/petattack [mod:shift,@mouseover,harm,nodead][]\n/cast Ira Bestial\n/cast [mod:shift,@mouseover,harm,nodead][] Intimidação"
+        },
+        {
+          "id": "pvp-intimidation-pet-target",
+          "title": "Intimidation on your pet's target",
+          "desc": "Readies the stun on whatever your pet is already biting, say a healer, without pulling it off or changing your own target. With no pet target it uses yours.",
+          "icon": "ability_devour",
+          "iconKind": "ability",
+          "code": "#showtooltip Intimidation\n/cast [@pettarget,harm,nodead][] Intimidation",
+          "origin": "adapted",
+          "needs": "Intimidation talent; living pet",
+          "level": 30,
+          "codePt": "#showtooltip Intimidação\n/cast [@pettarget,harm,nodead][] Intimidação"
+        },
+        {
+          "id": "pvp-pet-assist-teammate",
+          "title": "Pet on a teammate's target",
+          "desc": "Hover or target a teammate and your pet goes for whatever they have targeted, with Dash or Dive. Shift also queues Intimidation on that enemy.",
+          "icon": "ability_devour",
+          "iconKind": "ability",
+          "code": "#showtooltip Intimidation\n/petattack [@mouseovertarget,harm,nodead][@targettarget,harm,nodead]\n/cast Dash\n/cast Dive\n/cast [mod:shift,@mouseovertarget,harm,nodead][mod:shift,@targettarget,harm,nodead] Intimidation",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Pet attacks your teammate's target, with Dash or Dive"
+            },
+            {
+              "key": "Shift",
+              "text": "The same, plus Intimidation on that enemy"
+            }
+          ],
+          "needs": "Living pet; Dash or Dive for the speed; Intimidation talent for Shift",
+          "level": 30,
+          "codePt": "#showtooltip Intimidação\n/petattack [@mouseovertarget,harm,nodead][@targettarget,harm,nodead]\n/cast Arremetida\n/cast Mergulho\n/cast [mod:shift,@mouseovertarget,harm,nodead][mod:shift,@targettarget,harm,nodead] Intimidação"
+        },
+        {
+          "id": "pvp-mine-disarm",
+          "title": "Disarm with your bird of prey",
+          "desc": "Your bird of prey disarms whatever it is fighting for 3 sec. Shift sends it at your mouseover first; it has to be in melee range, so press again once it gets there.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip Mine!\n/petattack [mod:shift,@mouseover,harm,nodead]\n/cast [mod:shift,@mouseover,harm,nodead][@pettarget,harm,nodead][] Mine!",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mine! on your pet's target, or yours"
+            },
+            {
+              "key": "Shift",
+              "text": "Pet attacks your mouseover and uses Mine! on it"
+            }
+          ],
+          "needs": "A bird of prey pet (Forever's renamed Owl family) that knows Mine!",
+          "codePt": "#showtooltip Peguei!\n/petattack [mod:shift,@mouseover,harm,nodead]\n/cast [mod:shift,@mouseover,harm,nodead][@pettarget,harm,nodead][] Peguei!"
+        },
+        {
+          "id": "pvp-pet-rescue",
+          "title": "Pull your pet out and mend it",
+          "desc": "Calls a focused pet back on passive with Dash or Dive and casts Mend Pet on it. With Improved Mend Pet each heal can also clear a debuff. Send it back in when it's safe.",
+          "icon": "ability_hunter_mendpet",
+          "iconKind": "ability",
+          "code": "#showtooltip Mend Pet\n/petpassive\n/petfollow\n/cast Dash\n/cast Dive\n/cast [@pet,exists,nodead] Mend Pet",
+          "origin": "classic",
+          "needs": "Mend Pet learned; Improved Mend Pet talent for the cleanse",
+          "codePt": "#showtooltip Curar Ajudante\n/petpassive\n/petfollow\n/cast Arremetida\n/cast Mergulho\n/cast [@pet,exists,nodead] Curar Ajudante"
+        },
+        {
+          "id": "pvp-cat-ambush",
+          "title": "Cat Prowl, then ambush with Intimidation",
+          "desc": "Puts your cat in Prowl on passive. Shift sends it from stealth with Intimidation queued, so the first hit stuns and gets Forever's 100% extra crit chance.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petpassive [nomod]\n/cast [nomod] !Prowl\n/petattack [mod:shift,@mouseover,harm,nodead][mod:shift]\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Intimidation",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cat goes passive and Prowls"
+            },
+            {
+              "key": "Shift",
+              "text": "Cat attacks your mouseover or target, Intimidation queued"
+            }
+          ],
+          "needs": "A cat with Prowl (pet level 30); Intimidation talent for Shift",
+          "level": 30,
+          "codePt": "#showtooltip\n/petpassive [nomod]\n/cast [nomod] !Espreitar\n/petattack [mod:shift,@mouseover,harm,nodead][mod:shift]\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Intimidação"
+        },
+        {
+          "id": "pvp-pet-hawk-mouseover",
+          "title": "Pet and a hawk on your mouseover",
+          "desc": "Sends your pet and a hawk at the enemy under your mouse, often a healer, while you keep shooting your own target. Summon Hawk shares a cooldown with Arcane Shot.",
+          "icon": "ability_hunter_animalhandler",
+          "iconKind": "ability",
+          "code": "#showtooltip Summon Hawk\n/petattack [@mouseover,harm,nodead][]\n/cast [@mouseover,harm,nodead][] Summon Hawk",
+          "origin": "forever",
+          "needs": "Summon Hawk talent (level 25); living pet",
+          "level": 25,
+          "codePt": "#showtooltip Evocar Falcão\n/petattack [@mouseover,harm,nodead][]\n/cast [@mouseover,harm,nodead][] Evocar Falcão"
+        },
+        {
+          "id": "pvp-wrath-racial",
+          "title": "Bestial Wrath with your racial",
+          "desc": "Sends your pet and fires Bestial Wrath with Blood Fury, Berserking or Elune's Light, whichever your race has. The lines your race can't use do nothing.",
+          "icon": "ability_druid_ferociousbite",
+          "iconKind": "ability",
+          "code": "#showtooltip Bestial Wrath\n/petattack\n/cast Blood Fury\n/cast Berserking\n/cast Elune's Light\n/cast Bestial Wrath",
+          "origin": "adapted",
+          "needs": "Bestial Wrath talent; Orc, Troll or Night Elf for the racial",
+          "level": 40,
+          "codePt": "#showtooltip Ira Bestial\n/petattack\n/cast Fúria Sangrenta\n/cast Berserk\n/cast Luz de Eluna\n/cast Ira Bestial"
+        }
+      ]
+    },
+    {
+      "id": "pvp-marksmanship",
+      "name": "Marksmanship PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-scatter-shot",
+          "title": "Scatter Shot with your pet called off",
+          "desc": "Sends your pet away so it can't break the disorient, then Scatters your target, or your mouseover with Shift.",
+          "icon": "ability_golemstormbolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Scatter Shot\n/petstay [@pettarget,harm]\n/petpassive [@pettarget,harm]\n/cast [mod:shift,@mouseover,harm,nodead] Scatter Shot; Scatter Shot",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Scatter Shot at your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Scatter Shot at your mouseover"
+            }
+          ],
+          "needs": "Scatter Shot talent",
+          "level": 30,
+          "codePt": "#showtooltip Tiro de Dispersão\n/petstay [@pettarget,harm]\n/petpassive [@pettarget,harm]\n/cast [mod:shift,@mouseover,harm,nodead] Tiro de Dispersão; Tiro de Dispersão"
+        },
+        {
+          "id": "pvp-scatter-trap",
+          "title": "Scatter Shot, then Freezing Trap",
+          "desc": "Press once to Scatter Shot and again to drop Freezing Trap under the enemy at your feet; it resets after 6 seconds.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petpassive [@pettarget,harm]\n/castsequence reset=6 Scatter Shot, Freezing Trap",
+          "origin": "classic",
+          "needs": "Scatter Shot talent; Freezing Trap learned",
+          "level": 30,
+          "codePt": "#showtooltip\n/petpassive [@pettarget,harm]\n/castsequence reset=6 Tiro de Dispersão, Armadilha Congelante"
+        },
+        {
+          "id": "pvp-scatter-aimed",
+          "title": "Scatter Shot, then Aimed Shot",
+          "desc": "Scatters your target with your pet held back, then the next press hard-casts Aimed Shot. Its 2 sec cast fits inside the 4 sec disorient. A new target or 6 sec starts over.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petstay [@pettarget,harm]\n/petpassive [@pettarget,harm]\n/castsequence reset=target/6 Scatter Shot, Aimed Shot",
+          "origin": "classic",
+          "needs": "Scatter Shot talent; Aimed Shot learned",
+          "level": 30,
+          "codePt": "#showtooltip\n/petstay [@pettarget,harm]\n/petpassive [@pettarget,harm]\n/castsequence reset=target/6 Tiro de Dispersão, Tiro Certo"
+        },
+        {
+          "id": "pvp-scatter-concussive",
+          "title": "Scatter Shot, then Concussive Shot",
+          "desc": "Scatters your target with your pet held back. Back off and press again as it wears off to slow them; Improved Concussive Shot can turn that into a stun.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petstay [@pettarget,harm]\n/petpassive [@pettarget,harm]\n/castsequence reset=target/10 Scatter Shot, Concussive Shot",
+          "origin": "classic",
+          "needs": "Scatter Shot talent; Improved Concussive Shot for the stun chance",
+          "level": 30,
+          "codePt": "#showtooltip\n/petstay [@pettarget,harm]\n/petpassive [@pettarget,harm]\n/castsequence reset=target/10 Tiro de Dispersão, Tiro de Concussão"
+        },
+        {
+          "id": "pvp-sniper-opener",
+          "title": "Sniper Shot opener from long range",
+          "desc": "Opens with Sniper Shot from up to 45 yards, then Aimed Shot and Arcane Shot on the next presses while its extra 10 yards last. A new target or 10 sec starts over.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=target/10 Sniper Shot, Aimed Shot, Arcane Shot",
+          "origin": "forever",
+          "needs": "Sniper Shot talent (level 40)",
+          "level": 40,
+          "codePt": "#showtooltip\n/castsequence reset=target/10 Tiro de Franco-atirador, Tiro Certo, Tiro Arcano"
+        },
+        {
+          "id": "pvp-sniper-scatter",
+          "title": "Sniper Shot, or cancel it for Scatter Shot",
+          "desc": "Casts Sniper Shot. If someone closes in while you're casting, Shift stops the cast, holds your pet back and Scatters your target.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting [mod:shift]\n/petstay [mod:shift,@pettarget,harm]\n/petpassive [mod:shift,@pettarget,harm]\n/cast [mod:shift] Scatter Shot; Sniper Shot",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Sniper Shot"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop casting and Scatter Shot your target"
+            }
+          ],
+          "needs": "Sniper Shot (level 40) and Scatter Shot talents",
+          "level": 40,
+          "codePt": "#showtooltip\n/stopcasting [mod:shift]\n/petstay [mod:shift,@pettarget,harm]\n/petpassive [mod:shift,@pettarget,harm]\n/cast [mod:shift] Tiro de Dispersão; Tiro de Franco-atirador"
+        },
+        {
+          "id": "pvp-aimed-burst",
+          "title": "Aimed Shot, with Rapid Fire on Shift",
+          "desc": "Casts Aimed Shot. Hold Shift on your burst window to also use your first trinket and Rapid Fire, which are both off the global cooldown.",
+          "icon": "inv_spear_07",
+          "iconKind": "ability",
+          "code": "#showtooltip Aimed Shot\n/use [mod:shift] 13\n/cast [mod:shift] Rapid Fire\n/cast Aimed Shot",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Aimed Shot"
+            },
+            {
+              "key": "Shift",
+              "text": "First trinket, Rapid Fire and Aimed Shot"
+            }
+          ],
+          "needs": "Aimed Shot learned; Rapid Fire (level 26) for Shift",
+          "level": 26,
+          "codePt": "#showtooltip Tiro Certo\n/use [mod:shift] 13\n/cast [mod:shift] Tiro Rápido\n/cast Tiro Certo"
+        },
+        {
+          "id": "pvp-concussive-arcane",
+          "title": "Concussive Shot, then Arcane Shot",
+          "desc": "Slows a chaser, then the next press fires Arcane Shot, both instant so you can shoot while you kite. Auto Shot stays on. A new target or 12 sec starts over.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=target/12 Concussive Shot, Arcane Shot\n/cast !Auto Shot",
+          "origin": "classic",
+          "needs": "Concussive Shot and Arcane Shot learned; Improved Concussive Shot adds a stun chance",
+          "codePt": "#showtooltip\n/castsequence reset=target/12 Tiro de Concussão, Tiro Arcano\n/cast !Tiro Automático"
+        }
+      ]
+    },
+    {
+      "id": "pvp-survival",
+      "name": "Survival PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-strider-kick",
+          "title": "Strider Kick on target or mouseover",
+          "desc": "Kicks your target and starts your swings, or kicks the enemy under your mouse with Shift, and speeds you up either way.",
+          "icon": "ability_hunter_pet_tallstrider",
+          "iconKind": "ability",
+          "code": "#showtooltip Strider Kick\n/startattack [nomod]\n/cast [mod:shift,@mouseover,harm,nodead][] Strider Kick",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Strider Kick at your target and start swinging"
+            },
+            {
+              "key": "Shift",
+              "text": "Strider Kick at your mouseover"
+            }
+          ],
+          "needs": "Strider Kick talent",
+          "level": 30,
+          "codePt": "#showtooltip Chute de Moa\n/startattack [nomod]\n/cast [mod:shift,@mouseover,harm,nodead][] Chute de Moa"
+        },
+        {
+          "id": "pvp-melee-reactions",
+          "title": "Wing Clip with melee reactions",
+          "desc": "Queues Raptor Strike and slows your target with Wing Clip, or answers a parry with Counterattack (Shift) or a dodge with Mongoose Bite (Ctrl).",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/startattack\n/cast Raptor Strike\n/cast [mod:shift] Counterattack; [mod:ctrl] Mongoose Bite; Wing Clip",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Raptor Strike and Wing Clip"
+            },
+            {
+              "key": "Shift",
+              "text": "Raptor Strike and Counterattack"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Raptor Strike and Mongoose Bite"
+            }
+          ],
+          "needs": "Counterattack talent for Shift",
+          "level": 25,
+          "codePt": "#showtooltip\n/startattack\n/cast Golpe do Raptor\n/cast [mod:shift] Contra-ataque; [mod:ctrl] Mordida de Mangusto; Cortar Asas"
+        },
+        {
+          "id": "pvp-counterattack-mouseover",
+          "title": "Counterattack on mouseover, Deterrence on Shift",
+          "desc": "Once Counterattack lights up after a parry, roots the enemy under your mouse, or your target, for 5 sec. Shift pops Deterrence first for 25% more parry.",
+          "icon": "ability_warrior_challange",
+          "iconKind": "ability",
+          "code": "#showtooltip Counterattack\n/cast [mod:shift] Deterrence\n/startattack\n/cast [@mouseover,harm,nodead][] Counterattack",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Counterattack your mouseover or target"
+            },
+            {
+              "key": "Shift",
+              "text": "Deterrence, then Counterattack"
+            }
+          ],
+          "needs": "Counterattack and Deterrence talents",
+          "level": 25,
+          "codePt": "#showtooltip Contra-ataque\n/cast [mod:shift] Coibição\n/startattack\n/cast [@mouseover,harm,nodead][] Contra-ataque"
+        },
+        {
+          "id": "pvp-wing-clip-mouseover",
+          "title": "Wing Clip your mouseover in melee",
+          "desc": "Keeps swinging at your target with Raptor Strike queued and Wing Clips the second melee under your mouse. Improved Wing Clip gives each clip a chance to root.",
+          "icon": "ability_rogue_trip",
+          "iconKind": "ability",
+          "code": "#showtooltip Wing Clip\n/startattack\n/cast Raptor Strike\n/cast [@mouseover,harm,nodead][] Wing Clip",
+          "origin": "classic",
+          "needs": "Wing Clip learned; Improved Wing Clip talent for the root chance",
+          "codePt": "#showtooltip Cortar Asas\n/startattack\n/cast Golpe do Raptor\n/cast [@mouseover,harm,nodead][] Cortar Asas"
+        },
+        {
+          "id": "pvp-clip-kick",
+          "title": "Wing Clip, then Strider Kick",
+          "desc": "Slows your target by 60%, then the next press Strider Kicks for 30% run speed, to get back to range or to keep up with a runner. Resets after 8 sec.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=8 Wing Clip, Strider Kick",
+          "origin": "forever",
+          "needs": "Strider Kick talent; Wing Clip learned",
+          "level": 30,
+          "codePt": "#showtooltip\n/castsequence reset=8 Cortar Asas, Chute de Moa"
+        },
+        {
+          "id": "pvp-kick-trap",
+          "title": "Strider Kick, then Freezing Trap",
+          "desc": "Kick the melee on you and run with the speed boost, then press again to drop Freezing Trap in their path. Your pet comes back so it won't break the ice.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petpassive [@pettarget,harm]\n/petfollow [@pettarget,harm]\n/castsequence reset=8 Strider Kick, Freezing Trap",
+          "origin": "forever",
+          "needs": "Strider Kick talent; Freezing Trap learned",
+          "level": 30,
+          "codePt": "#showtooltip\n/petpassive [@pettarget,harm]\n/petfollow [@pettarget,harm]\n/castsequence reset=8 Chute de Moa, Armadilha Congelante"
+        },
+        {
+          "id": "pvp-root-trap",
+          "title": "Counterattack, then Freezing Trap",
+          "desc": "Roots them for 5 sec once Counterattack lights up. Step back and press again to drop Freezing Trap between you, so they walk into it when the root ends.",
+          "icon": "classicon_hunter",
+          "iconKind": "class",
+          "code": "#showtooltip\n/petpassive [@pettarget,harm]\n/petfollow [@pettarget,harm]\n/castsequence reset=8 Counterattack, Freezing Trap",
+          "origin": "classic",
+          "needs": "Counterattack talent; Freezing Trap learned",
+          "level": 25,
+          "codePt": "#showtooltip\n/petpassive [@pettarget,harm]\n/petfollow [@pettarget,harm]\n/castsequence reset=8 Contra-ataque, Armadilha Congelante"
+        },
+        {
+          "id": "pvp-lacerate-mouseover",
+          "title": "Lacerate on target or mouseover",
+          "desc": "Puts the 21 sec bleed on your target, or on the rogue under your mouse, so its ticks can break them out of a Vanish.",
+          "icon": "ability_gouge",
+          "iconKind": "ability",
+          "code": "#showtooltip Lacerate\n/startattack\n/cast [@mouseover,harm,nodead][] Lacerate",
+          "origin": "forever",
+          "needs": "Lacerate learned (level 30)",
+          "level": 30,
+          "codePt": "#showtooltip Lacerar\n/startattack\n/cast [@mouseover,harm,nodead][] Lacerar"
+        },
+        {
+          "id": "pvp-melee-rapid-fire",
+          "title": "Rapid Fire for melee bursts",
+          "desc": "Forever's Rapid Fire speeds up melee swings as well as shots, so this uses both trinkets and Rapid Fire, starts swinging and queues Raptor Strike.",
+          "icon": "ability_hunter_runningshot",
+          "iconKind": "ability",
+          "code": "#showtooltip Rapid Fire\n/startattack\n/use 13\n/use 14\n/cast Rapid Fire\n/cast Raptor Strike",
+          "origin": "forever",
+          "needs": "Rapid Fire learned (level 26); be in melee range",
+          "level": 26,
+          "codePt": "#showtooltip Tiro Rápido\n/startattack\n/use 13\n/use 14\n/cast Tiro Rápido\n/cast Golpe do Raptor"
+        }
+      ]
+    }
+  ]
+}

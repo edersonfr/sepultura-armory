@@ -1,0 +1,1501 @@
+{
+  "slug": "paladin",
+  "fetched": "2026-11-10T01:48:10.150Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/paladin/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-holy-strike",
+          "title": "Holy Strike and auto attack",
+          "desc": "Use Forever’s baseline strike without leaving auto attack off.",
+          "icon": "spell_holy_crusaderstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Strike\n/startattack\n/cast Holy Strike",
+          "origin": "forever",
+          "needs": "Holy Strike learned",
+          "codePt": "#showtooltip Golpe Sagrado\n/startattack\n/cast Golpe Sagrado"
+        },
+        {
+          "id": "class-wide-protection",
+          "title": "Mouseover Blessing of Protection",
+          "desc": "Protect a friendly mouseover, your friendly target, or whoever your enemy target is attacking. Hold Alt for Divine Protection on yourself. Both apply Forbearance.",
+          "icon": "spell_holy_sealofprotection",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:alt] Divine Protection; Blessing of Protection\n/cast [mod:alt] Divine Protection; [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead] Blessing of Protection",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Blessing of Protection: mouseover, then friendly target, then target's target"
+            },
+            {
+              "key": "Alt",
+              "text": "Divine Protection on yourself"
+            }
+          ],
+          "needs": "Blessing of Protection learned; Divine Protection for Alt",
+          "codePt": "#showtooltip [mod:alt] Proteção Divina; Bênção de Proteção\n/cast [mod:alt] Proteção Divina; [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead] Bênção de Proteção"
+        },
+        {
+          "id": "class-wide-blessings",
+          "title": "Blessings on one button",
+          "desc": "Blessing of Might on your mouseover or friendly target. Hold Shift for Wisdom or Ctrl for Kings.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift] Blessing of Wisdom; [mod:ctrl,@mouseover,help,nodead][mod:ctrl] Blessing of Kings; [@mouseover,help,nodead][] Blessing of Might",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Blessing of Might on your mouseover, then your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Blessing of Wisdom instead"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Blessing of Kings instead"
+            }
+          ],
+          "needs": "Blessing of Might, Wisdom and Kings learned. Blizzard confirms Kings is baseline, learned at level 20.",
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift] Bênção de Sabedoria; [mod:ctrl,@mouseover,help,nodead][mod:ctrl] Bênção dos Reis; [@mouseover,help,nodead][] Bênção do Poder"
+        },
+        {
+          "id": "class-wide-auras",
+          "title": "Auras on one button",
+          "desc": "Devotion Aura on a normal press. Hold Shift for Concentration Aura or Ctrl for Retribution Aura.",
+          "icon": "spell_holy_devotionaura",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Concentration Aura; [mod:ctrl] Retribution Aura; Devotion Aura\n/cast [mod:shift] Concentration Aura; [mod:ctrl] Retribution Aura; Devotion Aura",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Devotion Aura"
+            },
+            {
+              "key": "Shift",
+              "text": "Concentration Aura"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Retribution Aura"
+            }
+          ],
+          "needs": "Devotion, Retribution and Concentration Aura learned (Concentration is level 22)",
+          "level": 22,
+          "codePt": "#showtooltip [mod:shift] Aura de Concentração; [mod:ctrl] Aura da Retribuição; Aura de Devoção\n/cast [mod:shift] Aura de Concentração; [mod:ctrl] Aura da Retribuição; Aura de Devoção"
+        },
+        {
+          "id": "class-wide-resistance-auras",
+          "title": "Resistance auras on one button",
+          "desc": "Fire Resistance Aura on a normal press. Hold Shift for Frost or Ctrl for Shadow when a fight calls for it. In Forever they reach the whole raid within 30 yards.",
+          "icon": "spell_fire_sealoffire",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Frost Resistance Aura; [mod:ctrl] Shadow Resistance Aura; Fire Resistance Aura\n/cast [mod:shift] Frost Resistance Aura; [mod:ctrl] Shadow Resistance Aura; Fire Resistance Aura",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Fire Resistance Aura"
+            },
+            {
+              "key": "Shift",
+              "text": "Frost Resistance Aura"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Shadow Resistance Aura"
+            }
+          ],
+          "needs": "All three resistance auras learned (Fire is level 36)",
+          "level": 36,
+          "codePt": "#showtooltip [mod:shift] Aura de Resistência ao Gelo; [mod:ctrl] Aura de Resistência à Sombra; Aura de Resistência ao Fogo\n/cast [mod:shift] Aura de Resistência ao Gelo; [mod:ctrl] Aura de Resistência à Sombra; Aura de Resistência ao Fogo"
+        },
+        {
+          "id": "class-wide-lay-on-hands",
+          "title": "Mouseover Lay on Hands",
+          "desc": "Lay on Hands on your mouseover, then your friendly target, then yourself. It heals for your max health and drains the rest of your mana.",
+          "icon": "spell_holy_layonhands",
+          "iconKind": "ability",
+          "code": "#showtooltip Lay on Hands\n/cast [@mouseover,help,nodead][help,nodead][@player] Lay on Hands",
+          "origin": "classic",
+          "needs": "Lay on Hands learned (level 10); 20 minute cooldown",
+          "codePt": "#showtooltip Impor as Mãos\n/cast [@mouseover,help,nodead][help,nodead][@player] Impor as Mãos"
+        },
+        {
+          "id": "class-wide-bubble",
+          "title": "Divine Shield, and drop it early",
+          "desc": "Press to bubble. Press again to drop it once you're safe. The same press also cancels Divine Protection and Blessing of Protection, which stop you attacking.",
+          "icon": "spell_holy_divineintervention",
+          "iconKind": "ability",
+          "code": "#showtooltip Divine Shield\n/cancelaura Divine Shield\n/cancelaura Divine Protection\n/cancelaura Blessing of Protection\n/cast Divine Shield",
+          "origin": "classic",
+          "needs": "Divine Shield learned (level 34)",
+          "level": 34,
+          "codePt": "#showtooltip Escudo Divino\n/cancelaura Escudo Divino\n/cancelaura Proteção Divina\n/cancelaura Bênção de Proteção\n/cast Escudo Divino"
+        },
+        {
+          "id": "class-wide-redemption",
+          "title": "Mouseover Redemption",
+          "desc": "Resurrect the dead player under your cursor, or your dead target. It's a 10 second cast and you can't use it in combat.",
+          "icon": "spell_holy_resurrection",
+          "iconKind": "ability",
+          "code": "#showtooltip Redemption\n/cast [@mouseover,help,dead][help,dead] Redemption",
+          "origin": "classic",
+          "needs": "Redemption learned (level 12)",
+          "codePt": "#showtooltip Redenção\n/cast [@mouseover,help,dead][help,dead] Redenção"
+        },
+        {
+          "id": "class-wide-undead",
+          "title": "Exorcism or Turn Undead",
+          "desc": "Exorcism on an Undead or Demon target. Hold Shift for Turn Undead to send an Undead enemy running.",
+          "icon": "spell_holy_excorcism_02",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Turn Undead; Exorcism\n/cast [mod:shift,harm,nodead] Turn Undead; [harm,nodead] Exorcism",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Exorcism on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Turn Undead on your target"
+            }
+          ],
+          "needs": "Exorcism (level 20) and Turn Undead (level 24) learned",
+          "level": 24,
+          "codePt": "#showtooltip [mod:shift] Esconjurar Morto-vivo; Exorcismo\n/cast [mod:shift,harm,nodead] Esconjurar Morto-vivo; [harm,nodead] Exorcismo"
+        }
+      ]
+    },
+    {
+      "id": "holy",
+      "name": "Holy",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "holy-holy-light",
+          "title": "Mouseover Holy Light",
+          "desc": "Heal a friendly mouseover first, then your target, then yourself.",
+          "icon": "spell_holy_holybolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Light\n/cast [@mouseover,help,nodead][help,nodead][@player] Holy Light",
+          "origin": "classic",
+          "codePt": "#showtooltip Luz Sagrada\n/cast [@mouseover,help,nodead][help,nodead][@player] Luz Sagrada"
+        },
+        {
+          "id": "holy-flash-of-light",
+          "title": "Mouseover Flash of Light",
+          "desc": "Keep your enemy target while healing a party frame under your cursor.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash of Light\n/cast [@mouseover,help,nodead][help,nodead][@player] Flash of Light",
+          "origin": "classic",
+          "needs": "Flash of Light learned",
+          "codePt": "#showtooltip Clarão de Luz\n/cast [@mouseover,help,nodead][help,nodead][@player] Clarão de Luz"
+        },
+        {
+          "id": "holy-holy-light-ranks",
+          "title": "Holy Light ranks on Shift and Ctrl",
+          "desc": "Heal your mouseover or friendly target with your top rank, or a cheaper one with Shift (rank 7) or Ctrl (rank 5).",
+          "icon": "spell_holy_holybolt",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Light\n/cast [mod:shift,@mouseover,help,nodead][mod:shift] Holy Light(Rank 7); [mod:ctrl,@mouseover,help,nodead][mod:ctrl] Holy Light(Rank 5); [@mouseover,help,nodead][] Holy Light",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Your top rank of Holy Light"
+            },
+            {
+              "key": "Shift",
+              "text": "Holy Light rank 7"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Holy Light rank 5"
+            }
+          ],
+          "needs": "Holy Light ranks 5 and 7 learned (level 46); change the ranks to ones you have",
+          "codePt": "#showtooltip Luz Sagrada\n/cast [mod:shift,@mouseover,help,nodead][mod:shift] Luz Sagrada(Grau 7); [mod:ctrl,@mouseover,help,nodead][mod:ctrl] Luz Sagrada(Grau 5); [@mouseover,help,nodead][] Luz Sagrada"
+        },
+        {
+          "id": "holy-flash-of-light-ranks",
+          "title": "Flash of Light ranks on Shift and Ctrl",
+          "desc": "Top up your mouseover or friendly target with your top rank, or a cheaper one with Shift (rank 5) or Ctrl (rank 3).",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip Flash of Light\n/cast [mod:shift,@mouseover,help,nodead][mod:shift] Flash of Light(Rank 5); [mod:ctrl,@mouseover,help,nodead][mod:ctrl] Flash of Light(Rank 3); [@mouseover,help,nodead][] Flash of Light",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Your top rank of Flash of Light"
+            },
+            {
+              "key": "Shift",
+              "text": "Flash of Light rank 5"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Flash of Light rank 3"
+            }
+          ],
+          "needs": "Flash of Light ranks 3 and 5 learned (level 50); change the ranks to ones you have",
+          "codePt": "#showtooltip Clarão de Luz\n/cast [mod:shift,@mouseover,help,nodead][mod:shift] Clarão de Luz(Grau 5); [mod:ctrl,@mouseover,help,nodead][mod:ctrl] Clarão de Luz(Grau 3); [@mouseover,help,nodead][] Clarão de Luz"
+        },
+        {
+          "id": "holy-tank-heal",
+          "title": "Heal whoever the enemy is fighting",
+          "desc": "With an enemy targeted, Flash of Light goes to your mouseover, then your friendly target, then whoever that enemy is attacking. Hold Shift for Holy Light.",
+          "icon": "spell_holy_flashheal",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Holy Light; Flash of Light\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@targettarget,help,nodead] Holy Light; [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead] Flash of Light",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Flash of Light on mouseover, friendly target, or your enemy's target"
+            },
+            {
+              "key": "Shift",
+              "text": "Holy Light on the same targets"
+            }
+          ],
+          "needs": "Flash of Light learned",
+          "codePt": "#showtooltip [mod:shift] Luz Sagrada; Clarão de Luz\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@targettarget,help,nodead] Luz Sagrada; [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead] Clarão de Luz"
+        },
+        {
+          "id": "holy-holy-shock",
+          "title": "Holy Shock on a friend or an enemy",
+          "desc": "Holy Shock your mouseover, then your target, then yourself. It heals an ally and damages an enemy. Hold Alt to shock yourself.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Shock\n/cast [mod:alt,@player][@mouseover,exists,nodead][exists,nodead][@player] Holy Shock",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Holy Shock on mouseover, then target, then yourself"
+            },
+            {
+              "key": "Alt",
+              "text": "Holy Shock on yourself"
+            }
+          ],
+          "needs": "Holy Shock talent (it starts at level 30 in Forever)",
+          "level": 30,
+          "codePt": "#showtooltip Choque Sagrado\n/cast [mod:alt,@player][@mouseover,exists,nodead][exists,nodead][@player] Choque Sagrado"
+        },
+        {
+          "id": "holy-lights-vigil",
+          "title": "Light's Vigil, then Holy Shock",
+          "desc": "Mark your friendly mouseover or target with Light's Vigil, then hold Shift and press to Holy Shock the same target for the bonus effect.",
+          "icon": "ability_paladin_judgementofthepure",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Holy Shock; Light's Vigil\n/cast [mod:shift,@mouseover,exists,nodead][mod:shift,exists,nodead] Holy Shock; [@mouseover,help,nodead][help,nodead][@player] Light's Vigil",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Light's Vigil on a friendly mouseover, friendly target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Holy Shock on your mouseover or target"
+            }
+          ],
+          "needs": "Light's Vigil and Holy Shock talents; the mark lasts 30 seconds, and since 2 November it only goes on friends",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Choque Sagrado; Luz Zelosa\n/cast [mod:shift,@mouseover,exists,nodead][mod:shift,exists,nodead] Choque Sagrado; [@mouseover,help,nodead][help,nodead][@player] Luz Zelosa"
+        },
+        {
+          "id": "holy-divine-favor",
+          "title": "Divine Favor into a heal",
+          "desc": "Pop Divine Favor and heal in one press so the heal is a sure critical. Holy Light by default, Flash of Light with Shift.",
+          "icon": "spell_holy_holybolt",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Flash of Light; Holy Light\n/cast Divine Favor\n/cast [mod:shift,@mouseover,help,nodead][mod:shift] Flash of Light; [@mouseover,help,nodead][help,nodead][@player] Holy Light",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Divine Favor, then Holy Light"
+            },
+            {
+              "key": "Shift",
+              "text": "Divine Favor, then Flash of Light"
+            }
+          ],
+          "needs": "Divine Favor talent; 2 minute cooldown",
+          "codePt": "#showtooltip [mod:shift] Clarão de Luz; Luz Sagrada\n/cast Favorecimento Divino\n/cast [mod:shift,@mouseover,help,nodead][mod:shift] Clarão de Luz; [@mouseover,help,nodead][help,nodead][@player] Luz Sagrada"
+        },
+        {
+          "id": "holy-purify",
+          "title": "Mouseover Purify",
+          "desc": "Remove a disease and a poison from your mouseover, then your friendly target, then yourself.",
+          "icon": "spell_holy_purify",
+          "iconKind": "ability",
+          "code": "#showtooltip Purify\n/cast [@mouseover,help,nodead][help,nodead][@player] Purify",
+          "origin": "classic",
+          "needs": "Purify learned (level 8)",
+          "codePt": "#showtooltip Purificar\n/cast [@mouseover,help,nodead][help,nodead][@player] Purificar"
+        },
+        {
+          "id": "holy-cleanse",
+          "title": "Mouseover Cleanse",
+          "desc": "Cleanse a poison, a disease and a magic effect from your mouseover, then your friendly target, then yourself. Hold Alt to cleanse yourself.",
+          "icon": "spell_holy_renew",
+          "iconKind": "ability",
+          "code": "#showtooltip Cleanse\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Cleanse",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cleanse on mouseover, then friendly target, then yourself"
+            },
+            {
+              "key": "Alt",
+              "text": "Cleanse yourself"
+            }
+          ],
+          "needs": "Cleanse learned (level 42)",
+          "level": 42,
+          "codePt": "#showtooltip Purificação\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Purificação"
+        },
+        {
+          "id": "holy-seal-wisdom",
+          "title": "Seal of Wisdom, Seal of Light or Judgement",
+          "desc": "Hold Shift for Seal of Wisdom or Ctrl for Seal of Light, then press normally to judge. Judgement no longer uses the Seal up, so you don't recast it.",
+          "icon": "spell_holy_righteousfury",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Seal of Wisdom; [mod:ctrl] Seal of Light; Judgement\n/cast [mod:shift] Seal of Wisdom; [mod:ctrl] Seal of Light; Judgement",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Judgement on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Seal of Wisdom"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Seal of Light"
+            }
+          ],
+          "needs": "Seal of Wisdom (level 38) or Seal of Light (level 30); Seal and Judgement are separate presses",
+          "level": 38,
+          "codePt": "#showtooltip [mod:shift] Selo da Sabedoria; [mod:ctrl] Selo da Luz; Julgamento\n/cast [mod:shift] Selo da Sabedoria; [mod:ctrl] Selo da Luz; Julgamento"
+        }
+      ]
+    },
+    {
+      "id": "protection",
+      "name": "Protection",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "protection-seal-of-fury",
+          "title": "Seal of Fury or Judgement",
+          "desc": "Hold Shift to apply Seal of Fury. A normal press judges, and with the Seal up that Judgement taunts your target for 3 seconds.",
+          "icon": "spell_holy_righteousfury",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Seal of Fury; Judgement\n/cast [mod:shift] Seal of Fury; Judgement",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Judgement on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Seal of Fury"
+            }
+          ],
+          "needs": "Seal of Fury learned (level 10); Seal and Judgement are separate presses",
+          "codePt": "#showtooltip [mod:shift] Selo da Fúria; Julgamento\n/cast [mod:shift] Selo da Fúria; Julgamento"
+        },
+        {
+          "id": "protection-consecration",
+          "title": "Consecration and Righteous Fury",
+          "desc": "Hold Shift to turn on Righteous Fury before a pull. Press normally for Consecration.",
+          "icon": "spell_holy_innerfire",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Righteous Fury; Consecration\n/cast [mod:shift] Righteous Fury; Consecration",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Consecration"
+            },
+            {
+              "key": "Shift",
+              "text": "Righteous Fury"
+            }
+          ],
+          "needs": "Consecration and Righteous Fury learned",
+          "codePt": "#showtooltip [mod:shift] Fúria Íntegra; Consagração\n/cast [mod:shift] Fúria Íntegra; Consagração"
+        },
+        {
+          "id": "protection-holy-shield-judgement",
+          "title": "Holy Shield and Judgement",
+          "desc": "One press judges (Judgement is off the global cooldown) and raises Holy Shield.",
+          "icon": "spell_holy_blessingofprotection",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Shield\n/startattack\n/cast Judgement\n/cast Holy Shield",
+          "origin": "forever",
+          "needs": "Holy Shield talent; a shield equipped; a Seal up",
+          "level": 30,
+          "codePt": "#showtooltip Escudo Sagrado\n/startattack\n/cast Julgamento\n/cast Escudo Sagrado"
+        },
+        {
+          "id": "protection-righteous-strikes",
+          "title": "Hammer of the Righteous or Holy Strike",
+          "desc": "Hammer of the Righteous hits your target and up to 3 nearby enemies on a 6 second cooldown. Hold Shift for Holy Strike.",
+          "icon": "ability_paladin_hammeroftherighteous",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Holy Strike; Hammer of the Righteous\n/startattack\n/cast [mod:shift] Holy Strike; Hammer of the Righteous",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Hammer of the Righteous"
+            },
+            {
+              "key": "Shift",
+              "text": "Holy Strike"
+            }
+          ],
+          "needs": "Hammer of the Righteous (level 40) and Holy Strike learned",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Golpe Sagrado; Martelo do Íntegro\n/startattack\n/cast [mod:shift] Golpe Sagrado; Martelo do Íntegro"
+        },
+        {
+          "id": "protection-swift-judgement",
+          "title": "Judgement or Swift Judgement",
+          "desc": "Press to judge. Hold Shift for Swift Judgement, which unleashes your Seal again on its own 1 minute cooldown, separate from Judgement’s.",
+          "icon": "spell_holy_righteousfury",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Swift Judgement; Judgement\n/cast [mod:shift] Swift Judgement; Judgement",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Judgement on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Swift Judgement"
+            }
+          ],
+          "needs": "Swift Judgement talent, which now needs Templar's Bulwark; a Seal up",
+          "level": 25,
+          "codePt": "#showtooltip [mod:shift] Julgamento Célere; Julgamento\n/cast [mod:shift] Julgamento Célere; Julgamento"
+        },
+        {
+          "id": "protection-bulwark-protection",
+          "title": "Templar's Bulwark or Divine Protection",
+          "desc": "Templar's Bulwark puts an absorb equal to your max health on you for 8 seconds. Hold Shift for Divine Protection instead. Both apply Forbearance.",
+          "icon": "ability_paladin_shieldofthetemplar",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Divine Protection; Templar's Bulwark\n/cast [mod:shift] Divine Protection; Templar's Bulwark",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Templar's Bulwark"
+            },
+            {
+              "key": "Shift",
+              "text": "Divine Protection"
+            }
+          ],
+          "needs": "Templar's Bulwark talent; neither works while Forbearance is up",
+          "codePt": "#showtooltip [mod:shift] Proteção Divina; Baluarte do Templário\n/cast [mod:shift] Proteção Divina; Baluarte do Templário"
+        },
+        {
+          "id": "protection-righteous-fury",
+          "title": "Righteous Fury on, Shift to drop it",
+          "desc": "Press to turn on Righteous Fury before a pull. Hold Shift to cancel it when you switch to damage or healing.",
+          "icon": "spell_holy_sealoffury",
+          "iconKind": "ability",
+          "code": "#showtooltip Righteous Fury\n/cast [nomod:shift] Righteous Fury\n/stopmacro [nomod:shift]\n/cancelaura Righteous Fury",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Righteous Fury"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel Righteous Fury"
+            }
+          ],
+          "needs": "Righteous Fury learned (level 10)",
+          "codePt": "#showtooltip Fúria Íntegra\n/cast [nomod:shift] Fúria Íntegra\n/stopmacro [nomod:shift]\n/cancelaura Fúria Íntegra"
+        },
+        {
+          "id": "protection-judge-mouseover",
+          "title": "Judge the mob under your cursor",
+          "desc": "Judge your mouseover enemy, or your target if you aren't pointing at one. With Seal of Fury up, that Judgement taunts for 3 seconds.",
+          "icon": "spell_holy_righteousfury",
+          "iconKind": "ability",
+          "code": "#showtooltip Judgement\n/cast [@mouseover,harm,nodead][harm,nodead] Judgement",
+          "origin": "forever",
+          "needs": "Seal of Fury up; Judgement reaches 10 yards",
+          "codePt": "#showtooltip Julgamento\n/cast [@mouseover,harm,nodead][harm,nodead] Julgamento"
+        },
+        {
+          "id": "protection-sacrifice",
+          "title": "Blessing of Sacrifice on a party member",
+          "desc": "Put Blessing of Sacrifice on your mouseover or friendly target so part of each hit lands on you. It only works on party members.",
+          "icon": "spell_holy_sealofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip Blessing of Sacrifice\n/cast [@mouseover,help,nodead][help,nodead] Blessing of Sacrifice",
+          "origin": "classic",
+          "needs": "Blessing of Sacrifice learned (level 46)",
+          "level": 46,
+          "codePt": "#showtooltip Bênção do Sacrifício\n/cast [@mouseover,help,nodead][help,nodead] Bênção do Sacrifício"
+        },
+        {
+          "id": "protection-seal-pick",
+          "title": "Seal of Fury, Righteousness or Justice",
+          "desc": "Seal of Fury by default. Shift picks Seal of Righteousness, and Ctrl picks Seal of Justice, whose Judgement stops the enemy fleeing.",
+          "icon": "spell_holy_sealoffury",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Seal of Righteousness; [mod:ctrl] Seal of Justice; Seal of Fury\n/cast [mod:shift] Seal of Righteousness; [mod:ctrl] Seal of Justice; Seal of Fury",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Seal of Fury"
+            },
+            {
+              "key": "Shift",
+              "text": "Seal of Righteousness"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Seal of Justice"
+            }
+          ],
+          "needs": "Seal of Fury (level 10) and Seal of Justice (level 22) learned",
+          "level": 22,
+          "codePt": "#showtooltip [mod:shift] Selo da Retidão; [mod:ctrl] Selo da Justiça; Selo da Fúria\n/cast [mod:shift] Selo da Retidão; [mod:ctrl] Selo da Justiça; Selo da Fúria"
+        }
+      ]
+    },
+    {
+      "id": "retribution",
+      "name": "Retribution",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "retribution-seal-command",
+          "title": "Seal of Command or Judgement",
+          "desc": "Hold Shift to apply Seal of Command, then press normally to judge. Judgement no longer uses the Seal up, so one Seal covers many Judgements.",
+          "icon": "spell_holy_righteousfury",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Seal of Command; Judgement\n/cast [mod:shift] Seal of Command; Judgement",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Judgement on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Seal of Command"
+            }
+          ],
+          "needs": "Seal of Command talent; Seal and Judgement are separate presses",
+          "codePt": "#showtooltip [mod:shift] Selo de Comando; Julgamento\n/cast [mod:shift] Selo de Comando; Julgamento"
+        },
+        {
+          "id": "retribution-hammer-wrath",
+          "title": "Hammer of Wrath or Holy Strike",
+          "desc": "Hold Shift for the ranged finisher on a target at 20% health or less. A normal press uses Holy Strike.",
+          "icon": "spell_holy_crusaderstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Hammer of Wrath; Holy Strike\n/startattack\n/cast [mod:shift] Hammer of Wrath; Holy Strike",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Holy Strike"
+            },
+            {
+              "key": "Shift",
+              "text": "Hammer of Wrath"
+            }
+          ],
+          "needs": "Hammer of Wrath learned (level 44); Holy Strike learned",
+          "level": 44,
+          "codePt": "#showtooltip [mod:shift] Martelo da Ira; Golpe Sagrado\n/startattack\n/cast [mod:shift] Martelo da Ira; Golpe Sagrado"
+        },
+        {
+          "id": "retribution-judge-and-strike",
+          "title": "Judgement and Holy Strike",
+          "desc": "Judgement is off the global cooldown, so one press judges and Holy Strikes. With Sacred Arbiter, Holy Strike also refreshes every Judgement on the target, other Paladins’ included.",
+          "icon": "spell_holy_crusaderstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Strike\n/startattack\n/cast Judgement\n/cast Holy Strike",
+          "origin": "forever",
+          "needs": "A Seal up; Sacred Arbiter talent for the refresh",
+          "codePt": "#showtooltip Golpe Sagrado\n/startattack\n/cast Julgamento\n/cast Golpe Sagrado"
+        },
+        {
+          "id": "retribution-seal-twist",
+          "title": "Swap Seals for Unsealed Wrath",
+          "desc": "Each press swaps between Seal of Command and Seal of Righteousness. Unsealed Wrath stores up to 3 copies of your Seal from your swings, and the first hit after a swap gives each copy its chance to go off.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=combat Seal of Command, Seal of Righteousness\n/startattack",
+          "origin": "forever",
+          "needs": "Seal of Command and Unsealed Wrath talents (level 40); each swap costs a global cooldown",
+          "codePt": "#showtooltip\n/castsequence reset=combat Selo de Comando, Selo da Retidão\n/startattack"
+        },
+        {
+          "id": "retribution-opener",
+          "title": "Opener: Crusader, Judgement, Command",
+          "desc": "Three presses: Seal of the Crusader, Judgement, then Seal of Command. It starts over 10 seconds after your last press.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=10 Seal of the Crusader, Judgement, Seal of Command\n/startattack",
+          "origin": "adapted",
+          "needs": "Seal of Command talent; if Judgement is on cooldown the sequence waits at that step",
+          "codePt": "#showtooltip\n/castsequence reset=10 Selo do Cruzado, Julgamento, Selo de Comando\n/startattack"
+        },
+        {
+          "id": "retribution-consecration-judgement",
+          "title": "Judgement, or Consecration on Shift",
+          "desc": "Judge on a normal press with auto attack on. Hold Shift for Consecration when enemies are standing around you.",
+          "icon": "spell_holy_righteousfury",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Consecration; Judgement\n/startattack\n/cast [mod:shift] Consecration; Judgement",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Judgement on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Consecration"
+            }
+          ],
+          "needs": "Consecration learned (level 20); a Seal up",
+          "codePt": "#showtooltip [mod:shift] Consagração; Julgamento\n/startattack\n/cast [mod:shift] Consagração; Julgamento"
+        },
+        {
+          "id": "retribution-trinket-judgement",
+          "title": "Judgement, with trinkets on Shift",
+          "desc": "Judge on a normal press. Hold Shift to use both trinkets first, with Judgement right after.",
+          "icon": "spell_holy_righteousfury",
+          "iconKind": "ability",
+          "code": "#showtooltip Judgement\n/use [mod:shift] 13\n/use [mod:shift] 14\n/cast Judgement",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Judgement on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Use both trinkets, then Judgement"
+            }
+          ],
+          "needs": "On-use trinkets in both trinket slots",
+          "codePt": "#showtooltip Julgamento\n/use [mod:shift] 13\n/use [mod:shift] 14\n/cast Julgamento"
+        },
+        {
+          "id": "retribution-seal-pick-ret",
+          "title": "Seal of Righteousness, Command or the Crusader",
+          "desc": "Seal of Righteousness by default. Shift picks Seal of Command, and Ctrl picks Seal of the Crusader.",
+          "icon": "ability_thunderbolt",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Seal of Command; [mod:ctrl] Seal of the Crusader; Seal of Righteousness\n/cast [mod:shift] Seal of Command; [mod:ctrl] Seal of the Crusader; Seal of Righteousness",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Seal of Righteousness"
+            },
+            {
+              "key": "Shift",
+              "text": "Seal of Command"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Seal of the Crusader"
+            }
+          ],
+          "needs": "Seal of the Crusader (level 6); Seal of Command needs its talent",
+          "codePt": "#showtooltip [mod:shift] Selo de Comando; [mod:ctrl] Selo do Cruzado; Selo da Retidão\n/cast [mod:shift] Selo de Comando; [mod:ctrl] Selo do Cruzado; Selo da Retidão"
+        },
+        {
+          "id": "retribution-exorcism-judgement",
+          "title": "Exorcism with Judgement",
+          "desc": "Request Exorcism and Judgement on your target. Exorcism still needs an Undead or Demon; Judgement needs an active seal and a target in range.",
+          "icon": "spell_holy_excorcism_02",
+          "iconKind": "ability",
+          "code": "#showtooltip Exorcism\n/cast [harm,nodead] Exorcism\n/cast [harm,nodead] Judgement",
+          "origin": "classic",
+          "needs": "Exorcism and Judgement learned; a seal active for Judgement",
+          "codePt": "#showtooltip Exorcismo\n/cast [harm,nodead] Exorcismo\n/cast [harm,nodead] Julgamento"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-hoj-stun",
+          "title": "Hammer of Justice on target or mouseover",
+          "desc": "Drops your cast and your mount, then stuns your target. Hold Shift to stun the enemy under your cursor instead.",
+          "icon": "spell_holy_sealofmight",
+          "iconKind": "ability",
+          "code": "#showtooltip Hammer of Justice\n/dismount\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Hammer of Justice",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stun your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Stun your mouseover instead"
+            }
+          ],
+          "needs": "Hammer of Justice learned (level 8); it cancels a cast even if the stun is on cooldown",
+          "codePt": "#showtooltip Martelo da Justiça\n/dismount\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Martelo da Justiça"
+        },
+        {
+          "id": "pvp-freedom",
+          "title": "Blessing of Freedom on a friend or yourself",
+          "desc": "Free your mouseover, then your friendly target, then yourself. Hold Alt to free yourself. It gives 10 seconds of immunity to movement impairing effects.",
+          "icon": "spell_holy_sealofvalor",
+          "iconKind": "ability",
+          "code": "#showtooltip Blessing of Freedom\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Blessing of Freedom",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Freedom on mouseover, then friendly target, then yourself"
+            },
+            {
+              "key": "Alt",
+              "text": "Freedom on yourself"
+            }
+          ],
+          "needs": "Blessing of Freedom learned (level 18)",
+          "codePt": "#showtooltip Bênção da Liberdade\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Bênção da Liberdade"
+        },
+        {
+          "id": "pvp-lay-on-hands-pvp",
+          "title": "Lay on Hands: you, or a friend with Shift or Ctrl",
+          "desc": "Cancels your cast (even if Lay on Hands is on cooldown), then lays hands on you. Shift picks your friendly mouseover and Ctrl your friendly target.",
+          "icon": "spell_holy_layonhands",
+          "iconKind": "ability",
+          "code": "#showtooltip Lay on Hands\n/stopcasting\n/cast [mod:shift,@mouseover,help,nodead][mod:ctrl,help,nodead][@player] Lay on Hands",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lay on Hands on yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Lay on Hands on your friendly mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Lay on Hands on your friendly target"
+            }
+          ],
+          "needs": "Lay on Hands learned (level 10)",
+          "codePt": "#showtooltip Impor as Mãos\n/stopcasting\n/cast [mod:shift,@mouseover,help,nodead][mod:ctrl,help,nodead][@player] Impor as Mãos"
+        },
+        {
+          "id": "pvp-hammer-of-wrath-finish",
+          "title": "Hammer of Wrath on target or mouseover",
+          "desc": "Finish an enemy at 20% health or less from range. Hold Shift to pick the one under your cursor.",
+          "icon": "ability_thunderclap",
+          "iconKind": "ability",
+          "code": "#showtooltip Hammer of Wrath\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Hammer of Wrath",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Hammer of Wrath on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Hammer of Wrath on your mouseover"
+            }
+          ],
+          "needs": "Hammer of Wrath learned (level 44); the target must be at 20% health or less",
+          "level": 44,
+          "codePt": "#showtooltip Martelo da Ira\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Martelo da Ira"
+        },
+        {
+          "id": "pvp-racial-escape",
+          "title": "Racial escape for Human, Dwarf or Undead",
+          "desc": "One button for whichever racial you have. Will to Survive removes stuns, Stoneform removes bleeds, poisons and diseases, and Will of the Forsaken removes charm, fear and sleep.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast Will to Survive\n/cast Stoneform\n/cast Will of the Forsaken",
+          "origin": "forever",
+          "needs": "Human, Dwarf or Undead; the lines for the other races do nothing",
+          "codePt": "#showtooltip\n/cast Desejo de Sobreviver\n/cast Forma de Pedra\n/cast Determinação dos Renegados"
+        },
+        {
+          "id": "pvp-target-nearest",
+          "title": "Target the nearest enemy and attack",
+          "desc": "Picks the nearest enemy if you don't have a live enemy target, then starts auto attack. Shift always jumps to the nearest enemy, and Alt goes back to your last enemy target.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip Attack\n/targetlastenemy [mod:alt]\n/targetenemy [mod:shift][noharm][dead]\n/startattack [harm,nodead]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Nearest enemy if you have none, then attack"
+            },
+            {
+              "key": "Shift",
+              "text": "Always the nearest enemy"
+            },
+            {
+              "key": "Alt",
+              "text": "Your last enemy target"
+            }
+          ],
+          "codePt": "#showtooltip Atacar\n/targetlastenemy [mod:alt]\n/targetenemy [mod:shift][noharm][dead]\n/startattack [harm,nodead]"
+        },
+        {
+          "id": "pvp-trinket-freedom",
+          "title": "Trinket, then Freedom on yourself",
+          "desc": "Uses the trinket in your first slot, then Blessing of Freedom on you. Hold Shift to skip the trinket.",
+          "icon": "spell_holy_sealofvalor",
+          "iconKind": "ability",
+          "code": "#showtooltip Blessing of Freedom\n/use [nomod:shift] 13\n/cast [@player] Blessing of Freedom",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Use the trinket, then Freedom on yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Freedom on yourself only"
+            }
+          ],
+          "needs": "An on-use trinket in your first trinket slot; Blessing of Freedom learned (level 18)",
+          "codePt": "#showtooltip Bênção da Liberdade\n/use [nomod:shift] 13\n/cast [@player] Bênção da Liberdade"
+        },
+        {
+          "id": "pvp-assist-attack",
+          "title": "Assist a friend and attack",
+          "desc": "Takes your friendly target's target and starts attacking it. Hold Shift to assist the friend under your cursor instead.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip Attack\n/assist [mod:shift,@mouseover,help,nodead][help,nodead]\n/startattack [harm,nodead]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Assist your friendly target"
+            },
+            {
+              "key": "Shift",
+              "text": "Assist your friendly mouseover"
+            }
+          ],
+          "codePt": "#showtooltip Atacar\n/assist [mod:shift,@mouseover,help,nodead][help,nodead]\n/startattack [harm,nodead]"
+        },
+        {
+          "id": "pvp-bubble-heal",
+          "title": "Divine Shield, then heal or bandage yourself",
+          "desc": "The first press bubbles you. Press again to heal yourself inside it: Holy Light by default, Flash of Light with Shift, or a bandage with Ctrl.",
+          "icon": "spell_holy_divineintervention",
+          "iconKind": "ability",
+          "code": "#showtooltip Divine Shield\n/cast Divine Shield\n/use [mod:ctrl,@player] Heavy Runecloth Bandage\n/stopmacro [mod:ctrl]\n/cast [mod:shift,@player] Flash of Light; [@player] Holy Light",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Divine Shield, then Holy Light on yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Divine Shield, then Flash of Light on yourself"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Divine Shield, then your bandage on yourself"
+            }
+          ],
+          "needs": "Divine Shield learned (level 34); put the bandage you carry in place of Heavy Runecloth Bandage",
+          "level": 34,
+          "codePt": "#showtooltip Escudo Divino\n/cast Escudo Divino\n/use [mod:ctrl,@player] Bandagem Grossa de Runatrama\n/stopmacro [mod:ctrl]\n/cast [mod:shift,@player] Clarão de Luz; [@player] Luz Sagrada"
+        },
+        {
+          "id": "pvp-bubble-hearth",
+          "title": "Divine Shield, then your Hearthstone",
+          "desc": "The old escape. The first press bubbles you and the second starts your Hearthstone. From level 50 the bubble lasts 12 seconds, enough to cover the 10 second hearth if you press again right away.",
+          "icon": "spell_holy_divineintervention",
+          "iconKind": "ability",
+          "code": "#showtooltip Divine Shield\n/cast Divine Shield\n/use Hearthstone",
+          "origin": "classic",
+          "needs": "Divine Shield learned (level 34; rank 2 at level 50); Hearthstone off cooldown",
+          "level": 34,
+          "codePt": "#showtooltip Escudo Divino\n/cast Escudo Divino\n/use Pedra de Regresso"
+        },
+        {
+          "id": "pvp-party-cleanse",
+          "title": "Cleanse party 1 or party 2",
+          "desc": "Cleanse a party member without hovering their frame. Shift picks party 1 and Ctrl party 2. Without a modifier it goes to your mouseover, then your friendly target, then you.",
+          "icon": "spell_holy_renew",
+          "iconKind": "ability",
+          "code": "#showtooltip Cleanse\n/cast [mod:shift,@party1,help,nodead][mod:ctrl,@party2,help,nodead][@mouseover,help,nodead][help,nodead][@player] Cleanse",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cleanse on mouseover, then friendly target, then yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Cleanse party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Cleanse party member 2"
+            }
+          ],
+          "needs": "Cleanse learned (level 42); party 1 and 2 follow the order of your party frames",
+          "level": 42,
+          "codePt": "#showtooltip Purificação\n/cast [mod:shift,@party1,help,nodead][mod:ctrl,@party2,help,nodead][@mouseover,help,nodead][help,nodead][@player] Purificação"
+        },
+        {
+          "id": "pvp-party-sacrifice",
+          "title": "Blessing of Sacrifice on party 1 or party 2",
+          "desc": "Sacrifice only lands on party members, so Shift puts it on party 1 and Ctrl on party 2. Without a modifier it goes to your mouseover or friendly target. Part of each hit they take moves to you.",
+          "icon": "spell_holy_sealofsacrifice",
+          "iconKind": "ability",
+          "code": "#showtooltip Blessing of Sacrifice\n/cast [mod:shift,@party1,help,nodead][mod:ctrl,@party2,help,nodead][@mouseover,help,nodead][help,nodead] Blessing of Sacrifice",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Sacrifice on your friendly mouseover, then friendly target"
+            },
+            {
+              "key": "Shift",
+              "text": "Sacrifice on party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Sacrifice on party member 2"
+            }
+          ],
+          "needs": "Blessing of Sacrifice learned (level 46); party 1 and 2 follow the order of your party frames",
+          "level": 46,
+          "codePt": "#showtooltip Bênção do Sacrifício\n/cast [mod:shift,@party1,help,nodead][mod:ctrl,@party2,help,nodead][@mouseover,help,nodead][help,nodead] Bênção do Sacrifício"
+        }
+      ]
+    },
+    {
+      "id": "pvp-holy",
+      "name": "Holy PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-favor-shock",
+          "title": "Divine Favor into Holy Shock",
+          "desc": "Pop Divine Favor and Holy Shock in one press so the shock is a sure critical. It heals your mouseover, target or yourself, and Shift sends it at an enemy.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Shock\n/cast Divine Favor\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead][@mouseover,help,nodead][help,nodead][@player] Holy Shock",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Heal your mouseover, target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Damage your enemy mouseover or target"
+            }
+          ],
+          "needs": "Divine Favor and Holy Shock talents (Holy Shock starts at level 30 in Forever)",
+          "level": 30,
+          "codePt": "#showtooltip Choque Sagrado\n/cast Favorecimento Divino\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,harm,nodead][@mouseover,help,nodead][help,nodead][@player] Choque Sagrado"
+        },
+        {
+          "id": "pvp-shock-yourself",
+          "title": "Stop casting and Holy Shock yourself",
+          "desc": "Cancels the heal you're casting and shocks you at once, for when someone jumps you mid-cast. Hold Shift to shock your friendly mouseover. It cancels the cast even if the shock is on cooldown.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Shock\n/stopcasting\n/cast [mod:shift,@mouseover,help,nodead][@player] Holy Shock",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop casting, then Holy Shock on yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop casting, then Holy Shock on your friendly mouseover"
+            }
+          ],
+          "needs": "Holy Shock talent (it starts at level 30 in Forever); 10 second cooldown",
+          "level": 30,
+          "codePt": "#showtooltip Choque Sagrado\n/stopcasting\n/cast [mod:shift,@mouseover,help,nodead][@player] Choque Sagrado"
+        },
+        {
+          "id": "pvp-judge-and-shock",
+          "title": "Judgement and Holy Shock on your enemy",
+          "desc": "Judgement is off the global cooldown, so one press judges your enemy target and Holy Shocks it. Hold Shift to use your first trinket and Divine Favor too, which makes the shock a sure critical.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Shock\n/cast [mod:shift] Divine Favor\n/use [mod:shift] 13\n/cast [harm,nodead] Judgement\n/cast [harm,nodead] Holy Shock",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Judgement, then Holy Shock on your enemy target"
+            },
+            {
+              "key": "Shift",
+              "text": "Divine Favor and your first trinket, then the same"
+            }
+          ],
+          "needs": "Holy Shock talent; a Seal up, and Judgement only reaches 10 yards; Divine Favor and an on-use trinket in your first slot for Shift",
+          "level": 30,
+          "codePt": "#showtooltip Choque Sagrado\n/cast [mod:shift] Favorecimento Divino\n/use [mod:shift] 13\n/cast [harm,nodead] Julgamento\n/cast [harm,nodead] Choque Sagrado"
+        },
+        {
+          "id": "pvp-shock-their-target",
+          "title": "Holy Shock whoever your enemy is hitting",
+          "desc": "Keep the enemy targeted and heal the friend they're attacking, with your friendly mouseover first. If they're hitting you, it heals you. Hold Shift to shock the enemy instead.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Shock\n/cast [mod:shift,harm,nodead] Holy Shock; [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Holy Shock",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Heal your mouseover, friendly target or your enemy's target, then you"
+            },
+            {
+              "key": "Shift",
+              "text": "Holy Shock your enemy target"
+            }
+          ],
+          "needs": "Holy Shock talent (it starts at level 30 in Forever)",
+          "level": 30,
+          "codePt": "#showtooltip Choque Sagrado\n/cast [mod:shift,harm,nodead] Choque Sagrado; [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Choque Sagrado"
+        },
+        {
+          "id": "pvp-party-shock",
+          "title": "Holy Shock party 1 or party 2",
+          "desc": "Shock a party member without hovering their frame. Shift picks party 1 and Ctrl party 2. Without a modifier it goes to your mouseover, then your friendly target, then you.",
+          "icon": "spell_holy_searinglight",
+          "iconKind": "ability",
+          "code": "#showtooltip Holy Shock\n/cast [mod:shift,@party1,help,nodead][mod:ctrl,@party2,help,nodead][@mouseover,help,nodead][help,nodead][@player] Holy Shock",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Holy Shock on mouseover, then friendly target, then yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Holy Shock on party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Holy Shock on party member 2"
+            }
+          ],
+          "needs": "Holy Shock talent; party 1 and 2 follow the order of your party frames",
+          "level": 30,
+          "codePt": "#showtooltip Choque Sagrado\n/cast [mod:shift,@party1,help,nodead][mod:ctrl,@party2,help,nodead][@mouseover,help,nodead][help,nodead][@player] Choque Sagrado"
+        },
+        {
+          "id": "pvp-shock-then-holy-light",
+          "title": "Holy Shock, then a quicker Holy Light",
+          "desc": "The first press shocks your friendly mouseover, friendly target or you, and the next press casts Holy Light the same way. If the shock crits, Infusion of Light takes up to a second off it.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift] Divine Favor\n/castsequence [@mouseover,help,nodead][help,nodead][@player] reset=15 Holy Shock, Holy Light",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Holy Shock, then Holy Light on the next press"
+            },
+            {
+              "key": "Shift",
+              "text": "Divine Favor first, so the next heal is a sure critical"
+            }
+          ],
+          "needs": "Holy Shock and Infusion of Light talents; while Holy Shock is on cooldown the sequence waits at that step",
+          "level": 30,
+          "codePt": "#showtooltip\n/cast [mod:shift] Favorecimento Divino\n/castsequence [@mouseover,help,nodead][help,nodead][@player] reset=15 Choque Sagrado, Luz Sagrada"
+        },
+        {
+          "id": "pvp-vigil-yourself",
+          "title": "Light's Vigil on yourself, then Holy Shock it",
+          "desc": "Put Light's Vigil on yourself without dropping your enemy target. Then hold Shift to Holy Shock yourself, which heals your whole party and costs no Holy Shock cooldown.",
+          "icon": "ability_paladin_judgementofthepure",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Holy Shock; Light's Vigil\n/cast [mod:shift,@player] Holy Shock; [@player] Light's Vigil",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Light's Vigil on yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Holy Shock on yourself"
+            }
+          ],
+          "needs": "Light's Vigil and Holy Shock talents; one Vigil per party at a time",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Choque Sagrado; Luz Zelosa\n/cast [mod:shift,@player] Choque Sagrado; [@player] Luz Zelosa"
+        }
+      ]
+    },
+    {
+      "id": "pvp-protection",
+      "name": "Protection PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-bulwark-freedom",
+          "title": "Templar's Bulwark and Freedom on yourself",
+          "desc": "An absorb and a slow breaker in one press, for carrying a flag or getting out of a fight. Bulwark is off the global cooldown, so Freedom follows straight away, even if Bulwark isn't ready.",
+          "icon": "ability_paladin_shieldofthetemplar",
+          "iconKind": "ability",
+          "code": "#showtooltip Templar's Bulwark\n/cast Templar's Bulwark\n/cast [@player] Blessing of Freedom",
+          "origin": "forever",
+          "needs": "Templar's Bulwark talent (applies Forbearance); Blessing of Freedom learned (level 18). Guardian's Favor stretches Freedom to up to 16 seconds.",
+          "codePt": "#showtooltip Baluarte do Templário\n/cast Baluarte do Templário\n/cast [@player] Bênção da Liberdade"
+        },
+        {
+          "id": "pvp-bulwark-stun",
+          "title": "Templar's Bulwark, then Hammer of Justice",
+          "desc": "Puts the absorb up and stuns your target in one press, since Bulwark is off the global cooldown. Hold Shift to stun your mouseover instead.",
+          "icon": "spell_holy_sealofmight",
+          "iconKind": "ability",
+          "code": "#showtooltip Hammer of Justice\n/cast Templar's Bulwark\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Hammer of Justice",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Bulwark, then Hammer of Justice on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Bulwark, then Hammer of Justice on your mouseover"
+            }
+          ],
+          "needs": "Templar's Bulwark talent (applies Forbearance); Hammer of Justice learned. Improved Hammer of Justice brings the stun back sooner.",
+          "codePt": "#showtooltip Martelo da Justiça\n/cast Baluarte do Templário\n/cast [mod:shift,@mouseover,harm,nodead][harm,nodead] Martelo da Justiça"
+        },
+        {
+          "id": "pvp-bulwark-heal",
+          "title": "Templar's Bulwark, then heal yourself",
+          "desc": "The absorb soaks the damage while you cast. Flash of Light on yourself by default, Holy Light with Shift, or Lay on Hands with Ctrl when it has to land now.",
+          "icon": "ability_paladin_shieldofthetemplar",
+          "iconKind": "ability",
+          "code": "#showtooltip Templar's Bulwark\n/cast Templar's Bulwark\n/cast [mod:shift,@player] Holy Light; [mod:ctrl,@player] Lay on Hands; [@player] Flash of Light",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Bulwark, then Flash of Light on yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Bulwark, then Holy Light on yourself"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Bulwark, then Lay on Hands on yourself"
+            }
+          ],
+          "needs": "Templar's Bulwark talent (applies Forbearance); Lay on Hands empties your mana",
+          "codePt": "#showtooltip Baluarte do Templário\n/cast Baluarte do Templário\n/cast [mod:shift,@player] Luz Sagrada; [mod:ctrl,@player] Impor as Mãos; [@player] Clarão de Luz"
+        },
+        {
+          "id": "pvp-reckoning-charges",
+          "title": "Store Reckoning charges, then let them go",
+          "desc": "Hold Shift to stop auto attack and raise Holy Shield, so the Reckoning charges from your blocks pile up instead of going out one by one. Press without a modifier to swing and spend them.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip [mod:shift] Holy Shield; Attack\n/stopattack [mod:shift]\n/cast [mod:shift] Holy Shield\n/startattack [nomod:shift,harm,nodead]",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Start attacking your target to spend the charges"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop attacking and raise Holy Shield"
+            }
+          ],
+          "needs": "Reckoning and Holy Shield talents; a shield equipped; up to 4 charges. In Classic, changing target with auto attack on lost them.",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Escudo Sagrado; Atacar\n/stopattack [mod:shift]\n/cast [mod:shift] Escudo Sagrado\n/startattack [nomod:shift,harm,nodead]"
+        },
+        {
+          "id": "pvp-iron-creed-strike",
+          "title": "Holy Strike with Righteous Fury on Shift",
+          "desc": "Holy Strike and keep swinging. With Iron Creed, Holy Strike cuts the damage you take by up to 6% for 6 seconds while Righteous Fury is on, so leave it on in PvP. Shift turns it on.",
+          "icon": "spell_holy_crusaderstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Righteous Fury; Holy Strike\n/startattack [nomod:shift,harm,nodead]\n/cast [mod:shift] Righteous Fury; Holy Strike",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Holy Strike on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Righteous Fury"
+            }
+          ],
+          "needs": "Iron Creed talent; Holy Strike learned; Righteous Fury learned (level 10)",
+          "codePt": "#showtooltip [mod:shift] Fúria Íntegra; Golpe Sagrado\n/startattack [nomod:shift,harm,nodead]\n/cast [mod:shift] Fúria Íntegra; Golpe Sagrado"
+        },
+        {
+          "id": "pvp-stun-then-justice",
+          "title": "Hammer of Justice, then Seal of Justice",
+          "desc": "The first press stuns your target and starts your swings. Press again for Seal of Justice, so each hit has a chance to stun them for 2 more seconds as the Hammer wears off.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip\n/startattack [harm,nodead]\n/castsequence [harm,nodead] reset=20 Hammer of Justice, Seal of Justice",
+          "origin": "classic",
+          "needs": "Hammer of Justice and Seal of Justice (level 22) learned; while Hammer of Justice is on cooldown the sequence waits at that step",
+          "level": 22,
+          "codePt": "#showtooltip\n/startattack [harm,nodead]\n/castsequence [harm,nodead] reset=20 Martelo da Justiça, Selo da Justiça"
+        }
+      ]
+    },
+    {
+      "id": "pvp-retribution",
+      "name": "Retribution PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-hoj-judgement",
+          "title": "Stun, then judge the stunned target",
+          "desc": "Hammer of Justice on a normal press, then hold Shift to judge while they're stunned. Seal of Command's Judgement hits roughly twice as hard on a stunned or incapacitated target.",
+          "icon": "spell_holy_sealofmight",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Judgement; Hammer of Justice\n/cast [mod:shift,harm,nodead] Judgement; [harm,nodead] Hammer of Justice",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Hammer of Justice on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Judgement on your target"
+            }
+          ],
+          "needs": "Seal of Command up (Retribution talent); Hammer of Justice learned",
+          "codePt": "#showtooltip [mod:shift] Julgamento; Martelo da Justiça\n/cast [mod:shift,harm,nodead] Julgamento; [harm,nodead] Martelo da Justiça"
+        },
+        {
+          "id": "pvp-repentance",
+          "title": "Repentance on target, mouseover or their target",
+          "desc": "Incapacitate a Humanoid for up to 6 seconds. Shift picks your mouseover, and Alt picks your target's target if it's an enemy.",
+          "icon": "spell_holy_prayerofhealing",
+          "iconKind": "ability",
+          "code": "#showtooltip Repentance\n/cast [mod:shift,@mouseover,harm,nodead][mod:alt,@targettarget,harm,nodead][harm,nodead] Repentance",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Repentance on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Repentance on your mouseover"
+            },
+            {
+              "key": "Alt",
+              "text": "Repentance on your target's target"
+            }
+          ],
+          "needs": "Repentance talent; Humanoids only, and damage breaks it",
+          "level": 30,
+          "codePt": "#showtooltip Contrição\n/cast [mod:shift,@mouseover,harm,nodead][mod:alt,@targettarget,harm,nodead][harm,nodead] Contrição"
+        },
+        {
+          "id": "pvp-seal-pick-pvp",
+          "title": "Seal of Command, Justice, Light or Wisdom",
+          "desc": "Seal of Command by default. Shift picks Justice, which can stun on a hit. Ctrl picks Light and Alt picks Wisdom.",
+          "icon": "ability_warrior_innerrage",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Seal of Justice; [mod:ctrl] Seal of Light; [mod:alt] Seal of Wisdom; Seal of Command\n/cast [mod:shift] Seal of Justice; [mod:ctrl] Seal of Light; [mod:alt] Seal of Wisdom; Seal of Command",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Seal of Command"
+            },
+            {
+              "key": "Shift",
+              "text": "Seal of Justice"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Seal of Light"
+            },
+            {
+              "key": "Alt",
+              "text": "Seal of Wisdom"
+            }
+          ],
+          "needs": "Seal of Command talent; Seal of Wisdom is level 38",
+          "level": 38,
+          "codePt": "#showtooltip [mod:shift] Selo da Justiça; [mod:ctrl] Selo da Luz; [mod:alt] Selo da Sabedoria; Selo de Comando\n/cast [mod:shift] Selo da Justiça; [mod:ctrl] Selo da Luz; [mod:alt] Selo da Sabedoria; Selo de Comando"
+        },
+        {
+          "id": "pvp-dismount-command",
+          "title": "Dismount, Seal of Command and attack",
+          "desc": "For when someone jumps you on the road: one press gets you off your mount, puts Seal of Command up and starts swinging at your target.",
+          "icon": "ability_warrior_innerrage",
+          "iconKind": "ability",
+          "code": "#showtooltip Seal of Command\n/dismount\n/cast Seal of Command\n/startattack [harm,nodead]",
+          "origin": "classic",
+          "needs": "Seal of Command talent",
+          "codePt": "#showtooltip Selo de Comando\n/dismount\n/cast Selo de Comando\n/startattack [harm,nodead]"
+        },
+        {
+          "id": "pvp-repentance-judgement",
+          "title": "Repentance, then judge for double damage",
+          "desc": "Repentance without a modifier, Judgement with Shift. Seal of Command's Judgement hits about twice as hard on an incapacitated target, just as on a stunned one, and the hit breaks Repentance.",
+          "icon": "spell_holy_prayerofhealing",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Judgement; Repentance\n/cast [mod:shift,harm,nodead] Judgement; [harm,nodead] Repentance",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Repentance on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Judgement on your target"
+            }
+          ],
+          "needs": "Repentance and Seal of Command talents; Seal of Command up",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Julgamento; Contrição\n/cast [mod:shift,harm,nodead] Julgamento; [harm,nodead] Contrição"
+        },
+        {
+          "id": "pvp-repentance-heal",
+          "title": "Repentance without breaking it, then heal",
+          "desc": "Stops your auto attack so your next swing doesn't wake them, then Repentance goes on your target. Hold Shift for Flash of Light or Ctrl for Holy Light on yourself while they're out.",
+          "icon": "spell_holy_prayerofhealing",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Flash of Light; [mod:ctrl] Holy Light; Repentance\n/stopattack [nomod]\n/cast [mod:shift,@player] Flash of Light; [mod:ctrl,@player] Holy Light; [harm,nodead] Repentance",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop attacking, then Repentance on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Flash of Light on yourself"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Holy Light on yourself"
+            }
+          ],
+          "needs": "Repentance talent; Humanoids only, and any damage breaks it, Consecration included",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Clarão de Luz; [mod:ctrl] Luz Sagrada; Contrição\n/stopattack [nomod]\n/cast [mod:shift,@player] Clarão de Luz; [mod:ctrl,@player] Luz Sagrada; [harm,nodead] Contrição"
+        },
+        {
+          "id": "pvp-stun-into-repentance",
+          "title": "Hammer of Justice, then Repentance",
+          "desc": "Chains your stun and Repentance on one target. The first press stops your swing and stuns them; press again just before the stun fades for Repentance. Use the time to heal or reset.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopattack\n/castsequence [harm,nodead] reset=15 Hammer of Justice, Repentance",
+          "origin": "classic",
+          "needs": "Repentance talent; Hammer of Justice learned; while Hammer of Justice is on cooldown the sequence waits at that step",
+          "level": 30,
+          "codePt": "#showtooltip\n/stopattack\n/castsequence [harm,nodead] reset=15 Martelo da Justiça, Contrição"
+        },
+        {
+          "id": "pvp-twist-justice",
+          "title": "Swap between Seal of Command and Justice",
+          "desc": "Each press swaps between Seal of Command and Seal of Justice. With Unsealed Wrath, the first hit after you swap off Justice gives each stored copy of it a chance to stun.",
+          "icon": "classicon_paladin",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=combat Seal of Command, Seal of Justice\n/startattack",
+          "origin": "forever",
+          "needs": "Seal of Command and Unsealed Wrath talents (level 40); Seal of Justice (level 22); each swap costs a global cooldown",
+          "level": 22,
+          "codePt": "#showtooltip\n/castsequence reset=combat Selo de Comando, Selo da Justiça\n/startattack"
+        },
+        {
+          "id": "pvp-execute-burst",
+          "title": "Trinkets, Judgement and Hammer of Wrath",
+          "desc": "Judgement is off the global cooldown, so one press judges and throws Hammer of Wrath at a target on 20% health or less. Hold Shift to use both trinkets first.",
+          "icon": "ability_thunderclap",
+          "iconKind": "ability",
+          "code": "#showtooltip Hammer of Wrath\n/use [mod:shift] 13\n/use [mod:shift] 14\n/cast [harm,nodead] Judgement\n/cast [harm,nodead] Hammer of Wrath",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Judgement, then Hammer of Wrath on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Both trinkets, then the same"
+            }
+          ],
+          "needs": "Hammer of Wrath (level 44), which five ranks of Champion of the Light make instant; a Seal up for Judgement; on-use trinkets for Shift",
+          "level": 44,
+          "codePt": "#showtooltip Martelo da Ira\n/use [mod:shift] 13\n/use [mod:shift] 14\n/cast [harm,nodead] Julgamento\n/cast [harm,nodead] Martelo da Ira"
+        }
+      ]
+    }
+  ]
+}

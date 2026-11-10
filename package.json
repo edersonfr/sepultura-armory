@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "talents:fetch": "node scripts/fetch-talents.mjs",
-    "builds:fetch": "node scripts/fetch-builds.mjs"
+    "builds:fetch": "node scripts/fetch-builds.mjs",
+    "macros:fetch": "node scripts/fetch-macros.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

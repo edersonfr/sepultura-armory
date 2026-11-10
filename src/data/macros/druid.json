@@ -1,0 +1,1284 @@
+{
+  "slug": "druid",
+  "fetched": "2026-11-10T01:48:20.837Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/druid/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-rebirth",
+          "title": "Mouseover Rebirth",
+          "desc": "Resurrect a dead friendly mouseover, or your selected dead ally.",
+          "icon": "spell_nature_reincarnation",
+          "iconKind": "ability",
+          "code": "#showtooltip Rebirth\n/cast [@mouseover,help,dead][help,dead][] Rebirth",
+          "origin": "adapted",
+          "needs": "Rebirth learned",
+          "codePt": "#showtooltip Renascimento\n/cast [@mouseover,help,dead][help,dead][] Renascimento"
+        },
+        {
+          "id": "class-wide-remove-curse",
+          "title": "Mouseover Remove Curse",
+          "desc": "Cleanse a friendly mouseover, your target, or yourself.",
+          "icon": "spell_holy_removecurse",
+          "iconKind": "ability",
+          "code": "#showtooltip Remove Curse\n/cast [@mouseover,help,nodead][help,nodead][@player] Remove Curse",
+          "origin": "adapted",
+          "needs": "Remove Curse learned",
+          "level": 24,
+          "codePt": "#showtooltip Remover Maldição\n/cast [@mouseover,help,nodead][help,nodead][@player] Remover Maldição"
+        },
+        {
+          "id": "class-wide-cure-poison",
+          "title": "Mouseover Cure Poison or Abolish Poison",
+          "desc": "Cure a poison on the friendly under your cursor, your target or yourself, or hold Shift for Abolish Poison. You leave your form first.",
+          "icon": "spell_nature_nullifypoison",
+          "iconKind": "ability",
+          "code": "#showtooltip Cure Poison\n/cancelform\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Abolish Poison; [@mouseover,help,nodead][help,nodead][@player] Cure Poison",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cure Poison on your mouseover, target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Abolish Poison on your mouseover, target or yourself"
+            }
+          ],
+          "needs": "Cure Poison learned; Abolish Poison for the Shift half",
+          "level": 26,
+          "codePt": "#showtooltip Curar Veneno\n/cancelform\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Abolir Veneno; [@mouseover,help,nodead][help,nodead][@player] Curar Veneno"
+        },
+        {
+          "id": "class-wide-revive-rebirth",
+          "title": "Rebirth in combat, Revive outside it",
+          "desc": "Rebirth the dead player under your cursor or your target while you're in combat, and Revive them when you're not.",
+          "icon": "ability_druid_lunarguidance",
+          "iconKind": "ability",
+          "code": "#showtooltip [combat] Rebirth; Revive\n/cast [@mouseover,help,dead,combat][help,dead,combat] Rebirth\n/cast [@mouseover,help,dead,nocombat][help,dead,nocombat] Revive",
+          "origin": "adapted",
+          "needs": "Revive learned at 12; Rebirth learned at 20",
+          "codePt": "#showtooltip [combat] Renascimento; Reviver\n/cast [@mouseover,help,dead,combat][help,dead,combat] Renascimento\n/cast [@mouseover,help,dead,nocombat][help,dead,nocombat] Reviver"
+        },
+        {
+          "id": "class-wide-innervate",
+          "title": "Mouseover Innervate",
+          "desc": "Leave your form and Innervate the friendly under your cursor, your target or yourself.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip Innervate\n/cancelform\n/cast [@mouseover,help,nodead][help,nodead][@player] Innervate",
+          "origin": "classic",
+          "needs": "Innervate learned",
+          "level": 40,
+          "codePt": "#showtooltip Avivar\n/cancelform\n/cast [@mouseover,help,nodead][help,nodead][@player] Avivar"
+        },
+        {
+          "id": "class-wide-buffs",
+          "title": "Mouseover Mark of the Wild or Thorns",
+          "desc": "Buff the friendly under your cursor, your target or yourself with Mark of the Wild, or with Thorns while you hold Shift. You leave your form first.",
+          "icon": "spell_nature_regeneration",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Thorns; Mark of the Wild\n/cancelform\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Thorns; [@mouseover,help,nodead][help,nodead][@player] Mark of the Wild",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Mark of the Wild on your mouseover, target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Thorns on your mouseover, target or yourself"
+            }
+          ],
+          "needs": "Thorns learned for the Shift half",
+          "codePt": "#showtooltip [mod:shift] Espinhos; Marca do Indomado\n/cancelform\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Espinhos; [@mouseover,help,nodead][help,nodead][@player] Marca do Indomado"
+        },
+        {
+          "id": "class-wide-cat-or-bear",
+          "title": "Cat Form or Bear Form on one key",
+          "desc": "Dismount and go into Cat Form, or into Bear Form while you hold Shift; swap in Dire Bear Form once you learn it at 40.",
+          "icon": "ability_druid_catform",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Bear Form; Cat Form\n/dismount\n/cast [mod:shift] Bear Form; Cat Form",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cat Form"
+            },
+            {
+              "key": "Shift",
+              "text": "Bear Form"
+            }
+          ],
+          "needs": "Bear Form and Cat Form learned",
+          "codePt": "#showtooltip [mod:shift] Forma de Urso; Forma de Felino\n/dismount\n/cast [mod:shift] Forma de Urso; Forma de Felino"
+        },
+        {
+          "id": "class-wide-travel-form",
+          "title": "Travel, Aquatic or Cat Form on one key",
+          "desc": "Aquatic Form when you're swimming, Travel Form outdoors and Cat Form anywhere else, dismounting you first.",
+          "icon": "classicon_druid",
+          "iconKind": "class",
+          "code": "#showtooltip\n/dismount\n/cast [swimming] Aquatic Form; [outdoors] Travel Form; Cat Form",
+          "origin": "classic",
+          "needs": "Aquatic Form, Travel Form and Cat Form learned",
+          "level": 30,
+          "codePt": "#showtooltip\n/dismount\n/cast [swimming] Forma Aquática; [outdoors] Forma de Viagem; Forma de Felino"
+        },
+        {
+          "id": "class-wide-emergency-heal",
+          "title": "Heal from any form",
+          "desc": "Leave your form and cast Healing Touch on the friendly under your cursor, or on yourself; hold Shift for Regrowth instead.",
+          "icon": "spell_nature_healingtouch",
+          "iconKind": "ability",
+          "code": "#showtooltip Healing Touch\n/cancelform\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,@player] Regrowth; [@mouseover,help,nodead][@player] Healing Touch",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Healing Touch on your mouseover or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Regrowth on your mouseover or yourself"
+            }
+          ],
+          "codePt": "#showtooltip Toque de Cura\n/cancelform\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,@player] Recrescimento; [@mouseover,help,nodead][@player] Toque de Cura"
+        },
+        {
+          "id": "class-wide-drop-form",
+          "title": "Drop your form and dismount",
+          "desc": "Stop your cast, leave your shapeshift and get off your mount in one press.",
+          "icon": "classicon_druid",
+          "iconKind": "class",
+          "code": "/stopcasting\n/cancelform\n/dismount",
+          "origin": "classic",
+          "codePt": "/stopcasting\n/cancelform\n/dismount"
+        },
+        {
+          "id": "class-wide-form-defensives",
+          "title": "Barkskin, Shift for Nature's Grasp",
+          "desc": "Use Barkskin in your current form, or hold Shift for Nature's Grasp. Neither branch cancels your form in Forever.",
+          "icon": "spell_nature_stoneclawtotem",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Nature's Grasp; Barkskin\n/cast [mod:shift] Nature's Grasp; Barkskin",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Barkskin"
+            },
+            {
+              "key": "Shift",
+              "text": "Nature's Grasp"
+            }
+          ],
+          "needs": "Barkskin learned; Nature's Grasp is baseline at level 10 in Forever",
+          "level": 44,
+          "codePt": "#showtooltip [mod:shift] Enredamento; Pele de Árvore\n/cast [mod:shift] Enredamento; Pele de Árvore"
+        }
+      ]
+    },
+    {
+      "id": "balance",
+      "name": "Balance",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "balance-moonfire",
+          "title": "Mouseover Moonfire",
+          "desc": "Apply Moonfire to another enemy while keeping your main target.",
+          "icon": "spell_nature_starfall",
+          "iconKind": "ability",
+          "code": "#showtooltip Moonfire\n/cast [@mouseover,harm,nodead][] Moonfire",
+          "origin": "adapted",
+          "codePt": "#showtooltip Fogo Lunar\n/cast [@mouseover,harm,nodead][] Fogo Lunar"
+        },
+        {
+          "id": "balance-starfire-wrath",
+          "title": "Starfire or Wrath",
+          "desc": "Hold Shift for Wrath; press normally for Starfire.",
+          "icon": "spell_arcane_starfire",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Wrath; Starfire\n/cast [mod:shift] Wrath; Starfire",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cast Starfire"
+            },
+            {
+              "key": "Shift",
+              "text": "Cast Wrath"
+            }
+          ],
+          "needs": "Starfire learned",
+          "codePt": "#showtooltip [mod:shift] Ira; Fogo Estelar\n/cast [mod:shift] Ira; Fogo Estelar"
+        },
+        {
+          "id": "balance-insect-swarm",
+          "title": "Mouseover Insect Swarm",
+          "desc": "Swarm the enemy under your cursor, or your target when there isn't one.",
+          "icon": "spell_nature_insectswarm",
+          "iconKind": "ability",
+          "code": "#showtooltip Insect Swarm\n/cast [@mouseover,harm,nodead][] Insect Swarm",
+          "origin": "adapted",
+          "needs": "Insect Swarm talent (in the Balance tree in Forever)",
+          "level": 25,
+          "codePt": "#showtooltip Nuvem de Insetos\n/cast [@mouseover,harm,nodead][] Nuvem de Insetos"
+        },
+        {
+          "id": "balance-dot-opener",
+          "title": "Moonfire, then Insect Swarm",
+          "desc": "Press it twice to put Moonfire and then Insect Swarm on your target; the sequence starts over when you change target.",
+          "icon": "spell_nature_starfall",
+          "iconKind": "ability",
+          "code": "#showtooltip Moonfire\n/castsequence reset=target Moonfire, Insect Swarm",
+          "origin": "adapted",
+          "needs": "Insect Swarm talent (in the Balance tree in Forever)",
+          "level": 25,
+          "codePt": "#showtooltip Fogo Lunar\n/castsequence reset=target Fogo Lunar, Nuvem de Insetos"
+        },
+        {
+          "id": "balance-eclipse",
+          "title": "Wrath, then two Starfires",
+          "desc": "Runs Wrath and two Starfires in a row, the way the Eclipse talent describes it.",
+          "icon": "spell_arcane_starfire",
+          "iconKind": "ability",
+          "code": "#showtooltip Starfire\n/castsequence reset=target/12 Wrath, Starfire, Starfire",
+          "origin": "forever",
+          "needs": "Eclipse talent",
+          "codePt": "#showtooltip Fogo Estelar\n/castsequence reset=target/12 Ira, Fogo Estelar, Fogo Estelar"
+        },
+        {
+          "id": "balance-entangling-roots",
+          "title": "Mouseover Entangling Roots",
+          "desc": "Root the enemy under your cursor, or your target; you can only keep one enemy rooted at a time unless you take Overgrowth.",
+          "icon": "spell_nature_stranglevines",
+          "iconKind": "ability",
+          "code": "#showtooltip Entangling Roots\n/cast [@mouseover,harm,nodead][] Entangling Roots",
+          "origin": "adapted",
+          "needs": "Entangling Roots learned",
+          "codePt": "#showtooltip Raízes Enredantes\n/cast [@mouseover,harm,nodead][] Raízes Enredantes"
+        },
+        {
+          "id": "balance-hibernate",
+          "title": "Mouseover Hibernate",
+          "desc": "Put the beast or dragonkin under your cursor to sleep, or your target if there's no mouseover; damage wakes it.",
+          "icon": "spell_nature_sleep",
+          "iconKind": "ability",
+          "code": "#showtooltip Hibernate\n/cast [@mouseover,harm,nodead][] Hibernate",
+          "origin": "classic",
+          "needs": "Hibernate learned",
+          "codePt": "#showtooltip Hibernar\n/cast [@mouseover,harm,nodead][] Hibernar"
+        },
+        {
+          "id": "balance-faerie-fire",
+          "title": "Mouseover Faerie Fire",
+          "desc": "Faerie Fire the enemy under your cursor, or your target; while it's on, the enemy can't stealth or turn invisible. Bear, Cat and Dire Bear casts cost no resources and have a 6 sec cooldown.",
+          "icon": "spell_nature_faeriefire",
+          "iconKind": "ability",
+          "code": "#showtooltip Faerie Fire\n/cast [@mouseover,harm,nodead][] Faerie Fire",
+          "origin": "classic",
+          "needs": "Faerie Fire learned",
+          "codePt": "#showtooltip Fogo Feérico\n/cast [@mouseover,harm,nodead][] Fogo Feérico"
+        },
+        {
+          "id": "balance-hurricane",
+          "title": "Hurricane without restarting it",
+          "desc": "Nothing happens while you're already channeling, so mashing the key can't cut your own Hurricane short; click the ground as usual.",
+          "icon": "spell_nature_cyclone",
+          "iconKind": "ability",
+          "code": "#showtooltip Hurricane\n/stopmacro [channeling]\n/cast Hurricane",
+          "origin": "classic",
+          "needs": "Hurricane learned",
+          "level": 40,
+          "codePt": "#showtooltip Furacão\n/stopmacro [channeling]\n/cast Furacão"
+        }
+      ]
+    },
+    {
+      "id": "feral",
+      "name": "Feral",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "feral-primal-bite",
+          "title": "Primal Bite and auto attack",
+          "desc": "Use Forever’s renamed Feral talent while keeping auto attack on.",
+          "icon": "ability_racial_cannibalize",
+          "iconKind": "ability",
+          "code": "#showtooltip Primal Bite\n/startattack\n/cast Primal Bite",
+          "origin": "forever",
+          "needs": "Primal Bite talent, which now needs Leader of the Pack; Bear or Dire Bear Form",
+          "level": 40,
+          "codePt": "#showtooltip Mordida Primeva\n/startattack\n/cast Mordida Primeva"
+        },
+        {
+          "id": "feral-growl",
+          "title": "Mouseover Growl",
+          "desc": "Taunt an enemy under your cursor without dropping your current target.",
+          "icon": "ability_physical_taunt",
+          "iconKind": "ability",
+          "code": "#showtooltip Growl\n/cast [@mouseover,harm,nodead][] Growl",
+          "origin": "adapted",
+          "needs": "Bear Form and Growl learned",
+          "codePt": "#showtooltip Rosnar\n/cast [@mouseover,harm,nodead][] Rosnar"
+        },
+        {
+          "id": "feral-powershift",
+          "title": "Powershift into Cat Form",
+          "desc": "Leave and re-enter Cat, one step per press. Furor can regenerate Energy outside Cat, and Shifting Power also turns Mana into Energy.",
+          "icon": "ability_druid_catform",
+          "iconKind": "ability",
+          "code": "#showtooltip Cat Form\n/cancelform [noform:3]\n/cast [form:3] Cat Form\n/cast [noform:3] !Cat Form",
+          "origin": "adapted",
+          "needs": "Furor talent, now in the Feral tree; Cat Form",
+          "codePt": "#showtooltip Forma de Felino\n/cancelform [noform:3]\n/cast [form:3] Forma de Felino\n/cast [noform:3] !Forma de Felino"
+        },
+        {
+          "id": "feral-prowl",
+          "title": "Dismount, Cat Form and Prowl",
+          "desc": "Dismount and enter Cat Form if needed, then press again after the global cooldown to Prowl. Repeated presses while hidden leave you in Stealth.",
+          "icon": "ability_ambush",
+          "iconKind": "ability",
+          "code": "#showtooltip Prowl\n/dismount\n/cast [noform:3] Cat Form\n/cast [form:3,nostealth,nocombat] Prowl",
+          "origin": "classic",
+          "needs": "Cat Form and Prowl learned",
+          "codePt": "#showtooltip Espreitar\n/dismount\n/cast [noform:3] Forma de Felino\n/cast [form:3,nostealth,nocombat] Espreitar"
+        },
+        {
+          "id": "feral-ravage-shred",
+          "title": "Ravage from stealth, Shred otherwise",
+          "desc": "Ravage while you're Prowling and Shred once you're not; auto attack only starts after the opener. Both need you behind the target.",
+          "icon": "spell_shadow_vampiricaura",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Ravage; Shred\n/startattack [nostealth]\n/cast [stealth] Ravage; Shred",
+          "origin": "classic",
+          "needs": "Cat Form; behind your target",
+          "level": 32,
+          "codePt": "#showtooltip [stealth] Assolar; Despedaçar\n/startattack [nostealth]\n/cast [stealth] Assolar; Despedaçar"
+        },
+        {
+          "id": "feral-bite-or-rip",
+          "title": "Ferocious Bite, Shift for Rip",
+          "desc": "Spend your combo points on Ferocious Bite, or hold Shift for Rip.",
+          "icon": "ability_druid_ferociousbite",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Rip; Ferocious Bite\n/cast [mod:shift] Rip; Ferocious Bite",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Ferocious Bite"
+            },
+            {
+              "key": "Shift",
+              "text": "Rip"
+            }
+          ],
+          "needs": "Cat Form",
+          "level": 24,
+          "codePt": "#showtooltip [mod:shift] Rasgar; Mordida Feroz\n/cast [mod:shift] Rasgar; Mordida Feroz"
+        },
+        {
+          "id": "feral-lacerate",
+          "title": "Mouseover Lacerate",
+          "desc": "Stack Lacerate on the enemy under your cursor, or your target, and keep auto attack going.",
+          "icon": "ability_druid_lacerate",
+          "iconKind": "ability",
+          "code": "#showtooltip Lacerate\n/startattack\n/cast [@mouseover,harm,nodead][] Lacerate",
+          "origin": "forever",
+          "needs": "Lacerate talent (Feral), no longer a trainer spell; Bear Form or Dire Bear Form",
+          "level": 25,
+          "codePt": "#showtooltip Lacerar\n/startattack\n/cast [@mouseover,harm,nodead][] Lacerar"
+        },
+        {
+          "id": "feral-enrage-regen",
+          "title": "Enrage into Frenzied Regeneration",
+          "desc": "Enrage for its instant 10 Rage, then Frenzied Regeneration to turn that Rage into health. With enough Rage over its duration, Frenzied Regeneration can restore your full maximum health.",
+          "icon": "ability_bullrush",
+          "iconKind": "ability",
+          "code": "#showtooltip Frenzied Regeneration\n/cast [form:1] Enrage\n/cast Frenzied Regeneration",
+          "origin": "adapted",
+          "needs": "Bear Form or Dire Bear Form; Frenzied Regeneration learned",
+          "level": 36,
+          "codePt": "#showtooltip Regeneração Frenética\n/cast [form:1] Enfurecer\n/cast Regeneração Frenética"
+        },
+        {
+          "id": "feral-swipe-roar",
+          "title": "Swipe, Shift for Demoralizing Roar",
+          "desc": "Swipe with auto attack running, or hold Shift for Demoralizing Roar.",
+          "icon": "inv_misc_monsterclaw_03",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Demoralizing Roar; Swipe\n/startattack\n/cast [mod:shift] Demoralizing Roar; Swipe",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Swipe"
+            },
+            {
+              "key": "Shift",
+              "text": "Demoralizing Roar"
+            }
+          ],
+          "needs": "Bear Form or Dire Bear Form",
+          "codePt": "#showtooltip [mod:shift] Rugido Desmoralizante; Patada\n/startattack\n/cast [mod:shift] Rugido Desmoralizante; Patada"
+        },
+        {
+          "id": "feral-cat-leap",
+          "title": "Cat leap into Shred",
+          "desc": "Leap behind your target with Cat Feral Charge, then press for Shred. The Cat leap has a 30 sec cooldown and does not interrupt or root; check the Cat spell name on your action bar if this cast fails.",
+          "icon": "ability_hunter_pet_bear",
+          "iconKind": "ability",
+          "code": "#showtooltip Feral Charge\n/startattack\n/cast [form:3,harm] Feral Charge\n/cast [form:3,harm] Shred",
+          "origin": "forever",
+          "needs": "Feral Charge talent; Cat Form",
+          "codePt": "#showtooltip Investida Feral\n/startattack\n/cast [form:3,harm] Investida Feral\n/cast [form:3,harm] Despedaçar"
+        }
+      ]
+    },
+    {
+      "id": "restoration",
+      "name": "Restoration",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "restoration-rejuvenation",
+          "title": "Mouseover Rejuvenation",
+          "desc": "Heal the party frame under your cursor, your target, or yourself.",
+          "icon": "spell_nature_rejuvenation",
+          "iconKind": "ability",
+          "code": "#showtooltip Rejuvenation\n/cast [@mouseover,help,nodead][help,nodead][@player] Rejuvenation",
+          "origin": "adapted",
+          "codePt": "#showtooltip Rejuvenescer\n/cast [@mouseover,help,nodead][help,nodead][@player] Rejuvenescer"
+        },
+        {
+          "id": "restoration-wild-growth",
+          "title": "Mouseover Wild Growth",
+          "desc": "Heal your friendly mouseover’s or target’s nearby party and pets in seven declining ticks. It’s a 3 sec cast with a 6 sec cooldown. In a raid, the target chooses which party is healed.",
+          "icon": "ability_druid_flourish",
+          "iconKind": "ability",
+          "code": "#showtooltip Wild Growth\n/cast [@mouseover,help,nodead][help,nodead][@player] Wild Growth",
+          "origin": "forever",
+          "needs": "Wild Growth talent",
+          "level": 40,
+          "codePt": "#showtooltip Crescimento Silvestre\n/cast [@mouseover,help,nodead][help,nodead][@player] Crescimento Silvestre"
+        },
+        {
+          "id": "restoration-regrowth",
+          "title": "Mouseover Regrowth, or your target's target",
+          "desc": "Regrowth the friendly under your cursor, your target, whoever your enemy target is fighting, or yourself.",
+          "icon": "spell_nature_resistnature",
+          "iconKind": "ability",
+          "code": "#showtooltip Regrowth\n/cast [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Regrowth",
+          "origin": "classic",
+          "needs": "Regrowth learned",
+          "codePt": "#showtooltip Recrescimento\n/cast [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Recrescimento"
+        },
+        {
+          "id": "restoration-healing-touch-rank",
+          "title": "Healing Touch, Shift for a lower rank",
+          "desc": "Cast your top rank of Healing Touch on a mouseover, your target or yourself, or hold Shift for Rank 3 when a smaller heal will do; change the number to suit your level.",
+          "icon": "spell_nature_healingtouch",
+          "iconKind": "ability",
+          "code": "#showtooltip Healing Touch\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Healing Touch(Rank 3); [@mouseover,help,nodead][help,nodead][@player] Healing Touch",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Healing Touch at your highest rank"
+            },
+            {
+              "key": "Shift",
+              "text": "Healing Touch Rank 3"
+            }
+          ],
+          "needs": "Healing Touch Rank 3 learned",
+          "codePt": "#showtooltip Toque de Cura\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Toque de Cura(Grau 3); [@mouseover,help,nodead][help,nodead][@player] Toque de Cura"
+        },
+        {
+          "id": "restoration-swiftmend",
+          "title": "Mouseover Swiftmend",
+          "desc": "Swiftmend your friendly mouseover, target or yourself. Blizzard said on 30 September the HoT keeps running; the newest tooltip says Swiftmend uses it up, so we’re not sure which is live.",
+          "icon": "inv_relics_idolofrejuvenation",
+          "iconKind": "ability",
+          "code": "#showtooltip Swiftmend\n/cast [@mouseover,help,nodead][help,nodead][@player] Swiftmend",
+          "origin": "adapted",
+          "needs": "Swiftmend talent; your own Rejuvenation or Regrowth already on the target",
+          "level": 25,
+          "codePt": "#showtooltip Recomposição Rápida\n/cast [@mouseover,help,nodead][help,nodead][@player] Recomposição Rápida"
+        },
+        {
+          "id": "restoration-natures-swiftness",
+          "title": "Nature's Swiftness into a heal",
+          "desc": "Leave your form, pop Nature's Swiftness and make your next heal instant: Healing Touch, or Regrowth while you hold Shift.",
+          "icon": "spell_nature_ravenform",
+          "iconKind": "ability",
+          "code": "#showtooltip Nature's Swiftness\n/cancelform\n/cast Nature's Swiftness\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Regrowth; [@mouseover,help,nodead][help,nodead][@player] Healing Touch",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Nature's Swiftness, then Healing Touch"
+            },
+            {
+              "key": "Shift",
+              "text": "Nature's Swiftness, then Regrowth"
+            }
+          ],
+          "needs": "Nature's Swiftness talent",
+          "level": 30,
+          "codePt": "#showtooltip Rapidez da Natureza\n/cancelform\n/cast Rapidez da Natureza\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Recrescimento; [@mouseover,help,nodead][help,nodead][@player] Toque de Cura"
+        },
+        {
+          "id": "restoration-rejuv-swiftmend",
+          "title": "Rejuvenation, then Swiftmend",
+          "desc": "Rejuvenation on the first press and Swiftmend on the second, on your friendly target or yourself, so the HoT Swiftmend needs is always your own.",
+          "icon": "classicon_druid",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence [help,nodead][@player] reset=target/6 Rejuvenation, Swiftmend",
+          "origin": "adapted",
+          "needs": "Swiftmend talent",
+          "level": 25,
+          "codePt": "#showtooltip\n/castsequence [help,nodead][@player] reset=target/6 Rejuvenescer, Recomposição Rápida"
+        },
+        {
+          "id": "restoration-rejuv-party",
+          "title": "Rejuvenation by party slot",
+          "desc": "Rejuvenate yourself, or hold Shift, Ctrl or Alt for party members 1, 2 or 3 without touching a frame.",
+          "icon": "spell_nature_rejuvenation",
+          "iconKind": "ability",
+          "code": "#showtooltip Rejuvenation\n/cast [mod:shift,@party1,help,nodead][mod:ctrl,@party2,help,nodead][mod:alt,@party3,help,nodead][@player] Rejuvenation",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Rejuvenation on yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Rejuvenation on party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Rejuvenation on party member 2"
+            },
+            {
+              "key": "Alt",
+              "text": "Rejuvenation on party member 3"
+            }
+          ],
+          "needs": "Rejuvenation learned",
+          "codePt": "#showtooltip Rejuvenescer\n/cast [mod:shift,@party1,help,nodead][mod:ctrl,@party2,help,nodead][mod:alt,@party3,help,nodead][@player] Rejuvenescer"
+        },
+        {
+          "id": "restoration-tranquility-channel",
+          "title": "Tranquility, Shift to stop",
+          "desc": "Leave your form and channel Tranquility. Repeated presses leave the channel running; hold Shift to stop it early.",
+          "icon": "spell_nature_tranquility",
+          "iconKind": "ability",
+          "code": "#showtooltip Tranquility\n/stopcasting [mod:shift]\n/stopmacro [mod:shift]\n/cancelform\n/cast [nochanneling:Tranquility] Tranquility",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Start Tranquility without restarting an active channel"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop casting"
+            }
+          ],
+          "needs": "Tranquility learned",
+          "level": 30,
+          "codePt": "#showtooltip Tranquilidade\n/stopcasting [mod:shift]\n/stopmacro [mod:shift]\n/cancelform\n/cast [nochanneling:Tranquility] Tranquilidade"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-bash-stun",
+          "title": "Bash, shifting into Bear Form first",
+          "desc": "Bash your target, or your mouseover with Shift; if you're not in a bear it puts you in Dire Bear Form first, so the second press lands the stun. Tauren can add War Stomp on Ctrl.",
+          "icon": "ability_druid_bash",
+          "iconKind": "ability",
+          "code": "#showtooltip Bash\n/cast [mod:ctrl] War Stomp; [mod:shift,form:1,@mouseover,harm,nodead] Bash; [form:1] Bash; !Dire Bear Form",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Bash your target, or Dire Bear Form first if you're not in it"
+            },
+            {
+              "key": "Shift",
+              "text": "Bash your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "War Stomp (Tauren)"
+            }
+          ],
+          "needs": "Bash learned; War Stomp is Tauren only",
+          "level": 40,
+          "codePt": "#showtooltip Trombar\n/cast [mod:ctrl] Pisada de Guerra; [mod:shift,form:1,@mouseover,harm,nodead] Trombar; [form:1] Trombar; !Forma de Urso Hediondo"
+        },
+        {
+          "id": "pvp-stealth-dance",
+          "title": "Prowl, Dash or Shadowmeld on one key",
+          "desc": "Go into Cat Form if you need to, then Prowl, or Dash with Shift held; Night Elves get Shadowmeld on Ctrl.",
+          "icon": "ability_ambush",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Dash; [mod:ctrl] Shadowmeld; Prowl\n/cast [mod:ctrl] Shadowmeld\n/cast [noform:3,nomod][noform:3,mod:shift] !Cat Form\n/cast [mod:shift] Dash; [nomod] !Prowl",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cat Form if needed, then Prowl (out of combat)"
+            },
+            {
+              "key": "Shift",
+              "text": "Cat Form if needed, then Dash"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Shadowmeld (Night Elf)"
+            }
+          ],
+          "needs": "Prowl and Dash learned; Shadowmeld is Night Elf only",
+          "level": 26,
+          "codePt": "#showtooltip [mod:shift] Arremetida; [mod:ctrl] Fusão Sombria; Espreitar\n/cast [mod:ctrl] Fusão Sombria\n/cast [noform:3,nomod][noform:3,mod:shift] !Forma de Felino\n/cast [mod:shift] Arremetida; [nomod] !Espreitar"
+        },
+        {
+          "id": "pvp-trinket-shift",
+          "title": "PvP trinket and Bear Form",
+          "desc": "Stop your cast, use your top trinket in combat and drop into Dire Bear Form, or Cat Form with Shift.",
+          "icon": "ability_racial_bearform",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Cat Form; Dire Bear Form\n/stopcasting\n/use [combat] 13\n/cast [mod:shift,noform:3] !Cat Form; [nomod,noform:1] !Dire Bear Form",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Trinket, then Dire Bear Form"
+            },
+            {
+              "key": "Shift",
+              "text": "Trinket, then Cat Form"
+            }
+          ],
+          "needs": "A PvP trinket in your top slot, such as the Greater Insignia of the Alliance or of the Horde (Corporal or Grunt rank, 5 min cooldown)",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Forma de Felino; Forma de Urso Hediondo\n/stopcasting\n/use [combat] 13\n/cast [mod:shift,noform:3] !Forma de Felino; [nomod,noform:1] !Forma de Urso Hediondo"
+        },
+        {
+          "id": "pvp-roots-run",
+          "title": "Roots, Shift for Travel Form, Ctrl for Hibernate",
+          "desc": "Root your mouseover or target, run off in Travel Form with Shift, or put a beast to sleep with Ctrl (a hunter's pet counts). Entangling Roots works indoors as well as outdoors.",
+          "icon": "spell_nature_stranglevines",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Travel Form; [mod:ctrl] Hibernate; Entangling Roots\n/cancelform [noform:5,nomod][noform:5,mod:ctrl]\n/cast [mod:shift] Travel Form; [mod:ctrl,@mouseover,harm,nodead] Hibernate; [@mouseover,harm,nodead][] Entangling Roots",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Entangling Roots on your mouseover or target"
+            },
+            {
+              "key": "Shift",
+              "text": "Travel Form (outdoors)"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Hibernate on your mouseover"
+            }
+          ],
+          "needs": "Entangling Roots, Hibernate and Travel Form learned",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Forma de Viagem; [mod:ctrl] Hibernar; Raízes Enredantes\n/cancelform [noform:5,nomod][noform:5,mod:ctrl]\n/cast [mod:shift] Forma de Viagem; [mod:ctrl,@mouseover,harm,nodead] Hibernar; [@mouseover,harm,nodead][] Raízes Enredantes"
+        },
+        {
+          "id": "pvp-panic-button",
+          "title": "Defensive button by modifier",
+          "desc": "Barkskin on a plain press, Nature's Grasp with Ctrl, or Enrage into Frenzied Regeneration with Shift in Bear Form. Barkskin and Nature's Grasp both work while shapeshifted.",
+          "icon": "spell_nature_stoneclawtotem",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Frenzied Regeneration; [mod:ctrl] Nature's Grasp; Barkskin\n/cast [mod:shift,form:1] Enrage\n/cast [mod:shift,form:1] Frenzied Regeneration; [mod:ctrl] Nature's Grasp; [nomod] Barkskin",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Barkskin"
+            },
+            {
+              "key": "Shift",
+              "text": "Enrage, then Frenzied Regeneration (Bear Form)"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Nature's Grasp"
+            }
+          ],
+          "needs": "Barkskin, Nature's Grasp and Frenzied Regeneration learned",
+          "level": 44,
+          "codePt": "#showtooltip [mod:shift] Regeneração Frenética; [mod:ctrl] Enredamento; Pele de Árvore\n/cast [mod:shift,form:1] Enfurecer\n/cast [mod:shift,form:1] Regeneração Frenética; [mod:ctrl] Enredamento; [nomod] Pele de Árvore"
+        },
+        {
+          "id": "pvp-reveal",
+          "title": "Faerie Fire your target or mouseover",
+          "desc": "Faerie Fire your target, or your mouseover with Shift, to prevent stealth and invisibility. Stay in Bear, Cat, Dire Bear or Moonkin Form; Bear, Cat and Dire Bear casts cost no resources and have a 6 sec cooldown.",
+          "icon": "spell_nature_faeriefire",
+          "iconKind": "ability",
+          "code": "#showtooltip Faerie Fire\n/cancelform [form:2/4]\n/cast [mod:shift,@mouseover,harm,nodead][harm] Faerie Fire",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Faerie Fire on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Faerie Fire on your mouseover"
+            }
+          ],
+          "needs": "Faerie Fire learned We haven’t tested the Faerie Fire cast name in animal forms. If it fails, use the name on your form’s action bar.",
+          "codePt": "#showtooltip Fogo Feérico\n/cancelform [form:2/4]\n/cast [mod:shift,@mouseover,harm,nodead][harm] Fogo Feérico"
+        },
+        {
+          "id": "pvp-break-snare",
+          "title": "Change form to break a root or snare",
+          "desc": "Changing form frees you from movement impairing effects, so this always changes it: Cat to Bear, anything else to Cat, Travel Form outdoors with Shift, Aquatic Form with Ctrl.",
+          "icon": "classicon_druid",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,outdoors] Travel Form; [mod:ctrl] Aquatic Form; [form:3] Dire Bear Form; Cat Form",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cat Form, or Dire Bear Form if you're in Cat Form"
+            },
+            {
+              "key": "Shift",
+              "text": "Travel Form (outdoors)"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Aquatic Form"
+            }
+          ],
+          "needs": "Cat Form, Dire Bear Form, Travel Form and Aquatic Form learned",
+          "level": 40,
+          "codePt": "#showtooltip\n/cast [mod:shift,outdoors] Forma de Viagem; [mod:ctrl] Forma Aquática; [form:3] Forma de Urso Hediondo; Forma de Felino"
+        },
+        {
+          "id": "pvp-cleanse-self",
+          "title": "Cleanse yourself or a friend",
+          "desc": "Remove Curse on a mouseover or yourself, Abolish Poison with Shift, and Ctrl or Alt to force either onto yourself. You leave your form first.",
+          "icon": "spell_holy_removecurse",
+          "iconKind": "ability",
+          "code": "#showtooltip Remove Curse\n/cancelform\n/cast [mod:ctrl,@player] Remove Curse; [mod:alt,@player] Abolish Poison; [mod:shift,@mouseover,help,nodead][mod:shift,@player] Abolish Poison; [@mouseover,help,nodead][@player] Remove Curse",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Remove Curse on your mouseover or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Abolish Poison on your mouseover or yourself"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Remove Curse on yourself"
+            },
+            {
+              "key": "Alt",
+              "text": "Abolish Poison on yourself"
+            }
+          ],
+          "needs": "Remove Curse and Abolish Poison learned",
+          "level": 26,
+          "codePt": "#showtooltip Remover Maldição\n/cancelform\n/cast [mod:ctrl,@player] Remover Maldição; [mod:alt,@player] Abolir Veneno; [mod:shift,@mouseover,help,nodead][mod:shift,@player] Abolir Veneno; [@mouseover,help,nodead][@player] Remover Maldição"
+        },
+        {
+          "id": "pvp-totem-moonfire",
+          "title": "Moonfire Rank 1 on a shaman totem",
+          "desc": "Target a Grounding Totem and Moonfire it at Rank 1; Shift for Tremor, Ctrl for Earthbind, Alt for Mana Tide. You stay on the totem, and with none in range the Moonfire hits your target.",
+          "icon": "spell_nature_starfall",
+          "iconKind": "ability",
+          "code": "#showtooltip Moonfire\n/target [mod:shift] Tremor Totem; [mod:ctrl] Earthbind Totem; [mod:alt] Mana Tide Totem; Grounding Totem\n/cast [harm,nodead] Moonfire(Rank 1)",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Moonfire Rank 1 on a Grounding Totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Moonfire Rank 1 on a Tremor Totem"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Moonfire Rank 1 on an Earthbind Totem"
+            },
+            {
+              "key": "Alt",
+              "text": "Moonfire Rank 1 on a Mana Tide Totem"
+            }
+          ],
+          "needs": "Moonfire learned; caster or Moonkin Form",
+          "codePt": "#showtooltip Fogo Lunar\n/target [mod:shift] Tremor Totem; [mod:ctrl] Earthbind Totem; [mod:alt] Mana Tide Totem; Grounding Totem\n/cast [harm,nodead] Fogo Lunar(Grau 1)"
+        },
+        {
+          "id": "pvp-potion-in-form",
+          "title": "Free Action or Swiftness Potion, staying in form",
+          "desc": "Drink a Free Action Potion, or a Swiftness Potion while you hold Shift, without leaving your form. Forever lets druids use potions shapeshifted; in Classic you had to shift out first.",
+          "icon": "classicon_druid",
+          "iconKind": "class",
+          "code": "#showtooltip\n/use [mod:shift] Swiftness Potion; Free Action Potion",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Free Action Potion"
+            },
+            {
+              "key": "Shift",
+              "text": "Swiftness Potion"
+            }
+          ],
+          "needs": "Free Action Potion and Swiftness Potion in your bags",
+          "codePt": "#showtooltip\n/use [mod:shift] Poção de Rapidez; Poção de Ação Desimpedida"
+        }
+      ]
+    },
+    {
+      "id": "pvp-balance",
+      "name": "Balance PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-cast-cancel",
+          "title": "Drop your cast for an instant",
+          "desc": "Stop the cast you're on and fire Moonfire at your target; Shift for your mouseover, Ctrl for Insect Swarm, Alt for Faerie Fire.",
+          "icon": "spell_nature_starfall",
+          "iconKind": "ability",
+          "code": "#showtooltip Moonfire\n/stopcasting\n/cast [mod:ctrl] Insect Swarm; [mod:alt] Faerie Fire; [mod:shift,@mouseover,harm,nodead] Moonfire; Moonfire",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Moonfire on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Moonfire on your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Insect Swarm on your target"
+            },
+            {
+              "key": "Alt",
+              "text": "Faerie Fire on your target"
+            }
+          ],
+          "needs": "Insect Swarm talent for the Ctrl half",
+          "level": 25,
+          "codePt": "#showtooltip Fogo Lunar\n/stopcasting\n/cast [mod:ctrl] Nuvem de Insetos; [mod:alt] Fogo Feérico; [mod:shift,@mouseover,harm,nodead] Fogo Lunar; Fogo Lunar"
+        },
+        {
+          "id": "pvp-moonkin-shift",
+          "title": "Back into Moonkin Form to break a root",
+          "desc": "Re-enter Moonkin Form to shake off a root, snare or Polymorph; from Moonkin it can take a second press. Hold Shift for Dire Bear Form when a rogue jumps you, or Ctrl for Travel Form outdoors.",
+          "icon": "spell_nature_forceofnature",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Dire Bear Form; [mod:ctrl] Travel Form; Moonkin Form\n/cancelform [mod:shift,noform:1][mod:ctrl,noform:4][nomod]\n/cast [mod:shift] !Dire Bear Form; [mod:ctrl] !Travel Form; !Moonkin Form",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Moonkin Form, leaving it first if you're already in it"
+            },
+            {
+              "key": "Shift",
+              "text": "Dire Bear Form"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Travel Form (outdoors)"
+            }
+          ],
+          "needs": "Moonkin Form talent; Dire Bear Form and Travel Form learned",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Forma de Urso Hediondo; [mod:ctrl] Forma de Viagem; Forma de Luniscante\n/cancelform [mod:shift,noform:1][mod:ctrl,noform:4][nomod]\n/cast [mod:shift] !Forma de Urso Hediondo; [mod:ctrl] !Forma de Viagem; !Forma de Luniscante"
+        },
+        {
+          "id": "pvp-moonkin-support",
+          "title": "Cleanse or Innervate without leaving Moonkin",
+          "desc": "Remove Curse on your mouseover or yourself, Abolish Poison with Shift, or Innervate yourself with Ctrl. Forever's Moonkin Form only blocks healing spells, so it stays up; other forms drop.",
+          "icon": "spell_holy_removecurse",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:ctrl] Innervate; [mod:shift] Abolish Poison; Remove Curse\n/cancelform [noform:5]\n/cast [mod:ctrl,@player] Innervate; [mod:shift,@mouseover,help,nodead][mod:shift,@player] Abolish Poison; [@mouseover,help,nodead][@player] Remove Curse",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Remove Curse on your mouseover or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Abolish Poison on your mouseover or yourself"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Innervate on yourself"
+            }
+          ],
+          "needs": "Moonkin Form talent; Remove Curse, Abolish Poison and Innervate learned",
+          "level": 40,
+          "codePt": "#showtooltip [mod:ctrl] Avivar; [mod:shift] Abolir Veneno; Remover Maldição\n/cancelform [noform:5]\n/cast [mod:ctrl,@player] Avivar; [mod:shift,@mouseover,help,nodead][mod:shift,@player] Abolir Veneno; [@mouseover,help,nodead][@player] Remover Maldição"
+        },
+        {
+          "id": "pvp-moonkin-heal",
+          "title": "Regrowth, then back into Moonkin Form",
+          "desc": "Moonkin Form blocks heals, so this drops it and casts Regrowth on you; the next press shifts you back in. The sequence starts over after 10 seconds without a press.",
+          "icon": "classicon_druid",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cancelform\n/castsequence [@player] reset=10 Regrowth, Moonkin Form",
+          "origin": "classic",
+          "needs": "Moonkin Form talent",
+          "level": 40,
+          "codePt": "#showtooltip\n/cancelform\n/castsequence [@player] reset=10 Recrescimento, Forma de Luniscante"
+        },
+        {
+          "id": "pvp-starfire-burst",
+          "title": "Trinket and Elune's Light into Starfire",
+          "desc": "Starfire on a plain press. Hold Shift to fire your bottom trinket and Elune's Light first. We haven't checked whether Elune's Light triggers the global cooldown; if it does, press again for the Starfire.",
+          "icon": "spell_arcane_starfire",
+          "iconKind": "ability",
+          "code": "#showtooltip Starfire\n/use [mod:shift] 14\n/cast [mod:shift] Elune's Light\n/cast Starfire",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Starfire"
+            },
+            {
+              "key": "Shift",
+              "text": "Bottom trinket and Elune's Light, then Starfire"
+            }
+          ],
+          "needs": "Starfire learned; an on-use trinket in your bottom slot; Elune's Light is Night Elf only",
+          "codePt": "#showtooltip Fogo Estelar\n/use [mod:shift] 14\n/cast [mod:shift] Luz de Eluna\n/cast Fogo Estelar"
+        },
+        {
+          "id": "pvp-pounce-roots",
+          "title": "Pounce from Prowl, then Entangling Roots",
+          "desc": "Pounce from Prowl to stun, then press again to drop Cat Form and start Entangling Roots while they are still stunned. Pounce needs you behind the target, and its bleed can break the root.",
+          "icon": "spell_nature_stranglevines",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth] Pounce; Entangling Roots\n/cancelform [nostealth,noform:5]\n/cast [stealth] Pounce; [@mouseover,harm,nodead][] Entangling Roots",
+          "origin": "classic",
+          "needs": "Cat Form and Prowl; Improved Entangling Roots talent helps the root hold through the bleed",
+          "level": 36,
+          "codePt": "#showtooltip [stealth] Pulo do Gato; Raízes Enredantes\n/cancelform [nostealth,noform:5]\n/cast [stealth] Pulo do Gato; [@mouseover,harm,nodead][] Raízes Enredantes"
+        },
+        {
+          "id": "pvp-peel-roots",
+          "title": "Root whatever your friend is fighting",
+          "desc": "Root the enemy under your cursor, or hover a friend's frame to root what they've targeted; otherwise your enemy target, or your friendly target's target. Without Overgrowth a new root frees the last one.",
+          "icon": "spell_nature_stranglevines",
+          "iconKind": "ability",
+          "code": "#showtooltip Entangling Roots\n/cancelform [noform:5]\n/cast [@mouseover,harm,nodead][@mouseovertarget,harm,nodead][harm,nodead][@targettarget,harm,nodead] Entangling Roots",
+          "origin": "classic",
+          "needs": "Entangling Roots learned; Overgrowth talent to hold more than one root",
+          "codePt": "#showtooltip Raízes Enredantes\n/cancelform [noform:5]\n/cast [@mouseover,harm,nodead][@mouseovertarget,harm,nodead][harm,nodead][@targettarget,harm,nodead] Raízes Enredantes"
+        }
+      ]
+    },
+    {
+      "id": "pvp-feral",
+      "name": "Feral PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-charge-bash",
+          "title": "Enrage, charge and Bash",
+          "desc": "In Bear Form it Enrages for the Rage (your armor drops for 10 seconds), charges and Bashes; press again if the Bash was short on Rage. From any other form the first press only changes your form.",
+          "icon": "ability_hunter_pet_bear",
+          "iconKind": "ability",
+          "code": "#showtooltip Feral Charge\n/cast [noform:1] !Dire Bear Form\n/cast [form:1] Enrage\n/cast [form:1,mod:shift,@mouseover,harm,nodead][form:1,harm] Feral Charge\n/cast [form:1,mod:shift,@mouseover,harm,nodead][form:1,harm] Bash",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Charge and Bash your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Charge and Bash your mouseover"
+            }
+          ],
+          "needs": "Feral Charge talent; Bash learned",
+          "level": 40,
+          "codePt": "#showtooltip Investida Feral\n/cast [noform:1] !Forma de Urso Hediondo\n/cast [form:1] Enfurecer\n/cast [form:1,mod:shift,@mouseover,harm,nodead][form:1,harm] Investida Feral\n/cast [form:1,mod:shift,@mouseover,harm,nodead][form:1,harm] Trombar"
+        },
+        {
+          "id": "pvp-pounce-opener",
+          "title": "Pounce from stealth, Shift for Ravage",
+          "desc": "Stun with Pounce from Prowl, or open with Ravage while you hold Shift; out of stealth it falls back to Rake. Both openers need you behind the target.",
+          "icon": "ability_druid_disembowel",
+          "iconKind": "ability",
+          "code": "#showtooltip [stealth,mod:shift] Ravage; [stealth] Pounce; Rake\n/startattack [nostealth]\n/cast [stealth,mod:shift] Ravage; [stealth] Pounce; Rake",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Pounce from stealth, Rake otherwise"
+            },
+            {
+              "key": "Shift",
+              "text": "Ravage from stealth"
+            }
+          ],
+          "needs": "Cat Form; behind your target",
+          "level": 36,
+          "codePt": "#showtooltip [stealth,mod:shift] Assolar; [stealth] Pulo do Gato; Estraçalhar\n/startattack [nostealth]\n/cast [stealth,mod:shift] Assolar; [stealth] Pulo do Gato; Estraçalhar"
+        },
+        {
+          "id": "pvp-charge-grasp",
+          "title": "Feral Charge with Nature's Grasp",
+          "desc": "In Bear Form, charge your mouseover or target and raise Nature's Grasp in the same press, so the next melee hit on you roots its attacker. Out of Bear Form the first press shifts you.",
+          "icon": "ability_hunter_pet_bear",
+          "iconKind": "ability",
+          "code": "#showtooltip Feral Charge\n/cast [noform:1] !Dire Bear Form\n/cast [form:1,@mouseover,harm,nodead][form:1,harm] Feral Charge\n/cast [form:1] Nature's Grasp",
+          "origin": "adapted",
+          "needs": "Feral Charge talent; Nature's Grasp, which Forever lets you cast in form",
+          "level": 40,
+          "codePt": "#showtooltip Investida Feral\n/cast [noform:1] !Forma de Urso Hediondo\n/cast [form:1,@mouseover,harm,nodead][form:1,harm] Investida Feral\n/cast [form:1] Enredamento"
+        },
+        {
+          "id": "pvp-cat-heal",
+          "title": "Heal yourself, then back into Cat Form",
+          "desc": "Drop your form for Rejuvenation and then Regrowth on yourself; the third press puts you back in Cat Form. The sequence starts over after 12 seconds without a press.",
+          "icon": "classicon_druid",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cancelform\n/castsequence [@player] reset=12 Rejuvenation, Regrowth, Cat Form",
+          "origin": "classic",
+          "needs": "Cat Form and Regrowth learned",
+          "codePt": "#showtooltip\n/cancelform\n/castsequence [@player] reset=12 Rejuvenescer, Recrescimento, Forma de Felino"
+        },
+        {
+          "id": "pvp-cat-escape",
+          "title": "Dash and Barkskin in Cat Form",
+          "desc": "Dash and Barkskin together in Cat Form, since Dash is off the global cooldown. Out of Cat Form the first press shifts you, which also frees you from roots and snares.",
+          "icon": "ability_druid_dash",
+          "iconKind": "ability",
+          "code": "#showtooltip Dash\n/cast [noform:3] !Cat Form\n/cast [form:3] Dash\n/cast [form:3] Barkskin",
+          "origin": "forever",
+          "needs": "Dash and Barkskin learned; Barkskin works in Cat Form in Forever",
+          "level": 44,
+          "codePt": "#showtooltip Arremetida\n/cast [noform:3] !Forma de Felino\n/cast [form:3] Arremetida\n/cast [form:3] Pele de Árvore"
+        },
+        {
+          "id": "pvp-leap-reveal",
+          "title": "Cat leap and Faerie Fire on one press",
+          "desc": "Leap behind your target with Cat Feral Charge and Faerie Fire it in the same press, so it can't stealth or turn invisible. If either cast fails, check the name on your Cat action bar.",
+          "icon": "ability_hunter_pet_bear",
+          "iconKind": "ability",
+          "code": "#showtooltip Feral Charge\n/startattack\n/cast [form:3,harm] Feral Charge\n/cast [form:3,harm] Faerie Fire",
+          "origin": "forever",
+          "needs": "Feral Charge talent; Cat Form; 8 to 25 yards from your target",
+          "codePt": "#showtooltip Investida Feral\n/startattack\n/cast [form:3,harm] Investida Feral\n/cast [form:3,harm] Fogo Feérico"
+        }
+      ]
+    },
+    {
+      "id": "pvp-restoration",
+      "name": "Restoration PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-swiftness-pvp",
+          "title": "Instant heal or instant root",
+          "desc": "Nature's Swiftness into Healing Touch on a mouseover or yourself, or into an instant Entangling Roots on your target while you hold Shift.",
+          "icon": "spell_nature_ravenform",
+          "iconKind": "ability",
+          "code": "#showtooltip Nature's Swiftness\n/cancelform [mod:shift,noform:5][nomod]\n/cast [mod:shift,harm][nomod] Nature's Swiftness\n/cast [mod:shift,harm] Entangling Roots; [nomod,@mouseover,help,nodead][nomod,@player] Healing Touch",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Nature's Swiftness, then Healing Touch on your mouseover or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Nature's Swiftness, then Entangling Roots on your target"
+            }
+          ],
+          "needs": "Nature's Swiftness talent",
+          "level": 30,
+          "codePt": "#showtooltip Rapidez da Natureza\n/cancelform [mod:shift,noform:5][nomod]\n/cast [mod:shift,harm][nomod] Rapidez da Natureza\n/cast [mod:shift,harm] Raízes Enredantes; [nomod,@mouseover,help,nodead][nomod,@player] Toque de Cura"
+        },
+        {
+          "id": "pvp-moving-heals",
+          "title": "Instant heals on the move",
+          "desc": "Rejuvenation on a plain press or Swiftmend with Shift, both instant, on your mouseover or yourself. You leave your form first.",
+          "icon": "spell_nature_rejuvenation",
+          "iconKind": "ability",
+          "code": "#showtooltip Rejuvenation\n/cancelform\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,@player] Swiftmend; [@mouseover,help,nodead][@player] Rejuvenation",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Rejuvenation on your mouseover or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Swiftmend on your mouseover or yourself"
+            }
+          ],
+          "needs": "Swiftmend talent; your own Rejuvenation or Regrowth on the target for Swiftmend",
+          "level": 25,
+          "codePt": "#showtooltip Rejuvenescer\n/cancelform\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,@player] Recomposição Rápida; [@mouseover,help,nodead][@player] Rejuvenescer"
+        },
+        {
+          "id": "pvp-instant-hibernate",
+          "title": "Nature's Swiftness into Hibernate",
+          "desc": "Leave your form and put a beast or dragonkin to sleep instantly, on your mouseover or enemy target; a hunter's pet is the usual pick. If the cast can't start, Nature's Swiftness stays up.",
+          "icon": "spell_nature_sleep",
+          "iconKind": "ability",
+          "code": "#showtooltip Hibernate\n/cancelform\n/cast [@mouseover,harm,nodead][harm,nodead] Nature's Swiftness\n/cast [@mouseover,harm,nodead][harm,nodead] Hibernate",
+          "origin": "classic",
+          "needs": "Nature's Swiftness talent; Hibernate learned",
+          "level": 30,
+          "codePt": "#showtooltip Hibernar\n/cancelform\n/cast [@mouseover,harm,nodead][harm,nodead] Rapidez da Natureza\n/cast [@mouseover,harm,nodead][harm,nodead] Hibernar"
+        },
+        {
+          "id": "pvp-instant-party-heal",
+          "title": "Instant Healing Touch by party slot",
+          "desc": "Stop your cast, leave your form and make Healing Touch instant with Nature's Swiftness, on your mouseover or yourself, or on party member 1, 2 or 3 with Shift, Ctrl or Alt.",
+          "icon": "spell_nature_ravenform",
+          "iconKind": "ability",
+          "code": "#showtooltip Nature's Swiftness\n/stopcasting\n/cancelform\n/cast Nature's Swiftness\n/cast [mod:shift,@party1,nodead][mod:ctrl,@party2,nodead][mod:alt,@party3,nodead][@mouseover,help,nodead][@player] Healing Touch",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Nature's Swiftness, then Healing Touch on your mouseover or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Nature's Swiftness, then Healing Touch on party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Nature's Swiftness, then Healing Touch on party member 2"
+            },
+            {
+              "key": "Alt",
+              "text": "Nature's Swiftness, then Healing Touch on party member 3"
+            }
+          ],
+          "needs": "Nature's Swiftness talent",
+          "level": 30,
+          "codePt": "#showtooltip Rapidez da Natureza\n/stopcasting\n/cancelform\n/cast Rapidez da Natureza\n/cast [mod:shift,@party1,nodead][mod:ctrl,@party2,nodead][mod:alt,@party3,nodead][@mouseover,help,nodead][@player] Toque de Cura"
+        },
+        {
+          "id": "pvp-swiftmend-party",
+          "title": "Swiftmend by party slot",
+          "desc": "Swiftmend your mouseover or yourself, or party member 1, 2 or 3 with Shift, Ctrl or Alt. The target needs your own Rejuvenation or Regrowth on it.",
+          "icon": "inv_relics_idolofrejuvenation",
+          "iconKind": "ability",
+          "code": "#showtooltip Swiftmend\n/cancelform\n/cast [mod:shift,@party1,nodead][mod:ctrl,@party2,nodead][mod:alt,@party3,nodead][@mouseover,help,nodead][@player] Swiftmend",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Swiftmend on your mouseover or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Swiftmend on party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Swiftmend on party member 2"
+            },
+            {
+              "key": "Alt",
+              "text": "Swiftmend on party member 3"
+            }
+          ],
+          "needs": "Swiftmend talent",
+          "level": 25,
+          "codePt": "#showtooltip Recomposição Rápida\n/cancelform\n/cast [mod:shift,@party1,nodead][mod:ctrl,@party2,nodead][mod:alt,@party3,nodead][@mouseover,help,nodead][@player] Recomposição Rápida"
+        },
+        {
+          "id": "pvp-victim-heal",
+          "title": "Heal whoever your enemy target is hitting",
+          "desc": "Keep an enemy targeted and Rejuvenate whoever it has targeted, or Swiftmend them with Shift. A friendly target gets the heal instead, and you are the fallback. You leave your form first.",
+          "icon": "spell_nature_rejuvenation",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Swiftmend; Rejuvenation\n/cancelform\n/cast [mod:shift,help,nodead][mod:shift,@targettarget,help,nodead][mod:shift,@player] Swiftmend; [help,nodead][@targettarget,help,nodead][@player] Rejuvenation",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Rejuvenation on your friendly target, your enemy target's target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Swiftmend on your friendly target, your enemy target's target or yourself"
+            }
+          ],
+          "needs": "Swiftmend talent for the Shift half",
+          "level": 25,
+          "codePt": "#showtooltip [mod:shift] Recomposição Rápida; Rejuvenescer\n/cancelform\n/cast [mod:shift,help,nodead][mod:shift,@targettarget,help,nodead][mod:shift,@player] Recomposição Rápida; [help,nodead][@targettarget,help,nodead][@player] Rejuvenescer"
+        },
+        {
+          "id": "pvp-travel-heal",
+          "title": "Rejuvenation, then back into Travel Form",
+          "desc": "For flag runs and kiting: drop Travel Form and Rejuvenate yourself, then press again to shift back. Travel Form only works outdoors, and the sequence starts over after 12 seconds without a press.",
+          "icon": "classicon_druid",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cancelform\n/castsequence [@player] reset=12 Rejuvenation, Travel Form",
+          "origin": "classic",
+          "needs": "Travel Form learned",
+          "level": 30,
+          "codePt": "#showtooltip\n/cancelform\n/castsequence [@player] reset=12 Rejuvenescer, Forma de Viagem"
+        },
+        {
+          "id": "pvp-instant-rebirth",
+          "title": "Nature's Swiftness into Rebirth",
+          "desc": "Bring back the dead player under your cursor, or your target, with an instant Rebirth in the middle of a fight. You leave your form first, and Rebirth has a 30 min cooldown.",
+          "icon": "spell_nature_reincarnation",
+          "iconKind": "ability",
+          "code": "#showtooltip Rebirth\n/cancelform\n/cast [@mouseover,help,dead][help,dead] Nature's Swiftness\n/cast [@mouseover,help,dead][help,dead] Rebirth",
+          "origin": "classic",
+          "needs": "Nature's Swiftness talent; Rebirth learned",
+          "level": 30,
+          "codePt": "#showtooltip Renascimento\n/cancelform\n/cast [@mouseover,help,dead][help,dead] Rapidez da Natureza\n/cast [@mouseover,help,dead][help,dead] Renascimento"
+        }
+      ]
+    }
+  ]
+}

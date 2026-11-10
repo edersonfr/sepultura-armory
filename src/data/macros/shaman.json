@@ -1,0 +1,1448 @@
+{
+  "slug": "shaman",
+  "fetched": "2026-11-10T01:48:15.887Z",
+  "reviewed": "2026-11-03",
+  "translated": true,
+  "attribution": {
+    "text": "Macros: Classic WoW Forever, licenciadas sob CC BY 4.0.",
+    "url": "https://classicwowforever.com/macros/shaman/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sections": [
+    {
+      "id": "class-wide",
+      "name": "Class-wide",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "class-wide-earth-shock",
+          "title": "Immediate mouseover Earth Shock",
+          "desc": "Cancel your current cast to shock an enemy under your cursor while keeping your main target.",
+          "icon": "spell_nature_earthshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Earth Shock\n/stopcasting\n/cast [@mouseover,harm,nodead][] Earth Shock",
+          "origin": "adapted",
+          "needs": "Cancels your current cast",
+          "codePt": "#showtooltip Choque Terreno\n/stopcasting\n/cast [@mouseover,harm,nodead][] Choque Terreno"
+        },
+        {
+          "id": "class-wide-totem-set",
+          "title": "Place, move or recall your totems",
+          "desc": "Press for your saved totem set. Hold Ctrl to bring your totems to where you stand, or Shift to recall them. Set up the totem bar first.",
+          "icon": "spell_nature_earthbind",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:ctrl] Totemic Call; [mod:shift] Totemic Recall; Call of the Elements\n/cast [mod:ctrl] Totemic Call; [mod:shift] Totemic Recall; Call of the Elements",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Call of the Elements: place the totems on your Totem Bar"
+            },
+            {
+              "key": "Shift",
+              "text": "Totemic Recall: pick your totems up and restore Mana"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Totemic Call: move your totems to you"
+            }
+          ],
+          "needs": "Call of the Elements and Totemic Recall learned; Totemic Call (level 22) for Ctrl",
+          "level": 22,
+          "codePt": "#showtooltip [mod:ctrl] Chamado Totêmico; [mod:shift] Revocação Totêmica; Chamado dos Elementos\n/cast [mod:ctrl] Chamado Totêmico; [mod:shift] Revocação Totêmica; Chamado dos Elementos"
+        },
+        {
+          "id": "class-wide-totem-sets",
+          "title": "All three totem sets and recall on one key",
+          "desc": "Once you have the later Call spells, one key drops any of your three totem sets or takes them all back.",
+          "icon": "spell_nature_earthbind",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:ctrl] Call of the Ancestors; [mod:alt] Call of the Spirits; [mod:shift] Totemic Recall; Call of the Elements\n/cast [mod:ctrl] Call of the Ancestors; [mod:alt] Call of the Spirits; [mod:shift] Totemic Recall; Call of the Elements",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Call of the Elements"
+            },
+            {
+              "key": "Shift",
+              "text": "Totemic Recall"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Call of the Ancestors"
+            },
+            {
+              "key": "Alt",
+              "text": "Call of the Spirits"
+            }
+          ],
+          "needs": "Call of the Elements (20), Call of the Ancestors (30) and Call of the Spirits (40). Each Call spell can place different totems, so set all three up first. Blizzard's 7 October article swaps those two levels; the game client has them as shown.",
+          "level": 40,
+          "codePt": "#showtooltip [mod:ctrl] Chamado dos Antepassados; [mod:alt] Chamado dos Espíritos; [mod:shift] Revocação Totêmica; Chamado dos Elementos\n/cast [mod:ctrl] Chamado dos Antepassados; [mod:alt] Chamado dos Espíritos; [mod:shift] Revocação Totêmica; Chamado dos Elementos"
+        },
+        {
+          "id": "class-wide-shield-swap",
+          "title": "Lightning Shield or Water Shield",
+          "desc": "Press for Lightning Shield and hold Shift for Water Shield. Only one Elemental Shield stays on you at a time.",
+          "icon": "spell_nature_lightningshield",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Water Shield; Lightning Shield\n/cast [mod:shift] Water Shield; Lightning Shield",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lightning Shield"
+            },
+            {
+              "key": "Shift",
+              "text": "Water Shield"
+            }
+          ],
+          "needs": "Water Shield talent for the Shift half",
+          "codePt": "#showtooltip [mod:shift] Escudo de Água; Escudo de Raios\n/cast [mod:shift] Escudo de Água; Escudo de Raios"
+        },
+        {
+          "id": "class-wide-ghost-wolf",
+          "title": "Ghost Wolf on and off",
+          "desc": "One press turns you into a Ghost Wolf and the next press turns you back.",
+          "icon": "spell_nature_spiritwolf",
+          "iconKind": "ability",
+          "code": "#showtooltip Ghost Wolf\n/cast Ghost Wolf",
+          "origin": "classic",
+          "needs": "Ghost Wolf works outdoors only until you take Improved Ghost Wolf, which also allows indoors",
+          "codePt": "#showtooltip Lobo Fantasma\n/cast Lobo Fantasma"
+        },
+        {
+          "id": "class-wide-purge-mouseover",
+          "title": "Mouseover Purge",
+          "desc": "Strip magic buffs from the enemy under your cursor, or from your target if you aren't pointing at anyone.",
+          "icon": "spell_nature_purge",
+          "iconKind": "ability",
+          "code": "#showtooltip Purge\n/cast [@mouseover,harm,nodead][] Purge",
+          "origin": "classic",
+          "codePt": "#showtooltip Expurgar\n/cast [@mouseover,harm,nodead][] Expurgar"
+        },
+        {
+          "id": "class-wide-shock-picker",
+          "title": "Earth, Flame and Frost Shock on one key",
+          "desc": "Press for Earth Shock, hold Shift for Flame Shock and Ctrl for Frost Shock.",
+          "icon": "spell_nature_earthshock",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Flame Shock; [mod:ctrl] Frost Shock; Earth Shock\n/cast [mod:shift] Flame Shock; [mod:ctrl] Frost Shock; Earth Shock",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Earth Shock"
+            },
+            {
+              "key": "Shift",
+              "text": "Flame Shock"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Frost Shock"
+            }
+          ],
+          "codePt": "#showtooltip [mod:shift] Choque Flamejante; [mod:ctrl] Choque Gélido; Choque Terreno\n/cast [mod:shift] Choque Flamejante; [mod:ctrl] Choque Gélido; Choque Terreno"
+        },
+        {
+          "id": "class-wide-cure-poison-disease",
+          "title": "Cure poison or disease on a friend or yourself",
+          "desc": "Cure Poison on your mouseover, your target or you, and hold Shift for Cure Disease on the same picks.",
+          "icon": "spell_nature_nullifypoison",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Cure Disease; Cure Poison\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Cure Disease; [@mouseover,help,nodead][help,nodead][@player] Cure Poison",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cure Poison on mouseover, target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Cure Disease on mouseover, target or yourself"
+            }
+          ],
+          "level": 22,
+          "codePt": "#showtooltip [mod:shift] Curar Doença; Curar Veneno\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Curar Doença; [@mouseover,help,nodead][help,nodead][@player] Curar Veneno"
+        },
+        {
+          "id": "class-wide-reincarnation",
+          "title": "Reincarnation cooldown on your bar",
+          "desc": "This puts Reincarnation's cooldown on a button so you can see whether you would come back after a death.",
+          "icon": "spell_nature_reincarnation",
+          "iconKind": "ability",
+          "code": "#showtooltip Reincarnation",
+          "origin": "classic",
+          "needs": "Reincarnation learned",
+          "level": 30,
+          "codePt": "#showtooltip Reencarnação"
+        },
+        {
+          "id": "class-wide-self-heal",
+          "title": "Heal yourself without losing your target",
+          "desc": "Healing Wave on yourself while your enemy stays targeted, or hold Shift for the faster Lesser Healing Wave.",
+          "icon": "spell_nature_magicimmunity",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Lesser Healing Wave; Healing Wave\n/cast [mod:shift,@player] Lesser Healing Wave; [@player] Healing Wave",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Healing Wave on yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Lesser Healing Wave on yourself"
+            }
+          ],
+          "codePt": "#showtooltip [mod:shift] Onda Curativa Menor; Onda Curativa\n/cast [mod:shift,@player] Onda Curativa Menor; [@player] Onda Curativa"
+        },
+        {
+          "id": "class-wide-water-utility",
+          "title": "Water Walking, Shift for Water Breathing",
+          "desc": "Water Walking on a friendly mouseover, target or yourself; hold Shift for Water Breathing. Handy for crossing water and underwater quests.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Water Breathing; [@mouseover,help,nodead][help,nodead][@player] Water Walking",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Water Walking"
+            },
+            {
+              "key": "Shift",
+              "text": "Water Breathing"
+            }
+          ],
+          "needs": "Both spells learned; Fish Oil for Water Walking and Shiny Fish Scales for Water Breathing",
+          "level": 28,
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Respiração Aquática; [@mouseover,help,nodead][help,nodead][@player] Andar sobre a Água"
+        }
+      ]
+    },
+    {
+      "id": "elemental",
+      "name": "Elemental",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "elemental-lightning",
+          "title": "Lightning Bolt or Chain Lightning",
+          "desc": "Hold Shift for Chain Lightning; press normally for Lightning Bolt.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Chain Lightning; Lightning Bolt\n/cast [mod:shift] Chain Lightning; Lightning Bolt",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lightning Bolt"
+            },
+            {
+              "key": "Shift",
+              "text": "Chain Lightning"
+            }
+          ],
+          "needs": "Chain Lightning learned",
+          "level": 32,
+          "codePt": "#showtooltip [mod:shift] Cadeia de Raios; Raio\n/cast [mod:shift] Cadeia de Raios; Raio"
+        },
+        {
+          "id": "elemental-flame-shock",
+          "title": "Mouseover Flame Shock",
+          "desc": "Apply the damage-over-time shock without changing your main target.",
+          "icon": "spell_fire_flameshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Flame Shock\n/cast [@mouseover,harm,nodead][] Flame Shock",
+          "origin": "adapted",
+          "needs": "Flame Shock learned",
+          "codePt": "#showtooltip Choque Flamejante\n/cast [@mouseover,harm,nodead][] Choque Flamejante"
+        },
+        {
+          "id": "elemental-lightning-mastery",
+          "title": "Lightning Mastery, then Bolt or Chain Lightning",
+          "desc": "Pops Lightning Mastery and casts Lightning Bolt, which casts 0.5 sec faster for 15 sec. Hold Shift for Chain Lightning, which has no cooldown while Mastery lasts.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Chain Lightning; Lightning Bolt\n/cast Lightning Mastery\n/cast [mod:shift] Chain Lightning; Lightning Bolt",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lightning Mastery, then Lightning Bolt"
+            },
+            {
+              "key": "Shift",
+              "text": "Lightning Mastery, then Chain Lightning"
+            }
+          ],
+          "needs": "Lightning Mastery talent; Chain Lightning (32) for Shift. Blizzard renamed it from Elemental Mastery on 2 November, so use the old name if your spellbook still has it. If Mastery is on cooldown the cast still starts.",
+          "level": 40,
+          "codePt": "#showtooltip [mod:shift] Cadeia de Raios; Raio\n/cast Maestria em Raio\n/cast [mod:shift] Cadeia de Raios; Raio"
+        },
+        {
+          "id": "elemental-fire-nova-totems",
+          "title": "Fire Nova with a Fire totem on the same key",
+          "desc": "Fire Nova hits enemies within 10 yards of your active Fire totem, so Shift drops Searing Totem and Ctrl drops Magma Totem first.",
+          "icon": "spell_fire_sealoffire",
+          "iconKind": "ability",
+          "code": "#showtooltip Fire Nova\n/cast [mod:shift] Searing Totem; [mod:ctrl] Magma Totem; Fire Nova",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Fire Nova"
+            },
+            {
+              "key": "Shift",
+              "text": "Searing Totem"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Magma Totem"
+            }
+          ],
+          "needs": "An active Fire totem for Fire Nova. Magma Totem is learned at 26.",
+          "level": 26,
+          "codePt": "#showtooltip Nova de Fogo\n/cast [mod:shift] Totem Calcinante; [mod:ctrl] Totem de Magma; Nova de Fogo"
+        },
+        {
+          "id": "elemental-pull-sequence",
+          "title": "Searing Totem, Flame Shock, Lightning Bolt opener",
+          "desc": "Three presses open a pull: Searing Totem, then Flame Shock, then Lightning Bolt. Use your normal bolt key after that.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=combat/20 Searing Totem, Flame Shock, Lightning Bolt",
+          "origin": "classic",
+          "codePt": "#showtooltip\n/castsequence reset=combat/20 Totem Calcinante, Choque Flamejante, Raio"
+        },
+        {
+          "id": "elemental-stoneclaw-earthbind",
+          "title": "Stoneclaw Totem or Earthbind Totem",
+          "desc": "Stoneclaw Totem pulls attackers within 8 yards onto itself for 15 seconds, and Shift drops Earthbind Totem to slow them instead.",
+          "icon": "spell_nature_stoneclawtotem",
+          "iconKind": "ability",
+          "code": "#showtooltip Stoneclaw Totem\n/cast [mod:shift] Earthbind Totem; Stoneclaw Totem",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stoneclaw Totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Earthbind Totem"
+            }
+          ],
+          "codePt": "#showtooltip Totem da Garra de Pedra\n/cast [mod:shift] Totem de Prisão Terrena; Totem da Garra de Pedra"
+        },
+        {
+          "id": "elemental-elemental-cooldowns",
+          "title": "Trinkets, racial and Lightning Bolt",
+          "desc": "Use both trinkets and your Orc or Troll racial as you start a Lightning Bolt.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip Lightning Bolt\n/use 13\n/use 14\n/cast Berserking\n/cast Blood Fury\n/cast Lightning Bolt",
+          "origin": "adapted",
+          "needs": "Blood Fury (Orc) or Berserking (Troll). Forever changed both from Classic, and the line for the other race just fails.",
+          "codePt": "#showtooltip Raio\n/use 13\n/use 14\n/cast Berserk\n/cast Fúria Sangrenta\n/cast Raio"
+        },
+        {
+          "id": "elemental-assist-bolt",
+          "title": "Lightning Bolt at what your tank is hitting",
+          "desc": "Bolts your enemy target, or the target of your friendly target when you have the tank selected.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip Lightning Bolt\n/cast [harm,nodead][@targettarget,harm,nodead] Lightning Bolt",
+          "origin": "classic",
+          "codePt": "#showtooltip Raio\n/cast [harm,nodead][@targettarget,harm,nodead] Raio"
+        }
+      ]
+    },
+    {
+      "id": "enhancement",
+      "name": "Enhancement",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "enhancement-weapon-imbue",
+          "title": "Choose your weapon imbue",
+          "desc": "Press for Windfury Weapon, or hold Shift for Flametongue, Ctrl for Frostbrand or Alt for Rockbiter. The /use 16 line clicks your main hand.",
+          "icon": "spell_nature_cyclone",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:alt] Rockbiter Weapon; [mod:ctrl] Frostbrand Weapon; [mod:shift] Flametongue Weapon; Windfury Weapon\n/cast [mod:alt] Rockbiter Weapon; [mod:ctrl] Frostbrand Weapon; [mod:shift] Flametongue Weapon; Windfury Weapon\n/use 16",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Windfury Weapon"
+            },
+            {
+              "key": "Shift",
+              "text": "Flametongue Weapon"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Frostbrand Weapon"
+            },
+            {
+              "key": "Alt",
+              "text": "Rockbiter Weapon"
+            }
+          ],
+          "needs": "Windfury Weapon learned at 30. We haven't seen how Forever picks the weapon, so delete /use 16 if the imbue lands without it.",
+          "level": 30,
+          "codePt": "#showtooltip [mod:alt] Arma Trinca-pedra; [mod:ctrl] Arma da Marca Gélida; [mod:shift] Arma de Labaredas; Arma de Fúria dos Ventos\n/cast [mod:alt] Arma Trinca-pedra; [mod:ctrl] Arma da Marca Gélida; [mod:shift] Arma de Labaredas; Arma de Fúria dos Ventos\n/use 16"
+        },
+        {
+          "id": "enhancement-stormstrike",
+          "title": "Stormstrike and auto attack",
+          "desc": "Begin swinging when you use your Enhancement strike.",
+          "icon": "ability_shaman_stormstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip Stormstrike\n/startattack\n/cast Stormstrike",
+          "origin": "adapted",
+          "needs": "Stormstrike talent. It's a 16-point talent, so you can take it at 25 (Blizzard, 7 October).",
+          "level": 25,
+          "codePt": "#showtooltip Ataque da Tempestade\n/startattack\n/cast Ataque da Tempestade"
+        },
+        {
+          "id": "enhancement-stormstrike-earth-shock",
+          "title": "Stormstrike, then Earth Shock",
+          "desc": "Stormstrike first, then Earth Shock on the next press. The next eligible spell gets 20% more damage within 12 seconds.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/startattack\n/castsequence reset=combat/target/12 Stormstrike, Earth Shock",
+          "origin": "forever",
+          "needs": "Stormstrike talent. It's a 16-point talent, so you can take it at 25 (Blizzard, 7 October).",
+          "level": 25,
+          "codePt": "#showtooltip\n/startattack\n/castsequence reset=combat/target/12 Ataque da Tempestade, Choque Terreno"
+        },
+        {
+          "id": "enhancement-stormstrike-spender",
+          "title": "Spend Stormstrike on a shock or a bolt",
+          "desc": "After Stormstrike, press for Earth Shock, Shift for Lightning Bolt or Ctrl for Chain Lightning. The next of these gets 20% more damage within 12 seconds.",
+          "icon": "spell_nature_earthshock",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Lightning Bolt; [mod:ctrl] Chain Lightning; Earth Shock\n/cast [mod:shift] Lightning Bolt; [mod:ctrl] Chain Lightning; Earth Shock",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Earth Shock"
+            },
+            {
+              "key": "Shift",
+              "text": "Lightning Bolt"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Chain Lightning"
+            }
+          ],
+          "needs": "Stormstrike talent. It's a 16-point talent, so you can take it at 25 (Blizzard, 7 October). Chain Lightning is learned at 32.",
+          "level": 32,
+          "codePt": "#showtooltip [mod:shift] Raio; [mod:ctrl] Cadeia de Raios; Choque Terreno\n/cast [mod:shift] Raio; [mod:ctrl] Cadeia de Raios; Choque Terreno"
+        },
+        {
+          "id": "enhancement-maelstrom-bolt",
+          "title": "Lightning Bolt and keep swinging",
+          "desc": "Starts your melee swings and casts Lightning Bolt, so Maelstrom Weapon stacks from your hits shorten the cast.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip Lightning Bolt\n/startattack\n/cast Lightning Bolt",
+          "origin": "forever",
+          "needs": "Maelstrom Weapon talent",
+          "codePt": "#showtooltip Raio\n/startattack\n/cast Raio"
+        },
+        {
+          "id": "enhancement-rage-burst",
+          "title": "Trinkets, Rage of the Farseer and Stormstrike",
+          "desc": "Use both trinkets, Rage of the Farseer and your Orc or Troll racial together, then open with Stormstrike.",
+          "icon": "spell_nature_bloodlust",
+          "iconKind": "ability",
+          "code": "#showtooltip Rage of the Farseer\n/startattack\n/use 13\n/use 14\n/cast Rage of the Farseer\n/cast Berserking\n/cast Blood Fury\n/cast Stormstrike",
+          "origin": "forever",
+          "needs": "Rage of the Farseer and Stormstrike talents. Blood Fury is for Orcs and Berserking for Trolls, and the other line just fails.",
+          "level": 40,
+          "codePt": "#showtooltip Fúria do Clarividente\n/startattack\n/use 13\n/use 14\n/cast Fúria do Clarividente\n/cast Berserk\n/cast Fúria Sangrenta\n/cast Ataque da Tempestade"
+        },
+        {
+          "id": "enhancement-shock-cycle",
+          "title": "Flame Shock, then Earth Shock",
+          "desc": "Flame Shock on the first press, Earth Shock on the next, and your swings start with the first press.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/startattack [harm]\n/castsequence reset=combat/target/12 Flame Shock, Earth Shock",
+          "origin": "classic",
+          "codePt": "#showtooltip\n/startattack [harm]\n/castsequence reset=combat/target/12 Choque Flamejante, Choque Terreno"
+        },
+        {
+          "id": "enhancement-melee-totems",
+          "title": "Strength of Earth, Windfury and Mana Spring in order",
+          "desc": "One totem per press, and the order starts again after 60 seconds or when combat ends.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence reset=combat/60 Strength of Earth Totem, Windfury Totem, Mana Spring Totem",
+          "origin": "adapted",
+          "needs": "Windfury Weapon on your main hand turns off your own Windfury Totem bonus, so swap the totem if you use both",
+          "level": 32,
+          "codePt": "#showtooltip\n/castsequence reset=combat/60 Totem da Força da Terra, Totem de Fúria dos Ventos, Totem Fonte de Mana"
+        },
+        {
+          "id": "enhancement-defensive-totems",
+          "title": "Stoneskin, Windwall or Stoneclaw Totem",
+          "desc": "Stoneskin Totem cuts Physical damage taken, Shift drops Windwall Totem against ranged attackers and Ctrl drops Stoneclaw Totem to pull enemies onto it.",
+          "icon": "spell_nature_stoneskintotem",
+          "iconKind": "ability",
+          "code": "#showtooltip Stoneskin Totem\n/cast [mod:shift] Windwall Totem; [mod:ctrl] Stoneclaw Totem; Stoneskin Totem",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stoneskin Totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Windwall Totem"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Stoneclaw Totem"
+            }
+          ],
+          "level": 36,
+          "codePt": "#showtooltip Totem Litopele\n/cast [mod:shift] Totem da Barreira de Vento; [mod:ctrl] Totem da Garra de Pedra; Totem Litopele"
+        },
+        {
+          "id": "enhancement-leveling-shock-attack",
+          "title": "Find a target, attack and Earth Shock",
+          "desc": "Keep a living enemy selected, or select a nearby enemy when you have no hostile target. Start swinging even if Earth Shock is on cooldown or you lack mana.",
+          "icon": "spell_nature_earthshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Earth Shock\n/targetenemy [noharm][dead]\n/startattack\n/cast Earth Shock",
+          "origin": "classic",
+          "needs": "Earth Shock learned; this can select and pull a new enemy",
+          "codePt": "#showtooltip Choque Terreno\n/targetenemy [noharm][dead]\n/startattack\n/cast Choque Terreno"
+        }
+      ]
+    },
+    {
+      "id": "restoration",
+      "name": "Restoration",
+      "view": "pve",
+      "macros": [
+        {
+          "id": "restoration-healing-wave",
+          "title": "Mouseover Healing Wave",
+          "desc": "Heal a friendly mouseover, your target, or yourself.",
+          "icon": "spell_nature_magicimmunity",
+          "iconKind": "ability",
+          "code": "#showtooltip Healing Wave\n/cast [@mouseover,help,nodead][help,nodead][@player] Healing Wave",
+          "origin": "adapted",
+          "codePt": "#showtooltip Onda Curativa\n/cast [@mouseover,help,nodead][help,nodead][@player] Onda Curativa"
+        },
+        {
+          "id": "restoration-riptide",
+          "title": "Mouseover Riptide",
+          "desc": "Use Forever’s new Restoration talent on a party frame under your cursor.",
+          "icon": "spell_nature_riptide",
+          "iconKind": "ability",
+          "code": "#showtooltip Riptide\n/cast [@mouseover,help,nodead][help,nodead][@player] Riptide",
+          "origin": "forever",
+          "needs": "Riptide talent. Since 2 November it only heals over time, on a 12 sec cooldown.",
+          "level": 40,
+          "codePt": "#showtooltip Contracorrente\n/cast [@mouseover,help,nodead][help,nodead][@player] Contracorrente"
+        },
+        {
+          "id": "restoration-lesser-healing-wave",
+          "title": "Lesser Healing Wave on mouseover, target or target's target",
+          "desc": "The fast heal for the friend under your cursor, your friendly target, whoever your enemy target is hitting, or you.",
+          "icon": "spell_nature_healingwavelesser",
+          "iconKind": "ability",
+          "code": "#showtooltip Lesser Healing Wave\n/cast [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Lesser Healing Wave",
+          "origin": "classic",
+          "codePt": "#showtooltip Onda Curativa Menor\n/cast [@mouseover,help,nodead][help,nodead][@targettarget,help,nodead][@player] Onda Curativa Menor"
+        },
+        {
+          "id": "restoration-chain-heal",
+          "title": "Mouseover Chain Heal",
+          "desc": "Chain Heal on your mouseover, your target or yourself. In a party it only jumps to other party members.",
+          "icon": "spell_nature_healingwavegreater",
+          "iconKind": "ability",
+          "code": "#showtooltip Chain Heal\n/cast [@mouseover,help,nodead][help,nodead][@player] Chain Heal",
+          "origin": "classic",
+          "level": 40,
+          "codePt": "#showtooltip Cura Encadeada\n/cast [@mouseover,help,nodead][help,nodead][@player] Cura Encadeada"
+        },
+        {
+          "id": "restoration-riptide-chain-heal",
+          "title": "Riptide, then Chain Heal on the same friend",
+          "desc": "Riptide on the first press and Chain Heal on the next, which lands 25% stronger on a Riptide target, so keep your cursor on the same friend.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/castsequence [@mouseover,help,nodead][help,nodead] reset=10 Riptide, Chain Heal",
+          "origin": "forever",
+          "needs": "Riptide talent",
+          "level": 40,
+          "codePt": "#showtooltip\n/castsequence [@mouseover,help,nodead][help,nodead] reset=10 Contracorrente, Cura Encadeada"
+        },
+        {
+          "id": "restoration-healing-wave-downrank",
+          "title": "Top up with a lower Healing Wave rank",
+          "desc": "Press for your top Healing Wave rank, or hold Shift for the cheaper rank 4 when a small top-up is enough.",
+          "icon": "spell_nature_magicimmunity",
+          "iconKind": "ability",
+          "code": "#showtooltip Healing Wave\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Healing Wave(Rank 4); [@mouseover,help,nodead][help,nodead][@player] Healing Wave",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Top-rank Healing Wave on mouseover, target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Healing Wave rank 4 on the same picks"
+            }
+          ],
+          "codePt": "#showtooltip Onda Curativa\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Onda Curativa(Grau 4); [@mouseover,help,nodead][help,nodead][@player] Onda Curativa"
+        },
+        {
+          "id": "restoration-nature-swiftness-heal",
+          "title": "Nature's Swiftness into an instant heal",
+          "desc": "Nature's Swiftness makes your next heal instant, so this casts Healing Wave, or Chain Heal with Shift, on your mouseover, target or you.",
+          "icon": "spell_nature_magicimmunity",
+          "iconKind": "ability",
+          "code": "#showtooltip Healing Wave\n/cast Nature's Swiftness\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Chain Heal; [@mouseover,help,nodead][help,nodead][@player] Healing Wave",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Instant Healing Wave"
+            },
+            {
+              "key": "Shift",
+              "text": "Instant Chain Heal"
+            }
+          ],
+          "needs": "Nature's Swiftness talent. If it's on cooldown you start a normal cast.",
+          "level": 40,
+          "codePt": "#showtooltip Onda Curativa\n/cast Rapidez da Natureza\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead][mod:shift,@player] Cura Encadeada; [@mouseover,help,nodead][help,nodead][@player] Onda Curativa"
+        },
+        {
+          "id": "restoration-water-totems",
+          "title": "Healing Stream, Mana Spring or Mana Tide Totem",
+          "desc": "Healing Stream Totem heals the group, Shift drops Mana Spring Totem and Ctrl drops Mana Tide Totem when mana runs low.",
+          "icon": "inv_spear_04",
+          "iconKind": "ability",
+          "code": "#showtooltip Healing Stream Totem\n/cast [mod:shift] Mana Spring Totem; [mod:ctrl] Mana Tide Totem; Healing Stream Totem",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Healing Stream Totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Mana Spring Totem"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Mana Tide Totem"
+            }
+          ],
+          "needs": "Mana Tide Totem talent for Ctrl, and its Water Totem tool. It's a 16-point talent, so you can take it at 25 (Blizzard, 7 October).",
+          "level": 26,
+          "codePt": "#showtooltip Totem de Torrente Curativa\n/cast [mod:shift] Totem Fonte de Mana; [mod:ctrl] Totem de Vagalhão de Mana; Totem de Torrente Curativa"
+        },
+        {
+          "id": "restoration-utility-totems",
+          "title": "Poison Cleansing, Disease Cleansing or Tremor Totem",
+          "desc": "Poison Cleansing Totem, or Shift for Disease Cleansing Totem and Ctrl for Tremor Totem, which removes Fear, Charm and Sleep.",
+          "icon": "spell_nature_poisoncleansingtotem",
+          "iconKind": "ability",
+          "code": "#showtooltip Poison Cleansing Totem\n/cast [mod:shift] Disease Cleansing Totem; [mod:ctrl] Tremor Totem; Poison Cleansing Totem",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Poison Cleansing Totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Disease Cleansing Totem"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Tremor Totem"
+            }
+          ],
+          "level": 38,
+          "codePt": "#showtooltip Totem Antiveneno\n/cast [mod:shift] Totem de Purificação de Doença; [mod:ctrl] Totem Sísmico; Totem Antiveneno"
+        },
+        {
+          "id": "restoration-heal-or-bolt",
+          "title": "Healing Wave on friends, Lightning Bolt on enemies",
+          "desc": "Heals a friendly target, bolts an enemy, heals you if nothing is selected, and Alt heals you whatever you have targeted.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:alt,@player] Healing Wave; [help,nodead] Healing Wave; [harm,nodead] Lightning Bolt; [@player] Healing Wave",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Healing Wave on a friend, Lightning Bolt on an enemy"
+            },
+            {
+              "key": "Alt",
+              "text": "Healing Wave on yourself"
+            }
+          ],
+          "codePt": "#showtooltip\n/cast [mod:alt,@player] Onda Curativa; [help,nodead] Onda Curativa; [harm,nodead] Raio; [@player] Onda Curativa"
+        },
+        {
+          "id": "restoration-ancestral-spirit",
+          "title": "Resurrect a mouseover or target",
+          "desc": "Resurrects the dead player under your cursor, or your dead target, once you're out of combat.",
+          "icon": "spell_nature_regenerate",
+          "iconKind": "ability",
+          "code": "#showtooltip Ancestral Spirit\n/cast [@mouseover,help,dead,nocombat][help,dead,nocombat] Ancestral Spirit",
+          "origin": "classic",
+          "codePt": "#showtooltip Espírito Ancestral\n/cast [@mouseover,help,dead,nocombat][help,dead,nocombat] Espírito Ancestral"
+        }
+      ]
+    },
+    {
+      "id": "pvp",
+      "name": "Class-wide PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-interrupt-earth-shock",
+          "title": "Interrupt with rank 1 Earth Shock",
+          "desc": "Dismounts, stops your cast and interrupts with rank 1 Earth Shock: your target, your mouseover with Shift or your last target with Ctrl.",
+          "icon": "spell_nature_earthshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Earth Shock\n/dismount\n/stopcasting\n/targetlasttarget [mod:ctrl]\n/cast [mod:shift,@mouseover,harm,nodead][] Earth Shock(Rank 1)\n/targetlasttarget [mod:ctrl]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Rank 1 Earth Shock on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Rank 1 Earth Shock on your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Shock your last target, then swap back"
+            }
+          ],
+          "needs": "Ctrl swaps to your last target, shocks, then swaps back, so it needs a last target in range",
+          "codePt": "#showtooltip Choque Terreno\n/dismount\n/stopcasting\n/targetlasttarget [mod:ctrl]\n/cast [mod:shift,@mouseover,harm,nodead][] Choque Terreno(Grau 1)\n/targetlasttarget [mod:ctrl]"
+        },
+        {
+          "id": "pvp-slow-frost-shock",
+          "title": "Slow a runner with Frost Shock",
+          "desc": "Frost Shock slows your target by 50%; Shift slows your mouseover and Ctrl casts the cheap rank 1 on your target.",
+          "icon": "spell_frost_frostshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Frost Shock\n/cast [mod:shift,@mouseover,harm,nodead] Frost Shock; [mod:ctrl] Frost Shock(Rank 1); Frost Shock",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Frost Shock on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Frost Shock on your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Frost Shock rank 1 on your target"
+            }
+          ],
+          "codePt": "#showtooltip Choque Gélido\n/cast [mod:shift,@mouseover,harm,nodead] Choque Gélido; [mod:ctrl] Choque Gélido(Grau 1); Choque Gélido"
+        },
+        {
+          "id": "pvp-totem-control",
+          "title": "Grounding, Tremor, Earthbind and Stoneclaw on one key",
+          "desc": "Grounding Totem redirects one harmful spell aimed at a nearby party member, and Shift, Ctrl and Alt drop Tremor, Earthbind and Stoneclaw instead.",
+          "icon": "spell_nature_groundingtotem",
+          "iconKind": "ability",
+          "code": "#showtooltip Grounding Totem\n/cast [mod:shift] Tremor Totem; [mod:ctrl] Earthbind Totem; [mod:alt] Stoneclaw Totem; Grounding Totem",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Grounding Totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Tremor Totem"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Earthbind Totem"
+            },
+            {
+              "key": "Alt",
+              "text": "Stoneclaw Totem"
+            }
+          ],
+          "level": 30,
+          "codePt": "#showtooltip Totem de Aterramento\n/cast [mod:shift] Totem Sísmico; [mod:ctrl] Totem de Prisão Terrena; [mod:alt] Totem da Garra de Pedra; Totem de Aterramento"
+        },
+        {
+          "id": "pvp-dispel-key",
+          "title": "Purge enemies and cure friends on one key",
+          "desc": "Purges an enemy, cures poison on a friend, and Shift cures disease on a friend, using your mouseover first and your target second.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead] Cure Disease; [@mouseover,help,nodead][help,nodead] Cure Poison; [@mouseover,harm,nodead][harm,nodead] Purge",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cure Poison on a friend or Purge on an enemy"
+            },
+            {
+              "key": "Shift",
+              "text": "Cure Disease on a friend"
+            }
+          ],
+          "level": 22,
+          "codePt": "#showtooltip\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead] Curar Doença; [@mouseover,help,nodead][help,nodead] Curar Veneno; [@mouseover,harm,nodead][harm,nodead] Expurgar"
+        },
+        {
+          "id": "pvp-heal-fast",
+          "title": "Fast heal that drops the wolf",
+          "desc": "Leaves Ghost Wolf and casts Lesser Healing Wave on your mouseover or target, or on you when you hold Alt or have nobody picked.",
+          "icon": "spell_nature_healingwavelesser",
+          "iconKind": "ability",
+          "code": "#showtooltip Lesser Healing Wave\n/cancelform [form]\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Lesser Healing Wave",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lesser Healing Wave on mouseover, target or yourself"
+            },
+            {
+              "key": "Alt",
+              "text": "Lesser Healing Wave on yourself"
+            }
+          ],
+          "codePt": "#showtooltip Onda Curativa Menor\n/cancelform [form]\n/cast [mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Onda Curativa Menor"
+        },
+        {
+          "id": "pvp-wolf-shock",
+          "title": "Ghost Wolf on and off, or shock out of it",
+          "desc": "Press to switch Ghost Wolf on or off; hold Shift to leave the wolf and Frost Shock your target in one press.",
+          "icon": "spell_nature_spiritwolf",
+          "iconKind": "ability",
+          "code": "#showtooltip Ghost Wolf\n/cancelform [form,mod:shift]\n/cast [mod:shift,harm,nodead] Frost Shock; [nomod,noform] Ghost Wolf\n/cancelform [form,nomod]",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Ghost Wolf on, or off if you're already a wolf"
+            },
+            {
+              "key": "Shift",
+              "text": "Leave the wolf and Frost Shock your target"
+            }
+          ],
+          "needs": "Ghost Wolf works outdoors only until you take Improved Ghost Wolf",
+          "codePt": "#showtooltip Lobo Fantasma\n/cancelform [form,mod:shift]\n/cast [mod:shift,harm,nodead] Choque Gélido; [nomod,noform] Lobo Fantasma\n/cancelform [form,nomod]"
+        },
+        {
+          "id": "pvp-trinket-racial",
+          "title": "Trinkets and racial defense on one key",
+          "desc": "Uses your racial escape and both trinkets together when you're stunned or in trouble.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast War Stomp\n/cast Stoneform\n/cast Shatter Curse\n/use 13\n/use 14",
+          "origin": "adapted",
+          "needs": "Tauren (War Stomp), Dwarf (Stoneform) or Orc (Shatter Curse). The lines for other races just fail.",
+          "codePt": "#showtooltip\n/cast Pisada de Guerra\n/cast Forma de Pedra\n/cast Estilhaçar Maldição\n/use 13\n/use 14"
+        },
+        {
+          "id": "pvp-nuke-picker",
+          "title": "Bolt or Chain Lightning on target or mouseover",
+          "desc": "Lightning Bolt on your target, Shift for your mouseover, and Ctrl or Alt for Chain Lightning on your target or mouseover.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip Lightning Bolt\n/cast [mod:shift,@mouseover,harm,nodead] Lightning Bolt; [mod:ctrl] Chain Lightning; [mod:alt,@mouseover,harm,nodead] Chain Lightning; Lightning Bolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lightning Bolt on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Lightning Bolt on your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Chain Lightning on your target"
+            },
+            {
+              "key": "Alt",
+              "text": "Chain Lightning on your mouseover"
+            }
+          ],
+          "level": 32,
+          "codePt": "#showtooltip Raio\n/cast [mod:shift,@mouseover,harm,nodead] Raio; [mod:ctrl] Cadeia de Raios; [mod:alt,@mouseover,harm,nodead] Cadeia de Raios; Raio"
+        },
+        {
+          "id": "pvp-flame-shock-spread",
+          "title": "Flame Shock on target, mouseover or last target",
+          "desc": "Flame Shock your target, your mouseover with Shift or your last target with Ctrl, then swap back, to spread damage over time in a fight.",
+          "icon": "spell_fire_flameshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Flame Shock\n/targetlasttarget [mod:ctrl]\n/cast [mod:shift,@mouseover,harm,nodead][] Flame Shock\n/targetlasttarget [mod:ctrl]",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Flame Shock on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Flame Shock on your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Flame Shock your last target, then swap back"
+            }
+          ],
+          "needs": "Ctrl swaps to your last target and back, so it needs a last target in range",
+          "codePt": "#showtooltip Choque Flamejante\n/targetlasttarget [mod:ctrl]\n/cast [mod:shift,@mouseover,harm,nodead][] Choque Flamejante\n/targetlasttarget [mod:ctrl]"
+        },
+        {
+          "id": "pvp-grounding-tremor-now",
+          "title": "Cancel your cast for Grounding or Tremor",
+          "desc": "Stops the spell you're casting so Grounding Totem goes down the moment you see a Polymorph or Fear start. Shift drops Tremor Totem instead when a Warlock or Priest is about to fear.",
+          "icon": "spell_nature_groundingtotem",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Tremor Totem; Grounding Totem\n/stopcasting\n/cast [mod:shift] Tremor Totem; Grounding Totem",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop casting and drop Grounding Totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop casting and drop Tremor Totem"
+            }
+          ],
+          "needs": "Grounding Totem learned at 30. A press still cancels your cast while Grounding is on cooldown.",
+          "level": 30,
+          "codePt": "#showtooltip [mod:shift] Totem Sísmico; Totem de Aterramento\n/stopcasting\n/cast [mod:shift] Totem Sísmico; Totem de Aterramento"
+        },
+        {
+          "id": "pvp-flame-shock-rank-1",
+          "title": "Rank 1 Flame Shock to keep stealth away",
+          "desc": "A cheap rank 1 Flame Shock on your mouseover or target. The burn keeps a Rogue or Druid in combat and breaks stealth as it ticks, so they can't hide until it wears off.",
+          "icon": "spell_fire_flameshock",
+          "iconKind": "ability",
+          "code": "#showtooltip Flame Shock\n/cast [@mouseover,harm,nodead][] Flame Shock(Rank 1)",
+          "origin": "classic",
+          "codePt": "#showtooltip Choque Flamejante\n/cast [@mouseover,harm,nodead][] Choque Flamejante(Grau 1)"
+        }
+      ]
+    },
+    {
+      "id": "pvp-elemental",
+      "name": "Elemental PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-bolt-flame-shock",
+          "title": "Lightning Bolt with Flame Shock on the same key",
+          "desc": "Lightning Bolt your target. Ctrl puts Flame Shock on your target and Shift puts it on your mouseover, so you can keep a burn on their healer while you cast.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip Lightning Bolt\n/cast [mod:shift,@mouseover,harm,nodead][mod:ctrl] Flame Shock; Lightning Bolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lightning Bolt on your target"
+            },
+            {
+              "key": "Shift",
+              "text": "Flame Shock on your mouseover"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Flame Shock on your target"
+            }
+          ],
+          "needs": "Flame Shock learned",
+          "codePt": "#showtooltip Raio\n/cast [mod:shift,@mouseover,harm,nodead][mod:ctrl] Choque Flamejante; Raio"
+        },
+        {
+          "id": "pvp-elemental-mastery-burst",
+          "title": "Lightning Mastery, trinkets and Lightning Bolt",
+          "desc": "Fires Lightning Mastery, both trinkets and your Orc or Troll racial, then starts Lightning Bolt, or Chain Lightning with Shift. For 15 sec Bolt casts 0.5 sec faster and Chain Lightning has no cooldown.",
+          "icon": "spell_nature_unrelentingstorm",
+          "iconKind": "ability",
+          "code": "#showtooltip Lightning Mastery\n/cast Lightning Mastery\n/use 13\n/use 14\n/cast Berserking\n/cast Blood Fury\n/cast [mod:shift] Chain Lightning; Lightning Bolt",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Cooldowns, then Lightning Bolt"
+            },
+            {
+              "key": "Shift",
+              "text": "Cooldowns, then Chain Lightning"
+            }
+          ],
+          "needs": "Lightning Mastery talent; Chain Lightning (32) for Shift. Blood Fury is for Orcs and Berserking for Trolls; for other races those lines just fail. If Mastery is on cooldown the cast still starts.",
+          "level": 40,
+          "codePt": "#showtooltip Maestria em Raio\n/cast Maestria em Raio\n/use 13\n/use 14\n/cast Berserk\n/cast Fúria Sangrenta\n/cast [mod:shift] Cadeia de Raios; Raio"
+        },
+        {
+          "id": "pvp-mastery-chain-lightning",
+          "title": "Lightning Mastery into Chain Lightning",
+          "desc": "Lightning Mastery takes Chain Lightning's cooldown away for 15 sec, so this pops it and casts Chain Lightning on your mouseover or target. Keep pressing in a group fight.",
+          "icon": "spell_nature_chainlightning",
+          "iconKind": "ability",
+          "code": "#showtooltip Chain Lightning\n/cast Lightning Mastery\n/cast [@mouseover,harm,nodead][] Chain Lightning",
+          "origin": "forever",
+          "needs": "Lightning Mastery talent and Chain Lightning, learned at 32",
+          "level": 40,
+          "codePt": "#showtooltip Cadeia de Raios\n/cast Maestria em Raio\n/cast [@mouseover,harm,nodead][] Cadeia de Raios"
+        },
+        {
+          "id": "pvp-bolt-fake-cast",
+          "title": "Lightning Bolt with a cancel on Shift",
+          "desc": "Start Lightning Bolt to draw an interrupt and press with Shift to cancel it. A kick on Bolt locks your Nature spells, heals included, so make them waste it.",
+          "icon": "spell_nature_lightning",
+          "iconKind": "ability",
+          "code": "#showtooltip Lightning Bolt\n/stopcasting [mod:shift]\n/cast [nomod] Lightning Bolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lightning Bolt"
+            },
+            {
+              "key": "Shift",
+              "text": "Cancel the spell you're casting"
+            }
+          ],
+          "codePt": "#showtooltip Raio\n/stopcasting [mod:shift]\n/cast [nomod] Raio"
+        },
+        {
+          "id": "pvp-earthbind-root",
+          "title": "Stop casting and root melee with Earthbind",
+          "desc": "When melee reach you mid-cast, this cancels the cast and drops Earthbind Totem, which roots enemies near you for 5 sec with Earthbound. Shift Frost Shocks your mouseover or target instead.",
+          "icon": "spell_nature_strengthofearthtotem02",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Frost Shock; Earthbind Totem\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Frost Shock; Earthbind Totem",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stop casting and drop Earthbind Totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Stop casting and Frost Shock your mouseover or target"
+            }
+          ],
+          "needs": "Earthbound talent for the root; without it Earthbind only slows",
+          "codePt": "#showtooltip [mod:shift] Choque Gélido; Totem de Prisão Terrena\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Choque Gélido; Totem de Prisão Terrena"
+        },
+        {
+          "id": "pvp-projection-fire-nova",
+          "title": "Pull your totems to you, then Fire Nova",
+          "desc": "Shift casts Totemic Call, which moves your totems to where you stand. A plain press sets off Fire Nova at your Fire totem, so you can carry Magma Totem into a group and detonate it.",
+          "icon": "spell_fire_sealoffire",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Totemic Call; Fire Nova\n/cast [mod:shift] Totemic Call; Fire Nova",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Fire Nova around your Fire totem"
+            },
+            {
+              "key": "Shift",
+              "text": "Totemic Call: your totems come to you"
+            }
+          ],
+          "needs": "A Fire totem down for Fire Nova. Totemic Call has a 30 sec cooldown.",
+          "level": 22,
+          "codePt": "#showtooltip [mod:shift] Chamado Totêmico; Nova de Fogo\n/cast [mod:shift] Chamado Totêmico; Nova de Fogo"
+        }
+      ]
+    },
+    {
+      "id": "pvp-enhancement",
+      "name": "Enhancement PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-melee-keys",
+          "title": "Stormstrike, Earth Shock and Frost Shock in melee",
+          "desc": "Stormstrike to open, Shift for the Earth Shock that gets its 20% bonus and Ctrl for a Frost Shock slow; each one starts your swings.",
+          "icon": "ability_shaman_stormstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip Stormstrike\n/startattack\n/cast [mod:shift] Earth Shock; [mod:ctrl] Frost Shock; Stormstrike",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stormstrike"
+            },
+            {
+              "key": "Shift",
+              "text": "Earth Shock"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Frost Shock"
+            }
+          ],
+          "needs": "Stormstrike talent. It's a 16-point talent, so you can take it at 25 (Blizzard, 7 October).",
+          "level": 25,
+          "codePt": "#showtooltip Ataque da Tempestade\n/startattack\n/cast [mod:shift] Choque Terreno; [mod:ctrl] Choque Gélido; Ataque da Tempestade"
+        },
+        {
+          "id": "pvp-wolf-stormstrike",
+          "title": "Ghost Wolf in, Stormstrike out",
+          "desc": "Shift turns you into a Ghost Wolf to close the gap. A plain press leaves the wolf, starts your swings and Stormstrikes in one go.",
+          "icon": "ability_shaman_stormstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Ghost Wolf; Stormstrike\n/cancelform [form,nomod]\n/startattack [nomod]\n/cast [mod:shift,noform] Ghost Wolf; [nomod] Stormstrike",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Leave Ghost Wolf, start swinging and Stormstrike"
+            },
+            {
+              "key": "Shift",
+              "text": "Ghost Wolf"
+            }
+          ],
+          "needs": "Stormstrike talent. Improved Ghost Wolf takes up to 3 sec off the wolf's cast and lets you use it indoors.",
+          "level": 25,
+          "codePt": "#showtooltip [mod:shift] Lobo Fantasma; Ataque da Tempestade\n/cancelform [form,nomod]\n/startattack [nomod]\n/cast [mod:shift,noform] Lobo Fantasma; [nomod] Ataque da Tempestade"
+        },
+        {
+          "id": "pvp-stormstrike-cooldowns",
+          "title": "Stormstrike, with Ctrl to add your cooldowns",
+          "desc": "A plain press starts your swings and Stormstrikes. Hold Ctrl when you go for the kill to add Rage of the Farseer and both trinkets on the same press.",
+          "icon": "ability_shaman_stormstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip Stormstrike\n/startattack\n/cast [mod:ctrl] Rage of the Farseer\n/use [mod:ctrl] 13\n/use [mod:ctrl] 14\n/cast Stormstrike",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Start swinging and Stormstrike"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Rage of the Farseer and both trinkets, then Stormstrike"
+            }
+          ],
+          "needs": "Stormstrike and Rage of the Farseer talents",
+          "level": 40,
+          "codePt": "#showtooltip Ataque da Tempestade\n/startattack\n/cast [mod:ctrl] Fúria do Clarividente\n/use [mod:ctrl] 13\n/use [mod:ctrl] 14\n/cast Ataque da Tempestade"
+        },
+        {
+          "id": "pvp-stormstrike-mouseover",
+          "title": "Stormstrike and Earth Shock on your mouseover",
+          "desc": "Stormstrike the enemy under your cursor, such as a healer beside your target, and Shift follows with Earth Shock on the same enemy while its 20% bonus is up. With no mouseover both hit your target.",
+          "icon": "ability_shaman_stormstrike",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Earth Shock; Stormstrike\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Earth Shock; [@mouseover,harm,nodead][] Stormstrike",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Stormstrike your mouseover or target"
+            },
+            {
+              "key": "Shift",
+              "text": "Earth Shock the same enemy"
+            }
+          ],
+          "needs": "Stormstrike talent. You have to be in melee range of the enemy you're pointing at.",
+          "level": 25,
+          "codePt": "#showtooltip [mod:shift] Choque Terreno; Ataque da Tempestade\n/startattack\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift] Choque Terreno; [@mouseover,harm,nodead][] Ataque da Tempestade"
+        },
+        {
+          "id": "pvp-weapon-swap",
+          "title": "Two-hander, or one-hander and shield",
+          "desc": "Equips your two-hander for Stormstrike and Windfury, or with Shift your one-hander and shield when melee or Hunters focus you. Put your own item names in place of the three placeholders.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/equip [nomod] Two-Hander Name\n/equipslot [mod:shift] 16 One-Hand Name\n/equipslot [mod:shift] 17 Shield Name",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Equip your two-hander"
+            },
+            {
+              "key": "Shift",
+              "text": "Equip your one-hander and shield"
+            }
+          ],
+          "needs": "A two-hander, a one-hander and a shield in your bags. Imbues stay on the weapon you cast them on, so imbue both before the fight.",
+          "codePt": "#showtooltip\n/equip [nomod] Nome da Arma de Duas Mãos\n/equipslot [mod:shift] 16 Nome da Arma de Uma Mão\n/equipslot [mod:shift] 17 Nome do Escudo"
+        },
+        {
+          "id": "pvp-swap-imbue",
+          "title": "Imbue for the weapon in your hand",
+          "desc": "Windfury Weapon on your two-hander, or Frostbrand Weapon when you have a shield on, so its slow procs help you peel while you defend.",
+          "icon": "spell_nature_cyclone",
+          "iconKind": "ability",
+          "code": "#showtooltip [equipped:Shields] Frostbrand Weapon; Windfury Weapon\n/cast [equipped:Shields] Frostbrand Weapon; Windfury Weapon",
+          "origin": "classic",
+          "needs": "Windfury Weapon learned at 30. If the imbue asks for a weapon, click your main hand. Elemental Weapons makes both imbues hit harder.",
+          "level": 30,
+          "codePt": "#showtooltip [equipped:Escudos] Arma da Marca Gélida; Arma de Fúria dos Ventos\n/cast [equipped:Escudos] Arma da Marca Gélida; Arma de Fúria dos Ventos"
+        },
+        {
+          "id": "pvp-stick-earthbind",
+          "title": "Earthbind or Frost Shock and keep swinging",
+          "desc": "Drops Earthbind Totem at your feet so a kiting target can't walk out of melee, or Shift Frost Shocks your target. Both start your swings, and Earth's Grasp widens the totem's reach.",
+          "icon": "spell_nature_strengthofearthtotem02",
+          "iconKind": "ability",
+          "code": "#showtooltip [mod:shift] Frost Shock; Earthbind Totem\n/startattack\n/cast [mod:shift] Frost Shock; Earthbind Totem",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Earthbind Totem and start swinging"
+            },
+            {
+              "key": "Shift",
+              "text": "Frost Shock your target and start swinging"
+            }
+          ],
+          "codePt": "#showtooltip [mod:shift] Choque Gélido; Totem de Prisão Terrena\n/startattack\n/cast [mod:shift] Choque Gélido; Totem de Prisão Terrena"
+        }
+      ]
+    },
+    {
+      "id": "pvp-restoration",
+      "name": "Restoration PvP",
+      "view": "pvp",
+      "macros": [
+        {
+          "id": "pvp-swift-nuke",
+          "title": "Nature's Swiftness into an instant nuke",
+          "desc": "Nature's Swiftness makes the next spell instant: Lightning Bolt on your enemy, Chain Lightning with Shift or Healing Wave on you with Alt.",
+          "icon": "spell_nature_ravenform",
+          "iconKind": "ability",
+          "code": "#showtooltip Nature's Swiftness\n/cast Nature's Swiftness\n/cast [mod:alt,@player] Healing Wave; [mod:shift,harm,nodead] Chain Lightning; [harm,nodead] Lightning Bolt",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Instant Lightning Bolt on your enemy target"
+            },
+            {
+              "key": "Shift",
+              "text": "Instant Chain Lightning"
+            },
+            {
+              "key": "Alt",
+              "text": "Instant Healing Wave on yourself"
+            }
+          ],
+          "needs": "Nature's Swiftness talent. If it's on cooldown the spell is a normal cast.",
+          "level": 32,
+          "codePt": "#showtooltip Rapidez da Natureza\n/cast Rapidez da Natureza\n/cast [mod:alt,@player] Onda Curativa; [mod:shift,harm,nodead] Cadeia de Raios; [harm,nodead] Raio"
+        },
+        {
+          "id": "pvp-riptide-chain-heal",
+          "title": "Riptide, or Chain Heal on the same friend",
+          "desc": "Riptide on your mouseover, target or you, and Shift casts Chain Heal on the same friend, which lands 25% stronger on a Riptide target.",
+          "icon": "spell_nature_riptide",
+          "iconKind": "ability",
+          "code": "#showtooltip Riptide\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead] Chain Heal; [@mouseover,help,nodead][help,nodead][@player] Riptide",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Riptide on mouseover, target or yourself"
+            },
+            {
+              "key": "Shift",
+              "text": "Chain Heal on mouseover or target"
+            }
+          ],
+          "needs": "Riptide talent and Chain Heal learned",
+          "level": 40,
+          "codePt": "#showtooltip Contracorrente\n/cast [mod:shift,@mouseover,help,nodead][mod:shift,help,nodead] Cura Encadeada; [@mouseover,help,nodead][help,nodead][@player] Contracorrente"
+        },
+        {
+          "id": "pvp-riptide-now",
+          "title": "Instant Riptide that drops the wolf and your cast",
+          "desc": "Leaves Ghost Wolf, cancels the heal you're casting and lands Riptide on your mouseover, friendly target or you. Shift and Ctrl send it to your first and second party members.",
+          "icon": "spell_nature_riptide",
+          "iconKind": "ability",
+          "code": "#showtooltip Riptide\n/cancelform [form]\n/stopcasting\n/cast [mod:shift,@party1][mod:ctrl,@party2][@mouseover,help,nodead][help,nodead][@player] Riptide",
+          "origin": "forever",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Riptide on mouseover, friendly target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Riptide on party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Riptide on party member 2"
+            }
+          ],
+          "needs": "Riptide talent. It only heals over time now, on a 12 sec cooldown, and a press still cancels your cast while it’s cooling down.",
+          "level": 40,
+          "codePt": "#showtooltip Contracorrente\n/cancelform [form]\n/stopcasting\n/cast [mod:shift,@party1][mod:ctrl,@party2][@mouseover,help,nodead][help,nodead][@player] Contracorrente"
+        },
+        {
+          "id": "pvp-swift-heal-party",
+          "title": "Nature's Swiftness Healing Wave on a party member",
+          "desc": "Stops your cast, then Nature's Swiftness makes Healing Wave instant on your mouseover, friendly target or you. Shift and Ctrl send it to party members 1 and 2, Alt to yourself.",
+          "icon": "spell_nature_ravenform",
+          "iconKind": "ability",
+          "code": "#showtooltip Nature's Swiftness\n/stopcasting\n/cast Nature's Swiftness\n/cast [mod:shift,@party1][mod:ctrl,@party2][mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Healing Wave",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Instant Healing Wave on mouseover, friendly target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Instant Healing Wave on party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Instant Healing Wave on party member 2"
+            },
+            {
+              "key": "Alt",
+              "text": "Instant Healing Wave on yourself"
+            }
+          ],
+          "needs": "Nature's Swiftness talent. If it's on cooldown you start a normal Healing Wave, and pressing again restarts it.",
+          "level": 30,
+          "codePt": "#showtooltip Rapidez da Natureza\n/stopcasting\n/cast Rapidez da Natureza\n/cast [mod:shift,@party1][mod:ctrl,@party2][mod:alt,@player][@mouseover,help,nodead][help,nodead][@player] Onda Curativa"
+        },
+        {
+          "id": "pvp-lesser-heal-party",
+          "title": "Lesser Healing Wave on your party from the keyboard",
+          "desc": "Fast heal on your mouseover, friendly target or you, or on party members 1, 2 and 3 with Shift, Ctrl and Alt, so you can keep your eyes on the fight instead of the frames.",
+          "icon": "spell_nature_healingwavelesser",
+          "iconKind": "ability",
+          "code": "#showtooltip Lesser Healing Wave\n/cast [mod:shift,@party1][mod:ctrl,@party2][mod:alt,@party3][@mouseover,help,nodead][help,nodead][@player] Lesser Healing Wave",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lesser Healing Wave on mouseover, friendly target or you"
+            },
+            {
+              "key": "Shift",
+              "text": "Lesser Healing Wave on party member 1"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Lesser Healing Wave on party member 2"
+            },
+            {
+              "key": "Alt",
+              "text": "Lesser Healing Wave on party member 3"
+            }
+          ],
+          "codePt": "#showtooltip Onda Curativa Menor\n/cast [mod:shift,@party1][mod:ctrl,@party2][mod:alt,@party3][@mouseover,help,nodead][help,nodead][@player] Onda Curativa Menor"
+        },
+        {
+          "id": "pvp-heal-their-target",
+          "title": "Heal whoever your enemy target is hitting",
+          "desc": "Keep the enemy selected and heal the friend they're attacking: Lesser Healing Wave, Shift for Healing Wave, Ctrl for Chain Heal or Alt for Riptide.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/cast [mod:shift,@targettarget,help,nodead] Healing Wave; [mod:ctrl,@targettarget,help,nodead] Chain Heal; [mod:alt,@targettarget,help,nodead] Riptide; [@targettarget,help,nodead] Lesser Healing Wave",
+          "origin": "adapted",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Lesser Healing Wave on your enemy's target"
+            },
+            {
+              "key": "Shift",
+              "text": "Healing Wave on your enemy's target"
+            },
+            {
+              "key": "Ctrl",
+              "text": "Chain Heal on your enemy's target"
+            },
+            {
+              "key": "Alt",
+              "text": "Riptide on your enemy's target"
+            }
+          ],
+          "needs": "An enemy target that is attacking a friend. Chain Heal is learned at 40 and Riptide is a talent.",
+          "level": 40,
+          "codePt": "#showtooltip\n/cast [mod:shift,@targettarget,help,nodead] Onda Curativa; [mod:ctrl,@targettarget,help,nodead] Cura Encadeada; [mod:alt,@targettarget,help,nodead] Contracorrente; [@targettarget,help,nodead] Onda Curativa Menor"
+        },
+        {
+          "id": "pvp-friend-target-shock",
+          "title": "Shock or Purge the enemy your friend is fighting",
+          "desc": "Keep a friend targeted for healing and still interrupt: rank 1 Earth Shock on your mouseover, or on the enemy your friendly target is attacking. Shift purges the same enemy.",
+          "icon": "classicon_shaman",
+          "iconKind": "class",
+          "code": "#showtooltip\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,@targettarget,harm,nodead][mod:shift,harm,nodead] Purge; [@mouseover,harm,nodead][@targettarget,harm,nodead][harm,nodead] Earth Shock(Rank 1)",
+          "origin": "classic",
+          "keys": [
+            {
+              "key": "Press",
+              "text": "Rank 1 Earth Shock on mouseover or your friend's target"
+            },
+            {
+              "key": "Shift",
+              "text": "Purge on mouseover or your friend's target"
+            }
+          ],
+          "needs": "Purge learned at 12. Cancels your current cast.",
+          "codePt": "#showtooltip\n/stopcasting\n/cast [mod:shift,@mouseover,harm,nodead][mod:shift,@targettarget,harm,nodead][mod:shift,harm,nodead] Expurgar; [@mouseover,harm,nodead][@targettarget,harm,nodead][harm,nodead] Choque Terreno(Grau 1)"
+        },
+        {
+          "id": "pvp-mana-tide-potion",
+          "title": "Mana Tide Totem and a mana potion together",
+          "desc": "Drops Mana Tide Totem and drinks a mana potion on the same press when a long fight drains you. With 5 health the totem dies to any area damage, so drop it once you are clear of it.",
+          "icon": "spell_frost_summonwaterelemental",
+          "iconKind": "ability",
+          "code": "#showtooltip Mana Tide Totem\n/cast Mana Tide Totem\n/use Major Mana Potion",
+          "origin": "classic",
+          "needs": "Mana Tide Totem talent and its Water Totem tool. Put the potion you carry in place of Major Mana Potion.",
+          "level": 25,
+          "codePt": "#showtooltip Totem de Vagalhão de Mana\n/cast Totem de Vagalhão de Mana\n/use Poção Elevada de Mana"
+        }
+      ]
+    }
+  ]
+}
